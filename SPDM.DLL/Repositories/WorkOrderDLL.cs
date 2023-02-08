@@ -79,7 +79,7 @@ namespace SPDM.DLL.Repositories
                         }
                         else
                         {
-                            workorder.VatPercent = Convert.ToDouble(reader["VatPercent"]);
+                            workorder.VatPercent = Convert.ToDouble(reader["VatPercent"]); 
                         }
 
                         workorder.Status = Convert.ToInt32(reader["Note"] is DBNull ? null : reader["Note"]);
