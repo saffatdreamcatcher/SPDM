@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32602.215
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SPDM.DLL", "SPDM.DLL\SPDM.DLL.csproj", "{20833284-FCBE-4A50-A262-4F206044FCC0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SPDM.BLL", "SPDM.BLL\SPDM.BLL.csproj", "{59D34C3E-C986-4309-855C-8335C197A37A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SPDM.UI", "SPDM.UI\SPDM.UI.csproj", "{0F3CCFC0-9FFB-497B-894E-A463971B52E4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{20833284-FCBE-4A50-A262-4F206044FCC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20833284-FCBE-4A50-A262-4F206044FCC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20833284-FCBE-4A50-A262-4F206044FCC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20833284-FCBE-4A50-A262-4F206044FCC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59D34C3E-C986-4309-855C-8335C197A37A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59D34C3E-C986-4309-855C-8335C197A37A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59D34C3E-C986-4309-855C-8335C197A37A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59D34C3E-C986-4309-855C-8335C197A37A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F3CCFC0-9FFB-497B-894E-A463971B52E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F3CCFC0-9FFB-497B-894E-A463971B52E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F3CCFC0-9FFB-497B-894E-A463971B52E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F3CCFC0-9FFB-497B-894E-A463971B52E4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BD8D3631-13B6-402B-97EA-1CEC97E7B8A2}
+	EndGlobalSection
+EndGlobal
