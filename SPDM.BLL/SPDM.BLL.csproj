@@ -41,6 +41,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessLogic\CategoryBLL.cs" />
+    <Compile Include="BusinessLogic\ItemBLL.cs" />
+    <Compile Include="BusinessLogic\PartyBLL.cs" />
+    <Compile Include="BusinessLogic\PaymentBLL.cs" />
+    <Compile Include="BusinessLogic\PaymentDetailBLL.cs" />
+    <Compile Include="BusinessLogic\ProductionBLL.cs" />
+    <Compile Include="BusinessLogic\ProductionDetailBLL.cs" />
+    <Compile Include="BusinessLogic\ProfileBLL.cs" />
+    <Compile Include="BusinessLogic\RoleBLL.cs" />
+    <Compile Include="BusinessLogic\SaleBLL.cs" />
+    <Compile Include="BusinessLogic\SaleDetailBLL.cs" />
+    <Compile Include="BusinessLogic\StockBLL.cs" />
+    <Compile Include="BusinessLogic\StockHistoryBLL.cs" />
+    <Compile Include="BusinessLogic\UserBLL.cs" />
+    <Compile Include="BusinessLogic\UserRoleBLL.cs" />
+    <Compile Include="BusinessLogic\WorkOrderBLL.cs" />
+    <Compile Include="BusinessLogic\WorkOrderDetailBLL.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

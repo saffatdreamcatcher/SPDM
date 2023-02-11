@@ -1,6 +1,6 @@
 ﻿namespace SPDM.UI
 {
-    partial class Form1
+    partial class LogIn
     {
         /// <summary>
         /// Required designer variable.
@@ -28,13 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.btnLogIn = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // btnLogIn
+            // 
+            this.btnLogIn.Location = new System.Drawing.Point(254, 169);
+            this.btnLogIn.Name = "btnLogIn";
+            this.btnLogIn.Size = new System.Drawing.Size(75, 35);
+            this.btnLogIn.TabIndex = 0;
+            this.btnLogIn.Text = "LogIn";
+            this.btnLogIn.UseVisualStyleBackColor = true;
+            this.btnLogIn.Click += new System.EventHandler(this.btnLogIn_Click);
+            // 
+            // LogIn
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            this.Controls.Add(this.btnLogIn);
+            this.Name = "LogIn";
+            this.Text = "LogIn";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Button btnLogIn;
     }
 }
-

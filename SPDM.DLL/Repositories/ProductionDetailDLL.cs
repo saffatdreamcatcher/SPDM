@@ -61,8 +61,15 @@ namespace SPDM.DLL.Repositories
                     {
                         int id = Convert.ToInt32(reader["id"]);
                         DateTime createTime = Convert.ToDateTime(reader["CreateTime"]);
-                        DateTime Updatetime = Convert.ToDateTime(reader["UpdateTime"]);
                         ProductionDetail productiondetail = new ProductionDetail(id, createTime);
+                        if (reader["UpdateTime"] is DBNull)
+                        {
+                            productiondetail.UpdateTime = null;
+                        }
+                        else
+                        {
+                            productiondetail.UpdateTime = Convert.ToDateTime(reader["UpdateTime"]);
+                        }
                         productiondetail.ProductionId = Convert.ToInt32(reader["ProductionId"]);
                         productiondetail.WorkOrderDetailId = Convert.ToInt32(reader["WorkOrderDetailId"]);
                         productiondetail.ItemId = Convert.ToInt32(reader["ItemId"]);
@@ -127,15 +134,22 @@ namespace SPDM.DLL.Repositories
                     {
                         id = Convert.ToInt32(reader["id"]);
                         DateTime createTime = Convert.ToDateTime(reader["CreateTime"]);
-                        DateTime updateTime = Convert.ToDateTime(reader["UpdateTime"]);
-                        productiondetail.ProductionId = Convert.ToInt32(reader["ProductionId"].ToString());
-                        productiondetail.WorkOrderDetailId = Convert.ToInt32(reader["WorkOrderDetailId"].ToString());
-                        productiondetail.ItemId = Convert.ToInt32(reader["ItemId"].ToString());
-                        productiondetail.Unit = Convert.ToInt32(reader["Unit"].ToString());
-                        productiondetail.UnitPrice = Convert.ToDouble(reader["UnitPrice"].ToString());
-                        productiondetail.Length = Convert.ToDouble(reader["Length"].ToString());
-                        productiondetail.TotalExvat = Convert.ToDouble(reader["TotalExVat"].ToString());
-                        productiondetail.TotalIncvat = Convert.ToDouble(reader["TotalIncVat"].ToString());
+                        if (reader["UpdateTime"] is DBNull)
+                        {
+                            productiondetail.UpdateTime = null;
+                        }
+                        else
+                        {
+                            productiondetail.UpdateTime = Convert.ToDateTime(reader["UpdateTime"]);
+                        }
+                        productiondetail.ProductionId = Convert.ToInt32(reader["ProductionId"]);
+                        productiondetail.WorkOrderDetailId = Convert.ToInt32(reader["WorkOrderDetailId"]);
+                        productiondetail.ItemId = Convert.ToInt32(reader["ItemId"]);
+                        productiondetail.Unit = Convert.ToInt32(reader["Unit"]);
+                        productiondetail.UnitPrice = Convert.ToDouble(reader["UnitPrice"]);
+                        productiondetail.Length = Convert.ToDouble(reader["Length"]);
+                        productiondetail.TotalExvat = Convert.ToDouble(reader["TotalExVat"]);
+                        productiondetail.TotalIncvat = Convert.ToDouble(reader["TotalIncVat"]);
                         productiondetail.Discount = Convert.ToDouble(reader["Discount"]);
                         productiondetail.DiscountPercent = Convert.ToDouble(reader["DiscountPercent"] is DBNull ? null : reader["DiscountPercent"].ToString());
                         productiondetail.VatPercent = Convert.ToDouble(reader["VatPercent"] is DBNull ? null : reader["VatPercent"].ToString());

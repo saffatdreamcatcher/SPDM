@@ -61,8 +61,15 @@ namespace SPDM.DLL.Repositories
                     {
                         int id = Convert.ToInt32(reader["id"]);
                         DateTime createTime = Convert.ToDateTime(reader["CreateTime"]);
-                        DateTime Updatetime = Convert.ToDateTime(reader["UpdateTime"]);
                         Production production = new Production(id, createTime);
+                        if (reader["UpdateTime"] is DBNull)
+                        {
+                            production.UpdateTime = null;
+                        }
+                        else
+                        {
+                            production.UpdateTime = Convert.ToDateTime(reader["UpdateTime"]);
+                        }
                         production.UserId = Convert.ToInt32(reader["UserId"]);
                         production.Fiscalyear = reader["FiscalYear"].ToString();
                         production.PartyId = Convert.ToInt32(reader["PartyId"]);
@@ -116,7 +123,15 @@ namespace SPDM.DLL.Repositories
                     {
                         id = Convert.ToInt32(reader["id"]);
                         DateTime createTime = Convert.ToDateTime(reader["CreateTime"]);
-                        DateTime updateTime = Convert.ToDateTime(reader["UpdateTime"]);
+
+                        if (reader["UpdateTime"] is DBNull)
+                        {
+                            production.UpdateTime = null;
+                        }
+                        else
+                        {
+                            production.UpdateTime = Convert.ToDateTime(reader["UpdateTime"]);
+                        }
                         production.UserId = Convert.ToInt32(reader["UserId"]);
                         production.Fiscalyear = reader["FiscalYear"].ToString();
                         production.PartyId = Convert.ToInt32(reader["PartyId"]);

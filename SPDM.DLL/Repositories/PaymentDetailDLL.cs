@@ -61,8 +61,15 @@ namespace SPDM.DLL.Repositories
                     {
                         int id = Convert.ToInt32(reader["id"]);
                         DateTime createTime = Convert.ToDateTime(reader["CreateTime"]);
-                        DateTime Updatetime = Convert.ToDateTime(reader["UpdateTime"]);
                         PaymentDetail paymentdetail = new PaymentDetail(id, createTime);
+                        if (reader["UpdateTime"] is DBNull)
+                        {
+                            paymentdetail.UpdateTime = null;
+                        }
+                        else
+                        {
+                            paymentdetail.UpdateTime = Convert.ToDateTime(reader["UpdateTime"]);
+                        }
                         paymentdetail.PaymentId = Convert.ToInt32(reader["PaymentId"]);
                         paymentdetail.TotalExvat = Convert.ToDouble(reader["TotalExVat"]);
                         paymentdetail.TotalIncvat = Convert.ToDouble(reader["TotalIncVat"]);
@@ -136,8 +143,16 @@ namespace SPDM.DLL.Repositories
                     {
                         id = Convert.ToInt32(reader["id"]);
                         DateTime createTime = Convert.ToDateTime(reader["CreateTime"]);
-                        DateTime updateTime = Convert.ToDateTime(reader["UpdateTime"]);
+                       
                         paymentdetail.PaymentId = Convert.ToInt32(reader["PaymentId"].ToString());
+                        if (reader["UpdateTime"] is DBNull)
+                        {
+                            paymentdetail.UpdateTime = null;
+                        }
+                        else
+                        {
+                            paymentdetail.UpdateTime = Convert.ToDateTime(reader["UpdateTime"]);
+                        }
                         paymentdetail.TotalExvat = Convert.ToDouble(reader["TotalExVat"].ToString());
                         paymentdetail.TotalIncvat = Convert.ToDouble(reader["TotalIncVat"].ToString());
                         paymentdetail.Discount = Convert.ToDouble(reader["Discount"] is DBNull ? null : reader["Discount"].ToString());

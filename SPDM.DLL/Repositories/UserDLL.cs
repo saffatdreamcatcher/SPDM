@@ -189,7 +189,7 @@ namespace SPDM.DLL.Repositories
                 {
                     comm.CommandText = "INSERT INTO User(CreateTime, UserName, Password, LockoutEndDate," +
                         "LockoutEnabled,Access Failed, IsActive) VALUES(@CreateTime, @UserName, @Password" +
-                        "@LockoutEndDate, @LockoutEnabled, @Access Failed, @IsActive); SELECT SCOPE_IDENTITY()";
+                        "@LockoutEndDate, @LockoutEnabled, @AccessFailed, @IsActive); SELECT SCOPE_IDENTITY()";
                     comm.Parameters.Add("@CreateTime", SqlDbType.DateTime).Value = DateTime.Today;
                 }
                 else
@@ -225,6 +225,46 @@ namespace SPDM.DLL.Repositories
                 conn.Close();
             }
             return primaryKey;
+        }
+
+        public bool UserExist(string username, string password)
+        {
+            bool isUserExist = false;
+           
+            var myConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
+            SqlConnection conn = new SqlConnection();
+            try
+            {
+                conn.ConnectionString = myConnectionString;
+                conn.Open();
+
+                SqlCommand comm = conn.CreateCommand();
+
+                comm.CommandText = "SELECT " +
+                        "CASE WHEN COUNT( Id ) >= 1 THEN " +
+                        "CAST( 1 as BIT ) " +
+                        "ELSE " +
+                        " CAST( 0 as BIT ) " +
+                        "END As IsPresent " +
+                        "FROM [dbo].[User] " +
+                        "WHERE  UserName = @UserName and Password = @Password";
+
+                comm.Parameters.Add("@UserName", SqlDbType.VarChar).Value = username;
+                comm.Parameters.Add("@Password", SqlDbType.VarChar).Value = password;
+                
+                isUserExist = Convert.ToBoolean(comm.ExecuteScalar());
+                
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conn.Close();
+            }
+            
+            return isUserExist;
         }
 
     }

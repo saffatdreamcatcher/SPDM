@@ -18,8 +18,8 @@ namespace SPDM.DLL.Entities
 
         }
 
-        private DateTime updatetime;
-        public DateTime UpdateTime { get => updatetime; set => updatetime = value; }
+        private DateTime? updatetime;
+        public DateTime? UpdateTime { get => updatetime; set => updatetime = value; }
 
 
         private int productionid;
