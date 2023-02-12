@@ -23,12 +23,12 @@ namespace SPDM.BLL.BusinessLogic
             }
         }
 
-        public List<Stock> GetAll()
+        public List<Stock> GetAll(string whereclause = "")
         {
             try
             {
                 StockDLL stockDLL = new StockDLL();
-                return stockDLL.GetAll();
+                return stockDLL.GetAll(whereclause);
             }
             catch (Exception ex)
             {
@@ -36,12 +36,12 @@ namespace SPDM.BLL.BusinessLogic
             }
         }
 
-        public Stock GetById()
+        public Stock GetById(int id)
         {
             try
             {
                 StockDLL stockDLL = new StockDLL();
-                return stockDLL.GetById(0);
+                return stockDLL.GetById(id);
             }
             catch (Exception ex)
             {
@@ -50,12 +50,12 @@ namespace SPDM.BLL.BusinessLogic
         }
 
 
-        public int GetCount(Stock stock)
+        public int GetCount(string whereclause = "")
         {
             try
             {
                 StockDLL stockDLL = new StockDLL();
-                return stockDLL.GetCount();
+                return stockDLL.GetCount(whereclause);
             }
             catch (Exception ex)
             {

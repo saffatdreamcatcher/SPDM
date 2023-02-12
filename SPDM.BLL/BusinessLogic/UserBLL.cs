@@ -36,12 +36,12 @@ namespace SPDM.BLL.BusinessLogic
             }
         }
 
-        public User GetById()
+        public User GetById(int id)
         {
             try
             {
                 UserDLL userDLL = new UserDLL();
-                return userDLL.GetById(0);
+                return userDLL.GetById(id);
             }
             catch (Exception ex)
             {
@@ -50,12 +50,12 @@ namespace SPDM.BLL.BusinessLogic
         }
 
 
-        public int GetCount(User user)
+        public int GetCount(string whereclause = "")
         {
             try
             {
                 UserDLL userDLL = new UserDLL();
-                return userDLL.GetCount();
+                return userDLL.GetCount(whereclause);
             }
             catch (Exception ex)
             {

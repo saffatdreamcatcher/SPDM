@@ -24,12 +24,12 @@ namespace SPDM.BLL.BusinessLogic
         }
 
 
-        public List<Profile> GetAll()
+        public List<Profile> GetAll(string whereclause = "")
         {
             try
             {
                 ProfileDLL profileDLL = new ProfileDLL();
-                return profileDLL.GetAll();
+                return profileDLL.GetAll(whereclause);
             }
             catch (Exception ex)
             {
@@ -38,12 +38,12 @@ namespace SPDM.BLL.BusinessLogic
         }
 
 
-        public Profile GetById()
+        public Profile GetById(int id)
         {
             try
             {
                 ProfileDLL profileDLL = new ProfileDLL();
-                return profileDLL.GetById(0);
+                return profileDLL.GetById(id);
             }
             catch (Exception ex)
             {
@@ -51,12 +51,12 @@ namespace SPDM.BLL.BusinessLogic
             }
         }
 
-        public int GetCount(Profile profile)
+        public int GetCount(string whereclause = "")
         {
             try
             {
                 ProfileDLL profileDLL = new ProfileDLL();
-                return profileDLL.GetCount();
+                return profileDLL.GetCount(whereclause);
             }
             catch (Exception ex)
             {

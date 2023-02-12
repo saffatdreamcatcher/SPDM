@@ -24,12 +24,12 @@ namespace SPDM.BLL.BusinessLogic
         }
 
 
-        public List<PaymentDetail> GetAll()
+        public List<PaymentDetail> GetAll(string whereclause = "")
         {
             try
             {
                 PaymentDetailDLL paymentdetailDLL = new PaymentDetailDLL();
-                return paymentdetailDLL.GetAll();
+                return paymentdetailDLL.GetAll(whereclause);
             }
             catch (Exception ex)
             {
@@ -37,12 +37,12 @@ namespace SPDM.BLL.BusinessLogic
             }
         }
 
-        public PaymentDetail GetById()
+        public PaymentDetail GetById(int id)
         {
             try
             {
                 PaymentDetailDLL paymentdetailDLL = new PaymentDetailDLL();
-                return paymentdetailDLL.GetById(0);
+                return paymentdetailDLL.GetById(id);
             }
             catch (Exception ex)
             {
@@ -51,12 +51,12 @@ namespace SPDM.BLL.BusinessLogic
         }
 
 
-        public int GetCount(PaymentDetail partydetail)
+        public int GetCount(string whereclause = "")
         {
             try
             {
                 PaymentDetailDLL paymentdetailDLL = new PaymentDetailDLL();
-                return paymentdetailDLL.GetCount();
+                return paymentdetailDLL.GetCount(whereclause);
             }
             catch (Exception ex)
             {

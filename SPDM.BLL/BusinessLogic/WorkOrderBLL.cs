@@ -23,12 +23,12 @@ namespace SPDM.BLL.BusinessLogic
             }
         }
 
-        public List<WorkOrder> GetAll()
+        public List<WorkOrder> GetAll(string whereclause = "")
         {
             try
             {
                 WorkOrderDLL workorderDLL = new WorkOrderDLL();
-                return workorderDLL.GetAll();
+                return workorderDLL.GetAll(whereclause);
             }
             catch (Exception ex)
             {
@@ -36,12 +36,12 @@ namespace SPDM.BLL.BusinessLogic
             }
         }
 
-        public WorkOrder GetById()
+        public WorkOrder GetById(int id)
         {
             try
             {
                 WorkOrderDLL workorderDLL = new WorkOrderDLL();
-                return workorderDLL.GetById(0);
+                return workorderDLL.GetById(id);
             }
             catch (Exception ex)
             {
@@ -50,12 +50,12 @@ namespace SPDM.BLL.BusinessLogic
         }
 
 
-        public int GetCount(WorkOrder workorder)
+        public int GetCount(string whereclause = "")
         {
             try
             {
                 WorkOrderDLL workorderDLL = new WorkOrderDLL();
-                return workorderDLL.GetCount();
+                return workorderDLL.GetCount(whereclause);
             }
             catch (Exception ex)
             {

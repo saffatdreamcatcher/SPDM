@@ -24,12 +24,12 @@ namespace SPDM.BLL.BusinessLogic
         }
 
 
-        public List<Role> GetAll()
+        public List<Role> GetAll(string whereclause = "")
         {
             try
             {
                 RoleDLL roleDLL = new RoleDLL();
-                return roleDLL.GetAll();
+                return roleDLL.GetAll(whereclause);
             }
             catch (Exception ex)
             {
@@ -37,12 +37,12 @@ namespace SPDM.BLL.BusinessLogic
             }
         }
 
-        public Role GetById()
+        public Role GetById(int id)
         {
             try
             {
                 RoleDLL roleDLL = new RoleDLL();
-                return roleDLL.GetById(0);
+                return roleDLL.GetById(id);
             }
             catch (Exception ex)
             {
@@ -50,12 +50,12 @@ namespace SPDM.BLL.BusinessLogic
             }
         }
 
-        public int GetCount(Role role)
+        public int GetCount(string whereclause = "")
         {
             try
             {
                 RoleDLL roleDLL = new RoleDLL();
-                return roleDLL.GetCount();
+                return roleDLL.GetCount(whereclause);
             }
             catch (Exception ex)
             {

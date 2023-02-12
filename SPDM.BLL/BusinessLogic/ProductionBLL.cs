@@ -23,12 +23,12 @@ namespace SPDM.BLL.BusinessLogic
             }
         }
 
-        public List<Production> GetAll()
+        public List<Production> GetAll(string whereclause = "")
         {
             try
             {
                 ProductionDLL productionDLL = new ProductionDLL();
-                return productionDLL.GetAll();
+                return productionDLL.GetAll(whereclause);
             }
             catch (Exception ex)
             {
@@ -37,12 +37,12 @@ namespace SPDM.BLL.BusinessLogic
         }
 
 
-        public Production GetById()
+        public Production GetById(int id)
         {
             try
             {
                 ProductionDLL productionDLL = new ProductionDLL();
-                return productionDLL.GetById(0);
+                return productionDLL.GetById(id);
             }
             catch (Exception ex)
             {
@@ -50,12 +50,12 @@ namespace SPDM.BLL.BusinessLogic
             }
         }
 
-        public int GetCount(Production production)
+        public int GetCount(string whereclause = "")
         {
             try
             {
                 ProductionDLL productionDLL = new ProductionDLL();
-                return productionDLL.GetCount();
+                return productionDLL.GetCount(whereclause);
             }
             catch (Exception ex)
             {

@@ -23,12 +23,12 @@ namespace SPDM.BLL.BusinessLogic
             }
         }
 
-        public List<Sale> GetAll()
+        public List<Sale> GetAll(string whereclause = "")
         {
             try
             {
                 SaleDLL saleDLL = new SaleDLL();
-                return saleDLL.GetAll();
+                return saleDLL.GetAll(whereclause);
             }
             catch (Exception ex)
             {
@@ -36,12 +36,12 @@ namespace SPDM.BLL.BusinessLogic
             }
         }
 
-        public Sale GetById()
+        public Sale GetById(int id)
         {
             try
             {
                 SaleDLL saleDLL = new SaleDLL();
-                return saleDLL.GetById(0);
+                return saleDLL.GetById(id);
             }
             catch (Exception ex)
             {
@@ -50,12 +50,12 @@ namespace SPDM.BLL.BusinessLogic
         }
 
 
-        public int GetCount(Sale sale)
+        public int GetCount(string whereclause = "")
         {
             try
             {
                 SaleDLL saleDLL = new SaleDLL();
-                return saleDLL.GetCount();
+                return saleDLL.GetCount(whereclause);
             }
             catch (Exception ex)
             {
