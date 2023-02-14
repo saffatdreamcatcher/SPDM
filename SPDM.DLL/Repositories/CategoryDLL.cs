@@ -26,8 +26,7 @@ namespace SPDM.DLL.Repositories
 
                 SqlCommand comm = conn.CreateCommand();
                 comm.CommandText = "Delete from Category where Id = " + id.ToString();
-                var obj = comm.ExecuteNonQuery();
-                noOfRowAffected = Convert.ToInt32(obj);
+                noOfRowAffected = comm.ExecuteNonQuery();
             }
             catch (SqlException ex)
             {
@@ -98,7 +97,7 @@ namespace SPDM.DLL.Repositories
                 comm.CommandText = "Select * from Category where id = " + id;
                 using (SqlDataReader reader = comm.ExecuteReader())
                 {
-                    while (reader != null && reader.Read())
+                    if (reader != null && reader.Read())
                     {
                         id = Convert.ToInt32(reader["id"]);
                         DateTime createTime = Convert.ToDateTime(reader["CreateTime"]);

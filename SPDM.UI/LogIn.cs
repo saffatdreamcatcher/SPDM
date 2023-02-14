@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SPDM.BLL.BusinessLogic;
+using SPDM.DLL.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,6 +21,7 @@ namespace SPDM.UI
 
         private void btnLogIn_Click(object sender, EventArgs e)
         {
+            
             this.Hide();
             MainForm mainForm = new MainForm();
             mainForm.ShowDialog();

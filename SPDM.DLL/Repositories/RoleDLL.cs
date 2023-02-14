@@ -61,7 +61,7 @@ namespace SPDM.DLL.Repositories
                     {
                         int id = Convert.ToInt32(reader["id"]);
                         DateTime createTime = Convert.ToDateTime(reader["CreateTime"]);
-                        var role = new Role(id, createTime);
+                        Role role = new Role(id, createTime);
                         role.Name = reader["Name"].ToString();
                         roles.Add(role);
                     }
@@ -203,5 +203,6 @@ namespace SPDM.DLL.Repositories
             return primaryKey;
         }
 
+       
     }
 }

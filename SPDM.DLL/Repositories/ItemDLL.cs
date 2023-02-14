@@ -13,6 +13,8 @@ namespace SPDM.DLL.Repositories
 {
     public class ItemDLL
     {
+        private string photoFilePath;
+
         public int Delete(int id) 
         {
             int noOfRowAffected = 0;
@@ -63,8 +65,16 @@ namespace SPDM.DLL.Repositories
                     {
                         int id = Convert.ToInt32(reader["id"]);
                         DateTime createTime = Convert.ToDateTime(reader["CreateTime"]);
-                        DateTime updateTime = Convert.ToDateTime(reader["UpdateTime"]);
+
                         Item item = new Item(id, createTime);
+                        if (reader["UpdateTime"] is DBNull)
+                        {
+                            item.UpdateTime = null;
+                        }
+                        else
+                        {
+                            item.UpdateTime = Convert.ToDateTime(reader["UpdateTime"]);
+                        }
                         item.Number = Convert.ToInt32(reader["Number"]);
                         item.Name = reader["Name"].ToString();
                         item.Description = reader["Description"] is DBNull ? null : reader["Description"].ToString();
@@ -78,7 +88,7 @@ namespace SPDM.DLL.Repositories
                         {
                             item.VatRate = Convert.ToDouble(reader["VatPercent"]);
                         }
-                        //byte[] photo = File.ReadAllBytes(photoFilePath);
+                        byte[] photo = File.ReadAllBytes(photoFilePath);
                         item.IsBlocked = Convert.ToBoolean(reader["IsBlocked"].ToString());
                         items.Add(item);
                     }
@@ -130,7 +140,7 @@ namespace SPDM.DLL.Repositories
                         {
                             item.VatRate = Convert.ToDouble(reader["VatPercent"]);
                         }
-                        //byte[] photo = File.ReadAllBytes(photoFilePath);
+                        byte[] photo = File.ReadAllBytes(photoFilePath);
                         item.IsBlocked = Convert.ToBoolean(reader["IsBlocked"].ToString());
                     }
                 }
@@ -235,6 +245,21 @@ namespace SPDM.DLL.Repositories
                 conn.Close();
             }
             return primaryKey;
+        }
+
+        public static byte[] GetPhoto(string filePath)
+        {
+            FileStream stream = new FileStream(
+                filePath, FileMode.Open, FileAccess.Read);
+            BinaryReader reader = new BinaryReader(stream);
+
+            byte[] photo = reader.ReadBytes((int)stream.Length);
+
+            reader.Close();
+            stream.Close();
+
+            return photo;
+
         }
     }
 }
