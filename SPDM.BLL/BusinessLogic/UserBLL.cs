@@ -77,7 +77,7 @@ namespace SPDM.BLL.BusinessLogic
             }
         }
 
-        public bool UserExist (string userName, string password)
+        public bool UserExist(string userName,string password)
         {
             try
             {
