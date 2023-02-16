@@ -168,13 +168,13 @@ namespace SPDM.DLL.Repositories
 
                 if (role.IsNew)
                 {
-                    comm.CommandText = "INSERT INTO Region(CreateTime, Name ) " +
+                    comm.CommandText = "INSERT INTO Role(CreateTime, Name ) " +
                                        "VALUES(@CreateTime,  @Name ); SELECT SCOPE_IDENTITY()";
                     comm.Parameters.Add("@CreateTime", SqlDbType.DateTime).Value = DateTime.Today;
                 }
                 else
                 {
-                    comm.CommandText = "Update Region SET Name = @Name WHERE Id = @Id";
+                    comm.CommandText = "Update Role SET Name = @Name WHERE Id = @Id";
                     comm.Parameters.Add("@Id", SqlDbType.Int).Value = role.Id;
                 }
 

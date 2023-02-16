@@ -59,5 +59,16 @@ namespace SPDM.UI
             myForm.WindowState = FormWindowState.Maximized;
             myForm.Show();
         }
+
+        private void roleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CloseAllForms();
+            frmRole myForm = new frmRole();
+            myForm.TopLevel = false;
+            myForm.AutoScroll = true;
+            pForm.Controls.Add(myForm);
+            myForm.WindowState = FormWindowState.Maximized;
+            myForm.Show();
+        }
     }
 }

@@ -108,7 +108,7 @@ namespace SPDM.UI
 
         private void DeleteCategory(int id)
         {
-            if (MessageBox.Show("Are you sure you want to delete this Categories?", "Delete Categories", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.Yes)
+            if (MessageBox.Show("Are you sure you want to delete this Category?", "Delete Category", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.Yes)
             {
                 CategoryBLL categoryBLL = new CategoryBLL();
                 categoryBLL.Delete(id);

@@ -155,7 +155,7 @@
             this.gvCategory.Name = "gvCategory";
             this.gvCategory.RowHeadersWidth = 51;
             this.gvCategory.RowTemplate.Height = 24;
-            this.gvCategory.Size = new System.Drawing.Size(727, 191);
+            this.gvCategory.Size = new System.Drawing.Size(1195, 191);
             this.gvCategory.TabIndex = 30;
             this.gvCategory.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvCategory_CellClick);
             // 
@@ -242,7 +242,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ClientSize = new System.Drawing.Size(1242, 450);
+            this.ControlBox = false;
             this.Controls.Add(this.gvCategory);
             this.Controls.Add(this.btnBrowse);
             this.Controls.Add(this.txtPhotoFilePath);
@@ -253,8 +255,8 @@
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtName);
+            this.MaximizeBox = false;
             this.Name = "frmCategory";
-            this.Text = "frmCategory";
             this.Load += new System.EventHandler(this.frmCategory_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gvCategory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource1)).EndInit();

@@ -52,6 +52,12 @@
     <Compile Include="frmCategory.Designer.cs">
       <DependentUpon>frmCategory.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmRole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRole.Designer.cs">
+      <DependentUpon>frmRole.cs</DependentUpon>
+    </Compile>
     <Compile Include="Global.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -70,6 +76,9 @@
     <EmbeddedResource Include="frmCategory.resx">
       <DependentUpon>frmCategory.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmRole.resx">
+      <DependentUpon>frmRole.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -86,7 +95,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="Properties\DataSources\frmCategory.datasource" />
+    <None Include="Properties\DataSources\frmRole.datasource" />
     <None Include="Properties\DataSources\SPDM.DLL.Entities.Category.datasource" />
+    <None Include="Properties\DataSources\SPDM.DLL.Entities.Role.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
