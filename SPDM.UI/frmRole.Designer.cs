@@ -34,25 +34,25 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.txtName = new System.Windows.Forms.TextBox();
             this.gvRole = new System.Windows.Forms.DataGridView();
-            this.Edit = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.epRole = new System.Windows.Forms.ErrorProvider(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.createTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isNewDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Edit = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewLinkColumn();
             this.roleBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.epRole = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnClose = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gvRole)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.epRole)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epRole)).BeginInit();
             this.SuspendLayout();
             // 
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(105, 105);
+            this.lblName.Location = new System.Drawing.Point(48, 102);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(44, 16);
             this.lblName.TabIndex = 26;
@@ -85,6 +85,7 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(323, 22);
             this.txtName.TabIndex = 23;
+           
             // 
             // gvRole
             // 
@@ -102,27 +103,9 @@
             this.gvRole.Name = "gvRole";
             this.gvRole.RowHeadersWidth = 51;
             this.gvRole.RowTemplate.Height = 24;
-            this.gvRole.Size = new System.Drawing.Size(725, 191);
+            this.gvRole.Size = new System.Drawing.Size(1177, 191);
             this.gvRole.TabIndex = 27;
             this.gvRole.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvRole_CellClick);
-            // 
-            // Edit
-            // 
-            this.Edit.HeaderText = "Edit";
-            this.Edit.MinimumWidth = 6;
-            this.Edit.Name = "Edit";
-            this.Edit.Width = 125;
-            // 
-            // Delete
-            // 
-            this.Delete.HeaderText = "Delete";
-            this.Delete.MinimumWidth = 6;
-            this.Delete.Name = "Delete";
-            this.Delete.Width = 125;
-            // 
-            // epRole
-            // 
-            this.epRole.ContainerControl = this;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -161,9 +144,27 @@
             this.isNewDataGridViewCheckBoxColumn.Visible = false;
             this.isNewDataGridViewCheckBoxColumn.Width = 125;
             // 
+            // Edit
+            // 
+            this.Edit.HeaderText = "Edit";
+            this.Edit.MinimumWidth = 6;
+            this.Edit.Name = "Edit";
+            this.Edit.Width = 125;
+            // 
+            // Delete
+            // 
+            this.Delete.HeaderText = "Delete";
+            this.Delete.MinimumWidth = 6;
+            this.Delete.Name = "Delete";
+            this.Delete.Width = 125;
+            // 
             // roleBindingSource
             // 
             this.roleBindingSource.DataSource = typeof(SPDM.DLL.Entities.Role);
+            // 
+            // epRole
+            // 
+            this.epRole.ContainerControl = this;
             // 
             // btnClose
             // 
@@ -207,8 +208,8 @@
             this.Name = "frmRole";
             this.Load += new System.EventHandler(this.frmRole_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gvRole)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.epRole)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epRole)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
