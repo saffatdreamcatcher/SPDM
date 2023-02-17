@@ -109,7 +109,7 @@ namespace SPDM.UI
 
         private void ManageEdit(DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 4)
+            if (e.ColumnIndex == 9)
             {
                 userId = Convert.ToInt32(gvUser.Rows[e.RowIndex].Cells[0].Value);
                 txtUserName.Text = Convert.ToString(gvUser.Rows[e.RowIndex].Cells[2].Value);
@@ -119,7 +119,7 @@ namespace SPDM.UI
                
 
             }
-            else if (e.ColumnIndex == 5)
+            else if (e.ColumnIndex == 10)
             {
                 var id = Convert.ToInt32(gvUser.Rows[e.RowIndex].Cells[0].Value);
                 DeleteUser(id);

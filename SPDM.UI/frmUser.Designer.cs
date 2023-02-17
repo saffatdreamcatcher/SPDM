@@ -38,12 +38,12 @@
             this.lblIsActive = new System.Windows.Forms.Label();
             this.chkIsActive = new System.Windows.Forms.CheckBox();
             this.gvUser = new System.Windows.Forms.DataGridView();
-            this.Edit = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewLinkColumn();
             this.resetbtn = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.epUser = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnClose = new System.Windows.Forms.Button();
+            this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label1 = new System.Windows.Forms.Label();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.createTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.userNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,7 +53,8 @@
             this.accessFailedCountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isActiveDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.isNewDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.Edit = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewLinkColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gvUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.epUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
@@ -144,31 +145,17 @@
             this.Edit,
             this.Delete});
             this.gvUser.DataSource = this.userBindingSource;
-            this.gvUser.Location = new System.Drawing.Point(40, 265);
+            this.gvUser.Location = new System.Drawing.Point(12, 265);
             this.gvUser.Name = "gvUser";
             this.gvUser.RowHeadersWidth = 51;
             this.gvUser.RowTemplate.Height = 24;
-            this.gvUser.Size = new System.Drawing.Size(1147, 150);
+            this.gvUser.Size = new System.Drawing.Size(1219, 150);
             this.gvUser.TabIndex = 13;
             this.gvUser.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvUser_CellClick);
             // 
-            // Edit
-            // 
-            this.Edit.HeaderText = "Edit";
-            this.Edit.MinimumWidth = 6;
-            this.Edit.Name = "Edit";
-            this.Edit.Width = 125;
-            // 
-            // Delete
-            // 
-            this.Delete.HeaderText = "Delete";
-            this.Delete.MinimumWidth = 6;
-            this.Delete.Name = "Delete";
-            this.Delete.Width = 125;
-            // 
             // resetbtn
             // 
-            this.resetbtn.Location = new System.Drawing.Point(246, 223);
+            this.resetbtn.Location = new System.Drawing.Point(243, 190);
             this.resetbtn.Name = "resetbtn";
             this.resetbtn.Size = new System.Drawing.Size(67, 23);
             this.resetbtn.TabIndex = 27;
@@ -178,7 +165,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(152, 223);
+            this.btnSave.Location = new System.Drawing.Point(152, 190);
             this.btnSave.Margin = new System.Windows.Forms.Padding(1);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(67, 23);
@@ -196,11 +183,26 @@
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.Location = new System.Drawing.Point(1200, 1);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(31, 20);
+            this.btnClose.Size = new System.Drawing.Size(31, 28);
             this.btnClose.TabIndex = 34;
             this.btnClose.Text = "X";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // userBindingSource
+            // 
+            this.userBindingSource.DataSource = typeof(SPDM.DLL.Entities.User);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Green;
+            this.label1.Location = new System.Drawing.Point(25, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(49, 20);
+            this.label1.TabIndex = 35;
+            this.label1.Text = "User";
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -259,6 +261,7 @@
             this.accessFailedCountDataGridViewTextBoxColumn.HeaderText = "AccessFailedCount";
             this.accessFailedCountDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.accessFailedCountDataGridViewTextBoxColumn.Name = "accessFailedCountDataGridViewTextBoxColumn";
+            this.accessFailedCountDataGridViewTextBoxColumn.Visible = false;
             this.accessFailedCountDataGridViewTextBoxColumn.Width = 125;
             // 
             // isActiveDataGridViewCheckBoxColumn
@@ -279,15 +282,32 @@
             this.isNewDataGridViewCheckBoxColumn.Visible = false;
             this.isNewDataGridViewCheckBoxColumn.Width = 125;
             // 
-            // userBindingSource
+            // Edit
             // 
-            this.userBindingSource.DataSource = typeof(SPDM.DLL.Entities.User);
+            this.Edit.HeaderText = "Edit";
+            this.Edit.MinimumWidth = 6;
+            this.Edit.Name = "Edit";
+            this.Edit.Text = "Edit";
+            this.Edit.UseColumnTextForLinkValue = true;
+            this.Edit.Width = 80;
+            // 
+            // Delete
+            // 
+            this.Delete.HeaderText = "Delete";
+            this.Delete.MinimumWidth = 6;
+            this.Delete.Name = "Delete";
+            this.Delete.Text = "Delete";
+            this.Delete.UseColumnTextForLinkValue = true;
+            this.Delete.Width = 80;
             // 
             // frmUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1233, 455);
+            this.ControlBox = false;
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.resetbtn);
             this.Controls.Add(this.btnSave);
@@ -301,7 +321,6 @@
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUserName);
             this.Name = "frmUser";
-            this.Text = "frmUser";
             this.Load += new System.EventHandler(this.frmUser_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gvUser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.epUser)).EndInit();
@@ -322,6 +341,11 @@
         private System.Windows.Forms.CheckBox chkIsActive;
         private System.Windows.Forms.DataGridView gvUser;
         private System.Windows.Forms.BindingSource userBindingSource;
+        private System.Windows.Forms.Button resetbtn;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.ErrorProvider epUser;
+        private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn createTimeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn userNameDataGridViewTextBoxColumn;
@@ -333,9 +357,5 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn isNewDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewLinkColumn Edit;
         private System.Windows.Forms.DataGridViewLinkColumn Delete;
-        private System.Windows.Forms.Button resetbtn;
-        private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.ErrorProvider epUser;
-        private System.Windows.Forms.Button btnClose;
     }
 }
