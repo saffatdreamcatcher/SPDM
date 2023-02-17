@@ -34,6 +34,8 @@
             this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.roleToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.userToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.setUpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.categoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.transactionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,13 +44,12 @@
             this.stockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.paymentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pForm = new System.Windows.Forms.Panel();
             this.reportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.report1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.report2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.roleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pForm = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -76,7 +77,7 @@
             this.logOutToolStripMenuItem,
             this.changePasswordToolStripMenuItem});
             this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
-            this.homeToolStripMenuItem.Size = new System.Drawing.Size(64, 26);
+            this.homeToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
             this.homeToolStripMenuItem.Text = "Home";
             // 
             // editProfileToolStripMenuItem
@@ -100,15 +101,31 @@
             // 
             // userToolStripMenuItem
             // 
+            this.userToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.roleToolStripMenuItem1,
+            this.userToolStripMenuItem1});
             this.userToolStripMenuItem.Name = "userToolStripMenuItem";
-            this.userToolStripMenuItem.Size = new System.Drawing.Size(52, 26);
+            this.userToolStripMenuItem.Size = new System.Drawing.Size(52, 24);
             this.userToolStripMenuItem.Text = "User";
+            // 
+            // roleToolStripMenuItem1
+            // 
+            this.roleToolStripMenuItem1.Name = "roleToolStripMenuItem1";
+            this.roleToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.roleToolStripMenuItem1.Text = "Role";
+            this.roleToolStripMenuItem1.Click += new System.EventHandler(this.roleToolStripMenuItem1_Click);
+            // 
+            // userToolStripMenuItem1
+            // 
+            this.userToolStripMenuItem1.Name = "userToolStripMenuItem1";
+            this.userToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.userToolStripMenuItem1.Text = "User";
+            this.userToolStripMenuItem1.Click += new System.EventHandler(this.userToolStripMenuItem1_Click);
             // 
             // setUpToolStripMenuItem
             // 
             this.setUpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.categoryToolStripMenuItem,
-            this.roleToolStripMenuItem});
+            this.categoryToolStripMenuItem});
             this.setUpToolStripMenuItem.Name = "setUpToolStripMenuItem";
             this.setUpToolStripMenuItem.Size = new System.Drawing.Size(67, 24);
             this.setUpToolStripMenuItem.Text = "Set Up";
@@ -129,7 +146,7 @@
             this.saleToolStripMenuItem,
             this.paymentToolStripMenuItem});
             this.transactionToolStripMenuItem.Name = "transactionToolStripMenuItem";
-            this.transactionToolStripMenuItem.Size = new System.Drawing.Size(98, 26);
+            this.transactionToolStripMenuItem.Size = new System.Drawing.Size(98, 24);
             this.transactionToolStripMenuItem.Text = "Transaction";
             // 
             // workOrderToolStripMenuItem
@@ -162,12 +179,33 @@
             this.paymentToolStripMenuItem.Size = new System.Drawing.Size(168, 26);
             this.paymentToolStripMenuItem.Text = "Payment";
             // 
+            // reportToolStripMenuItem
+            // 
+            this.reportToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.report1ToolStripMenuItem,
+            this.report2ToolStripMenuItem});
+            this.reportToolStripMenuItem.Name = "reportToolStripMenuItem";
+            this.reportToolStripMenuItem.Size = new System.Drawing.Size(68, 24);
+            this.reportToolStripMenuItem.Text = "Report";
+            // 
+            // report1ToolStripMenuItem
+            // 
+            this.report1ToolStripMenuItem.Name = "report1ToolStripMenuItem";
+            this.report1ToolStripMenuItem.Size = new System.Drawing.Size(145, 26);
+            this.report1ToolStripMenuItem.Text = "Report1";
+            // 
+            // report2ToolStripMenuItem
+            // 
+            this.report2ToolStripMenuItem.Name = "report2ToolStripMenuItem";
+            this.report2ToolStripMenuItem.Size = new System.Drawing.Size(145, 26);
+            this.report2ToolStripMenuItem.Text = "Report2";
+            // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aboutToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(55, 26);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
             this.helpToolStripMenuItem.Text = "Help";
             // 
             // aboutToolStripMenuItem
@@ -184,34 +222,6 @@
             this.pForm.Size = new System.Drawing.Size(800, 422);
             this.pForm.TabIndex = 1;
             this.pForm.Paint += new System.Windows.Forms.PaintEventHandler(this.pForm_Paint);
-            // 
-            // reportToolStripMenuItem
-            // 
-            this.reportToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.report1ToolStripMenuItem,
-            this.report2ToolStripMenuItem});
-            this.reportToolStripMenuItem.Name = "reportToolStripMenuItem";
-            this.reportToolStripMenuItem.Size = new System.Drawing.Size(68, 24);
-            this.reportToolStripMenuItem.Text = "Report";
-            // 
-            // report1ToolStripMenuItem
-            // 
-            this.report1ToolStripMenuItem.Name = "report1ToolStripMenuItem";
-            this.report1ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.report1ToolStripMenuItem.Text = "Report1";
-            // 
-            // report2ToolStripMenuItem
-            // 
-            this.report2ToolStripMenuItem.Name = "report2ToolStripMenuItem";
-            this.report2ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.report2ToolStripMenuItem.Text = "Report2";
-            // 
-            // roleToolStripMenuItem
-            // 
-            this.roleToolStripMenuItem.Name = "roleToolStripMenuItem";
-            this.roleToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.roleToolStripMenuItem.Text = "Role";
-            this.roleToolStripMenuItem.Click += new System.EventHandler(this.roleToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -254,7 +264,8 @@
         private System.Windows.Forms.ToolStripMenuItem reportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem report1ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem report2ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem roleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem roleToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem userToolStripMenuItem1;
     }
 }
 

@@ -60,7 +60,9 @@ namespace SPDM.UI
             myForm.Show();
         }
 
-        private void roleToolStripMenuItem_Click(object sender, EventArgs e)
+        
+
+        private void roleToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             CloseAllForms();
             frmRole myForm = new frmRole();
@@ -70,5 +72,29 @@ namespace SPDM.UI
             myForm.WindowState = FormWindowState.Maximized;
             myForm.Show();
         }
+
+        private void userToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            CloseAllForms();
+            frmUser myForm = new frmUser();
+            myForm.TopLevel = false;
+            myForm.AutoScroll = true;
+            pForm.Controls.Add(myForm);
+            myForm.WindowState = FormWindowState.Maximized;
+            myForm.Show();
+        }
+
+
+
+        //private void userToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    CloseAllForms();
+        //    frmRole myForm = new frmRole();
+        //    myForm.TopLevel = false;
+        //    myForm.AutoScroll = true;
+        //    pForm.Controls.Add(myForm);
+        //    myForm.WindowState = FormWindowState.Maximized;
+        //    myForm.Show();
+        //}
     }
 }

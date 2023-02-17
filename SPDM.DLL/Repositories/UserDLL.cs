@@ -54,7 +54,7 @@ namespace SPDM.DLL.Repositories
                 conn.Open();
 
                 SqlCommand comm = conn.CreateCommand();
-                comm.CommandText = "Select * from User" + whereClause;
+                comm.CommandText = "Select * from [User] " + whereClause;
                 using (SqlDataReader reader = comm.ExecuteReader())
                 {
                     while (reader != null && reader.Read())
@@ -64,16 +64,15 @@ namespace SPDM.DLL.Repositories
                         User user = new User(id, createTime);
                         user.UserName = reader["UserName"].ToString();
                         user.Password = reader["Password"].ToString();
-                        user.LockoutEndDate = Convert.ToDateTime(reader["LockoutEndDate"]);
 
-                        //if (reader["LockoutEndDate"] is DBNull)
-                        //{
-                        //    user.LockoutEndDate = null;
-                        //}
-                        //else
-                        //{
-                        //    user.LockoutEndDate = Convert.ToDateTime(reader["LockoutEndDate"]);
-                        //}
+                        if (reader["LockoutEndDate"] is DBNull)
+                        {
+                            user.LockoutEndDate = null;
+                        }
+                        else
+                        {
+                            user.LockoutEndDate = Convert.ToDateTime(reader["LockoutEndDate"]);
+                        }
 
                         user.LockoutEnabled = Convert.ToBoolean(reader["LockoutEnabled"]);
                         user.AccessFailedCount = Convert.ToInt32(reader["AccessFailedCount"]);
@@ -97,7 +96,7 @@ namespace SPDM.DLL.Repositories
 
         public User GetById(int id)
         {
-            var user = new User();
+            User user = new User();
             var myConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
             SqlConnection conn = new SqlConnection();
 
@@ -187,21 +186,21 @@ namespace SPDM.DLL.Repositories
 
                 if (user.IsNew)
                 {
-                    comm.CommandText = "INSERT INTO User(CreateTime, UserName, Password, LockoutEndDate," +
-                        "LockoutEnabled,Access Failed, IsActive) VALUES(@CreateTime, @UserName, @Password" +
-                        "@LockoutEndDate, @LockoutEnabled, @AccessFailed, @IsActive); SELECT SCOPE_IDENTITY()";
+                    comm.CommandText = "INSERT INTO [User](CreateTime, UserName, Password, LockoutEndDate," +
+                        "LockoutEnabled, AccessFailedCount, IsActive) VALUES(@CreateTime, @UserName, @Password, " +
+                        "@LockoutEndDate, @LockoutEnabled, @AccessFailedCount, @IsActive); SELECT SCOPE_IDENTITY()";
                     comm.Parameters.Add("@CreateTime", SqlDbType.DateTime).Value = DateTime.Today;
                 }
                 else
                 {
-                    comm.CommandText = "Update User SET CompanyName = @CompanyName, Password = @Password" +
+                    comm.CommandText = "Update [User] SET UserName = @UserName, Password = @Password, " +
                         "LockoutEndDate= @LockoutEndDate, LockoutEnabled = @LockoutEnabled, " +
-                        "Access Failed = @Access Failed , IsActive = @IsActive WHERE Id = @Id";
+                        "AccessFailedCount = @AccessFailedCount , IsActive = @IsActive WHERE Id = @Id";
                     comm.Parameters.Add("@Id", SqlDbType.Int).Value = user.Id;
                 }
                 comm.Parameters.Add("@UserName", SqlDbType.VarChar).Value = user.UserName;
                 comm.Parameters.Add("@Password", SqlDbType.VarChar).Value = user.Password;
-                comm.Parameters.Add("@LockoutEndDate", SqlDbType.VarChar).Value = user.LockoutEndDate;
+                comm.Parameters.Add("@LockoutEndDate", SqlDbType.VarChar).Value = DBNull.Value;
                 comm.Parameters.Add("@LockoutEnabled", SqlDbType.Bit).Value = user.LockoutEnabled;
                 comm.Parameters.Add("@AccessFailedCount", SqlDbType.VarChar).Value = user.AccessFailedCount;
                 comm.Parameters.Add("@IsActive", SqlDbType.Bit).Value = user.IsActive;

@@ -22,10 +22,10 @@ namespace SPDM.DLL.Entities
         public string UserName { get => username; set => username = value; }
 
         private string password;
-        public string Password { get => username; set => username = value; }
+        public string Password { get => password; set => password = value; }
 
-        public DateTime lockoutenddate;
-        public DateTime LockoutEndDate { get => lockoutenddate; set => lockoutenddate = value; }
+        public DateTime? lockoutenddate;
+        public DateTime? LockoutEndDate { get => lockoutenddate; set => lockoutenddate = value; }
 
         public bool lockoutenabled;
         public bool LockoutEnabled { get => lockoutenabled; set => lockoutenabled = value; }
