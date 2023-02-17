@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace SPDM.DLL
 {
+    
+    /// <summary>
+    /// 
+    /// </summary>
     public class Class1
     {
+        
     }
 }
