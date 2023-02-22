@@ -6,6 +6,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,7 +14,7 @@ namespace SPDM.DLL.Repositories
 {
     public class CategoryDLL
     {
-        private string photoFilePath;
+        
         public int Delete(int id)
         {
             int noOfRowAffected = 0;
@@ -55,7 +56,7 @@ namespace SPDM.DLL.Repositories
                 conn.Open();
 
                 SqlCommand comm = conn.CreateCommand();
-                comm.CommandText = "Select * from Category" + whereClause;
+                comm.CommandText = "Select * from Category " + whereClause;
                 using (SqlDataReader reader = comm.ExecuteReader())
                 {
                     while (reader != null && reader.Read())
@@ -65,7 +66,7 @@ namespace SPDM.DLL.Repositories
                         Category categories = new Category(id, createTime);
                         categories.Name = reader["Name"].ToString();
                         categories.Description = reader["Description"] is DBNull ? null : reader["Description"].ToString();
-
+                        categories.Photo = reader["Photo"] is DBNull ? null : (byte[])reader["Photo"];
                         category.Add(categories);
                     }
                 }
@@ -104,7 +105,7 @@ namespace SPDM.DLL.Repositories
                         categories = new Category(id, createTime);
                         categories.Name = reader["Name"].ToString();
                         categories.Description = reader["Description"] is DBNull ? null : reader["Description"].ToString();
-                        byte[] photo = File.ReadAllBytes(photoFilePath);
+                        categories.Photo = reader["Photo"] is DBNull ? null : (byte[])reader["Photo"];
 
                     }
                 }
@@ -159,7 +160,7 @@ namespace SPDM.DLL.Repositories
         public int Save(Category categories)
         {
             int primaryKey = 0;
-            var myConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
+            string myConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
             SqlConnection conn = new SqlConnection();
             try
             {
@@ -203,19 +204,6 @@ namespace SPDM.DLL.Repositories
             return primaryKey;
         }
 
-        public static byte[] GetPhoto(string filePath)
-        {
-            FileStream stream = new FileStream(
-                filePath, FileMode.Open, FileAccess.Read);
-            BinaryReader reader = new BinaryReader(stream);
-
-            byte[] photo = reader.ReadBytes((int)stream.Length);
-
-            reader.Close();
-            stream.Close();
-
-            return photo;
-
-        }
+        
     }
 }

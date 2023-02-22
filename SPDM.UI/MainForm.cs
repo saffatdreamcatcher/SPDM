@@ -20,8 +20,9 @@ namespace SPDM.UI
 
         private void Form1_Load(object sender, EventArgs e)
         {
-           //MainForm frm = new MainForm();
-           // frm.ShowDialog();
+            //MainForm frm = new MainForm();
+            // frm.ShowDialog();
+             
         }
 
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -83,6 +84,15 @@ namespace SPDM.UI
             myForm.WindowState = FormWindowState.Maximized;
             myForm.Show();
         }
+
+        private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+
 
 
 

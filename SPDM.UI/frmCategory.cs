@@ -129,8 +129,14 @@ namespace SPDM.UI
                 categoryId = Convert.ToInt32(gvCategory.Rows[e.RowIndex].Cells[0].Value);
                 txtName.Text = Convert.ToString(gvCategory.Rows[e.RowIndex].Cells[2].Value);
                 txtDescription.Text = Convert.ToString(gvCategory.Rows[e.RowIndex].Cells[3].Value);
-
-
+                CategoryBLL categoryBLL = new CategoryBLL();
+                Category category = categoryBLL.GetById(categoryId);
+                if (category.Photo != null)
+                {
+                    MemoryStream ms = new MemoryStream(category.Photo);
+                    Image image = Image.FromStream(ms);
+                    pictureBox1.Image = image;
+                }
             }
             else if (e.ColumnIndex == 7)
             {
