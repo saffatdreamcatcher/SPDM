@@ -68,7 +68,7 @@ namespace SPDM.DLL.Repositories
                         party.City = reader["City"].ToString();
                         party.PostalCode = reader["PostalCode"].ToString();
                         party.Country = reader["Country"].ToString();
-                        party.Phone = reader["Phone"] is DBNull ? null : reader["Phone"].ToString();
+                        party.PhoneNo = reader["PhoneNo"] is DBNull ? null : reader["PhoneNo"].ToString();
                         party.MobileNo = reader["MobileNo"].ToString();
                         party.Fax = reader["Fax"] is DBNull ? null : reader["Fax"].ToString();
                         party.Email = reader["Email"] is DBNull ? null : reader["Email"].ToString();
@@ -116,7 +116,7 @@ namespace SPDM.DLL.Repositories
                         party.City = reader["City"].ToString();
                         party.PostalCode = reader["PostalCode"].ToString();
                         party.Country = reader["Country"].ToString();
-                        party.Phone = reader["Phone"] is DBNull ? null : reader["Phone"].ToString();
+                        party.PhoneNo = reader["PhoneNo"] is DBNull ? null : reader["PhoneNo"].ToString();
                         party.MobileNo = reader["MobileNo"].ToString();
                         party.Fax = reader["Fax"] is DBNull ? null : reader["Fax"].ToString();
                         party.Email = reader["Email"] is DBNull ? null : reader["Email"].ToString();
@@ -187,12 +187,12 @@ namespace SPDM.DLL.Repositories
 
                 if (party.IsNew)
                 {
-                    comm.CommandText = "INSERT INTO Party(CreateTime, Name, Account, Address, City, PostalCode, Country, Phone, MobileNo, Fax, Email, Note) VALUES(@CreateTime, @Name, @Account, @Address, @City, @PostalCode, @Country, @Phone, @MobileNo, @Fax, @Email, @Note); SELECT SCOPE_IDENTITY()";
+                    comm.CommandText = "INSERT INTO Party(CreateTime, Name, Account, Address, City, PostalCode, Country, PhoneNo, MobileNo, Fax, Email, Note) VALUES(@CreateTime, @Name, @Account, @Address, @City, @PostalCode, @Country, @PhoneNo, @MobileNo, @Fax, @Email, @Note); SELECT SCOPE_IDENTITY()";
                     comm.Parameters.Add("@CreateTime", SqlDbType.DateTime).Value = DateTime.Today;
                 }
                 else
                 {
-                    comm.CommandText = "Update Party SET Name = @Name, Account = @Account, Address = @Address, City = @City, PostalCode= @PostalCode, Country= @Country, Phone =@Phone, MobileNo = @MobileNo, Fax = @Fax, Email = @Email, Note = @Note WHERE Id = @Id";
+                    comm.CommandText = "Update Party SET Name = @Name, Account = @Account, Address = @Address, City = @City, PostalCode= @PostalCode, Country= @Country, PhoneNo =@PhoneNo, MobileNo = @MobileNo, Fax = @Fax, Email = @Email, Note = @Note WHERE Id = @Id";
                     comm.Parameters.Add("@Id", SqlDbType.Int).Value = party.Id;
                 }
                 comm.Parameters.Add("@Name", SqlDbType.VarChar).Value = party.Name;
@@ -201,7 +201,7 @@ namespace SPDM.DLL.Repositories
                 comm.Parameters.Add("@Country", SqlDbType.VarChar).Value = party.Country;
                 comm.Parameters.Add("@PostalCode", SqlDbType.VarChar).Value = party.PostalCode;
                 comm.Parameters.Add("@City", SqlDbType.VarChar).Value = party.City;
-                comm.Parameters.Add("@Phone", SqlDbType.VarChar).Value = party.Phone;
+                comm.Parameters.Add("@PhoneNo", SqlDbType.VarChar).Value = party.PhoneNo;
                 comm.Parameters.Add("@MobileNo", SqlDbType.VarChar).Value = party.MobileNo;
                 comm.Parameters.Add("@Fax", SqlDbType.VarChar).Value = party.Fax;
                 comm.Parameters.Add("@Email", SqlDbType.VarChar).Value = party.Email;

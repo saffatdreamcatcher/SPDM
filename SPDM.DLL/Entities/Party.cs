@@ -41,8 +41,8 @@ namespace SPDM.DLL.Entities
         private string country;
         public string Country { get => country; set => country = value; }
 
-        private string phone;
-        public string Phone { get => phone; set => phone = value; }
+        private string phoneno;
+        public string PhoneNo { get => phoneno; set => phoneno = value; }
 
         private string mobileno;
         public string MobileNo { get => mobileno; set => mobileno = value; }

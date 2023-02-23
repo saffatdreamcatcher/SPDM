@@ -58,6 +58,12 @@
     <Compile Include="frmItem.Designer.cs">
       <DependentUpon>frmItem.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmParty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmParty.Designer.cs">
+      <DependentUpon>frmParty.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmRole.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +97,9 @@
     <EmbeddedResource Include="frmItem.resx">
       <DependentUpon>frmItem.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmParty.resx">
+      <DependentUpon>frmParty.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmRole.resx">
       <DependentUpon>frmRole.cs</DependentUpon>
     </EmbeddedResource>
@@ -116,6 +125,7 @@
     <None Include="Properties\DataSources\frmRole.datasource" />
     <None Include="Properties\DataSources\SPDM.DLL.Entities.Category.datasource" />
     <None Include="Properties\DataSources\SPDM.DLL.Entities.Item.datasource" />
+    <None Include="Properties\DataSources\SPDM.DLL.Entities.Party.datasource" />
     <None Include="Properties\DataSources\SPDM.DLL.Entities.Role.datasource" />
     <None Include="Properties\DataSources\SPDM.DLL.Entities.User.datasource" />
     <None Include="Properties\Settings.settings">

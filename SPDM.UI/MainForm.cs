@@ -101,6 +101,17 @@ namespace SPDM.UI
             myForm.Show();
         }
 
+        private void partyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CloseAllForms();
+            frmParty myForm = new frmParty();
+            myForm.TopLevel = false;
+            myForm.AutoScroll = true;
+            pForm.Controls.Add(myForm);
+            myForm.WindowState = FormWindowState.Maximized;
+            myForm.Show();
+        }
+
 
 
 
