@@ -67,8 +67,12 @@ namespace SPDM.UI
                 category.Id = categoryId;
                 category.Name = txtName.Text;
                 category.Description = txtDescription.Text;
-                byte[] picture = GetPhoto(txtPhotoFilePath.Text);
-                category.Photo = picture;
+                if (txtPhotoFilePath.Text != string.Empty)
+                {
+                    byte[] picture = GetPhoto(txtPhotoFilePath.Text);
+
+                    category.Photo = picture;
+                }
 
 
                 CategoryBLL categoryBLL = new CategoryBLL();
@@ -79,7 +83,7 @@ namespace SPDM.UI
             }
         }
 
-        public static byte[] GetPhoto(string filePath)
+        public byte[] GetPhoto(string filePath)
         {
             FileStream stream = new FileStream(
                 filePath, FileMode.Open, FileAccess.Read);

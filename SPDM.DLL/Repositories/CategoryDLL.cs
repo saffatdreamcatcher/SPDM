@@ -181,7 +181,14 @@ namespace SPDM.DLL.Repositories
                 }
                 comm.Parameters.Add("@Name", SqlDbType.VarChar).Value = categories.Name;
                 comm.Parameters.Add("@Description", SqlDbType.VarChar).Value = categories.Description;
-                comm.Parameters.Add("@Photo", SqlDbType.Image).Value = categories.Photo;
+                if (categories.Photo == null)
+                {
+                    comm.Parameters.Add("@Photo", SqlDbType.Image).Value = DBNull.Value;
+                }
+                else
+                {
+                    comm.Parameters.Add("@Photo", SqlDbType.Image).Value = categories.Photo;
+                }
                 if (categories.IsNew)
                 {
                     primaryKey = Convert.ToInt32(comm.ExecuteScalar());

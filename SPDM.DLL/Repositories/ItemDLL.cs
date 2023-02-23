@@ -75,6 +75,7 @@ namespace SPDM.DLL.Repositories
                         {
                             item.UpdateTime = Convert.ToDateTime(reader["UpdateTime"]);
                         }
+                        item.CategoryId = Convert.ToInt32(reader["CategoryId"]);
                         item.Number = Convert.ToInt32(reader["Number"]);
                         item.Name = reader["Name"].ToString();
                         item.Description = reader["Description"] is DBNull ? null : reader["Description"].ToString();
@@ -86,9 +87,9 @@ namespace SPDM.DLL.Repositories
                         }
                         else
                         {
-                            item.VatRate = Convert.ToDouble(reader["VatPercent"]);
+                            item.VatRate = Convert.ToDouble(reader["VatRate"]);
                         }
-                        byte[] photo = File.ReadAllBytes(photoFilePath);
+                        item.Photo = reader["Photo"] is DBNull ? null : (byte[])reader["Photo"];
                         item.IsBlocked = Convert.ToBoolean(reader["IsBlocked"].ToString());
                         items.Add(item);
                     }
@@ -128,6 +129,7 @@ namespace SPDM.DLL.Repositories
                         DateTime updateTime = Convert.ToDateTime(reader["UpdateTime"]);
                         item  = new Item(id, createTime);
                         item.Number = Convert.ToInt32(reader["Number"].ToString());
+                        item.CategoryId = Convert.ToInt32(reader["CategoryId"]);
                         item.Name = reader["Name"].ToString();
                         item.Description = reader["Description"] is DBNull ? null : reader["Description"].ToString();
                         item.Unit = Convert.ToInt32(reader["Unit"]);
@@ -138,9 +140,9 @@ namespace SPDM.DLL.Repositories
                         }
                         else
                         {
-                            item.VatRate = Convert.ToDouble(reader["VatPercent"]);
+                            item.VatRate = Convert.ToDouble(reader["VatRate"]);
                         }
-                        byte[] photo = File.ReadAllBytes(photoFilePath);
+                        
                         item.IsBlocked = Convert.ToBoolean(reader["IsBlocked"].ToString());
                     }
                 }
@@ -206,13 +208,15 @@ namespace SPDM.DLL.Repositories
 
                 if (item.IsNew)
                 {
-                    comm.CommandText = "INSERT INTO Item(CreateTime, UpdateTime Name, CategoryId, Number, Description, Unit, Price, VatRate, Photo, IsBlocked) VALUES(@CreateTime, @UpdateTime @Name, @CategoryId, @Number, @Description, @Unit, @Price, @VatRate, @Photo, @IsBlocked); SELECT SCOPE_IDENTITY()";
+                    comm.CommandText = "INSERT INTO Item(CreateTime, UpdateTime, Name, CategoryId, Number, Description, Unit, Price, VatRate, Photo, IsBlocked) VALUES(@CreateTime, @UpdateTime, @Name, @CategoryId, @Number, @Description, @Unit, @Price, @VatRate, @Photo, @IsBlocked); SELECT SCOPE_IDENTITY()";
                     comm.Parameters.Add("@CreateTime", SqlDbType.DateTime).Value = DateTime.Today;
+                    comm.Parameters.Add("@UpdateTime", SqlDbType.DateTime).Value = DBNull.Value;
                 }
                 else
                 {
                     comm.CommandText = "Update Item SET Name = @Name, CategoryId = @CategoryId, Number = @Number, Description = @Description, Unit= @Unit, Price= @Price, VatRate =@VatRate, Photo = @Photo, IsBlocked = @IsBlocked WHERE Id = @Id";
                     comm.Parameters.Add("@Id", SqlDbType.Int).Value = item.Id;
+                    comm.Parameters.Add("@UpdateTime", SqlDbType.DateTime).Value = DateTime.Now;
                 }
                 
                 comm.Parameters.Add("@CategoryId", SqlDbType.VarChar).Value = item.CategoryId;
@@ -222,7 +226,15 @@ namespace SPDM.DLL.Repositories
                 comm.Parameters.Add("@Unit", SqlDbType.VarChar).Value = item.Unit;
                 comm.Parameters.Add("@Price", SqlDbType.VarChar).Value = item.Price;
                 comm.Parameters.Add("@VatRate", SqlDbType.VarChar).Value = item.VatRate;
-                comm.Parameters.Add("@Photo", SqlDbType.VarChar).Value = item.Photo;
+                if (item.Photo == null)
+                {
+                    comm.Parameters.Add("@Photo", SqlDbType.Image).Value = DBNull.Value;
+                }
+                else
+                {
+                    comm.Parameters.Add("@Photo", SqlDbType.Image).Value = item.Photo;
+                }
+                
                 comm.Parameters.Add("@IsBlocked", SqlDbType.VarChar).Value = item.IsBlocked;
                 
                 if (item.IsNew)

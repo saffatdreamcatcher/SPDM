@@ -49,6 +49,9 @@ namespace SPDM.DLL.Entities
         private bool isblocked;
         public bool IsBlocked { get => isblocked; set => isblocked = value; }
 
+        private int itemname;
+        public int ItemName { get => itemname; set => itemname = value; }
+
 
     }
 }
