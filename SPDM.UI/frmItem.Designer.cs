@@ -52,6 +52,9 @@
             this.gvItem = new System.Windows.Forms.DataGridView();
             this.Edit = new System.Windows.Forms.DataGridViewLinkColumn();
             this.Delete = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.txtPhotoFilePath = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.oFDPhoto = new System.Windows.Forms.OpenFileDialog();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.createTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,9 +69,8 @@
             this.isBlockedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.isNewDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.itemBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.txtPhotoFilePath = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.oFDPhoto = new System.Windows.Forms.OpenFileDialog();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nUpUnit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nUpPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nUpVatRate)).BeginInit();
@@ -310,6 +312,26 @@
             this.Delete.UseColumnTextForLinkValue = true;
             this.Delete.Width = 80;
             // 
+            // txtPhotoFilePath
+            // 
+            this.txtPhotoFilePath.Location = new System.Drawing.Point(781, 236);
+            this.txtPhotoFilePath.Name = "txtPhotoFilePath";
+            this.txtPhotoFilePath.Size = new System.Drawing.Size(240, 22);
+            this.txtPhotoFilePath.TabIndex = 49;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(733, 239);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(42, 16);
+            this.label4.TabIndex = 50;
+            this.label4.Text = "Photo";
+            // 
+            // oFDPhoto
+            // 
+            this.oFDPhoto.FileName = "openFileDialog1";
+            // 
             // idDataGridViewTextBoxColumn
             // 
             this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
@@ -425,31 +447,37 @@
             // 
             this.itemBindingSource.DataSource = typeof(SPDM.DLL.Entities.Item);
             // 
-            // txtPhotoFilePath
+            // btnClose
             // 
-            this.txtPhotoFilePath.Location = new System.Drawing.Point(781, 236);
-            this.txtPhotoFilePath.Name = "txtPhotoFilePath";
-            this.txtPhotoFilePath.Size = new System.Drawing.Size(240, 22);
-            this.txtPhotoFilePath.TabIndex = 49;
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.Location = new System.Drawing.Point(1195, 2);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(26, 23);
+            this.btnClose.TabIndex = 51;
+            this.btnClose.Text = "X";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // label4
+            // label5
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(733, 239);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(42, 16);
-            this.label4.TabIndex = 50;
-            this.label4.Text = "Photo";
-            // 
-            // oFDPhoto
-            // 
-            this.oFDPhoto.FileName = "openFileDialog1";
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Green;
+            this.label5.Location = new System.Drawing.Point(28, 8);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(47, 22);
+            this.label5.TabIndex = 52;
+            this.label5.Text = "Item";
             // 
             // frmItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1221, 535);
+            this.ControlBox = false;
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.txtPhotoFilePath);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.gvItem);
@@ -474,7 +502,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtName);
             this.Name = "frmItem";
-            this.Text = "frmItem";
             this.Load += new System.EventHandler(this.frmItem_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nUpUnit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nUpPrice)).EndInit();
@@ -529,5 +556,7 @@
         private System.Windows.Forms.TextBox txtPhotoFilePath;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.OpenFileDialog oFDPhoto;
+        private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Label label5;
     }
 }

@@ -54,8 +54,10 @@
             this.resetbtn = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.gvParty = new System.Windows.Forms.DataGridView();
+            this.PhoneNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Edit = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewLinkColumn();
             this.epParty = new System.Windows.Forms.ErrorProvider(this.components);
-            this.partyBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.createTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,14 +67,14 @@
             this.cityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.postalCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.countryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PhoneNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mobileNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.faxDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.noteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isNewDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Edit = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.partyBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label9 = new System.Windows.Forms.Label();
+            this.btnClose = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gvParty)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.epParty)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.partyBindingSource)).BeginInit();
@@ -306,13 +308,36 @@
             this.gvParty.TabIndex = 28;
             this.gvParty.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvParty_CellClick);
             // 
+            // PhoneNo
+            // 
+            this.PhoneNo.DataPropertyName = "PhoneNo";
+            this.PhoneNo.HeaderText = "PhoneNo";
+            this.PhoneNo.MinimumWidth = 6;
+            this.PhoneNo.Name = "PhoneNo";
+            this.PhoneNo.Visible = false;
+            this.PhoneNo.Width = 80;
+            // 
+            // Edit
+            // 
+            this.Edit.HeaderText = "Edit";
+            this.Edit.MinimumWidth = 6;
+            this.Edit.Name = "Edit";
+            this.Edit.Text = "Edit";
+            this.Edit.UseColumnTextForLinkValue = true;
+            this.Edit.Width = 80;
+            // 
+            // Delete
+            // 
+            this.Delete.HeaderText = "Delete";
+            this.Delete.MinimumWidth = 6;
+            this.Delete.Name = "Delete";
+            this.Delete.Text = "Delete";
+            this.Delete.UseColumnTextForLinkValue = true;
+            this.Delete.Width = 80;
+            // 
             // epParty
             // 
             this.epParty.ContainerControl = this;
-            // 
-            // partyBindingSource
-            // 
-            this.partyBindingSource.DataSource = typeof(SPDM.DLL.Entities.Party);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -390,15 +415,6 @@
             this.countryDataGridViewTextBoxColumn.Name = "countryDataGridViewTextBoxColumn";
             this.countryDataGridViewTextBoxColumn.Width = 80;
             // 
-            // PhoneNo
-            // 
-            this.PhoneNo.DataPropertyName = "PhoneNo";
-            this.PhoneNo.HeaderText = "PhoneNo";
-            this.PhoneNo.MinimumWidth = 6;
-            this.PhoneNo.Name = "PhoneNo";
-            this.PhoneNo.Visible = false;
-            this.PhoneNo.Width = 80;
-            // 
             // mobileNoDataGridViewTextBoxColumn
             // 
             this.mobileNoDataGridViewTextBoxColumn.DataPropertyName = "MobileNo";
@@ -444,29 +460,41 @@
             this.isNewDataGridViewCheckBoxColumn.Visible = false;
             this.isNewDataGridViewCheckBoxColumn.Width = 125;
             // 
-            // Edit
+            // partyBindingSource
             // 
-            this.Edit.HeaderText = "Edit";
-            this.Edit.MinimumWidth = 6;
-            this.Edit.Name = "Edit";
-            this.Edit.Text = "Edit";
-            this.Edit.UseColumnTextForLinkValue = true;
-            this.Edit.Width = 80;
+            this.partyBindingSource.DataSource = typeof(SPDM.DLL.Entities.Party);
             // 
-            // Delete
+            // label9
             // 
-            this.Delete.HeaderText = "Delete";
-            this.Delete.MinimumWidth = 6;
-            this.Delete.Name = "Delete";
-            this.Delete.Text = "Delete";
-            this.Delete.UseColumnTextForLinkValue = true;
-            this.Delete.Width = 80;
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.Green;
+            this.label9.Location = new System.Drawing.Point(40, 13);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(57, 22);
+            this.label9.TabIndex = 29;
+            this.label9.Text = "Party";
+            // 
+            // btnClose
+            // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.Location = new System.Drawing.Point(1189, -1);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(26, 23);
+            this.btnClose.TabIndex = 33;
+            this.btnClose.Text = "X";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // frmParty
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1212, 489);
+            this.ControlBox = false;
+            this.Controls.Add(this.btnClose);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.gvParty);
             this.Controls.Add(this.resetbtn);
             this.Controls.Add(this.btnSave);
@@ -492,8 +520,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtAccount);
             this.Controls.Add(this.label1);
+            this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Name = "frmParty";
-            this.Text = "frmParty";
             ((System.ComponentModel.ISupportInitialize)(this.gvParty)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.epParty)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.partyBindingSource)).EndInit();
@@ -549,5 +577,7 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn isNewDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewLinkColumn Edit;
         private System.Windows.Forms.DataGridViewLinkColumn Delete;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button btnClose;
     }
 }

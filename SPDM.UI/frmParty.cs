@@ -138,5 +138,10 @@ namespace SPDM.UI
         {
             ManageEdit(e);
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

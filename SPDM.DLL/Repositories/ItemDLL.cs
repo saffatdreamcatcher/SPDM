@@ -80,6 +80,7 @@ namespace SPDM.DLL.Repositories
                         item.Name = reader["Name"].ToString();
                         item.Description = reader["Description"] is DBNull ? null : reader["Description"].ToString();
                         item.Unit = Convert.ToInt32(reader["Unit"]);
+                        item.Price = Convert.ToDouble(reader["Price"]);
 
                         if (reader["VatRate"] is DBNull)
                         {
@@ -126,13 +127,21 @@ namespace SPDM.DLL.Repositories
                     {
                         id = Convert.ToInt32(reader["id"]);
                         DateTime createTime = Convert.ToDateTime(reader["CreateTime"]);
-                        DateTime updateTime = Convert.ToDateTime(reader["UpdateTime"]);
+                        if (reader["UpdateTime"] is DBNull)
+                        {
+                            item.UpdateTime = null;
+                        }
+                        else
+                        {
+                            item.UpdateTime = Convert.ToDateTime(reader["VatRate"]);
+                        }
                         item  = new Item(id, createTime);
                         item.Number = Convert.ToInt32(reader["Number"].ToString());
                         item.CategoryId = Convert.ToInt32(reader["CategoryId"]);
                         item.Name = reader["Name"].ToString();
                         item.Description = reader["Description"] is DBNull ? null : reader["Description"].ToString();
                         item.Unit = Convert.ToInt32(reader["Unit"]);
+                        item.Price = Convert.ToDouble(reader["Price"]);
 
                         if (reader["VatRate"] is DBNull)
                         {
@@ -142,7 +151,7 @@ namespace SPDM.DLL.Repositories
                         {
                             item.VatRate = Convert.ToDouble(reader["VatRate"]);
                         }
-                        
+                        item.Photo = reader["Photo"] is DBNull ? null : (byte[])reader["Photo"];
                         item.IsBlocked = Convert.ToBoolean(reader["IsBlocked"].ToString());
                     }
                 }
