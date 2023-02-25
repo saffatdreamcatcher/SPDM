@@ -52,6 +52,10 @@ namespace SPDM.UI
                 bool isExist = userBLL.UserExist(txtUserName.Text, txtPassword.Text);
                 if (isExist)
                 {
+                    User user = userBLL.GetByName(txtUserName.Text);
+                    Global.Userid = user.Id;
+                    Global.Username = user.UserName;
+                    Global.Isuserlogin = true;
                     ClearField();
                     this.Hide();
                     MainForm mainForm = new MainForm();

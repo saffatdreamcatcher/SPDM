@@ -27,6 +27,9 @@ namespace SPDM.UI
 
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Global.Userid = 0;
+            Global.Username = string.Empty;
+            Global.Isuserlogin = false;
             this.Close();
         }
 

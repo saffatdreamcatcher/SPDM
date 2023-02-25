@@ -106,7 +106,7 @@ namespace SPDM.DLL.Repositories
                 conn.Open();
 
                 SqlCommand comm = conn.CreateCommand();
-                comm.CommandText = "Select * from User where id = " + id;
+                comm.CommandText = "Select * from [User] where id = " + id;
                 using (SqlDataReader reader = comm.ExecuteReader())
                 {
                     while (reader != null && reader.Read())
@@ -116,7 +116,15 @@ namespace SPDM.DLL.Repositories
                         user = new User(id, createTime);
                         user.UserName = reader["UserName"].ToString();
                         user.Password = reader["Password"].ToString();
-                        user.LockoutEndDate = Convert.ToDateTime(reader["LockoutEndDate"]);
+                        if (reader["LockoutEndDate"] is DBNull)
+                        {
+                            user.LockoutEndDate = null;
+                        }
+                        else
+                        {
+                            user.LockoutEndDate = Convert.ToDateTime(reader["LockoutEndDate"]);
+                        }
+
                         user.LockoutEnabled = Convert.ToBoolean(reader["LockoutEnabled"]);
                         user.AccessFailedCount = Convert.ToInt32(reader["AccessFailedCount"]);
                         user.IsActive = Convert.ToBoolean(reader["IsActive"]);
@@ -264,6 +272,58 @@ namespace SPDM.DLL.Repositories
             }
             
             return isUserExist;
+        }
+
+        public User GetByName(string name)
+        {
+            User user = new User();
+            var myConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
+            SqlConnection conn = new SqlConnection();
+
+            try
+            {
+                conn.ConnectionString = myConnectionString;
+                conn.Open();
+
+                SqlCommand comm = conn.CreateCommand();
+                comm.CommandText = "Select * from [User] where UserName = '" + name + "'";
+                using (SqlDataReader reader = comm.ExecuteReader())
+                {
+                    while (reader != null && reader.Read())
+                    {
+                        int id = Convert.ToInt32(reader["id"]);
+                        DateTime createTime = Convert.ToDateTime(reader["CreateTime"]);
+                        user = new User(id, createTime);
+                        user.UserName = reader["UserName"].ToString();
+                        user.Password = reader["Password"].ToString();
+                        if (reader["LockoutEndDate"] is DBNull)
+                        {
+                            user.LockoutEndDate = null;
+                        }
+                        else
+                        {
+                            user.LockoutEndDate = Convert.ToDateTime(reader["LockoutEndDate"]);
+                        }
+
+                        user.LockoutEnabled = Convert.ToBoolean(reader["LockoutEnabled"]);
+                        user.AccessFailedCount = Convert.ToInt32(reader["AccessFailedCount"]);
+                        user.IsActive = Convert.ToBoolean(reader["IsActive"]);
+
+                    }
+                }
+
+
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return user;
+
         }
 
     }

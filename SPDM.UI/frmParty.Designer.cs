@@ -54,10 +54,6 @@
             this.resetbtn = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.gvParty = new System.Windows.Forms.DataGridView();
-            this.PhoneNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Edit = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.epParty = new System.Windows.Forms.ErrorProvider(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.createTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,17 +63,21 @@
             this.cityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.postalCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.countryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PhoneNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mobileNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.faxDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.noteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isNewDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Edit = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewLinkColumn();
             this.partyBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.epParty = new System.Windows.Forms.ErrorProvider(this.components);
             this.label9 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gvParty)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.epParty)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.partyBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epParty)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -300,44 +300,13 @@
             this.Edit,
             this.Delete});
             this.gvParty.DataSource = this.partyBindingSource;
-            this.gvParty.Location = new System.Drawing.Point(96, 291);
+            this.gvParty.Location = new System.Drawing.Point(12, 291);
             this.gvParty.Name = "gvParty";
             this.gvParty.RowHeadersWidth = 51;
             this.gvParty.RowTemplate.Height = 24;
-            this.gvParty.Size = new System.Drawing.Size(1110, 152);
+            this.gvParty.Size = new System.Drawing.Size(1194, 152);
             this.gvParty.TabIndex = 28;
             this.gvParty.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvParty_CellClick);
-            // 
-            // PhoneNo
-            // 
-            this.PhoneNo.DataPropertyName = "PhoneNo";
-            this.PhoneNo.HeaderText = "PhoneNo";
-            this.PhoneNo.MinimumWidth = 6;
-            this.PhoneNo.Name = "PhoneNo";
-            this.PhoneNo.Visible = false;
-            this.PhoneNo.Width = 80;
-            // 
-            // Edit
-            // 
-            this.Edit.HeaderText = "Edit";
-            this.Edit.MinimumWidth = 6;
-            this.Edit.Name = "Edit";
-            this.Edit.Text = "Edit";
-            this.Edit.UseColumnTextForLinkValue = true;
-            this.Edit.Width = 80;
-            // 
-            // Delete
-            // 
-            this.Delete.HeaderText = "Delete";
-            this.Delete.MinimumWidth = 6;
-            this.Delete.Name = "Delete";
-            this.Delete.Text = "Delete";
-            this.Delete.UseColumnTextForLinkValue = true;
-            this.Delete.Width = 80;
-            // 
-            // epParty
-            // 
-            this.epParty.ContainerControl = this;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -415,6 +384,15 @@
             this.countryDataGridViewTextBoxColumn.Name = "countryDataGridViewTextBoxColumn";
             this.countryDataGridViewTextBoxColumn.Width = 80;
             // 
+            // PhoneNo
+            // 
+            this.PhoneNo.DataPropertyName = "PhoneNo";
+            this.PhoneNo.HeaderText = "PhoneNo";
+            this.PhoneNo.MinimumWidth = 6;
+            this.PhoneNo.Name = "PhoneNo";
+            this.PhoneNo.Visible = false;
+            this.PhoneNo.Width = 80;
+            // 
             // mobileNoDataGridViewTextBoxColumn
             // 
             this.mobileNoDataGridViewTextBoxColumn.DataPropertyName = "MobileNo";
@@ -460,9 +438,31 @@
             this.isNewDataGridViewCheckBoxColumn.Visible = false;
             this.isNewDataGridViewCheckBoxColumn.Width = 125;
             // 
+            // Edit
+            // 
+            this.Edit.HeaderText = "Edit";
+            this.Edit.MinimumWidth = 6;
+            this.Edit.Name = "Edit";
+            this.Edit.Text = "Edit";
+            this.Edit.UseColumnTextForLinkValue = true;
+            this.Edit.Width = 80;
+            // 
+            // Delete
+            // 
+            this.Delete.HeaderText = "Delete";
+            this.Delete.MinimumWidth = 6;
+            this.Delete.Name = "Delete";
+            this.Delete.Text = "Delete";
+            this.Delete.UseColumnTextForLinkValue = true;
+            this.Delete.Width = 80;
+            // 
             // partyBindingSource
             // 
             this.partyBindingSource.DataSource = typeof(SPDM.DLL.Entities.Party);
+            // 
+            // epParty
+            // 
+            this.epParty.ContainerControl = this;
             // 
             // label9
             // 
@@ -523,8 +523,8 @@
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Name = "frmParty";
             ((System.ComponentModel.ISupportInitialize)(this.gvParty)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.epParty)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.partyBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epParty)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

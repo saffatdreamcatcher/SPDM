@@ -14,9 +14,6 @@ namespace SPDM.UI
         private static string username;
         public static string Username { get => username; set => username = value; }
 
-        private static string email;
-        public static string Email { get => email; set => email = value; }
-
         private static bool isuserlogin;
         public static bool Isuserlogin { get => isuserlogin; set => isuserlogin = value; }
     }

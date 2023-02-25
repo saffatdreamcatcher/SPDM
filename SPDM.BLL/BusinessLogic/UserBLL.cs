@@ -89,5 +89,18 @@ namespace SPDM.BLL.BusinessLogic
                 throw ex;
             }
         }
+
+        public User GetByName(string name)
+        {
+            try
+            {
+                UserDLL userDLL = new UserDLL();
+                return userDLL.GetByName(name);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

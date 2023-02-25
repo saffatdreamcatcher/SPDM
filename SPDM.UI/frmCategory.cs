@@ -153,6 +153,7 @@ namespace SPDM.UI
 
         private void frmCategory_Load(object sender, EventArgs e)
         {
+            
             LoadCategory();
         }
 

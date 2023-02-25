@@ -68,6 +68,7 @@ namespace SPDM.UI
 
         private void frmItem_Load(object sender, EventArgs e)
         {
+            
             LoadCategory();
             LoadItem();
         }
