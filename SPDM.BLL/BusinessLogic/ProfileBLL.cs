@@ -78,5 +78,17 @@ namespace SPDM.BLL.BusinessLogic
             }
         }
 
+        public Profile GetByUserId(int userId)
+        {
+            try
+            {
+                ProfileDLL profileDLL = new ProfileDLL();
+                return profileDLL.GetByUserId(userId);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

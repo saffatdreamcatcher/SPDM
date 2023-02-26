@@ -18,8 +18,8 @@ namespace SPDM.DLL.Entities
 
         }
 
-        private string userid;
-        public string UserId { get => userid; set => userid = value; }
+        private int userid;
+        public int UserId { get => userid; set => userid = value; }
 
         private string name;
         public string Name { get => name; set => name = value; }

@@ -115,6 +115,17 @@ namespace SPDM.UI
             myForm.Show();
         }
 
+        private void editProfileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CloseAllForms();
+            frmProfile myForm = new frmProfile();
+            myForm.TopLevel = false;
+            myForm.AutoScroll = true;
+            pForm.Controls.Add(myForm);
+            myForm.WindowState = FormWindowState.Maximized;
+            myForm.Show();
+        }
+
 
 
 

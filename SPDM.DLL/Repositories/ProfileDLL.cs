@@ -54,7 +54,7 @@ namespace SPDM.DLL.Repositories
                 conn.Open();
 
                 SqlCommand comm = conn.CreateCommand();
-                comm.CommandText = "Select * from Profile" + whereClause;
+                comm.CommandText = "Select * from Profile " + whereClause;
                 using (SqlDataReader reader = comm.ExecuteReader())
                 {
                     while (reader != null && reader.Read())
@@ -64,13 +64,13 @@ namespace SPDM.DLL.Repositories
                         
                         Profile profile = new Profile(id, createTime);
                         profile.Name = reader["Name"].ToString();
-                        profile.UserId = reader["UserId"].ToString();
+                        profile.UserId = Convert.ToInt32(reader["UserId"]);
                         profile.Address = reader["Address"].ToString();
-                        profile.Email = reader["Email"].ToString();
+                        profile.Email = reader["Email"] is DBNull ? null : reader["Email"].ToString();
                         profile.Designation = Convert.ToInt32(reader["Designation"]);
-                        profile.Phone = reader["Phone"].ToString();
+                        profile.Phone = reader["Phone"] is DBNull ? null : reader["Phone"].ToString();
                         profile.MobileNo = reader["MobileNo"].ToString();
-                        
+                        profile.Photo = reader["Photo"] is DBNull ? null : (byte[])reader["Photo"];
                         profiles.Add(profile);
                     }
                 }
@@ -104,18 +104,19 @@ namespace SPDM.DLL.Repositories
                 {
                     while (reader != null && reader.Read())
                     {
-                        id = Convert.ToInt32(reader["id"]);
-                        DateTime createTime = Convert.ToDateTime(reader["CreateTime"]);
-
-                        profile.Name = reader["Name"].ToString();
-                        profile.UserId = reader["UserId"].ToString();
-                        profile.Address = reader["Address"].ToString();
-                        profile.Email = reader["Email"].ToString();
-                        profile.Designation = Convert.ToInt32(reader["Designation"]);
-                        profile.Phone = reader["Phone"].ToString();
-                        profile.MobileNo = reader["MobileNo"].ToString();
-
                         
+                        DateTime createTime = Convert.ToDateTime(reader["CreateTime"]);
+                        profile.Id = Convert.ToInt32(reader["id"]);
+                        profile.Name = reader["Name"].ToString();
+                        profile.UserId = Convert.ToInt32(reader["UserId"]);
+                        profile.Address = reader["Address"].ToString();
+                        profile.Email = reader["Email"] is DBNull ? null : reader["Email"].ToString();
+                        profile.Designation = Convert.ToInt32(reader["Designation"]);
+                        profile.Phone = reader["Phone"] is DBNull ? null : reader["Phone"].ToString();
+                        profile.MobileNo = reader["MobileNo"].ToString();
+                        profile.Photo = reader["Photo"] is DBNull ? null : (byte[])reader["Photo"];
+
+
                     }
                 }
 
@@ -181,25 +182,33 @@ namespace SPDM.DLL.Repositories
                 if (profile.IsNew)
                 {
                     comm.CommandText = "INSERT INTO Profile(CreateTime, UserId, Name, Address, Email, Designation, Phone, " +
-                        "MobileNo, photo) VALUES(@CreateTime, @UpdateTime, @UserId, @Name, @Address, @Email, @Designation, @Phone," +
+                        "MobileNo, Photo) VALUES(@CreateTime, @UserId, @Name, @Address, @Email, @Designation, @Phone," +
                         " @MobileNo, @Photo); SELECT SCOPE_IDENTITY()";
-                    comm.Parameters.Add("@CreateTime", SqlDbType.DateTime).Value = DateTime.Today;
+                    comm.Parameters.Add("@CreateTime", SqlDbType.DateTime).Value = DateTime.Now;
                 }
                 else
                 {
-                    comm.CommandText = "Update Profile SET  CreateTime = @CreateTime, UserId = @UserId, Name= @Name," +
+                    comm.CommandText = "Update Profile SET  UserId = @UserId, Name= @Name," +
                         " Address = @Address, Email = @Email, Designation = @Designation, Phone= @Phone, MobileNo= @MobileNo, " +
                         "Photo = @Photo WHERE Id = @Id";
                     comm.Parameters.Add("@Id", SqlDbType.Int).Value = profile.Id;
+                    
                 }
                 comm.Parameters.Add("@UserId", SqlDbType.Int).Value = profile.UserId;
                 comm.Parameters.Add("@Name", SqlDbType.VarChar).Value = profile.Name;
                 comm.Parameters.Add("@Address", SqlDbType.VarChar).Value = profile.Address;
                 comm.Parameters.Add("@Email", SqlDbType.VarChar).Value = profile.Email;
                 comm.Parameters.Add("@Designation", SqlDbType.Int).Value = profile.Designation;
-                comm.Parameters.Add("@Phone", SqlDbType.Decimal).Value = profile.Phone;
-                comm.Parameters.Add("@MobileNo", SqlDbType.Decimal).Value = profile.MobileNo;
-                comm.Parameters.Add("@Photo", SqlDbType.Bit).Value = profile.Photo;
+                comm.Parameters.Add("@Phone", SqlDbType.VarChar).Value = profile.Phone;
+                comm.Parameters.Add("@MobileNo", SqlDbType.VarChar).Value = profile.MobileNo;
+                if (profile.Photo == null)
+                {
+                    comm.Parameters.Add("@Photo", SqlDbType.Image).Value = DBNull.Value;
+                }
+                else
+                {
+                    comm.Parameters.Add("@Photo", SqlDbType.Image).Value = profile.Photo;
+                }
 
 
                 if (profile.IsNew)
@@ -222,6 +231,53 @@ namespace SPDM.DLL.Repositories
                 conn.Close();
             }
             return primaryKey;
+        }
+
+        public Profile GetByUserId(int userId)
+        {
+            Profile profile = new Profile();
+            var myConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
+            SqlConnection conn = new SqlConnection();
+
+            try
+            {
+                conn.ConnectionString = myConnectionString;
+                conn.Open();
+
+                SqlCommand comm = conn.CreateCommand();
+                comm.CommandText = "Select * from Profile where UserId = " + userId;
+                using (SqlDataReader reader = comm.ExecuteReader())
+                {
+                    while (reader != null && reader.Read())
+                    {
+                       
+                        DateTime createTime = Convert.ToDateTime(reader["CreateTime"]);
+                        profile.Id = Convert.ToInt32(reader["id"]);
+                        profile.Name = reader["Name"].ToString();
+                        profile.UserId = Convert.ToInt32(reader["UserId"]);
+                        profile.Address = reader["Address"].ToString();
+                        profile.Email = reader["Email"] is DBNull ? null : reader["Email"].ToString();
+                        profile.Designation = Convert.ToInt32(reader["Designation"]);
+                        profile.Phone = reader["Phone"] is DBNull ? null : reader["Phone"].ToString();
+                        profile.MobileNo = reader["MobileNo"].ToString();
+                        profile.Photo = reader["Photo"] is DBNull ? null : (byte[])reader["Photo"];
+
+
+                    }
+                }
+
+
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return profile;
+
         }
 
     }
