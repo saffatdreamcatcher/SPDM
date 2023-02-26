@@ -58,7 +58,9 @@ namespace SPDM.DLL.Repositories
                 conn.Open();
 
                 SqlCommand comm = conn.CreateCommand();
-                comm.CommandText = "Select * from Item" + whereClause;
+                comm.CommandText = "Select Item.*, Category.Name AS CategoryName from Item " +
+                                   "inner join Category on Item.CategoryId = Category.Id " + whereClause;
+                //comm.CommandText = "Select * from Item" + whereClause;
                 using (SqlDataReader reader = comm.ExecuteReader())
                 {
                     while (reader != null && reader.Read())
@@ -92,6 +94,7 @@ namespace SPDM.DLL.Repositories
                         }
                         item.Photo = reader["Photo"] is DBNull ? null : (byte[])reader["Photo"];
                         item.IsBlocked = Convert.ToBoolean(reader["IsBlocked"].ToString());
+                        item.CategoryName = reader["CategoryName"].ToString();
                         items.Add(item);
                     }
                 }
@@ -120,7 +123,9 @@ namespace SPDM.DLL.Repositories
                 conn.Open();
 
                 SqlCommand comm = conn.CreateCommand();
-                comm.CommandText = "Select * from Item where id = " + id;
+                comm.CommandText = "Select Item.*, Category.Name AS CategoryName from Item " +
+                                   "inner join Category on Item.CategoryId = Category.Id and Item.Id = " + id;
+                //comm.CommandText = "Select * from Item where id = " + id;
                 using (SqlDataReader reader = comm.ExecuteReader())
                 {
                     while (reader != null && reader.Read())
@@ -153,6 +158,7 @@ namespace SPDM.DLL.Repositories
                         }
                         item.Photo = reader["Photo"] is DBNull ? null : (byte[])reader["Photo"];
                         item.IsBlocked = Convert.ToBoolean(reader["IsBlocked"].ToString());
+                        item.CategoryName = reader["CategoryName"].ToString();
                     }
                 }
 

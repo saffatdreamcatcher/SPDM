@@ -50,16 +50,18 @@
             this.btnReset = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.gvItem = new System.Windows.Forms.DataGridView();
-            this.Edit = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.itemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.txtPhotoFilePath = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.oFDPhoto = new System.Windows.Forms.OpenFileDialog();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.createTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.updateTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoryIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CategoryName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -68,9 +70,8 @@
             this.photoDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
             this.isBlockedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.isNewDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.itemBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.btnClose = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
+            this.Edit = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewLinkColumn();
             ((System.ComponentModel.ISupportInitialize)(this.nUpUnit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nUpPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nUpVatRate)).BeginInit();
@@ -275,6 +276,7 @@
             this.createTimeDataGridViewTextBoxColumn,
             this.updateTimeDataGridViewTextBoxColumn,
             this.categoryIdDataGridViewTextBoxColumn,
+            this.CategoryName,
             this.numberDataGridViewTextBoxColumn,
             this.descriptionDataGridViewTextBoxColumn,
             this.unitDataGridViewTextBoxColumn,
@@ -294,23 +296,9 @@
             this.gvItem.TabIndex = 48;
             this.gvItem.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvItem_CellClick);
             // 
-            // Edit
+            // itemBindingSource
             // 
-            this.Edit.HeaderText = "Edit";
-            this.Edit.MinimumWidth = 6;
-            this.Edit.Name = "Edit";
-            this.Edit.Text = "Edit";
-            this.Edit.UseColumnTextForLinkValue = true;
-            this.Edit.Width = 80;
-            // 
-            // Delete
-            // 
-            this.Delete.HeaderText = "Delete";
-            this.Delete.MinimumWidth = 6;
-            this.Delete.Name = "Delete";
-            this.Delete.Text = "Delete";
-            this.Delete.UseColumnTextForLinkValue = true;
-            this.Delete.Width = 80;
+            this.itemBindingSource.DataSource = typeof(SPDM.DLL.Entities.Item);
             // 
             // txtPhotoFilePath
             // 
@@ -331,6 +319,28 @@
             // oFDPhoto
             // 
             this.oFDPhoto.FileName = "openFileDialog1";
+            // 
+            // btnClose
+            // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.Location = new System.Drawing.Point(1195, 2);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(26, 23);
+            this.btnClose.TabIndex = 51;
+            this.btnClose.Text = "X";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Green;
+            this.label5.Location = new System.Drawing.Point(28, 8);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(47, 22);
+            this.label5.TabIndex = 52;
+            this.label5.Text = "Item";
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -374,7 +384,16 @@
             this.categoryIdDataGridViewTextBoxColumn.HeaderText = "CategoryId";
             this.categoryIdDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.categoryIdDataGridViewTextBoxColumn.Name = "categoryIdDataGridViewTextBoxColumn";
+            this.categoryIdDataGridViewTextBoxColumn.Visible = false;
             this.categoryIdDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // CategoryName
+            // 
+            this.CategoryName.DataPropertyName = "CategoryName";
+            this.CategoryName.HeaderText = "Category Name";
+            this.CategoryName.MinimumWidth = 6;
+            this.CategoryName.Name = "CategoryName";
+            this.CategoryName.Width = 125;
             // 
             // numberDataGridViewTextBoxColumn
             // 
@@ -443,31 +462,23 @@
             this.isNewDataGridViewCheckBoxColumn.Visible = false;
             this.isNewDataGridViewCheckBoxColumn.Width = 125;
             // 
-            // itemBindingSource
+            // Edit
             // 
-            this.itemBindingSource.DataSource = typeof(SPDM.DLL.Entities.Item);
+            this.Edit.HeaderText = "Edit";
+            this.Edit.MinimumWidth = 6;
+            this.Edit.Name = "Edit";
+            this.Edit.Text = "Edit";
+            this.Edit.UseColumnTextForLinkValue = true;
+            this.Edit.Width = 80;
             // 
-            // btnClose
+            // Delete
             // 
-            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.Location = new System.Drawing.Point(1195, 2);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(26, 23);
-            this.btnClose.TabIndex = 51;
-            this.btnClose.Text = "X";
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Green;
-            this.label5.Location = new System.Drawing.Point(28, 8);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(47, 22);
-            this.label5.TabIndex = 52;
-            this.label5.Text = "Item";
+            this.Delete.HeaderText = "Delete";
+            this.Delete.MinimumWidth = 6;
+            this.Delete.Name = "Delete";
+            this.Delete.Text = "Delete";
+            this.Delete.UseColumnTextForLinkValue = true;
+            this.Delete.Width = 80;
             // 
             // frmItem
             // 
@@ -538,11 +549,17 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.DataGridView gvItem;
         private System.Windows.Forms.BindingSource itemBindingSource;
+        private System.Windows.Forms.TextBox txtPhotoFilePath;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.OpenFileDialog oFDPhoto;
+        private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn createTimeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn updateTimeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn categoryIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CategoryName;
         private System.Windows.Forms.DataGridViewTextBoxColumn numberDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn unitDataGridViewTextBoxColumn;
@@ -553,10 +570,5 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn isNewDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewLinkColumn Edit;
         private System.Windows.Forms.DataGridViewLinkColumn Delete;
-        private System.Windows.Forms.TextBox txtPhotoFilePath;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.OpenFileDialog oFDPhoto;
-        private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Label label5;
     }
 }

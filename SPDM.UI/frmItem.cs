@@ -75,7 +75,7 @@ namespace SPDM.UI
 
         private void ManageEdit(DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 13)
+            if (e.ColumnIndex == 14)
             {
                 itemId = Convert.ToInt32(gvItem.Rows[e.RowIndex].Cells[0].Value);  
                 txtDescription.Text = Convert.ToString(gvItem.Rows[e.RowIndex].Cells[6].Value);
@@ -96,7 +96,7 @@ namespace SPDM.UI
                     pictureBox1.Image = image;
                 }
             }
-            else if (e.ColumnIndex == 14)
+            else if (e.ColumnIndex == 15)
             {
                 var id = Convert.ToInt32(gvItem.Rows[e.RowIndex].Cells[0].Value);
                 DeleteItem(id);
