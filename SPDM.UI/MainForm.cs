@@ -90,6 +90,13 @@ namespace SPDM.UI
 
         private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            CloseAllForms();
+            frmPassword myForm = new frmPassword();
+            myForm.TopLevel = false;
+            myForm.AutoScroll = true;
+            pForm.Controls.Add(myForm);
+            myForm.WindowState = FormWindowState.Maximized;
+            myForm.Show();
 
         }
 

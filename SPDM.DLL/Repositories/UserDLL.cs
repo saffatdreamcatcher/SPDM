@@ -326,5 +326,33 @@ namespace SPDM.DLL.Repositories
 
         }
 
+        public void ChangePassword(int userid, string password)
+        {
+            
+            var myConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
+            SqlConnection conn = new SqlConnection();
+            try
+            {
+                conn.ConnectionString = myConnectionString;
+                conn.Open();
+
+                SqlCommand comm = conn.CreateCommand();
+                comm.CommandText = "UPDATE [User] SET Password = @Password WHERE Id = @Id ";
+                comm.Parameters.Add("@Password", SqlDbType.VarChar).Value = password;
+                comm.Parameters.Add("@Id", SqlDbType.VarChar).Value = userid;
+                comm.ExecuteNonQuery();
+
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conn.Close();
+            }
+            
+        }
+
     }
 }

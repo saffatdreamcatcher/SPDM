@@ -45,6 +45,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.btnBrowse = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
+            this.oFDPhoto = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -176,6 +177,7 @@
             this.btnBrowse.TabIndex = 15;
             this.btnBrowse.Text = "Browse";
             this.btnBrowse.UseVisualStyleBackColor = true;
+            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
             // btnSave
             // 
@@ -186,6 +188,10 @@
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // oFDPhoto
+            // 
+            this.oFDPhoto.FileName = "openFileDialog1";
             // 
             // frmProfile
             // 
@@ -237,5 +243,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnBrowse;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.OpenFileDialog oFDPhoto;
     }
 }

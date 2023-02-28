@@ -91,5 +91,16 @@ namespace SPDM.UI
             return photo;
 
         }
+
+        private void btnBrowse_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = oFDPhoto.ShowDialog();
+
+            if (dialogResult == DialogResult.OK)
+            {
+                txtPhotoPath.Text = oFDPhoto.FileName;
+
+            }
+        }
     }
 }

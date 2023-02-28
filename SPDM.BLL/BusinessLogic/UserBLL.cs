@@ -102,5 +102,18 @@ namespace SPDM.BLL.BusinessLogic
                 throw ex;
             }
         }
+
+        public void ChangePassword(int userid, string password)
+        {
+            try
+            {
+                UserDLL userDLL = new UserDLL();
+                userDLL.ChangePassword(userid, password);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
