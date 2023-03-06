@@ -133,6 +133,17 @@ namespace SPDM.UI
             myForm.Show();
         }
 
+        private void workOrderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CloseAllForms();
+            frmWorkOrderList myForm = new frmWorkOrderList();
+            myForm.TopLevel = false;
+            myForm.AutoScroll = true;
+            pForm.Controls.Add(myForm);
+            myForm.WindowState = FormWindowState.Maximized;
+            myForm.Show();
+        }
+
 
 
 
