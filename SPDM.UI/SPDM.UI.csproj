@@ -164,6 +164,7 @@
     <None Include="Properties\DataSources\SPDM.DLL.Entities.Party.datasource" />
     <None Include="Properties\DataSources\SPDM.DLL.Entities.Role.datasource" />
     <None Include="Properties\DataSources\SPDM.DLL.Entities.User.datasource" />
+    <None Include="Properties\DataSources\SPDM.DLL.Entities.WorkOrderDetail.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
