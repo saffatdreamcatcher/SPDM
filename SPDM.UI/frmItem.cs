@@ -51,11 +51,7 @@ namespace SPDM.UI
             cboCategory.ValueMember = "Id";
             cboCategory.DisplayMember = "Name";
 
-            List<Category> categoriesSearch = categoryBLL.GetAll();
-            categoriesSearch.Insert(0, category1);
-            cboCategory.DataSource = categoriesSearch;
-            cboCategory.ValueMember = "Id";
-            cboCategory.DisplayMember = "Name";
+           
         }
 
         private void LoadItem()
