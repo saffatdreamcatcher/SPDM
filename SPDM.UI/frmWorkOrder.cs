@@ -23,9 +23,9 @@ namespace SPDM.UI
         private void btnAddNew_Click(object sender, EventArgs e)
         {
            
-            
-            WorkOrderDetail workorderd = new WorkOrderDetail();
-            
+            WorkOrderDetail workorderd = new WorkOrderDetail(0, DateTime.Now);
+            workorderd.UpdateTime = DateTime.Now;
+            workorderd.WorkOrderId = 0;
             workorderd.ItemId = Convert.ToInt32(cmoItemId.SelectedValue);
             workorderd.Unit = Convert.ToInt32(txtUnit.Text);
             workorderd.UnitPrice = Convert.ToDouble(nupUnitPrice.Value);

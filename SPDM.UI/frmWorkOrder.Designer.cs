@@ -55,6 +55,8 @@
             this.txtWorkOrderNo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnAddNew = new System.Windows.Forms.Button();
+            this.label17 = new System.Windows.Forms.Label();
             this.nupVatPercent1 = new System.Windows.Forms.NumericUpDown();
             this.label21 = new System.Windows.Forms.Label();
             this.nupDiscountPercent1 = new System.Windows.Forms.NumericUpDown();
@@ -72,8 +74,6 @@
             this.label14 = new System.Windows.Forms.Label();
             this.cmoItemId = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.btnAddNew = new System.Windows.Forms.Button();
             this.gvWorkOrderDetail = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.createTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -362,6 +362,25 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Work Order Detail";
             // 
+            // btnAddNew
+            // 
+            this.btnAddNew.Location = new System.Drawing.Point(1188, 160);
+            this.btnAddNew.Name = "btnAddNew";
+            this.btnAddNew.Size = new System.Drawing.Size(126, 34);
+            this.btnAddNew.TabIndex = 36;
+            this.btnAddNew.Text = "Add New";
+            this.btnAddNew.UseVisualStyleBackColor = true;
+            this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(358, 107);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(81, 16);
+            this.label17.TabIndex = 35;
+            this.label17.Text = "Total Inc Vat";
+            // 
             // nupVatPercent1
             // 
             this.nupVatPercent1.Location = new System.Drawing.Point(117, 160);
@@ -498,25 +517,6 @@
             this.label13.TabIndex = 9;
             this.label13.Text = "Item Id";
             // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(358, 107);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(81, 16);
-            this.label17.TabIndex = 35;
-            this.label17.Text = "Total Inc Vat";
-            // 
-            // btnAddNew
-            // 
-            this.btnAddNew.Location = new System.Drawing.Point(1188, 160);
-            this.btnAddNew.Name = "btnAddNew";
-            this.btnAddNew.Size = new System.Drawing.Size(126, 34);
-            this.btnAddNew.TabIndex = 36;
-            this.btnAddNew.Text = "Add New";
-            this.btnAddNew.UseVisualStyleBackColor = true;
-            this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
-            // 
             // gvWorkOrderDetail
             // 
             this.gvWorkOrderDetail.AutoGenerateColumns = false;
@@ -541,7 +541,7 @@
             this.gvWorkOrderDetail.Name = "gvWorkOrderDetail";
             this.gvWorkOrderDetail.RowHeadersWidth = 51;
             this.gvWorkOrderDetail.RowTemplate.Height = 24;
-            this.gvWorkOrderDetail.Size = new System.Drawing.Size(1337, 209);
+            this.gvWorkOrderDetail.Size = new System.Drawing.Size(1337, 171);
             this.gvWorkOrderDetail.TabIndex = 2;
             // 
             // idDataGridViewTextBoxColumn
