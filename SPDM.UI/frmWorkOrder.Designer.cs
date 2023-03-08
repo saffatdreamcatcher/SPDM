@@ -55,6 +55,7 @@
             this.txtWorkOrderNo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.nupUnit = new System.Windows.Forms.NumericUpDown();
             this.btnAddNew = new System.Windows.Forms.Button();
             this.label17 = new System.Windows.Forms.Label();
             this.nupVatPercent1 = new System.Windows.Forms.NumericUpDown();
@@ -74,22 +75,22 @@
             this.workOrderDetailBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gvWorkOrderDetail = new System.Windows.Forms.DataGridView();
             this.workOrderDetailBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.createTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.updateTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.workOrderIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unitPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lengthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalExvatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalIncvatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.discountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.discountPercentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vatPercentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalExvatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalIncvatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isNewDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.createTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nupUnit = new System.Windows.Forms.NumericUpDown();
+            this.Edit = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewLinkColumn();
             this.gWorkOrder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupDiscountPercent)).BeginInit();
@@ -97,6 +98,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nupTotalIncVat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupTotalexVat)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nupUnit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupVatPercent1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupDiscountPercent1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupTotalIncVat1)).BeginInit();
@@ -106,7 +108,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.workOrderDetailBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvWorkOrderDetail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.workOrderDetailBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nupUnit)).BeginInit();
             this.SuspendLayout();
             // 
             // gWorkOrder
@@ -361,6 +362,13 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Work Order Detail";
             // 
+            // nupUnit
+            // 
+            this.nupUnit.Location = new System.Drawing.Point(450, 37);
+            this.nupUnit.Name = "nupUnit";
+            this.nupUnit.Size = new System.Drawing.Size(201, 22);
+            this.nupUnit.TabIndex = 37;
+            // 
             // btnAddNew
             // 
             this.btnAddNew.Location = new System.Drawing.Point(1188, 160);
@@ -505,21 +513,22 @@
             this.gvWorkOrderDetail.AutoGenerateColumns = false;
             this.gvWorkOrderDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gvWorkOrderDetail.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn,
+            this.createTimeDataGridViewTextBoxColumn,
             this.updateTimeDataGridViewTextBoxColumn,
             this.workOrderIdDataGridViewTextBoxColumn,
             this.itemIdDataGridViewTextBoxColumn,
             this.unitDataGridViewTextBoxColumn,
             this.unitPriceDataGridViewTextBoxColumn,
             this.lengthDataGridViewTextBoxColumn,
-            this.totalExvatDataGridViewTextBoxColumn,
-            this.totalIncvatDataGridViewTextBoxColumn,
-            this.discountDataGridViewTextBoxColumn,
             this.discountPercentDataGridViewTextBoxColumn,
             this.vatPercentDataGridViewTextBoxColumn,
+            this.totalExvatDataGridViewTextBoxColumn,
+            this.totalIncvatDataGridViewTextBoxColumn,
             this.itemNameDataGridViewTextBoxColumn,
-            this.idDataGridViewTextBoxColumn,
             this.isNewDataGridViewCheckBoxColumn,
-            this.createTimeDataGridViewTextBoxColumn});
+            this.Edit,
+            this.Delete});
             this.gvWorkOrderDetail.DataSource = this.workOrderDetailBindingSource1;
             this.gvWorkOrderDetail.Location = new System.Drawing.Point(50, 508);
             this.gvWorkOrderDetail.Name = "gvWorkOrderDetail";
@@ -527,10 +536,30 @@
             this.gvWorkOrderDetail.RowTemplate.Height = 24;
             this.gvWorkOrderDetail.Size = new System.Drawing.Size(1288, 198);
             this.gvWorkOrderDetail.TabIndex = 2;
+            this.gvWorkOrderDetail.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvWorkOrderDetail_CellClick);
             // 
             // workOrderDetailBindingSource1
             // 
             this.workOrderDetailBindingSource1.DataSource = typeof(SPDM.DLL.Entities.WorkOrderDetail);
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.Visible = false;
+            this.idDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // createTimeDataGridViewTextBoxColumn
+            // 
+            this.createTimeDataGridViewTextBoxColumn.DataPropertyName = "CreateTime";
+            this.createTimeDataGridViewTextBoxColumn.HeaderText = "CreateTime";
+            this.createTimeDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.createTimeDataGridViewTextBoxColumn.Name = "createTimeDataGridViewTextBoxColumn";
+            this.createTimeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.createTimeDataGridViewTextBoxColumn.Visible = false;
+            this.createTimeDataGridViewTextBoxColumn.Width = 125;
             // 
             // updateTimeDataGridViewTextBoxColumn
             // 
@@ -538,6 +567,7 @@
             this.updateTimeDataGridViewTextBoxColumn.HeaderText = "UpdateTime";
             this.updateTimeDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.updateTimeDataGridViewTextBoxColumn.Name = "updateTimeDataGridViewTextBoxColumn";
+            this.updateTimeDataGridViewTextBoxColumn.Visible = false;
             this.updateTimeDataGridViewTextBoxColumn.Width = 125;
             // 
             // workOrderIdDataGridViewTextBoxColumn
@@ -546,6 +576,7 @@
             this.workOrderIdDataGridViewTextBoxColumn.HeaderText = "WorkOrderId";
             this.workOrderIdDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.workOrderIdDataGridViewTextBoxColumn.Name = "workOrderIdDataGridViewTextBoxColumn";
+            this.workOrderIdDataGridViewTextBoxColumn.Visible = false;
             this.workOrderIdDataGridViewTextBoxColumn.Width = 125;
             // 
             // itemIdDataGridViewTextBoxColumn
@@ -554,6 +585,7 @@
             this.itemIdDataGridViewTextBoxColumn.HeaderText = "ItemId";
             this.itemIdDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.itemIdDataGridViewTextBoxColumn.Name = "itemIdDataGridViewTextBoxColumn";
+            this.itemIdDataGridViewTextBoxColumn.Visible = false;
             this.itemIdDataGridViewTextBoxColumn.Width = 125;
             // 
             // unitDataGridViewTextBoxColumn
@@ -570,7 +602,7 @@
             this.unitPriceDataGridViewTextBoxColumn.HeaderText = "UnitPrice";
             this.unitPriceDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.unitPriceDataGridViewTextBoxColumn.Name = "unitPriceDataGridViewTextBoxColumn";
-            this.unitPriceDataGridViewTextBoxColumn.Width = 125;
+            this.unitPriceDataGridViewTextBoxColumn.Width = 80;
             // 
             // lengthDataGridViewTextBoxColumn
             // 
@@ -578,31 +610,7 @@
             this.lengthDataGridViewTextBoxColumn.HeaderText = "Length";
             this.lengthDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.lengthDataGridViewTextBoxColumn.Name = "lengthDataGridViewTextBoxColumn";
-            this.lengthDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // totalExvatDataGridViewTextBoxColumn
-            // 
-            this.totalExvatDataGridViewTextBoxColumn.DataPropertyName = "TotalExvat";
-            this.totalExvatDataGridViewTextBoxColumn.HeaderText = "TotalExvat";
-            this.totalExvatDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.totalExvatDataGridViewTextBoxColumn.Name = "totalExvatDataGridViewTextBoxColumn";
-            this.totalExvatDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // totalIncvatDataGridViewTextBoxColumn
-            // 
-            this.totalIncvatDataGridViewTextBoxColumn.DataPropertyName = "TotalIncvat";
-            this.totalIncvatDataGridViewTextBoxColumn.HeaderText = "TotalIncvat";
-            this.totalIncvatDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.totalIncvatDataGridViewTextBoxColumn.Name = "totalIncvatDataGridViewTextBoxColumn";
-            this.totalIncvatDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // discountDataGridViewTextBoxColumn
-            // 
-            this.discountDataGridViewTextBoxColumn.DataPropertyName = "Discount";
-            this.discountDataGridViewTextBoxColumn.HeaderText = "Discount";
-            this.discountDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.discountDataGridViewTextBoxColumn.Name = "discountDataGridViewTextBoxColumn";
-            this.discountDataGridViewTextBoxColumn.Width = 125;
+            this.lengthDataGridViewTextBoxColumn.Width = 80;
             // 
             // discountPercentDataGridViewTextBoxColumn
             // 
@@ -610,7 +618,7 @@
             this.discountPercentDataGridViewTextBoxColumn.HeaderText = "DiscountPercent";
             this.discountPercentDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.discountPercentDataGridViewTextBoxColumn.Name = "discountPercentDataGridViewTextBoxColumn";
-            this.discountPercentDataGridViewTextBoxColumn.Width = 125;
+            this.discountPercentDataGridViewTextBoxColumn.Width = 120;
             // 
             // vatPercentDataGridViewTextBoxColumn
             // 
@@ -618,7 +626,23 @@
             this.vatPercentDataGridViewTextBoxColumn.HeaderText = "VatPercent";
             this.vatPercentDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.vatPercentDataGridViewTextBoxColumn.Name = "vatPercentDataGridViewTextBoxColumn";
-            this.vatPercentDataGridViewTextBoxColumn.Width = 125;
+            this.vatPercentDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // totalExvatDataGridViewTextBoxColumn
+            // 
+            this.totalExvatDataGridViewTextBoxColumn.DataPropertyName = "TotalExvat";
+            this.totalExvatDataGridViewTextBoxColumn.HeaderText = "TotalExvat";
+            this.totalExvatDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.totalExvatDataGridViewTextBoxColumn.Name = "totalExvatDataGridViewTextBoxColumn";
+            this.totalExvatDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // totalIncvatDataGridViewTextBoxColumn
+            // 
+            this.totalIncvatDataGridViewTextBoxColumn.DataPropertyName = "TotalIncvat";
+            this.totalIncvatDataGridViewTextBoxColumn.HeaderText = "TotalIncvat";
+            this.totalIncvatDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.totalIncvatDataGridViewTextBoxColumn.Name = "totalIncvatDataGridViewTextBoxColumn";
+            this.totalIncvatDataGridViewTextBoxColumn.Width = 80;
             // 
             // itemNameDataGridViewTextBoxColumn
             // 
@@ -628,14 +652,6 @@
             this.itemNameDataGridViewTextBoxColumn.Name = "itemNameDataGridViewTextBoxColumn";
             this.itemNameDataGridViewTextBoxColumn.Width = 125;
             // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.Width = 125;
-            // 
             // isNewDataGridViewCheckBoxColumn
             // 
             this.isNewDataGridViewCheckBoxColumn.DataPropertyName = "IsNew";
@@ -643,23 +659,26 @@
             this.isNewDataGridViewCheckBoxColumn.MinimumWidth = 6;
             this.isNewDataGridViewCheckBoxColumn.Name = "isNewDataGridViewCheckBoxColumn";
             this.isNewDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.isNewDataGridViewCheckBoxColumn.Visible = false;
             this.isNewDataGridViewCheckBoxColumn.Width = 125;
             // 
-            // createTimeDataGridViewTextBoxColumn
+            // Edit
             // 
-            this.createTimeDataGridViewTextBoxColumn.DataPropertyName = "CreateTime";
-            this.createTimeDataGridViewTextBoxColumn.HeaderText = "CreateTime";
-            this.createTimeDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.createTimeDataGridViewTextBoxColumn.Name = "createTimeDataGridViewTextBoxColumn";
-            this.createTimeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.createTimeDataGridViewTextBoxColumn.Width = 125;
+            this.Edit.HeaderText = "Edit";
+            this.Edit.MinimumWidth = 6;
+            this.Edit.Name = "Edit";
+            this.Edit.Text = "Edit";
+            this.Edit.UseColumnTextForLinkValue = true;
+            this.Edit.Width = 80;
             // 
-            // nupUnit
+            // Delete
             // 
-            this.nupUnit.Location = new System.Drawing.Point(450, 37);
-            this.nupUnit.Name = "nupUnit";
-            this.nupUnit.Size = new System.Drawing.Size(201, 22);
-            this.nupUnit.TabIndex = 37;
+            this.Delete.HeaderText = "Delete";
+            this.Delete.MinimumWidth = 6;
+            this.Delete.Name = "Delete";
+            this.Delete.Text = "Delete";
+            this.Delete.UseColumnTextForLinkValue = true;
+            this.Delete.Width = 80;
             // 
             // frmWorkOrder
             // 
@@ -682,6 +701,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nupTotalexVat)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nupUnit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupVatPercent1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupDiscountPercent1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupTotalIncVat1)).EndInit();
@@ -691,7 +711,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.workOrderDetailBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvWorkOrderDetail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.workOrderDetailBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nupUnit)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -742,22 +761,23 @@
         private System.Windows.Forms.Button btnAddNew;
         private System.Windows.Forms.BindingSource workOrderDetailBindingSource;
         private System.Windows.Forms.DataGridView gvWorkOrderDetail;
+        private System.Windows.Forms.BindingSource workOrderDetailBindingSource1;
+        private System.Windows.Forms.NumericUpDown nupUnit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn createTimeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn updateTimeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn workOrderIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn itemIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn unitDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn unitPriceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lengthDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn totalExvatDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn totalIncvatDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn discountDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn discountPercentDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn vatPercentDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalExvatDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalIncvatDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn itemNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn isNewDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn createTimeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource workOrderDetailBindingSource1;
-        private System.Windows.Forms.NumericUpDown nupUnit;
+        private System.Windows.Forms.DataGridViewLinkColumn Edit;
+        private System.Windows.Forms.DataGridViewLinkColumn Delete;
     }
 }
