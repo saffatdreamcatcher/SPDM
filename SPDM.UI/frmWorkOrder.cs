@@ -15,7 +15,7 @@ namespace SPDM.UI
     public partial class frmWorkOrder : Form
     {
 
-        private List<WorkOrderDetail> workOrderDetails = new List<WorkOrderDetail>();
+        private BindingList<WorkOrderDetail> workOrderDetails = new BindingList<WorkOrderDetail>();
         private int workorderdId;
 
         public frmWorkOrder()
@@ -39,7 +39,6 @@ namespace SPDM.UI
             workorderd.DiscountPercent = Convert.ToDouble(nupDiscountPercent1.Value);
             workorderd.VatPercent = Convert.ToDouble(nupVatPercent1.Value);
             workOrderDetails.Add(workorderd);
-            gvWorkOrderDetail.DataSource = null;
             gvWorkOrderDetail.DataSource = workOrderDetails;
 
         }
@@ -47,7 +46,7 @@ namespace SPDM.UI
         private void frmWorkOrder_Load(object sender, EventArgs e)
         {
 
-            gvWorkOrderDetail.DataSource = workOrderDetails;
+            //gvWorkOrderDetail.DataSource = workOrderDetails;
             LoadItem();
         }
 
