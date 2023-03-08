@@ -57,14 +57,10 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.nupUnit = new System.Windows.Forms.NumericUpDown();
             this.btnAddNew = new System.Windows.Forms.Button();
-            this.label17 = new System.Windows.Forms.Label();
             this.nupVatPercent1 = new System.Windows.Forms.NumericUpDown();
             this.label21 = new System.Windows.Forms.Label();
             this.nupDiscountPercent1 = new System.Windows.Forms.NumericUpDown();
             this.label20 = new System.Windows.Forms.Label();
-            this.nupTotalIncVat1 = new System.Windows.Forms.NumericUpDown();
-            this.nupTotalExVat1 = new System.Windows.Forms.NumericUpDown();
-            this.label18 = new System.Windows.Forms.Label();
             this.nupLength = new System.Windows.Forms.NumericUpDown();
             this.label16 = new System.Windows.Forms.Label();
             this.nupUnitPrice = new System.Windows.Forms.NumericUpDown();
@@ -74,12 +70,12 @@
             this.label13 = new System.Windows.Forms.Label();
             this.workOrderDetailBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gvWorkOrderDetail = new System.Windows.Forms.DataGridView();
-            this.workOrderDetailBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.createTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.updateTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.workOrderIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unitPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lengthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -87,10 +83,11 @@
             this.vatPercentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalExvatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalIncvatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isNewDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Edit = new System.Windows.Forms.DataGridViewLinkColumn();
             this.Delete = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.workOrderDetailBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.eP = new System.Windows.Forms.ErrorProvider(this.components);
             this.gWorkOrder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupDiscountPercent)).BeginInit();
@@ -101,13 +98,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.nupUnit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupVatPercent1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupDiscountPercent1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nupTotalIncVat1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nupTotalExVat1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupLength)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupUnitPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.workOrderDetailBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvWorkOrderDetail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.workOrderDetailBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eP)).BeginInit();
             this.SuspendLayout();
             // 
             // gWorkOrder
@@ -340,14 +336,10 @@
             // 
             this.groupBox1.Controls.Add(this.nupUnit);
             this.groupBox1.Controls.Add(this.btnAddNew);
-            this.groupBox1.Controls.Add(this.label17);
             this.groupBox1.Controls.Add(this.nupVatPercent1);
             this.groupBox1.Controls.Add(this.label21);
             this.groupBox1.Controls.Add(this.nupDiscountPercent1);
             this.groupBox1.Controls.Add(this.label20);
-            this.groupBox1.Controls.Add(this.nupTotalIncVat1);
-            this.groupBox1.Controls.Add(this.nupTotalExVat1);
-            this.groupBox1.Controls.Add(this.label18);
             this.groupBox1.Controls.Add(this.nupLength);
             this.groupBox1.Controls.Add(this.label16);
             this.groupBox1.Controls.Add(this.nupUnitPrice);
@@ -357,7 +349,7 @@
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Location = new System.Drawing.Point(24, 254);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1347, 204);
+            this.groupBox1.Size = new System.Drawing.Size(1347, 169);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Work Order Detail";
@@ -365,13 +357,18 @@
             // nupUnit
             // 
             this.nupUnit.Location = new System.Drawing.Point(450, 37);
+            this.nupUnit.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
             this.nupUnit.Name = "nupUnit";
             this.nupUnit.Size = new System.Drawing.Size(201, 22);
             this.nupUnit.TabIndex = 37;
             // 
             // btnAddNew
             // 
-            this.btnAddNew.Location = new System.Drawing.Point(1188, 160);
+            this.btnAddNew.Location = new System.Drawing.Point(687, 100);
             this.btnAddNew.Name = "btnAddNew";
             this.btnAddNew.Size = new System.Drawing.Size(126, 34);
             this.btnAddNew.TabIndex = 36;
@@ -379,18 +376,14 @@
             this.btnAddNew.UseVisualStyleBackColor = true;
             this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
             // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(1010, 113);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(81, 16);
-            this.label17.TabIndex = 35;
-            this.label17.Text = "Total Inc Vat";
-            // 
             // nupVatPercent1
             // 
             this.nupVatPercent1.Location = new System.Drawing.Point(450, 107);
+            this.nupVatPercent1.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
             this.nupVatPercent1.Name = "nupVatPercent1";
             this.nupVatPercent1.Size = new System.Drawing.Size(201, 22);
             this.nupVatPercent1.TabIndex = 34;
@@ -407,6 +400,11 @@
             // nupDiscountPercent1
             // 
             this.nupDiscountPercent1.Location = new System.Drawing.Point(117, 107);
+            this.nupDiscountPercent1.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.nupDiscountPercent1.Name = "nupDiscountPercent1";
             this.nupDiscountPercent1.Size = new System.Drawing.Size(223, 22);
             this.nupDiscountPercent1.TabIndex = 32;
@@ -420,36 +418,17 @@
             this.label20.TabIndex = 31;
             this.label20.Text = "Discount%";
             // 
-            // nupTotalIncVat1
-            // 
-            this.nupTotalIncVat1.Location = new System.Drawing.Point(1111, 107);
-            this.nupTotalIncVat1.Name = "nupTotalIncVat1";
-            this.nupTotalIncVat1.Size = new System.Drawing.Size(203, 22);
-            this.nupTotalIncVat1.TabIndex = 28;
-            // 
-            // nupTotalExVat1
-            // 
-            this.nupTotalExVat1.Location = new System.Drawing.Point(772, 107);
-            this.nupTotalExVat1.Name = "nupTotalExVat1";
-            this.nupTotalExVat1.Size = new System.Drawing.Size(223, 22);
-            this.nupTotalExVat1.TabIndex = 26;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(669, 107);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(79, 16);
-            this.label18.TabIndex = 25;
-            this.label18.Text = "Total Ex Vat";
-            // 
             // nupLength
             // 
             this.nupLength.Location = new System.Drawing.Point(1113, 32);
+            this.nupLength.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.nupLength.Name = "nupLength";
             this.nupLength.Size = new System.Drawing.Size(201, 22);
             this.nupLength.TabIndex = 24;
-            this.nupLength.ValueChanged += new System.EventHandler(this.nupLength_ValueChanged);
             // 
             // label16
             // 
@@ -463,6 +442,11 @@
             // nupUnitPrice
             // 
             this.nupUnitPrice.Location = new System.Drawing.Point(772, 32);
+            this.nupUnitPrice.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
             this.nupUnitPrice.Name = "nupUnitPrice";
             this.nupUnitPrice.Size = new System.Drawing.Size(223, 22);
             this.nupUnitPrice.TabIndex = 22;
@@ -518,6 +502,7 @@
             this.updateTimeDataGridViewTextBoxColumn,
             this.workOrderIdDataGridViewTextBoxColumn,
             this.itemIdDataGridViewTextBoxColumn,
+            this.itemNameDataGridViewTextBoxColumn,
             this.unitDataGridViewTextBoxColumn,
             this.unitPriceDataGridViewTextBoxColumn,
             this.lengthDataGridViewTextBoxColumn,
@@ -525,22 +510,17 @@
             this.vatPercentDataGridViewTextBoxColumn,
             this.totalExvatDataGridViewTextBoxColumn,
             this.totalIncvatDataGridViewTextBoxColumn,
-            this.itemNameDataGridViewTextBoxColumn,
             this.isNewDataGridViewCheckBoxColumn,
             this.Edit,
             this.Delete});
             this.gvWorkOrderDetail.DataSource = this.workOrderDetailBindingSource1;
-            this.gvWorkOrderDetail.Location = new System.Drawing.Point(50, 508);
+            this.gvWorkOrderDetail.Location = new System.Drawing.Point(50, 446);
             this.gvWorkOrderDetail.Name = "gvWorkOrderDetail";
             this.gvWorkOrderDetail.RowHeadersWidth = 51;
             this.gvWorkOrderDetail.RowTemplate.Height = 24;
-            this.gvWorkOrderDetail.Size = new System.Drawing.Size(1288, 198);
+            this.gvWorkOrderDetail.Size = new System.Drawing.Size(1288, 260);
             this.gvWorkOrderDetail.TabIndex = 2;
             this.gvWorkOrderDetail.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvWorkOrderDetail_CellClick);
-            // 
-            // workOrderDetailBindingSource1
-            // 
-            this.workOrderDetailBindingSource1.DataSource = typeof(SPDM.DLL.Entities.WorkOrderDetail);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -587,6 +567,14 @@
             this.itemIdDataGridViewTextBoxColumn.Name = "itemIdDataGridViewTextBoxColumn";
             this.itemIdDataGridViewTextBoxColumn.Visible = false;
             this.itemIdDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // itemNameDataGridViewTextBoxColumn
+            // 
+            this.itemNameDataGridViewTextBoxColumn.DataPropertyName = "ItemName";
+            this.itemNameDataGridViewTextBoxColumn.HeaderText = "ItemName";
+            this.itemNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.itemNameDataGridViewTextBoxColumn.Name = "itemNameDataGridViewTextBoxColumn";
+            this.itemNameDataGridViewTextBoxColumn.Width = 125;
             // 
             // unitDataGridViewTextBoxColumn
             // 
@@ -644,14 +632,6 @@
             this.totalIncvatDataGridViewTextBoxColumn.Name = "totalIncvatDataGridViewTextBoxColumn";
             this.totalIncvatDataGridViewTextBoxColumn.Width = 80;
             // 
-            // itemNameDataGridViewTextBoxColumn
-            // 
-            this.itemNameDataGridViewTextBoxColumn.DataPropertyName = "ItemName";
-            this.itemNameDataGridViewTextBoxColumn.HeaderText = "ItemName";
-            this.itemNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.itemNameDataGridViewTextBoxColumn.Name = "itemNameDataGridViewTextBoxColumn";
-            this.itemNameDataGridViewTextBoxColumn.Width = 125;
-            // 
             // isNewDataGridViewCheckBoxColumn
             // 
             this.isNewDataGridViewCheckBoxColumn.DataPropertyName = "IsNew";
@@ -680,6 +660,14 @@
             this.Delete.UseColumnTextForLinkValue = true;
             this.Delete.Width = 80;
             // 
+            // workOrderDetailBindingSource1
+            // 
+            this.workOrderDetailBindingSource1.DataSource = typeof(SPDM.DLL.Entities.WorkOrderDetail);
+            // 
+            // eP
+            // 
+            this.eP.ContainerControl = this;
+            // 
             // frmWorkOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -704,13 +692,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.nupUnit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupVatPercent1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupDiscountPercent1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nupTotalIncVat1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nupTotalExVat1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupLength)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupUnitPrice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.workOrderDetailBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvWorkOrderDetail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.workOrderDetailBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eP)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -747,9 +734,6 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.NumericUpDown nupDiscountPercent1;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.NumericUpDown nupTotalIncVat1;
-        private System.Windows.Forms.NumericUpDown nupTotalExVat1;
-        private System.Windows.Forms.Label label18;
         private System.Windows.Forms.NumericUpDown nupLength;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.NumericUpDown nupUnitPrice;
@@ -757,7 +741,6 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.ComboBox cmoItemId;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Button btnAddNew;
         private System.Windows.Forms.BindingSource workOrderDetailBindingSource;
         private System.Windows.Forms.DataGridView gvWorkOrderDetail;
@@ -768,6 +751,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn updateTimeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn workOrderIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn itemIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn unitDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn unitPriceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lengthDataGridViewTextBoxColumn;
@@ -775,9 +759,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn vatPercentDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn totalExvatDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn totalIncvatDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn itemNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn isNewDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewLinkColumn Edit;
         private System.Windows.Forms.DataGridViewLinkColumn Delete;
+        private System.Windows.Forms.ErrorProvider eP;
     }
 }
