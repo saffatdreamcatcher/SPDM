@@ -45,8 +45,6 @@ namespace SPDM.UI
 
         private void frmWorkOrder_Load(object sender, EventArgs e)
         {
-
-            //gvWorkOrderDetail.DataSource = workOrderDetails;
             LoadItem();
         }
 
