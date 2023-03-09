@@ -17,6 +17,7 @@ namespace SPDM.UI
 
         private BindingList<WorkOrderDetail> workOrderDetails = new BindingList<WorkOrderDetail>();
         private int workorderdId;
+        private int editIndex = -1;
 
         public frmWorkOrder()
         {
@@ -25,8 +26,8 @@ namespace SPDM.UI
 
         private void btnAddNew_Click(object sender, EventArgs e)
         {
-           
-           AddNew();
+
+            AddNew();
         }
 
         private void AddNew()
@@ -34,7 +35,9 @@ namespace SPDM.UI
             bool isValid = IsWorkOrderDetailValid();
             if (isValid)
             {
-                WorkOrderDetail workorderd = new WorkOrderDetail(0, DateTime.Now);
+                WorkOrderDetail workorderd = editIndex == -1 ? new WorkOrderDetail(0, DateTime.Now) : workOrderDetails[editIndex];
+
+
                 workorderd.UpdateTime = DateTime.Now;
                 workorderd.WorkOrderId = 0;
                 workorderd.ItemId = Convert.ToInt32(cmoItemId.SelectedValue);
@@ -58,9 +61,13 @@ namespace SPDM.UI
                     total = total + totalvat;
                 }
                 workorderd.TotalIncvat = total;
-
+                if (editIndex == -1)
                 workOrderDetails.Add(workorderd);
+
                 gvWorkOrderDetail.DataSource = workOrderDetails;
+                gvWorkOrderDetail.Refresh();
+                ClearField();
+
             }
         }
 
@@ -102,14 +109,15 @@ namespace SPDM.UI
         {
             if (e.ColumnIndex == 14)
             {
-                workorderdId = Convert.ToInt32(gvWorkOrderDetail.Rows[e.RowIndex].Cells[3].Value);
+                //workorderdId = Convert.ToInt32(gvWorkOrderDetail.Rows[e.RowIndex].Cells[3].Value);
                 cmoItemId.SelectedValue = Convert.ToInt32(gvWorkOrderDetail.Rows[e.RowIndex].Cells[4].Value);
                 nupUnit.Value = Convert.ToInt32(gvWorkOrderDetail.Rows[e.RowIndex].Cells[6].Value);
                 nupUnitPrice.Value = Convert.ToInt32(gvWorkOrderDetail.Rows[e.RowIndex].Cells[7].Value);
                 nupLength.Value = Convert.ToInt32(gvWorkOrderDetail.Rows[e.RowIndex].Cells[8].Value);
                 nupDiscountPercent1.Value = Convert.ToInt32(gvWorkOrderDetail.Rows[e.RowIndex].Cells[9].Value);
                 nupVatPercent1.Value = Convert.ToInt32(gvWorkOrderDetail.Rows[e.RowIndex].Cells[10].Value);
-                
+                editIndex = e.RowIndex;
+
             }
             else if (e.ColumnIndex == 15)
             {
@@ -117,6 +125,8 @@ namespace SPDM.UI
                 workOrderDetails.RemoveAt(rowindex);
                 gvWorkOrderDetail.DataSource = workOrderDetails;
             }
+
+
         }
 
         private void DeleteWorkOrderDeatil(int id)
@@ -124,7 +134,7 @@ namespace SPDM.UI
             if (MessageBox.Show("Are you sure you want to delete the WorkOrderDetail?", "Delete WorkOrderDetail", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.Yes)
             {
                 WorkOrderDetailBLL workorderdetailBLL = new WorkOrderDetailBLL();
-                
+
                 LoadWorkOrderDetail();
             }
 
@@ -155,6 +165,22 @@ namespace SPDM.UI
                 iv = false;
             }
             return iv;
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            ClearField();
+        }
+
+        private void ClearField()
+        {
+            cmoItemId.SelectedValue = -1;
+            nupUnit.Value = 0;
+            nupUnitPrice.Value = 0;
+            nupLength.Value = 0;
+            nupDiscountPercent1.Value = 0;
+            nupVatPercent1.Value = 0;
+            editIndex = -1;
         }
     }
 }

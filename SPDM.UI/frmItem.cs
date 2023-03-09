@@ -15,8 +15,8 @@ namespace SPDM.UI
 {
     public partial class frmItem : Form
     {
-        private int id = 0;
-        private int itemId;
+       
+        private int itemId = 0;
 
         public frmItem()
         {
@@ -138,7 +138,7 @@ namespace SPDM.UI
         private void SaveItem()
         {
             Item item = new Item();
-            item.Id = id;
+            item.Id = itemId;
             item.Name = txtName.Text;
             item.CategoryId = Convert.ToInt32(cboCategory.SelectedValue);
             item.Description = txtDescription.Text;

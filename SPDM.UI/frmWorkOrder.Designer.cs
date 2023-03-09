@@ -88,6 +88,7 @@
             this.Delete = new System.Windows.Forms.DataGridViewLinkColumn();
             this.workOrderDetailBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.eP = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnReset = new System.Windows.Forms.Button();
             this.gWorkOrder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupDiscountPercent)).BeginInit();
@@ -253,6 +254,8 @@
             // 
             // dtpDeliveryDate
             // 
+            this.dtpDeliveryDate.CustomFormat = "dd/MM/yyyy";
+            this.dtpDeliveryDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpDeliveryDate.Location = new System.Drawing.Point(141, 95);
             this.dtpDeliveryDate.Name = "dtpDeliveryDate";
             this.dtpDeliveryDate.Size = new System.Drawing.Size(200, 22);
@@ -269,6 +272,8 @@
             // 
             // dtpWorkOrderDate
             // 
+            this.dtpWorkOrderDate.CustomFormat = "dd/MM/yyyy";
+            this.dtpWorkOrderDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpWorkOrderDate.Location = new System.Drawing.Point(1114, 38);
             this.dtpWorkOrderDate.Name = "dtpWorkOrderDate";
             this.dtpWorkOrderDate.Size = new System.Drawing.Size(200, 22);
@@ -334,6 +339,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnReset);
             this.groupBox1.Controls.Add(this.nupUnit);
             this.groupBox1.Controls.Add(this.btnAddNew);
             this.groupBox1.Controls.Add(this.nupVatPercent1);
@@ -668,6 +674,16 @@
             // 
             this.eP.ContainerControl = this;
             // 
+            // btnReset
+            // 
+            this.btnReset.Location = new System.Drawing.Point(844, 100);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(94, 34);
+            this.btnReset.TabIndex = 38;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
             // frmWorkOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -763,5 +779,6 @@
         private System.Windows.Forms.DataGridViewLinkColumn Edit;
         private System.Windows.Forms.DataGridViewLinkColumn Delete;
         private System.Windows.Forms.ErrorProvider eP;
+        private System.Windows.Forms.Button btnReset;
     }
 }
