@@ -67,8 +67,10 @@
             this.label14 = new System.Windows.Forms.Label();
             this.cmoItemId = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.workOrderDetailBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gvWorkOrderDetail = new System.Windows.Forms.DataGridView();
+            this.Edit = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.eP = new System.Windows.Forms.ErrorProvider(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.createTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.updateTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -83,10 +85,8 @@
             this.totalExvatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalIncvatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isNewDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Edit = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewLinkColumn();
             this.workOrderDetailBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.eP = new System.Windows.Forms.ErrorProvider(this.components);
+            this.workOrderDetailBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gWorkOrder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupDiscountPercent)).BeginInit();
@@ -98,10 +98,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.nupDiscountPercent1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupLength)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupUnitPrice)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.workOrderDetailBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvWorkOrderDetail)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.workOrderDetailBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.workOrderDetailBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.workOrderDetailBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // gWorkOrder
@@ -202,6 +202,11 @@
             // nupTotalIncVat
             // 
             this.nupTotalIncVat.Location = new System.Drawing.Point(141, 154);
+            this.nupTotalIncVat.Maximum = new decimal(new int[] {
+            -1981284352,
+            -1966660860,
+            0,
+            0});
             this.nupTotalIncVat.Name = "nupTotalIncVat";
             this.nupTotalIncVat.Size = new System.Drawing.Size(199, 22);
             this.nupTotalIncVat.TabIndex = 15;
@@ -218,6 +223,11 @@
             // nupTotalexVat
             // 
             this.nupTotalexVat.Location = new System.Drawing.Point(1113, 92);
+            this.nupTotalexVat.Maximum = new decimal(new int[] {
+            -1486618624,
+            232830643,
+            0,
+            0});
             this.nupTotalexVat.Name = "nupTotalexVat";
             this.nupTotalexVat.Size = new System.Drawing.Size(201, 22);
             this.nupTotalexVat.TabIndex = 13;
@@ -483,10 +493,6 @@
             this.label13.TabIndex = 9;
             this.label13.Text = "Item";
             // 
-            // workOrderDetailBindingSource
-            // 
-            this.workOrderDetailBindingSource.DataSource = typeof(SPDM.DLL.Entities.WorkOrderDetail);
-            // 
             // gvWorkOrderDetail
             // 
             this.gvWorkOrderDetail.AutoGenerateColumns = false;
@@ -516,6 +522,28 @@
             this.gvWorkOrderDetail.Size = new System.Drawing.Size(1288, 260);
             this.gvWorkOrderDetail.TabIndex = 2;
             this.gvWorkOrderDetail.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvWorkOrderDetail_CellClick);
+            // 
+            // Edit
+            // 
+            this.Edit.HeaderText = "Edit";
+            this.Edit.MinimumWidth = 6;
+            this.Edit.Name = "Edit";
+            this.Edit.Text = "Edit";
+            this.Edit.UseColumnTextForLinkValue = true;
+            this.Edit.Width = 80;
+            // 
+            // Delete
+            // 
+            this.Delete.HeaderText = "Delete";
+            this.Delete.MinimumWidth = 6;
+            this.Delete.Name = "Delete";
+            this.Delete.Text = "Delete";
+            this.Delete.UseColumnTextForLinkValue = true;
+            this.Delete.Width = 80;
+            // 
+            // eP
+            // 
+            this.eP.ContainerControl = this;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -637,31 +665,13 @@
             this.isNewDataGridViewCheckBoxColumn.Visible = false;
             this.isNewDataGridViewCheckBoxColumn.Width = 125;
             // 
-            // Edit
-            // 
-            this.Edit.HeaderText = "Edit";
-            this.Edit.MinimumWidth = 6;
-            this.Edit.Name = "Edit";
-            this.Edit.Text = "Edit";
-            this.Edit.UseColumnTextForLinkValue = true;
-            this.Edit.Width = 80;
-            // 
-            // Delete
-            // 
-            this.Delete.HeaderText = "Delete";
-            this.Delete.MinimumWidth = 6;
-            this.Delete.Name = "Delete";
-            this.Delete.Text = "Delete";
-            this.Delete.UseColumnTextForLinkValue = true;
-            this.Delete.Width = 80;
-            // 
             // workOrderDetailBindingSource1
             // 
             this.workOrderDetailBindingSource1.DataSource = typeof(SPDM.DLL.Entities.WorkOrderDetail);
             // 
-            // eP
+            // workOrderDetailBindingSource
             // 
-            this.eP.ContainerControl = this;
+            this.workOrderDetailBindingSource.DataSource = typeof(SPDM.DLL.Entities.WorkOrderDetail);
             // 
             // frmWorkOrder
             // 
@@ -688,10 +698,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.nupDiscountPercent1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupLength)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupUnitPrice)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.workOrderDetailBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvWorkOrderDetail)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.workOrderDetailBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.workOrderDetailBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.workOrderDetailBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

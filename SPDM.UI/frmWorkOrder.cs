@@ -95,6 +95,7 @@ namespace SPDM.UI
 
                 gvWorkOrderDetail.DataSource = workOrderDetails;
                 gvWorkOrderDetail.Refresh();
+                CalculateTotalPrice();
                 ClearField();
 
             }
@@ -134,6 +135,7 @@ namespace SPDM.UI
                 int rowindex = e.RowIndex;
                 workOrderDetails.RemoveAt(rowindex);
                 gvWorkOrderDetail.DataSource = workOrderDetails;
+                CalculateTotalPrice();
             }
 
 
@@ -162,6 +164,20 @@ namespace SPDM.UI
             nupDiscountPercent1.Value = 0;
             nupVatPercent1.Value = 0;
             editIndex = -1;
+        }
+
+        private void CalculateTotalPrice()
+        {
+            double totalIncVat = 0;
+            double totalExVat = 0;
+            foreach (WorkOrderDetail workOrderDetail in workOrderDetails)
+            {
+                totalIncVat = totalIncVat + workOrderDetail.TotalIncvat;
+                totalExVat = totalExVat + workOrderDetail.TotalExvat;
+            }
+            nupTotalexVat.Value = Convert.ToDecimal(totalExVat);
+            nupTotalIncVat.Value = Convert.ToDecimal(totalIncVat);
+
         }
 
        
