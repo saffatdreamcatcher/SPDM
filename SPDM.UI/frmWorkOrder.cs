@@ -24,10 +24,38 @@ namespace SPDM.UI
             InitializeComponent();
         }
 
+        private void frmWorkOrder_Load(object sender, EventArgs e)
+        {
+            LoadItem();
+        }
+
+        private void gvWorkOrderDetail_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            ManageEdit(e);
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            ClearField();
+        }
+
         private void btnAddNew_Click(object sender, EventArgs e)
         {
 
             AddNew();
+        }
+
+        private void cmoItemId_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmoItemId.SelectedIndex > 0)
+            {
+                int itemId = Convert.ToInt32(cmoItemId.SelectedValue);
+                ItemBLL itemBLL = new ItemBLL();
+                Item item = itemBLL.GetById(itemId);
+                nupUnit.Value = item.Unit;
+                nupUnitPrice.Value = Convert.ToDecimal(item.Price);
+                nupVatPercent1.Value = Convert.ToDecimal(item.VatRate);
+            }
         }
 
         private void AddNew()
@@ -61,6 +89,7 @@ namespace SPDM.UI
                     total = total + totalvat;
                 }
                 workorderd.TotalIncvat = total;
+
                 if (editIndex == -1)
                 workOrderDetails.Add(workorderd);
 
@@ -69,11 +98,6 @@ namespace SPDM.UI
                 ClearField();
 
             }
-        }
-
-        private void frmWorkOrder_Load(object sender, EventArgs e)
-        {
-            LoadItem();
         }
 
         private void LoadItem()
@@ -91,31 +115,17 @@ namespace SPDM.UI
 
         }
 
-
-        private void cmoItemId_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cmoItemId.SelectedIndex > 0)
-            {
-                int itemId = Convert.ToInt32(cmoItemId.SelectedValue);
-                ItemBLL itemBLL = new ItemBLL();
-                Item item = itemBLL.GetById(itemId);
-                nupUnit.Value = item.Unit;
-                nupUnitPrice.Value = Convert.ToDecimal(item.Price);
-                nupVatPercent1.Value = Convert.ToDecimal(item.VatRate);
-            }
-        }
-
         private void ManageEdit(DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == 14)
             {
                 //workorderdId = Convert.ToInt32(gvWorkOrderDetail.Rows[e.RowIndex].Cells[3].Value);
                 cmoItemId.SelectedValue = Convert.ToInt32(gvWorkOrderDetail.Rows[e.RowIndex].Cells[4].Value);
-                nupUnit.Value = Convert.ToInt32(gvWorkOrderDetail.Rows[e.RowIndex].Cells[6].Value);
-                nupUnitPrice.Value = Convert.ToInt32(gvWorkOrderDetail.Rows[e.RowIndex].Cells[7].Value);
-                nupLength.Value = Convert.ToInt32(gvWorkOrderDetail.Rows[e.RowIndex].Cells[8].Value);
-                nupDiscountPercent1.Value = Convert.ToInt32(gvWorkOrderDetail.Rows[e.RowIndex].Cells[9].Value);
-                nupVatPercent1.Value = Convert.ToInt32(gvWorkOrderDetail.Rows[e.RowIndex].Cells[10].Value);
+                nupUnit.Value = Convert.ToDecimal(gvWorkOrderDetail.Rows[e.RowIndex].Cells[6].Value);
+                nupUnitPrice.Value = Convert.ToDecimal(gvWorkOrderDetail.Rows[e.RowIndex].Cells[7].Value);
+                nupLength.Value = Convert.ToDecimal(gvWorkOrderDetail.Rows[e.RowIndex].Cells[8].Value);
+                nupDiscountPercent1.Value = Convert.ToDecimal(gvWorkOrderDetail.Rows[e.RowIndex].Cells[9].Value);
+                nupVatPercent1.Value = Convert.ToDecimal(gvWorkOrderDetail.Rows[e.RowIndex].Cells[10].Value);
                 editIndex = e.RowIndex;
 
             }
@@ -127,30 +137,6 @@ namespace SPDM.UI
             }
 
 
-        }
-
-        private void DeleteWorkOrderDeatil(int id)
-        {
-            if (MessageBox.Show("Are you sure you want to delete the WorkOrderDetail?", "Delete WorkOrderDetail", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.Yes)
-            {
-                WorkOrderDetailBLL workorderdetailBLL = new WorkOrderDetailBLL();
-
-                LoadWorkOrderDetail();
-            }
-
-        }
-
-        private void LoadWorkOrderDetail()
-        {
-            WorkOrderDetailBLL workorderdetailBLL = new WorkOrderDetailBLL();
-            List<WorkOrderDetail> workorderdetails = workorderdetailBLL.GetAll();
-
-            gvWorkOrderDetail.DataSource = workorderdetails;
-        }
-
-        private void gvWorkOrderDetail_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            ManageEdit(e);
         }
 
         private bool IsWorkOrderDetailValid()
@@ -167,11 +153,6 @@ namespace SPDM.UI
             return iv;
         }
 
-        private void btnReset_Click(object sender, EventArgs e)
-        {
-            ClearField();
-        }
-
         private void ClearField()
         {
             cmoItemId.SelectedValue = -1;
@@ -182,5 +163,7 @@ namespace SPDM.UI
             nupVatPercent1.Value = 0;
             editIndex = -1;
         }
+
+       
     }
 }

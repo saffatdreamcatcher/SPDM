@@ -38,8 +38,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.nupDiscountPercent = new System.Windows.Forms.NumericUpDown();
             this.label9 = new System.Windows.Forms.Label();
-            this.nupDiscount = new System.Windows.Forms.NumericUpDown();
-            this.label8 = new System.Windows.Forms.Label();
             this.nupTotalIncVat = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
             this.nupTotalexVat = new System.Windows.Forms.NumericUpDown();
@@ -55,6 +53,7 @@
             this.txtWorkOrderNo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnReset = new System.Windows.Forms.Button();
             this.nupUnit = new System.Windows.Forms.NumericUpDown();
             this.btnAddNew = new System.Windows.Forms.Button();
             this.nupVatPercent1 = new System.Windows.Forms.NumericUpDown();
@@ -88,11 +87,9 @@
             this.Delete = new System.Windows.Forms.DataGridViewLinkColumn();
             this.workOrderDetailBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.eP = new System.Windows.Forms.ErrorProvider(this.components);
-            this.btnReset = new System.Windows.Forms.Button();
             this.gWorkOrder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupDiscountPercent)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nupDiscount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupTotalIncVat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupTotalexVat)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -117,8 +114,6 @@
             this.gWorkOrder.Controls.Add(this.label10);
             this.gWorkOrder.Controls.Add(this.nupDiscountPercent);
             this.gWorkOrder.Controls.Add(this.label9);
-            this.gWorkOrder.Controls.Add(this.nupDiscount);
-            this.gWorkOrder.Controls.Add(this.label8);
             this.gWorkOrder.Controls.Add(this.nupTotalIncVat);
             this.gWorkOrder.Controls.Add(this.label7);
             this.gWorkOrder.Controls.Add(this.nupTotalexVat);
@@ -142,15 +137,15 @@
             // 
             // txtNote
             // 
-            this.txtNote.Location = new System.Drawing.Point(1114, 156);
+            this.txtNote.Location = new System.Drawing.Point(752, 156);
             this.txtNote.Name = "txtNote";
-            this.txtNote.Size = new System.Drawing.Size(200, 22);
+            this.txtNote.Size = new System.Drawing.Size(211, 22);
             this.txtNote.TabIndex = 25;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(1055, 156);
+            this.label12.Location = new System.Drawing.Point(694, 159);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(36, 16);
             this.label12.TabIndex = 24;
@@ -158,15 +153,15 @@
             // 
             // txtStatus
             // 
-            this.txtStatus.Location = new System.Drawing.Point(752, 153);
+            this.txtStatus.Location = new System.Drawing.Point(446, 157);
             this.txtStatus.Name = "txtStatus";
-            this.txtStatus.Size = new System.Drawing.Size(211, 22);
+            this.txtStatus.Size = new System.Drawing.Size(205, 22);
             this.txtStatus.TabIndex = 23;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(692, 155);
+            this.label11.Location = new System.Drawing.Point(386, 159);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(44, 16);
             this.label11.TabIndex = 22;
@@ -174,23 +169,23 @@
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(450, 153);
+            this.numericUpDown1.Location = new System.Drawing.Point(752, 94);
             this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(201, 22);
+            this.numericUpDown1.Size = new System.Drawing.Size(211, 22);
             this.numericUpDown1.TabIndex = 21;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(361, 153);
+            this.label10.Location = new System.Drawing.Point(694, 100);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(76, 16);
+            this.label10.Size = new System.Drawing.Size(42, 16);
             this.label10.TabIndex = 20;
-            this.label10.Text = "Vat Percent";
+            this.label10.Text = "Vat %";
             // 
             // nupDiscountPercent
             // 
-            this.nupDiscountPercent.Location = new System.Drawing.Point(141, 149);
+            this.nupDiscountPercent.Location = new System.Drawing.Point(450, 97);
             this.nupDiscountPercent.Name = "nupDiscountPercent";
             this.nupDiscountPercent.Size = new System.Drawing.Size(201, 22);
             this.nupDiscountPercent.TabIndex = 19;
@@ -198,39 +193,23 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(23, 151);
+            this.label9.Location = new System.Drawing.Point(361, 100);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(108, 16);
+            this.label9.Size = new System.Drawing.Size(74, 16);
             this.label9.TabIndex = 18;
-            this.label9.Text = "Discount Percent";
-            // 
-            // nupDiscount
-            // 
-            this.nupDiscount.Location = new System.Drawing.Point(1114, 98);
-            this.nupDiscount.Name = "nupDiscount";
-            this.nupDiscount.Size = new System.Drawing.Size(200, 22);
-            this.nupDiscount.TabIndex = 17;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(1032, 101);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(59, 16);
-            this.label8.TabIndex = 16;
-            this.label8.Text = "Discount";
+            this.label9.Text = "Discount %";
             // 
             // nupTotalIncVat
             // 
-            this.nupTotalIncVat.Location = new System.Drawing.Point(752, 101);
+            this.nupTotalIncVat.Location = new System.Drawing.Point(141, 154);
             this.nupTotalIncVat.Name = "nupTotalIncVat";
-            this.nupTotalIncVat.Size = new System.Drawing.Size(211, 22);
+            this.nupTotalIncVat.Size = new System.Drawing.Size(199, 22);
             this.nupTotalIncVat.TabIndex = 15;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(664, 103);
+            this.label7.Location = new System.Drawing.Point(23, 156);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(81, 16);
             this.label7.TabIndex = 14;
@@ -238,7 +217,7 @@
             // 
             // nupTotalexVat
             // 
-            this.nupTotalexVat.Location = new System.Drawing.Point(450, 103);
+            this.nupTotalexVat.Location = new System.Drawing.Point(1113, 92);
             this.nupTotalexVat.Name = "nupTotalexVat";
             this.nupTotalexVat.Size = new System.Drawing.Size(201, 22);
             this.nupTotalexVat.TabIndex = 13;
@@ -246,7 +225,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(358, 103);
+            this.label6.Location = new System.Drawing.Point(1012, 94);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(79, 16);
             this.label6.TabIndex = 12;
@@ -360,6 +339,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Work Order Detail";
             // 
+            // btnReset
+            // 
+            this.btnReset.Location = new System.Drawing.Point(844, 100);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(104, 34);
+            this.btnReset.TabIndex = 38;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
             // nupUnit
             // 
             this.nupUnit.Location = new System.Drawing.Point(450, 37);
@@ -378,7 +367,7 @@
             this.btnAddNew.Name = "btnAddNew";
             this.btnAddNew.Size = new System.Drawing.Size(126, 34);
             this.btnAddNew.TabIndex = 36;
-            this.btnAddNew.Text = "Add New";
+            this.btnAddNew.Text = "Add ";
             this.btnAddNew.UseVisualStyleBackColor = true;
             this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
             // 
@@ -674,16 +663,6 @@
             // 
             this.eP.ContainerControl = this;
             // 
-            // btnReset
-            // 
-            this.btnReset.Location = new System.Drawing.Point(844, 100);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(94, 34);
-            this.btnReset.TabIndex = 38;
-            this.btnReset.Text = "Reset";
-            this.btnReset.UseVisualStyleBackColor = true;
-            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
-            // 
             // frmWorkOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -700,7 +679,6 @@
             this.gWorkOrder.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupDiscountPercent)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nupDiscount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupTotalIncVat)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupTotalexVat)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -735,8 +713,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.NumericUpDown nupDiscountPercent;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.NumericUpDown nupDiscount;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.NumericUpDown nupTotalIncVat;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.NumericUpDown nupTotalexVat;
