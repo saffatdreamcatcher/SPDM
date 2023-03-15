@@ -45,6 +45,7 @@
     <Compile Include="Class1.cs" />
     <Compile Include="Entities\Category.cs" />
     <Compile Include="Entities\Entity.cs" />
+    <Compile Include="Entities\Enums.cs" />
     <Compile Include="Entities\Item.cs" />
     <Compile Include="Entities\Party.cs" />
     <Compile Include="Entities\Payment.cs" />

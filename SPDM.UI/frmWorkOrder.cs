@@ -27,6 +27,8 @@ namespace SPDM.UI
         private void frmWorkOrder_Load(object sender, EventArgs e)
         {
             LoadItem();
+            LoadParty();
+            txtStatus.Text = WorkOderStatus.Placed.ToString();
         }
 
         private void gvWorkOrderDetail_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -116,6 +118,20 @@ namespace SPDM.UI
 
         }
 
+        private void LoadParty()
+        {
+            Party party = new Party();
+            party.Id = -1;
+            party.Name = "Please Select-";
+
+            PartyBLL partyBLL = new PartyBLL();
+            List<Party> parties = partyBLL.GetAll();
+            parties.Insert(0, party);
+            cmoPartyId.DataSource = parties;
+            cmoPartyId.ValueMember = "Id";
+            cmoPartyId.DisplayMember = "Name";
+        }
+
         private void ManageEdit(DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == 14)
@@ -173,13 +189,35 @@ namespace SPDM.UI
             foreach (WorkOrderDetail workOrderDetail in workOrderDetails)
             {
                 totalIncVat = totalIncVat + workOrderDetail.TotalIncvat;
-                totalExVat = totalExVat + workOrderDetail.TotalExvat;
             }
+            totalExVat = totalIncVat;
+            if (nupDiscountPercent.Value > 0)
+            {
+                double totalDiscount = Convert.ToDouble(nupDiscountPercent.Value / 100) * totalIncVat;
+                totalIncVat = totalIncVat - totalDiscount;
+                totalExVat = totalIncVat;
+            }
+
+            if (nupVatPercent.Value >0)
+            {
+                double totalVat = Convert.ToDouble(nupVatPercent.Value / 100) * totalIncVat;
+                totalIncVat = totalIncVat + totalVat;
+            }
+           
+
             nupTotalexVat.Value = Convert.ToDecimal(totalExVat);
             nupTotalIncVat.Value = Convert.ToDecimal(totalIncVat);
 
         }
 
-       
+        private void nupDiscountPercent_ValueChanged(object sender, EventArgs e)
+        {
+            CalculateTotalPrice();
+        }
+
+        private void nupVatPercent_ValueChanged(object sender, EventArgs e)
+        {
+            CalculateTotalPrice();
+        }
     }
 }

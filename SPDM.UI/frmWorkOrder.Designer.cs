@@ -34,7 +34,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.txtStatus = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.nupVatPercent = new System.Windows.Forms.NumericUpDown();
             this.label10 = new System.Windows.Forms.Label();
             this.nupDiscountPercent = new System.Windows.Forms.NumericUpDown();
             this.label9 = new System.Windows.Forms.Label();
@@ -88,7 +88,7 @@
             this.workOrderDetailBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.workOrderDetailBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gWorkOrder.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupVatPercent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupDiscountPercent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupTotalIncVat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupTotalexVat)).BeginInit();
@@ -110,7 +110,7 @@
             this.gWorkOrder.Controls.Add(this.label12);
             this.gWorkOrder.Controls.Add(this.txtStatus);
             this.gWorkOrder.Controls.Add(this.label11);
-            this.gWorkOrder.Controls.Add(this.numericUpDown1);
+            this.gWorkOrder.Controls.Add(this.nupVatPercent);
             this.gWorkOrder.Controls.Add(this.label10);
             this.gWorkOrder.Controls.Add(this.nupDiscountPercent);
             this.gWorkOrder.Controls.Add(this.label9);
@@ -153,6 +153,7 @@
             // 
             // txtStatus
             // 
+            this.txtStatus.Enabled = false;
             this.txtStatus.Location = new System.Drawing.Point(446, 157);
             this.txtStatus.Name = "txtStatus";
             this.txtStatus.Size = new System.Drawing.Size(205, 22);
@@ -167,12 +168,13 @@
             this.label11.TabIndex = 22;
             this.label11.Text = "Status";
             // 
-            // numericUpDown1
+            // nupVatPercent
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(752, 94);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(211, 22);
-            this.numericUpDown1.TabIndex = 21;
+            this.nupVatPercent.Location = new System.Drawing.Point(752, 94);
+            this.nupVatPercent.Name = "nupVatPercent";
+            this.nupVatPercent.Size = new System.Drawing.Size(211, 22);
+            this.nupVatPercent.TabIndex = 21;
+            this.nupVatPercent.ValueChanged += new System.EventHandler(this.nupVatPercent_ValueChanged);
             // 
             // label10
             // 
@@ -189,6 +191,7 @@
             this.nupDiscountPercent.Name = "nupDiscountPercent";
             this.nupDiscountPercent.Size = new System.Drawing.Size(201, 22);
             this.nupDiscountPercent.TabIndex = 19;
+            this.nupDiscountPercent.ValueChanged += new System.EventHandler(this.nupDiscountPercent_ValueChanged);
             // 
             // label9
             // 
@@ -201,6 +204,7 @@
             // 
             // nupTotalIncVat
             // 
+            this.nupTotalIncVat.Enabled = false;
             this.nupTotalIncVat.Location = new System.Drawing.Point(141, 154);
             this.nupTotalIncVat.Maximum = new decimal(new int[] {
             -1981284352,
@@ -222,6 +226,7 @@
             // 
             // nupTotalexVat
             // 
+            this.nupTotalexVat.Enabled = false;
             this.nupTotalexVat.Location = new System.Drawing.Point(1113, 92);
             this.nupTotalexVat.Maximum = new decimal(new int[] {
             -1486618624,
@@ -687,7 +692,7 @@
             this.Load += new System.EventHandler(this.frmWorkOrder_Load);
             this.gWorkOrder.ResumeLayout(false);
             this.gWorkOrder.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupVatPercent)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupDiscountPercent)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupTotalIncVat)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupTotalexVat)).EndInit();
@@ -719,7 +724,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker dtpDeliveryDate;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown nupVatPercent;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.NumericUpDown nupDiscountPercent;
         private System.Windows.Forms.Label label9;
