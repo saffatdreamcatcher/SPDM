@@ -3,7 +3,9 @@ using SPDM.DLL.Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -77,6 +79,7 @@ namespace SPDM.UI
                 workorderd.Length = Convert.ToDouble(nupLength.Value);
                 workorderd.DiscountPercent = Convert.ToDouble(nupDiscountPercent1.Value);
                 workorderd.VatPercent = Convert.ToDouble(nupVatPercent1.Value);
+
                 double total = workorderd.Unit * workorderd.UnitPrice * workorderd.Length;
                 if (workorderd.DiscountPercent > 0)
                 {
@@ -105,13 +108,13 @@ namespace SPDM.UI
 
         private void LoadItem()
         {
-            Item item = new Item();
-            item.Id = -1;
-            item.Name = "Please Select-";
+            Item item1 = new Item();
+            item1.Id = -1;
+            item1.Name = "Please Select-";
 
             ItemBLL itemBLL = new ItemBLL();
             List<Item> items = itemBLL.GetAll();
-            items.Insert(0, item);
+            items.Insert(0, item1);
             cmoItemId.DataSource = items;
             cmoItemId.ValueMember = "Id";
             cmoItemId.DisplayMember = "Name";
@@ -171,6 +174,45 @@ namespace SPDM.UI
             return iv;
         }
 
+        private bool IsWorkOrderValid()
+        {
+            eP.Clear();
+            Boolean iv = true;
+            if (txtWorkOrderNo.Text == string.Empty)
+            {
+                txtWorkOrderNo.Focus();
+                eP.SetError(txtWorkOrderNo, "Can't empty");
+                iv = false;
+
+            }
+
+
+            if (txtFiscalYear.Text == string.Empty)
+            {
+                //txtFiscalYear.Focus();
+                eP.SetError(txtFiscalYear, "Can't empty");
+                iv = false;
+
+            }
+
+            if (Convert.ToInt32(cmoPartyId.SelectedValue) == -1)
+            {
+               // cmoPartyId.Focus();
+                eP.SetError(cmoPartyId, "Can't empty");
+                iv = false;
+            }
+
+            if (workOrderDetails.Count == 0)
+            {
+               
+                eP.SetError(gvWorkOrderDetail, "Work Order Detail can't be empty");
+                iv = false;
+            }
+            return iv;
+
+
+        }
+        
         private void ClearField()
         {
             cmoItemId.SelectedValue = -1;
@@ -218,6 +260,43 @@ namespace SPDM.UI
         private void nupVatPercent_ValueChanged(object sender, EventArgs e)
         {
             CalculateTotalPrice();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            Save(); 
+        }
+        private void Save()
+        {
+            bool isValid = IsWorkOrderValid();
+            if (isValid)
+            {
+                WorkOrder workOrder = new WorkOrder();
+                workOrder.UserId = Global.Userid;
+                workOrder.WorkOrderNo = txtWorkOrderNo.Text;
+                workOrder.Fiscalyear = txtFiscalYear.Text;
+                workOrder.PartyId = Convert.ToInt32(cmoPartyId.SelectedValue);
+                workOrder.WorkOrderDate = dtpWorkOrderDate.Value;
+                workOrder.DeliveryDate = dtpDeliveryDate.Value;
+                workOrder.TotalExvat = Convert.ToDouble(nupTotalexVat.Value);
+                workOrder.TotalIncvat = Convert.ToDouble(nupTotalIncVat.Value);
+                if (nupDiscountPercent.Value > 0)
+                {
+                    workOrder.DiscountPercent = Convert.ToDouble(nupDiscountPercent.Value);
+
+                }
+                if (nupVatPercent.Value > 0)
+                {
+                    workOrder.VatPercent = Convert.ToDouble(nupVatPercent.Value);
+                }
+
+                workOrder.Status = 1;
+                workOrder.Note = txtNote.Text;
+                List<WorkOrderDetail> workOrderDetails1 =workOrderDetails.ToList();
+
+
+            }
+  
         }
     }
 }

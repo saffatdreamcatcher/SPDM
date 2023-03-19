@@ -64,7 +64,7 @@ namespace SPDM.DLL.Repositories
                         DateTime Updatetime = Convert.ToDateTime(reader["UpdateTime"]);
                         WorkOrder workorder = new WorkOrder(id, createTime);
                         workorder.UserId = Convert.ToInt32(reader["UserId"]);
-                        workorder.WorkOrderNo = Convert.ToInt32(reader["WorkOrderNo"]);
+                        workorder.WorkOrderNo = reader["WorkOrderNo"].ToString();
                         workorder.Fiscalyear = reader["FiscalYear"].ToString();
                         workorder.PartyId = Convert.ToInt32(reader["PartyId"]);
                         workorder.WorkOrderDate = Convert.ToDateTime(reader["WorkOrderDate"]);
@@ -122,7 +122,7 @@ namespace SPDM.DLL.Repositories
                         DateTime createTime = Convert.ToDateTime(reader["CreateTime"]);
                         DateTime updateTime = Convert.ToDateTime(reader["UpdateTime"]);
                         workorder.UserId = Convert.ToInt32(reader["UserId"]);
-                        workorder.WorkOrderNo = Convert.ToInt32(reader["WorkOrderNo"]);
+                        workorder.WorkOrderNo = reader["WorkOrderNo"].ToString();
                         workorder.Fiscalyear = reader["FiscalYear"].ToString();
                         workorder.PartyId = Convert.ToInt32(reader["PartyId"]);
                         workorder.WorkOrderDate = Convert.ToDateTime(reader["WorkOrderDate"]);

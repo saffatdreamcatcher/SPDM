@@ -85,7 +85,7 @@ namespace SPDM.DLL.Repositories
 
         public Category GetById(int id)
         {
-            var categories = new Category();
+            Category categories = new Category();
             var myConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
             SqlConnection conn = new SqlConnection();
 
