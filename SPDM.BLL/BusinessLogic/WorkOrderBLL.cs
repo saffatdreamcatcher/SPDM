@@ -10,12 +10,21 @@ namespace SPDM.BLL.BusinessLogic
 {
     public class WorkOrderBLL
     {
-        public int Save(WorkOrder workorder)
+        public int Save(WorkOrder workorder, List<WorkOrderDetail> workOrderDetails)
         {
             try
             {
                 WorkOrderDLL workorderDLL = new WorkOrderDLL();
-                return workorderDLL.Save(workorder);
+                WorkOrderDetailDLL workorderDetailDLL = new WorkOrderDetailDLL();
+                 
+                workorderDLL.Save(workorder);
+                foreach (WorkOrderDetail detail in workOrderDetails)
+                {
+                    detail.WorkOrderId = workorder.Id;
+                    workorderDetailDLL.Save(detail);
+                }
+                return workorder.Id;
+
             }
             catch (Exception ex)
             {

@@ -278,6 +278,7 @@ namespace SPDM.UI
                 workOrder.PartyId = Convert.ToInt32(cmoPartyId.SelectedValue);
                 workOrder.WorkOrderDate = dtpWorkOrderDate.Value;
                 workOrder.DeliveryDate = dtpDeliveryDate.Value;
+                workOrder.Discount = 10;
                 workOrder.TotalExvat = Convert.ToDouble(nupTotalexVat.Value);
                 workOrder.TotalIncvat = Convert.ToDouble(nupTotalIncVat.Value);
                 if (nupDiscountPercent.Value > 0)
@@ -292,7 +293,9 @@ namespace SPDM.UI
 
                 workOrder.Status = 1;
                 workOrder.Note = txtNote.Text;
-                List<WorkOrderDetail> workOrderDetails1 =workOrderDetails.ToList();
+                List<WorkOrderDetail> workOrderDetails1 = workOrderDetails.ToList();
+                WorkOrderBLL workOrderBLL = new WorkOrderBLL();
+                workOrderBLL.Save(workOrder, workOrderDetails1);
 
 
             }

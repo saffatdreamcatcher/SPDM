@@ -211,38 +211,63 @@ namespace SPDM.DLL.Repositories
 
                 if (workorder.IsNew)
                 {
-                    comm.CommandText = "INSERT INTO WorkOrder(CreateTime, UpdateTime, UserId, FiscalYear, SaleId, PartyId, " +
-                                       "WorkOrderNo, WorkOrderDate DeliveryDate, TotalExVat, TotalIncVat, Discount, " +
-                                       "DiscountPercent, Vat Percent, " +
-                                       "Status, Note) VALUES(@CreateTime, @UpdateTime, @UserId," +
-                                       "@FiscalYear, @SaleId, @PartyId, @WorkOrderNo, @WorkOrderDate, @DeliveryDate, @TotalExVat," +
-                                       " @TotalIncVat, @Discount, @DiscountPercent, @Vat Percent, " +
-                                       " @Status @Note); SELECT SCOPE_IDENTITY()";
-                    comm.Parameters.Add("@CreateTime", SqlDbType.DateTime).Value = DateTime.Today;
+                    comm.CommandText = "INSERT INTO WorkOrder(CreateTime, UserId, FiscalYear, PartyId, " +
+                                       "WorkOrderNo, WorkOrderDate, DeliveryDate, TotalExVat, TotalIncVat, Discount, " +
+                                       "DiscountPercent, VatPercent, " +
+                                       "Status, Note) VALUES(@CreateTime, @UserId," +
+                                       "@FiscalYear, @PartyId, @WorkOrderNo, @WorkOrderDate, @DeliveryDate, @TotalExVat," +
+                                       " @TotalIncVat, @Discount, @DiscountPercent, @VatPercent, " +
+                                       " @Status, @Note); SELECT SCOPE_IDENTITY()";
+                    comm.Parameters.Add("@CreateTime", SqlDbType.DateTime).Value = DateTime.Now;
                 }
                 else
                 {
-                    comm.CommandText = "Update WorkOrder SET  CreateTime = @CreateTime, UpdateTime =@Updatetime, " +
+                    comm.CommandText = "Update WorkOrder SET UpdateTime =@Updatetime, " +
                                        "UserId = @UserId, FiscalYear = @FiscalYear, " +
                                        "PartyId = @PartyId, WorkOrderNo = @WorkOrderNo, WorkOrderDate = @WorkOrderDate," +
                                        "TotalExVat= @TotalExVat, TotalIncVat = @TotalIncVat, Discount =@Discount," +
-                                       "DiscountPercent = @DiscountPercent, Vat Percent= @VatPercent, " +
+                                       "DiscountPercent = @DiscountPercent, VatPercent= @VatPercent, " +
                                        "DeliveryAddress = @DeliveryAddress, DeliveryDate =  @DeliveryDate, " +
                                        "Status = @Status, Note= @Note WHERE Id = @Id";
                     comm.Parameters.Add("@Id", SqlDbType.Int).Value = workorder.Id;
+                    comm.Parameters.Add("@UpdateTime", SqlDbType.DateTime).Value = DateTime.Now;
                 }
                 comm.Parameters.Add("@UserId", SqlDbType.VarChar).Value = workorder.UserId;
                 comm.Parameters.Add("@FiscalYear", SqlDbType.VarChar).Value = workorder.Fiscalyear;
-                comm.Parameters.Add("@SaleId", SqlDbType.Int).Value = workorder.UserId;
                 comm.Parameters.Add("@PartyId", SqlDbType.Int).Value = workorder.PartyId;
                 comm.Parameters.Add("@WorkOrderNo", SqlDbType.Int).Value = workorder.WorkOrderNo;
                 comm.Parameters.Add("@WorkOrderDate", SqlDbType.DateTime).Value = workorder.WorkOrderDate;
                 comm.Parameters.Add("@DeliveryDate", SqlDbType.DateTime).Value = workorder.DeliveryDate;
                 comm.Parameters.Add("@TotalExVat", SqlDbType.Decimal).Value = workorder.TotalExvat;
                 comm.Parameters.Add("@TotalIncVat", SqlDbType.Decimal).Value = workorder.TotalIncvat;
-                comm.Parameters.Add("@Discount", SqlDbType.Decimal).Value = workorder.Discount;
-                comm.Parameters.Add("@DiscountPercent", SqlDbType.Decimal).Value = workorder.DiscountPercent;
-                comm.Parameters.Add("@VatPercent", SqlDbType.Decimal).Value = workorder.VatPercent;
+
+                if (workorder.Discount.HasValue)
+                {
+                    comm.Parameters.Add("@Discount", SqlDbType.Decimal).Value = workorder.Discount.Value;
+                }
+                else
+                {
+                    comm.Parameters.Add("@Discount", SqlDbType.Decimal).Value = DBNull.Value;
+                }
+
+                if (workorder.DiscountPercent.HasValue)
+                {
+                    comm.Parameters.Add("@DiscountPercent", SqlDbType.Decimal).Value = workorder.DiscountPercent.Value;
+                }
+                else
+                {
+                    comm.Parameters.Add("@DiscountPercent", SqlDbType.Decimal).Value = DBNull.Value;
+                }
+
+                if (workorder.VatPercent.HasValue)
+                {
+                    comm.Parameters.Add("@VatPercent", SqlDbType.Decimal).Value = workorder.VatPercent.Value;
+                }
+                else
+                {
+                    comm.Parameters.Add("@VatPercent", SqlDbType.Decimal).Value = DBNull.Value;
+                }
+
                 comm.Parameters.Add("@Status", SqlDbType.VarChar).Value = workorder.Status;
                 comm.Parameters.Add("@Note", SqlDbType.VarChar).Value = workorder.Note;
 

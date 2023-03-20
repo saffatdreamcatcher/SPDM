@@ -238,36 +238,60 @@ namespace SPDM.DLL.Repositories
 
                 if (workorderdetail.IsNew)
                 {
-                    comm.CommandText = "INSERT INTO Sale(CreateTime, UpdateTime, WorkOrderId, ItemId, Unit, " +
+                    comm.CommandText = "INSERT INTO WorkOrderDetail(CreateTime, WorkOrderId, ItemId, Unit, " +
                                        "UnitPrice, Length, TotalExVat, TotalIncVat, Discount, " +
-                                       "DiscountPercent, Vat Percent, " +
-                                       ") VALUES(@CreateTime, @UpdateTime, @WorkOrderId," +
+                                       "DiscountPercent, VatPercent " +
+                                       ") VALUES(@CreateTime, @WorkOrderId," +
                                        " @ItemId, @Unit, @UnitPrice, @Length, @TotalExVat," +
-                                       " @TotalIncVat, @Discount, @DiscountPercent, @Vat Percent, " +
+                                       " @TotalIncVat, @Discount, @DiscountPercent, @VatPercent " +
                                        "); SELECT SCOPE_IDENTITY()";
-                    comm.Parameters.Add("@CreateTime", SqlDbType.DateTime).Value = DateTime.Today;
+                    comm.Parameters.Add("@CreateTime", SqlDbType.DateTime).Value = DateTime.Now;
                 }
                 else
                 {
-                    comm.CommandText = "Update Sale SET  CreateTime = @CreateTime, UpdateTime =@Updatetime, " +
+                    comm.CommandText = "Update  WorkOrderDetail SET UpdateTime =@Updatetime, " +
                                        "WorkOrderId = @WorkOrderId, " +
                                        "ItemId = @ItemId, Unit = @Unit, UnitPrice = @UnitPrice, Length = @Length ," +
                                        "TotalExVat= @TotalExVat, TotalIncVat = @TotalIncVat, Discount =@Discount," +
-                                       "DiscountPercent = @DiscountPercent, Vat Percent= @VatPercent, " +
-                                       " " +
+                                       "DiscountPercent = @DiscountPercent, VatPercent = @VatPercent " +
                                        " WHERE Id = @Id";
                     comm.Parameters.Add("@Id", SqlDbType.Int).Value = workorderdetail.Id;
+                    comm.Parameters.Add("@UpdateTime", SqlDbType.DateTime).Value = DateTime.Now;
                 }
                 comm.Parameters.Add("@WorkOrderId", SqlDbType.VarChar).Value = workorderdetail.WorkOrderId;
                 comm.Parameters.Add("@ItemId", SqlDbType.Int).Value = workorderdetail.ItemId;
                 comm.Parameters.Add("@Unit", SqlDbType.Int).Value = workorderdetail.Unit;
-                comm.Parameters.Add("@UnitPrice", SqlDbType.Int).Value = workorderdetail.UnitPrice;
-                comm.Parameters.Add("@Length", SqlDbType.DateTime).Value = workorderdetail.Length;
+                comm.Parameters.Add("@UnitPrice", SqlDbType.Decimal).Value = workorderdetail.UnitPrice;
+                comm.Parameters.Add("@Length", SqlDbType.Decimal).Value = workorderdetail.Length;
                 comm.Parameters.Add("@TotalExVat", SqlDbType.Decimal).Value = workorderdetail.TotalExvat;
                 comm.Parameters.Add("@TotalIncVat", SqlDbType.Decimal).Value = workorderdetail.TotalIncvat;
-                comm.Parameters.Add("@Discount", SqlDbType.Decimal).Value = workorderdetail.Discount;
-                comm.Parameters.Add("@DiscountPercent", SqlDbType.Decimal).Value = workorderdetail.DiscountPercent;
-                comm.Parameters.Add("@VatPercent", SqlDbType.Decimal).Value = workorderdetail.VatPercent;
+                if (workorderdetail.Discount.HasValue)
+                {
+                    comm.Parameters.Add("@Discount", SqlDbType.Decimal).Value = workorderdetail.Discount.Value;
+                }
+                else
+                {
+                    comm.Parameters.Add("@Discount", SqlDbType.Decimal).Value = DBNull.Value;
+                }
+
+                if (workorderdetail.DiscountPercent.HasValue)
+                {
+                    comm.Parameters.Add("@DiscountPercent", SqlDbType.Decimal).Value = workorderdetail.DiscountPercent.Value;
+                }
+                else
+                {
+                    comm.Parameters.Add("@DiscountPercent", SqlDbType.Decimal).Value = DBNull.Value;
+                }
+
+                if (workorderdetail.VatPercent.HasValue)
+                {
+                    comm.Parameters.Add("@VatPercent", SqlDbType.Decimal).Value = workorderdetail.VatPercent.Value;
+                }
+                else
+                {
+                    comm.Parameters.Add("@VatPercent", SqlDbType.Decimal).Value = DBNull.Value;
+                }
+                
                 
 
                 if (workorderdetail.IsNew)
