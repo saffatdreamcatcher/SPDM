@@ -43,8 +43,8 @@ namespace SPDM.UI
         {
             gvRole.AutoGenerateColumns = false;
             RoleBLL roleBLL = new RoleBLL();
-            List<Role> category = roleBLL.GetAll();
-            gvRole.DataSource = category;
+            List<Role> roles = roleBLL.GetAll();
+            gvRole.DataSource = roles;
 
         }
 

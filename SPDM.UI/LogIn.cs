@@ -56,6 +56,16 @@ namespace SPDM.UI
                     Global.Userid = user.Id;
                     Global.Username = user.UserName;
                     Global.Isuserlogin = true;
+                    
+                    string where = "UserId = " + Global.Userid;
+                    FiscalYearBLL fiscalYearBLL = new FiscalYearBLL();
+                    List<FiscalYear> fiscalYears = fiscalYearBLL.GetAll(where);
+                    if (fiscalYears.Count > 0)
+                    {
+                        FiscalYear fiscalYear = fiscalYears[0];
+                        Global.FiscalYear = fiscalYear.Year;
+
+                    }
                     ClearField();
                     this.Hide();
                     MainForm mainForm = new MainForm();

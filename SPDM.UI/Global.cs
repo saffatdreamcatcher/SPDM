@@ -16,5 +16,8 @@ namespace SPDM.UI
 
         private static bool isuserlogin;
         public static bool Isuserlogin { get => isuserlogin; set => isuserlogin = value; }
+
+        private static string fiscalYear;
+        public static string  FiscalYear { get => fiscalYear; set => fiscalYear = value; }
     }
 }

@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessLogic\CategoryBLL.cs" />
+    <Compile Include="BusinessLogic\FiscalYearBLL.cs" />
     <Compile Include="BusinessLogic\ItemBLL.cs" />
     <Compile Include="BusinessLogic\PartyBLL.cs" />
     <Compile Include="BusinessLogic\PaymentBLL.cs" />

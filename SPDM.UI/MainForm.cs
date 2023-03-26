@@ -144,6 +144,17 @@ namespace SPDM.UI
             myForm.Show();
         }
 
+        private void fiscalYearToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CloseAllForms();
+            frmFiscalYear myForm = new frmFiscalYear();
+            myForm.TopLevel = false;
+            myForm.AutoScroll = true;
+            pForm.Controls.Add(myForm);
+            myForm.WindowState = FormWindowState.Maximized;
+            myForm.Show();
+        }
+
 
 
 

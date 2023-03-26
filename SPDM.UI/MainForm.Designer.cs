@@ -52,6 +52,7 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pForm = new System.Windows.Forms.Panel();
+            this.fiscalYearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -131,7 +132,8 @@
             this.setUpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.categoryToolStripMenuItem,
             this.itemToolStripMenuItem,
-            this.partyToolStripMenuItem});
+            this.partyToolStripMenuItem,
+            this.fiscalYearToolStripMenuItem});
             this.setUpToolStripMenuItem.Name = "setUpToolStripMenuItem";
             this.setUpToolStripMenuItem.Size = new System.Drawing.Size(67, 24);
             this.setUpToolStripMenuItem.Text = "Set Up";
@@ -172,32 +174,32 @@
             // workOrderToolStripMenuItem
             // 
             this.workOrderToolStripMenuItem.Name = "workOrderToolStripMenuItem";
-            this.workOrderToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.workOrderToolStripMenuItem.Size = new System.Drawing.Size(168, 26);
             this.workOrderToolStripMenuItem.Text = "Work Order";
             this.workOrderToolStripMenuItem.Click += new System.EventHandler(this.workOrderToolStripMenuItem_Click);
             // 
             // productionToolStripMenuItem
             // 
             this.productionToolStripMenuItem.Name = "productionToolStripMenuItem";
-            this.productionToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.productionToolStripMenuItem.Size = new System.Drawing.Size(168, 26);
             this.productionToolStripMenuItem.Text = "Production";
             // 
             // stockToolStripMenuItem
             // 
             this.stockToolStripMenuItem.Name = "stockToolStripMenuItem";
-            this.stockToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.stockToolStripMenuItem.Size = new System.Drawing.Size(168, 26);
             this.stockToolStripMenuItem.Text = "Stock";
             // 
             // saleToolStripMenuItem
             // 
             this.saleToolStripMenuItem.Name = "saleToolStripMenuItem";
-            this.saleToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.saleToolStripMenuItem.Size = new System.Drawing.Size(168, 26);
             this.saleToolStripMenuItem.Text = "Sale";
             // 
             // paymentToolStripMenuItem
             // 
             this.paymentToolStripMenuItem.Name = "paymentToolStripMenuItem";
-            this.paymentToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.paymentToolStripMenuItem.Size = new System.Drawing.Size(168, 26);
             this.paymentToolStripMenuItem.Text = "Payment";
             // 
             // reportToolStripMenuItem
@@ -244,6 +246,13 @@
             this.pForm.TabIndex = 1;
             this.pForm.Paint += new System.Windows.Forms.PaintEventHandler(this.pForm_Paint);
             // 
+            // fiscalYearToolStripMenuItem
+            // 
+            this.fiscalYearToolStripMenuItem.Name = "fiscalYearToolStripMenuItem";
+            this.fiscalYearToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.fiscalYearToolStripMenuItem.Text = "Fiscal Year";
+            this.fiscalYearToolStripMenuItem.Click += new System.EventHandler(this.fiscalYearToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -289,6 +298,7 @@
         private System.Windows.Forms.ToolStripMenuItem userToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem itemToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem partyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fiscalYearToolStripMenuItem;
     }
 }
 

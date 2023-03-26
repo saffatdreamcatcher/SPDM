@@ -31,6 +31,8 @@ namespace SPDM.UI
             LoadItem();
             LoadParty();
             txtStatus.Text = WorkOderStatus.Placed.ToString();
+            txtFiscalYear.Text = Global.FiscalYear;
+
         }
 
         private void gvWorkOrderDetail_CellClick(object sender, DataGridViewCellEventArgs e)
