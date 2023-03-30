@@ -29,6 +29,16 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.btnAddNew = new System.Windows.Forms.Button();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.workOrderBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -51,12 +61,14 @@
             this.colIsNew = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCreateTime = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gcEdit = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gcDelete = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemHyperLinkEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit();
+            this.gcDelete = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemHyperLinkEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.workOrderBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit2)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAddNew
@@ -80,7 +92,8 @@
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemHyperLinkEdit1});
+            this.repositoryItemHyperLinkEdit1,
+            this.repositoryItemHyperLinkEdit2});
             this.gridControl1.Size = new System.Drawing.Size(1175, 357);
             this.gridControl1.TabIndex = 2;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -270,26 +283,39 @@
             this.gcEdit.VisibleIndex = 10;
             this.gcEdit.Width = 94;
             // 
+            // repositoryItemHyperLinkEdit1
+            // 
+            this.repositoryItemHyperLinkEdit1.AutoHeight = false;
+            this.repositoryItemHyperLinkEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Edit", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.repositoryItemHyperLinkEdit1.Caption = "Edit";
+            this.repositoryItemHyperLinkEdit1.ExportMode = DevExpress.XtraEditors.Repository.ExportMode.Value;
+            this.repositoryItemHyperLinkEdit1.Name = "repositoryItemHyperLinkEdit1";
+            this.repositoryItemHyperLinkEdit1.NullText = "Edit";
+            this.repositoryItemHyperLinkEdit1.NullValuePrompt = "Edit";
+            this.repositoryItemHyperLinkEdit1.Tag = "Edit";
+            this.repositoryItemHyperLinkEdit1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            // 
             // gcDelete
             // 
             this.gcDelete.Caption = "Delete";
+            this.gcDelete.ColumnEdit = this.repositoryItemHyperLinkEdit2;
             this.gcDelete.MinWidth = 25;
             this.gcDelete.Name = "gcDelete";
             this.gcDelete.Visible = true;
             this.gcDelete.VisibleIndex = 11;
             this.gcDelete.Width = 94;
             // 
-            // repositoryItemHyperLinkEdit1
+            // repositoryItemHyperLinkEdit2
             // 
-            this.repositoryItemHyperLinkEdit1.AutoHeight = false;
-            this.repositoryItemHyperLinkEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph)});
-            this.repositoryItemHyperLinkEdit1.Caption = "Edit";
-            this.repositoryItemHyperLinkEdit1.ExportMode = DevExpress.XtraEditors.Repository.ExportMode.Value;
-            this.repositoryItemHyperLinkEdit1.Name = "repositoryItemHyperLinkEdit1";
-            this.repositoryItemHyperLinkEdit1.NullText = "Edit";
-            this.repositoryItemHyperLinkEdit1.NullValuePrompt = "Edit";
-            this.repositoryItemHyperLinkEdit1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.repositoryItemHyperLinkEdit2.AutoHeight = false;
+            this.repositoryItemHyperLinkEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Delete", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.repositoryItemHyperLinkEdit2.ExportMode = DevExpress.XtraEditors.Repository.ExportMode.Value;
+            this.repositoryItemHyperLinkEdit2.Name = "repositoryItemHyperLinkEdit2";
+            this.repositoryItemHyperLinkEdit2.NullText = "Delete";
+            this.repositoryItemHyperLinkEdit2.NullValuePrompt = "Delete";
+            this.repositoryItemHyperLinkEdit2.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
             // frmWorkOrderList
             // 
@@ -305,6 +331,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.workOrderBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -334,5 +361,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gcEdit;
         private DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit repositoryItemHyperLinkEdit1;
         private DevExpress.XtraGrid.Columns.GridColumn gcDelete;
+        private DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit repositoryItemHyperLinkEdit2;
     }
 }
