@@ -34,8 +34,8 @@ namespace SPDM.DLL.Entities
         private string description;
         public string Description { get => description; set => description = value; }
 
-        private int unit;
-        public int Unit { get => unit; set => unit = value; }
+        private double unit;
+        public double Unit { get => unit; set => unit = value; }
 
         private double price;
         public double Price { get => price; set => price = value; }

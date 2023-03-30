@@ -52,6 +52,7 @@ namespace SPDM.UI
                 bool isExist = userBLL.UserExist(txtUserName.Text, txtPassword.Text);
                 if (isExist)
                 {
+                    //logIn Successful
                     User user = userBLL.GetByName(txtUserName.Text);
                     Global.Userid = user.Id;
                     Global.Username = user.UserName;
@@ -75,6 +76,7 @@ namespace SPDM.UI
                 }
                 else
                 {
+                    //logIn Failed
                     lblValidation.Text = "User Name and Password are invalid.";
                 }
             }

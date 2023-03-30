@@ -58,7 +58,7 @@ namespace SPDM.UI
                 int itemId = Convert.ToInt32(cmoItemId.SelectedValue);
                 ItemBLL itemBLL = new ItemBLL();
                 Item item = itemBLL.GetById(itemId);
-                nupUnit.Value = item.Unit;
+                nupUnit.Value = Convert.ToDecimal(item.Unit);
                 nupUnitPrice.Value = Convert.ToDecimal(item.Price);
                 nupVatPercent1.Value = Convert.ToDecimal(item.VatRate);
             }

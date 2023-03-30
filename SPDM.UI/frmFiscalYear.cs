@@ -23,13 +23,15 @@ namespace SPDM.UI
         private void LoadFiscalYear()
         {
 
-
+            // ComboBox Item Created And Shown
             for (int i = 2000; i <= DateTime.Now.Year + 5; i++)
             {
                 string fy = "June-July/" + i;
                 comboBox1.Items.Add(fy);
             }
 
+            // Get FiscalYear Of Current LoggedIn User And Assign It To ComboBox
+            // FiscalYear.Id Is Assigned To fiscalYearId
             string where = "UserId = " + Global.Userid;
             FiscalYearBLL fiscalYearBLL = new FiscalYearBLL();
             List<FiscalYear> fiscalYears = fiscalYearBLL.GetAll(where);
@@ -40,7 +42,6 @@ namespace SPDM.UI
                 fiscalYearId = fiscalYear.Id;
 
             }
-
 
         }
 
