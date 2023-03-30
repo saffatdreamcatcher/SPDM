@@ -61,8 +61,16 @@ namespace SPDM.DLL.Repositories
                     {
                         int id = Convert.ToInt32(reader["id"]);
                         DateTime createTime = Convert.ToDateTime(reader["CreateTime"]);
-                        DateTime Updatetime = Convert.ToDateTime(reader["UpdateTime"]);
                         WorkOrder workorder = new WorkOrder(id, createTime);
+                        if (reader["UpdateTime"] is DBNull)
+                        {
+                            workorder.UpdateTime = null;
+                        }
+                        else
+                        {
+                            workorder.UpdateTime = Convert.ToDateTime(reader["UpdateTime"]);
+                        }
+                        
                         workorder.UserId = Convert.ToInt32(reader["UserId"]);
                         workorder.WorkOrderNo = reader["WorkOrderNo"].ToString();
                         workorder.Fiscalyear = reader["FiscalYear"].ToString();
@@ -82,7 +90,7 @@ namespace SPDM.DLL.Repositories
                             workorder.VatPercent = Convert.ToDouble(reader["VatPercent"]); 
                         }
 
-                        workorder.Status = Convert.ToInt32(reader["Note"] is DBNull ? null : reader["Note"]);
+                        workorder.Status = Convert.ToInt32(reader["Status"]);
                         workorder.Note = reader["Note"] is DBNull ? null : reader["Note"].ToString();
                         workorders.Add(workorder);
                     }

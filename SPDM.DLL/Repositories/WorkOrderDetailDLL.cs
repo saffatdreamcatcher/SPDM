@@ -55,20 +55,29 @@ namespace SPDM.DLL.Repositories
                 conn.Open();
 
                 SqlCommand comm = conn.CreateCommand();
-                comm.CommandText = "Select * from WorkOrderDetail" + whereClause;
+                comm.CommandText = "Select * from WorkOrderDetail " + whereClause;
                 using (SqlDataReader reader = comm.ExecuteReader())
                 {
                     while (reader != null && reader.Read())
                     {
                         int id = Convert.ToInt32(reader["id"]);
+                        
                         DateTime createTime = Convert.ToDateTime(reader["CreateTime"]);
-                        DateTime Updatetime = Convert.ToDateTime(reader["UpdateTime"]);
                         WorkOrderDetail workorderdetail = new WorkOrderDetail(id, createTime);
-                        workorderdetail.ItemId = Convert.ToInt32(reader["UserId"]);
-                        workorderdetail.WorkOrderId = Convert.ToInt32(reader["WorkOrderNo"]);
+                        if (reader["UpdateTime"] is DBNull)
+                        {
+                            workorderdetail.UpdateTime = null;
+                        }
+                        else
+                        {
+                            workorderdetail.UpdateTime = Convert.ToDateTime(reader["UpdateTime"]);
+                        }
+                        
+                        workorderdetail.ItemId = Convert.ToInt32(reader["ItemId"]);
+                        workorderdetail.WorkOrderId = Convert.ToInt32(reader["WorkOrderId"]);
                         workorderdetail.Unit = Convert.ToInt32(reader["Unit"]);
                         workorderdetail.UnitPrice = Convert.ToInt32(reader["UnitPrice"]);
-                        workorderdetail.Length = Convert.ToDouble(reader["DeliveryDate"]);
+                        workorderdetail.Length = Convert.ToDouble(reader["Length"]);
                         workorderdetail.TotalExvat = Convert.ToDouble(reader["TotalExVat"]);
                         workorderdetail.TotalIncvat = Convert.ToDouble(reader["TotalIncVat"]);
 
