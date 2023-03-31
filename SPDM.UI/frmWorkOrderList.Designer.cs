@@ -98,6 +98,7 @@
             this.gridControl1.TabIndex = 2;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            
             // 
             // workOrderBindingSource
             // 
@@ -295,6 +296,7 @@
             this.repositoryItemHyperLinkEdit1.NullValuePrompt = "Edit";
             this.repositoryItemHyperLinkEdit1.Tag = "Edit";
             this.repositoryItemHyperLinkEdit1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.repositoryItemHyperLinkEdit1.ButtonPressed += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repositoryItemHyperLinkEdit1_ButtonPressed);
             // 
             // gcDelete
             // 
@@ -316,6 +318,7 @@
             this.repositoryItemHyperLinkEdit2.NullText = "Delete";
             this.repositoryItemHyperLinkEdit2.NullValuePrompt = "Delete";
             this.repositoryItemHyperLinkEdit2.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.repositoryItemHyperLinkEdit2.ButtonPressed += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repositoryItemHyperLinkEdit2_ButtonPressed);
             // 
             // frmWorkOrderList
             // 

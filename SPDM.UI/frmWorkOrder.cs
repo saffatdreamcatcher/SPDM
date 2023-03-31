@@ -26,6 +26,12 @@ namespace SPDM.UI
             InitializeComponent();
         }
 
+        public void ShowDialog(int workOrderId)
+        {
+            workorderdId = workOrderId;
+            this.ShowDialog();
+            
+        }
         private void frmWorkOrder_Load(object sender, EventArgs e)
         {
             LoadItem();

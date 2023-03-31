@@ -73,5 +73,19 @@ namespace SPDM.UI
         {
             e.RelationCount = 1;
         }
+
+        private void repositoryItemHyperLinkEdit1_ButtonPressed(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            int workOrderId = Convert.ToInt32(gridView1.GetFocusedRowCellValue("Id"));
+            frmWorkOrder frmWorkOrder = new frmWorkOrder();
+            frmWorkOrder.ShowDialog(workOrderId);
+        }
+
+        private void repositoryItemHyperLinkEdit2_ButtonPressed(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            string workOrderId = gridView1.GetFocusedRowCellValue("Id").ToString();
+        }
+
+       
     }
 }
