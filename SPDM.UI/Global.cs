@@ -19,5 +19,6 @@ namespace SPDM.UI
 
         private static string fiscalYear;
         public static string  FiscalYear { get => fiscalYear; set => fiscalYear = value; }
+
     }
 }

@@ -15,6 +15,7 @@ namespace SPDM.UI
 {
     public partial class frmWorkOrderList : Form
     {
+
         public frmWorkOrderList()
         {
             InitializeComponent();

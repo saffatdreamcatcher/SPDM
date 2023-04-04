@@ -34,6 +34,7 @@ namespace SPDM.UI
         }
         private void frmWorkOrder_Load(object sender, EventArgs e)
         {
+            string where = "UserId = " + Global.Userid;
             LoadItem();
             LoadParty();
             txtStatus.Text = WorkOderStatus.Placed.ToString();
