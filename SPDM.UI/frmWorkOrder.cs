@@ -34,11 +34,27 @@ namespace SPDM.UI
         }
         private void frmWorkOrder_Load(object sender, EventArgs e)
         {
-            string where = "UserId = " + Global.Userid;
+            
             LoadItem();
             LoadParty();
             txtStatus.Text = WorkOderStatus.Placed.ToString();
             txtFiscalYear.Text = Global.FiscalYear;
+            if (workorderdId > 0)
+            {
+                WorkOrderBLL workOrderBLL = new WorkOrderBLL();
+                WorkOrder workOrder = workOrderBLL.GetById(workorderdId);
+                txtWorkOrderNo.Text = workOrder.WorkOrderNo;
+                txtFiscalYear.Text = workOrder.Fiscalyear;
+                cmoPartyId.SelectedValue = workOrder.PartyId;
+                dtpWorkOrderDate.Value = workOrder.WorkOrderDate;
+                dtpDeliveryDate.Value = workOrder.DeliveryDate;
+                nupDiscountPercent.Value = workOrder.DiscountPercent.HasValue? Convert.ToDecimal(workOrder.DiscountPercent.Value) : 0;
+                nupVatPercent.Value = workOrder.VatPercent.HasValue? Convert.ToDecimal(workOrder.VatPercent.Value) : 0;
+                txtStatus.Text = workOrder.Status.ToString();
+                txtNote.Text = workOrder.Note;
+
+
+            }
 
         }
 
