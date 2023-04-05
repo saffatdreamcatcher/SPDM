@@ -50,11 +50,19 @@ namespace SPDM.UI
                 dtpDeliveryDate.Value = workOrder.DeliveryDate;
                 nupDiscountPercent.Value = workOrder.DiscountPercent.HasValue? Convert.ToDecimal(workOrder.DiscountPercent.Value) : 0;
                 nupVatPercent.Value = workOrder.VatPercent.HasValue? Convert.ToDecimal(workOrder.VatPercent.Value) : 0;
+                nupTotalexVat.Value = Convert.ToDecimal(workOrder.TotalExvat);
+                nupTotalIncVat.Value = Convert.ToDecimal(workOrder.TotalIncvat);
                 txtStatus.Text = workOrder.Status.ToString();
                 txtNote.Text = workOrder.Note;
 
+                string where = "workorderId= " + workorderdId;
+                WorkOrderDetailBLL workOrderDetailBLL = new WorkOrderDetailBLL();
+                List<WorkOrderDetail> workOrderDetails = workOrderDetailBLL.GetAll(where);
 
+                //workOrderDetails = new BindingList<WorkOrderDetail>(workOrderDetails);
             }
+
+            
 
         }
 
