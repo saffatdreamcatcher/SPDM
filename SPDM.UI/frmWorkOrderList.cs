@@ -84,7 +84,26 @@ namespace SPDM.UI
 
         private void repositoryItemHyperLinkEdit2_ButtonPressed(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            string workOrderId = gridView1.GetFocusedRowCellValue("Id").ToString();
+            if (MessageBox.Show("Are you sure you want to delete?", "Confirmation",MessageBoxButtons.YesNo, MessageBoxIcon.Question,MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+            {
+                int workOrderId = Convert.ToInt32(gridView1.GetFocusedRowCellValue("Id"));
+                string where = "workorderId= " + workOrderId;
+                WorkOrderDetailBLL workOrderDetailBLL = new WorkOrderDetailBLL();
+                List<WorkOrderDetail> workOrderDetails = workOrderDetailBLL.GetAll(where);
+                foreach (WorkOrderDetail workOrderDetail in workOrderDetails)
+                {
+                    workOrderDetailBLL.Delete(workOrderDetail.Id);
+                }
+
+                //for (int i = 0; i < workOrderDetails.Count; i++)
+                //{
+                //    workOrderDetailBLL.Delete(workOrderDetails[i].Id);
+                //}
+                WorkOrderBLL workOrderBLL = new WorkOrderBLL();
+                workOrderBLL.Delete(workOrderId);
+                LoadWorkOrder();
+            }
+            
         }
 
        

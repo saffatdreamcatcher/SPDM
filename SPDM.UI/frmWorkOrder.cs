@@ -57,9 +57,13 @@ namespace SPDM.UI
 
                 string where = "workorderId= " + workorderdId;
                 WorkOrderDetailBLL workOrderDetailBLL = new WorkOrderDetailBLL();
-                List<WorkOrderDetail> workOrderDetails = workOrderDetailBLL.GetAll(where);
+                List<WorkOrderDetail> workOrderDetails1 = workOrderDetailBLL.GetAll(where);
 
-                //workOrderDetails = new BindingList<WorkOrderDetail>(workOrderDetails);
+                workOrderDetails = new BindingList<WorkOrderDetail>(workOrderDetails1);
+                gvWorkOrderDetail.DataSource = workOrderDetails;
+
+
+
             }
 
             
