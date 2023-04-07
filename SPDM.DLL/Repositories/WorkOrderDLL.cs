@@ -242,7 +242,7 @@ namespace SPDM.DLL.Repositories
                                        "PartyId = @PartyId, WorkOrderNo = @WorkOrderNo, WorkOrderDate = @WorkOrderDate," +
                                        "TotalExVat= @TotalExVat, TotalIncVat = @TotalIncVat, Discount =@Discount," +
                                        "DiscountPercent = @DiscountPercent, VatPercent= @VatPercent, " +
-                                       "DeliveryAddress = @DeliveryAddress, DeliveryDate =  @DeliveryDate, " +
+                                       "DeliveryDate =  @DeliveryDate, " +
                                        "Status = @Status, Note= @Note WHERE Id = @Id";
                     comm.Parameters.Add("@Id", SqlDbType.Int).Value = workorder.Id;
                     comm.Parameters.Add("@UpdateTime", SqlDbType.DateTime).Value = DateTime.Now;

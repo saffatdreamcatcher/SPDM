@@ -77,7 +77,7 @@ namespace SPDM.UI
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-            ClearField();
+            ClearWorkOrderDetailFields();
         }
 
         private void btnAddNew_Click(object sender, EventArgs e)
@@ -138,7 +138,7 @@ namespace SPDM.UI
                 gvWorkOrderDetail.DataSource = workOrderDetails;
                 gvWorkOrderDetail.Refresh();
                 CalculateTotalPrice();
-                ClearField();
+                ClearWorkOrderDetailFields();
 
             }
         }
@@ -250,7 +250,7 @@ namespace SPDM.UI
 
         }
         
-        private void ClearField()
+        private void ClearWorkOrderDetailFields()
         {
             cmoItemId.SelectedValue = -1;
             nupUnit.Value = 0;
@@ -259,6 +259,13 @@ namespace SPDM.UI
             nupDiscountPercent1.Value = 0;
             nupVatPercent1.Value = 0;
             editIndex = -1;
+        }
+
+        private void ClearWorkOrderFields()
+        {
+            workOrderDetails.Clear();
+            gvWorkOrderDetail.DataSource = workOrderDetails;
+            gvWorkOrderDetail.Refresh();
         }
 
         private void CalculateTotalPrice()
@@ -309,6 +316,7 @@ namespace SPDM.UI
             if (isValid)
             {
                 WorkOrder workOrder = new WorkOrder();
+                workOrder.Id = workorderdId;
                 workOrder.UserId = Global.Userid;
                 workOrder.WorkOrderNo = txtWorkOrderNo.Text;
                 workOrder.Fiscalyear = txtFiscalYear.Text;
@@ -333,7 +341,7 @@ namespace SPDM.UI
                 List<WorkOrderDetail> workOrderDetails1 = workOrderDetails.ToList();
                 WorkOrderBLL workOrderBLL = new WorkOrderBLL();
                 workOrderBLL.Save(workOrder, workOrderDetails1);
-
+                ClearWorkOrderFields();
 
             }
   

@@ -14,10 +14,34 @@ namespace SPDM.BLL.BusinessLogic
         {
             try
             {
+                bool isFound = false;
                 WorkOrderDLL workorderDLL = new WorkOrderDLL();
                 WorkOrderDetailDLL workorderDetailDLL = new WorkOrderDetailDLL();
-                 
+                List<WorkOrderDetail> oldWorkOrderDetailList = new List<WorkOrderDetail>();
+                if(workorder.IsNew)
+                {
+                    string where = "workorderId= " + workorder.Id;
+                    WorkOrderDetailBLL workOrderDetailBLL = new WorkOrderDetailBLL();
+                    oldWorkOrderDetailList = workOrderDetailBLL.GetAll(where);
+                }
                 workorderDLL.Save(workorder);
+
+                foreach (WorkOrderDetail oldWorkOrderDetail in oldWorkOrderDetailList)
+                {
+                    foreach(WorkOrderDetail workOrderDetail in workOrderDetails)
+                    {
+                        if(oldWorkOrderDetail.Id == workOrderDetail.Id)
+                        {
+                            isFound = true;
+                            break;  
+                        }
+                    }
+                    if(!isFound)
+                    {
+                        workorderDetailDLL.Delete(oldWorkOrderDetail.Id);
+                    }
+                }
+
                 foreach (WorkOrderDetail detail in workOrderDetails)
                 {
                     detail.WorkOrderId = workorder.Id;

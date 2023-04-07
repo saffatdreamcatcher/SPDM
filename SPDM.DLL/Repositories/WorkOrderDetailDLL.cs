@@ -55,7 +55,8 @@ namespace SPDM.DLL.Repositories
                 conn.Open();
 
                 SqlCommand comm = conn.CreateCommand();
-                comm.CommandText = "Select * from WorkOrderDetail " + whereClause;
+                comm.CommandText = "Select WorkOrderDetail.*, Item.Name AS ItemName from WorkOrderDetail " +
+                                     "inner join Item on WorkOrderDetail.ItemId = Item.Id " + whereClause;
                 using (SqlDataReader reader = comm.ExecuteReader())
                 {
                     while (reader != null && reader.Read())
@@ -108,8 +109,8 @@ namespace SPDM.DLL.Repositories
                         {
                             workorderdetail.VatPercent = Convert.ToDouble(reader["VatPercent"]);
                         }
+                        workorderdetail.ItemName = reader["ItemName"].ToString();
 
-                        
                         workorders.Add(workorderdetail);
                     }
                 }
@@ -139,7 +140,8 @@ namespace SPDM.DLL.Repositories
                 conn.Open();
 
                 SqlCommand comm = conn.CreateCommand();
-                comm.CommandText = "Select * from WorkOrderDetail where id = " + id;
+                comm.CommandText = "Select WorkOrderDetail.*, Item.Name AS ItemName from WorkOrderDetail " +
+                                   "inner join Item on WorkOrderDetail.ItemId = Item.Id where WorkOrderDetail.Id =" + id;
                 using (SqlDataReader reader = comm.ExecuteReader())
                 {
                     while (reader != null && reader.Read())
@@ -182,6 +184,8 @@ namespace SPDM.DLL.Repositories
                         {
                             workorderdetail.VatPercent = Convert.ToDouble(reader["VatPercent"]);
                         }
+
+                        workorderdetail.ItemName = reader["ItemName"].ToString();
                     }
                 }
 
