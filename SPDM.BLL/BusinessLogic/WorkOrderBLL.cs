@@ -18,7 +18,7 @@ namespace SPDM.BLL.BusinessLogic
                 WorkOrderDLL workorderDLL = new WorkOrderDLL();
                 WorkOrderDetailDLL workorderDetailDLL = new WorkOrderDetailDLL();
                 List<WorkOrderDetail> oldWorkOrderDetailList = new List<WorkOrderDetail>();
-                if(workorder.IsNew)
+                if(!workorder.IsNew)
                 {
                     string where = "workorderId= " + workorder.Id;
                     WorkOrderDetailBLL workOrderDetailBLL = new WorkOrderDetailBLL();
@@ -28,7 +28,8 @@ namespace SPDM.BLL.BusinessLogic
 
                 foreach (WorkOrderDetail oldWorkOrderDetail in oldWorkOrderDetailList)
                 {
-                    foreach(WorkOrderDetail workOrderDetail in workOrderDetails)
+                    isFound = false;
+                    foreach (WorkOrderDetail workOrderDetail in workOrderDetails)
                     {
                         if(oldWorkOrderDetail.Id == workOrderDetail.Id)
                         {

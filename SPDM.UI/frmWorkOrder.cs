@@ -41,33 +41,34 @@ namespace SPDM.UI
             txtFiscalYear.Text = Global.FiscalYear;
             if (workorderdId > 0)
             {
-                WorkOrderBLL workOrderBLL = new WorkOrderBLL();
-                WorkOrder workOrder = workOrderBLL.GetById(workorderdId);
-                txtWorkOrderNo.Text = workOrder.WorkOrderNo;
-                txtFiscalYear.Text = workOrder.Fiscalyear;
-                cmoPartyId.SelectedValue = workOrder.PartyId;
-                dtpWorkOrderDate.Value = workOrder.WorkOrderDate;
-                dtpDeliveryDate.Value = workOrder.DeliveryDate;
-                nupDiscountPercent.Value = workOrder.DiscountPercent.HasValue? Convert.ToDecimal(workOrder.DiscountPercent.Value) : 0;
-                nupVatPercent.Value = workOrder.VatPercent.HasValue? Convert.ToDecimal(workOrder.VatPercent.Value) : 0;
-                nupTotalexVat.Value = Convert.ToDecimal(workOrder.TotalExvat);
-                nupTotalIncVat.Value = Convert.ToDecimal(workOrder.TotalIncvat);
-                txtStatus.Text = workOrder.Status.ToString();
-                txtNote.Text = workOrder.Note;
-
-                string where = "workorderId= " + workorderdId;
-                WorkOrderDetailBLL workOrderDetailBLL = new WorkOrderDetailBLL();
-                List<WorkOrderDetail> workOrderDetails1 = workOrderDetailBLL.GetAll(where);
-
-                workOrderDetails = new BindingList<WorkOrderDetail>(workOrderDetails1);
-                gvWorkOrderDetail.DataSource = workOrderDetails;
-
-
+                LoadOldWorkOrderWithDetails();
 
             }
 
-            
+        }
 
+        private void LoadOldWorkOrderWithDetails()
+        {
+            WorkOrderBLL workOrderBLL = new WorkOrderBLL();
+            WorkOrder workOrder = workOrderBLL.GetById(workorderdId);
+            txtWorkOrderNo.Text = workOrder.WorkOrderNo;
+            txtFiscalYear.Text = workOrder.Fiscalyear;
+            cmoPartyId.SelectedValue = workOrder.PartyId;
+            dtpWorkOrderDate.Value = workOrder.WorkOrderDate;
+            dtpDeliveryDate.Value = workOrder.DeliveryDate;
+            nupDiscountPercent.Value = workOrder.DiscountPercent.HasValue ? Convert.ToDecimal(workOrder.DiscountPercent.Value) : 0;
+            nupVatPercent.Value = workOrder.VatPercent.HasValue ? Convert.ToDecimal(workOrder.VatPercent.Value) : 0;
+            nupTotalexVat.Value = Convert.ToDecimal(workOrder.TotalExvat);
+            nupTotalIncVat.Value = Convert.ToDecimal(workOrder.TotalIncvat);
+            txtStatus.Text = workOrder.Status.ToString();
+            txtNote.Text = workOrder.Note;
+
+            string where = "workorderId= " + workorderdId;
+            WorkOrderDetailBLL workOrderDetailBLL = new WorkOrderDetailBLL();
+            List<WorkOrderDetail> workOrderDetails1 = workOrderDetailBLL.GetAll(where);
+
+            workOrderDetails = new BindingList<WorkOrderDetail>(workOrderDetails1);
+            gvWorkOrderDetail.DataSource = workOrderDetails;
         }
 
         private void gvWorkOrderDetail_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -263,6 +264,18 @@ namespace SPDM.UI
 
         private void ClearWorkOrderFields()
         {
+            workorderdId = 0;
+            txtWorkOrderNo.Text = String.Empty;
+            txtFiscalYear.Text = String.Empty;
+            cmoPartyId.SelectedValue = -1;
+            dtpWorkOrderDate.Value = DateTime.Today;
+            dtpDeliveryDate.Value = DateTime.Today;
+            nupDiscountPercent.Value = 0;
+            nupVatPercent.Value = 0;
+            nupTotalexVat.Value = 0;
+            nupTotalIncVat.Value = 0;
+            txtStatus.Text = WorkOderStatus.Placed.ToString();
+            txtNote.Text = String.Empty;
             workOrderDetails.Clear();
             gvWorkOrderDetail.DataSource = workOrderDetails;
             gvWorkOrderDetail.Refresh();
