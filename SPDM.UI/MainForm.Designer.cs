@@ -40,6 +40,7 @@
             this.categoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.itemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.partyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fiscalYearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.transactionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.workOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.productionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,7 +53,6 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pForm = new System.Windows.Forms.Panel();
-            this.fiscalYearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -116,14 +116,14 @@
             // roleToolStripMenuItem1
             // 
             this.roleToolStripMenuItem1.Name = "roleToolStripMenuItem1";
-            this.roleToolStripMenuItem1.Size = new System.Drawing.Size(122, 26);
+            this.roleToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
             this.roleToolStripMenuItem1.Text = "Role";
             this.roleToolStripMenuItem1.Click += new System.EventHandler(this.roleToolStripMenuItem1_Click);
             // 
             // userToolStripMenuItem1
             // 
             this.userToolStripMenuItem1.Name = "userToolStripMenuItem1";
-            this.userToolStripMenuItem1.Size = new System.Drawing.Size(122, 26);
+            this.userToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
             this.userToolStripMenuItem1.Text = "User";
             this.userToolStripMenuItem1.Click += new System.EventHandler(this.userToolStripMenuItem1_Click);
             // 
@@ -159,6 +159,13 @@
             this.partyToolStripMenuItem.Text = "Party";
             this.partyToolStripMenuItem.Click += new System.EventHandler(this.partyToolStripMenuItem_Click);
             // 
+            // fiscalYearToolStripMenuItem
+            // 
+            this.fiscalYearToolStripMenuItem.Name = "fiscalYearToolStripMenuItem";
+            this.fiscalYearToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.fiscalYearToolStripMenuItem.Text = "Fiscal Year";
+            this.fiscalYearToolStripMenuItem.Click += new System.EventHandler(this.fiscalYearToolStripMenuItem_Click);
+            // 
             // transactionToolStripMenuItem
             // 
             this.transactionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -174,32 +181,32 @@
             // workOrderToolStripMenuItem
             // 
             this.workOrderToolStripMenuItem.Name = "workOrderToolStripMenuItem";
-            this.workOrderToolStripMenuItem.Size = new System.Drawing.Size(168, 26);
+            this.workOrderToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.workOrderToolStripMenuItem.Text = "Work Order";
             this.workOrderToolStripMenuItem.Click += new System.EventHandler(this.workOrderToolStripMenuItem_Click);
             // 
             // productionToolStripMenuItem
             // 
             this.productionToolStripMenuItem.Name = "productionToolStripMenuItem";
-            this.productionToolStripMenuItem.Size = new System.Drawing.Size(168, 26);
+            this.productionToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.productionToolStripMenuItem.Text = "Production";
             // 
             // stockToolStripMenuItem
             // 
             this.stockToolStripMenuItem.Name = "stockToolStripMenuItem";
-            this.stockToolStripMenuItem.Size = new System.Drawing.Size(168, 26);
+            this.stockToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.stockToolStripMenuItem.Text = "Stock";
             // 
             // saleToolStripMenuItem
             // 
             this.saleToolStripMenuItem.Name = "saleToolStripMenuItem";
-            this.saleToolStripMenuItem.Size = new System.Drawing.Size(168, 26);
+            this.saleToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.saleToolStripMenuItem.Text = "Sale";
             // 
             // paymentToolStripMenuItem
             // 
             this.paymentToolStripMenuItem.Name = "paymentToolStripMenuItem";
-            this.paymentToolStripMenuItem.Size = new System.Drawing.Size(168, 26);
+            this.paymentToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.paymentToolStripMenuItem.Text = "Payment";
             // 
             // reportToolStripMenuItem
@@ -245,13 +252,6 @@
             this.pForm.Size = new System.Drawing.Size(800, 422);
             this.pForm.TabIndex = 1;
             this.pForm.Paint += new System.Windows.Forms.PaintEventHandler(this.pForm_Paint);
-            // 
-            // fiscalYearToolStripMenuItem
-            // 
-            this.fiscalYearToolStripMenuItem.Name = "fiscalYearToolStripMenuItem";
-            this.fiscalYearToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.fiscalYearToolStripMenuItem.Text = "Fiscal Year";
-            this.fiscalYearToolStripMenuItem.Click += new System.EventHandler(this.fiscalYearToolStripMenuItem_Click);
             // 
             // MainForm
             // 

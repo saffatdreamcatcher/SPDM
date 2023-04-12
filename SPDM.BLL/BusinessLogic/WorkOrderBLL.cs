@@ -110,5 +110,10 @@ namespace SPDM.BLL.BusinessLogic
                 throw ex;
             }
         }
+
+        public void SendToProduction(int workOrderId)
+        {
+            WorkOrder workOrder = GetById(workOrderId);
+        }
     }
 }
