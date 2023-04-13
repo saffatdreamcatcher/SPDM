@@ -251,7 +251,7 @@ namespace SPDM.DLL.Repositories
                 {
                     comm.CommandText = "INSERT INTO Production(CreateTime, UserId, ProductionNo, FiscalYear," +
                         "PartyId, WorkOrderId, WorkOrderDate, TotalExVat, TotalIncVat, Discount, " +
-                        "DiscountPercent, VatPercent, Status, Note) VALUES(@CreateTime, @UserId, @ProductionNo, " +
+                        "DiscountPercent, VatPercent, [Status], Note) VALUES (@CreateTime, @UserId, @ProductionNo, " +
                         "@FiscalYear, @PartyId, @WorkOrderId, @WorkOrderDate, @TotalExVat," +
                         " @TotalIncVat, @Discount, @DiscountPercent, @VatPercent, @Status, @Note); SELECT SCOPE_IDENTITY()";
                     comm.Parameters.Add("@CreateTime", SqlDbType.DateTime).Value = DateTime.Today;
@@ -262,7 +262,7 @@ namespace SPDM.DLL.Repositories
                         "UserId = @UserId, ProductionNo = @ProductionNo, FiscalYear = @FiscalYear, PartyId = @PartyId, " +
                         "WorkOrderId = @WorkOrderId, WorkOrderDate = @WorkOrderDate, TotalExVat= @TotalExVat, " +
                         "TotalIncVat = @TotalIncVat, Discount = @Discount, DiscountPercent = @DiscountPercent, " +
-                        "VatPercent = @VatPercent, Status= @Status, Note= @Note WHERE Id = @Id";
+                        "VatPercent = @VatPercent, [Status] = @Status, Note= @Note WHERE Id = @Id";
                     comm.Parameters.Add("@Id", SqlDbType.Int).Value = production.Id;
                     comm.Parameters.Add("@UpdateTime", SqlDbType.DateTime).Value = DateTime.Now;
                 }

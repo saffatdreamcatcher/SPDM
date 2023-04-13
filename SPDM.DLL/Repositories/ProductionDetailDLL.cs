@@ -223,11 +223,11 @@ namespace SPDM.DLL.Repositories
 
                 if (productiondetail.IsNew)
                 {
-                    comm.CommandText = "INSERT INTO ProductionDetail(CreateTime, UserId, ProductionId," +
-                        "PartyId, WorkOrderDetailId, ItemId, Unit, UnitPrice, Length, TotalExVat, TotalIncVat, Discount, " +
-                        "DiscountPercent, Vat Percent, Status, Note) VALUES(@CreateTime, @UserId, @ProductionId, " +
-                        "@FiscalYear, @PartyId, @WorkOrderDetailId, @ItemId, @Unit, @UnitPrice, @Length, @TotalExVat," +
-                        " @TotalIncVat, @Discount, @DiscountPercent, @Vat Percent, @Status, @Note); SELECT SCOPE_IDENTITY()";
+                    comm.CommandText = "INSERT INTO ProductionDetail(CreateTime, ProductionId," +
+                        "WorkOrderDetailId, ItemId, Unit, UnitPrice, Length, TotalExVat, TotalIncVat, Discount, " +
+                        "DiscountPercent, VatPercent) VALUES (@CreateTime, @ProductionId, " +
+                        "@WorkOrderDetailId, @ItemId, @Unit, @UnitPrice, @Length, @TotalExVat," +
+                        " @TotalIncVat, @Discount, @DiscountPercent, @VatPercent); SELECT SCOPE_IDENTITY()";
                     comm.Parameters.Add("@CreateTime", SqlDbType.DateTime).Value = DateTime.Today;
                 }
                 else
@@ -236,11 +236,11 @@ namespace SPDM.DLL.Repositories
                         "ProductionId = @ProductionId, " +
                         "WorkOrderDetailId = @WorkOrderDetailId, ItemId =@ItemId, Unit = @Unit, Length= @Length TotalExVat= @TotalExVat, " +
                         "TotalIncVat = @TotalIncVat, Discount =@Discount, DiscountPercent = @DiscountPercent, " +
-                        "Status= @Status, Note= @Note WHERE Id = @Id";
+                        "VatPercent = @VatPercent WHERE Id = @Id";
                     comm.Parameters.Add("@Id", SqlDbType.Int).Value = productiondetail.Id;
                     comm.Parameters.Add("@UpdateTime", SqlDbType.DateTime).Value = DateTime.Now;
                 }
-                comm.Parameters.Add("@UserId", SqlDbType.VarChar).Value = productiondetail.ProductionId;
+                comm.Parameters.Add("@ProductionId", SqlDbType.VarChar).Value = productiondetail.ProductionId;
                 comm.Parameters.Add("@WorkOrderDetailId", SqlDbType.Int).Value = productiondetail.WorkOrderDetailId;
                 comm.Parameters.Add("@ItemId", SqlDbType.VarChar).Value = productiondetail.ItemId;
                 comm.Parameters.Add("@Unit", SqlDbType.VarChar).Value = productiondetail.Unit;
