@@ -70,7 +70,7 @@ namespace SPDM.DLL.Repositories
                         {
                             workorder.UpdateTime = Convert.ToDateTime(reader["UpdateTime"]);
                         }
-                        
+                        workorder.Id = id;
                         workorder.UserId = Convert.ToInt32(reader["UserId"]);
                         workorder.WorkOrderNo = reader["WorkOrderNo"].ToString();
                         workorder.Fiscalyear = reader["FiscalYear"].ToString();
@@ -136,6 +136,7 @@ namespace SPDM.DLL.Repositories
                         {
                             workorder.UpdateTime = Convert.ToDateTime(reader["UpdateTime"]);
                         }
+                        workorder.Id = id;
                         workorder.UserId = Convert.ToInt32(reader["UserId"]);
                         workorder.WorkOrderNo = reader["WorkOrderNo"].ToString();
                         workorder.Fiscalyear = reader["FiscalYear"].ToString();

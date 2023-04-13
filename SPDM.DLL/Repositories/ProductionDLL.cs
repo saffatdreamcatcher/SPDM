@@ -70,6 +70,7 @@ namespace SPDM.DLL.Repositories
                         {
                             production.UpdateTime = Convert.ToDateTime(reader["UpdateTime"]);
                         }
+                        production.Id = id;
                         production.UserId = Convert.ToInt32(reader["UserId"]);
                         production.Fiscalyear = reader["FiscalYear"].ToString();
                         production.PartyId = Convert.ToInt32(reader["PartyId"]);
@@ -77,14 +78,29 @@ namespace SPDM.DLL.Repositories
                         production.WorkOrderDate = Convert.ToDateTime(reader["WorkOrderDate"]);
                         production.TotalExvat = Convert.ToDouble(reader["TotalExVat"]);
                         production.TotalIncvat = Convert.ToDouble(reader["TotalIncVat"]);
-                        production.Discount = Convert.ToDouble(reader["Discount"]);
+                        if (reader["Discount"] is DBNull)
+                        {
+                            production.Discount = null;
+                        }
+                        else
+                        {
+                            production.Discount = Convert.ToDouble(reader["Discount"]);
+                        }
                         if (reader["DiscountPercent"] is DBNull)
                         {
                             production.DiscountPercent = null;
                         }
                         else
                         {
-                            production.DiscountPercent = Convert.ToDouble(reader["Discount"]);
+                            production.DiscountPercent = Convert.ToDouble(reader["DiscountPercent"]);
+                        }
+                        if (reader["VatPercent"] is DBNull)
+                        {
+                            production.VatPercent = null;
+                        }
+                        else
+                        {
+                            production.VatPercent = Convert.ToDouble(reader["VatPercent"]);
                         }
                         production.Status = Convert.ToInt16 (reader["Status"]);
                         production.Note = reader["Note"] is DBNull ? null : reader["Note"].ToString();
@@ -132,6 +148,7 @@ namespace SPDM.DLL.Repositories
                         {
                             production.UpdateTime = Convert.ToDateTime(reader["UpdateTime"]);
                         }
+                        production.Id = id;
                         production.UserId = Convert.ToInt32(reader["UserId"]);
                         production.Fiscalyear = reader["FiscalYear"].ToString();
                         production.PartyId = Convert.ToInt32(reader["PartyId"]);
@@ -139,23 +156,38 @@ namespace SPDM.DLL.Repositories
                         production.WorkOrderDate = Convert.ToDateTime(reader["WorkOrderDate"]);
                         production.TotalExvat = Convert.ToDouble(reader["TotalExVat"]);
                         production.TotalIncvat = Convert.ToDouble(reader["TotalIncVat"]);
-                        production.Discount = Convert.ToDouble(reader["Discount"]);
-                        if (reader["DiscountPercent"] is DBNull)
+                        if (reader["Discount"] is DBNull)
                         {
-                            production.DiscountPercent = null;
+                            production.Discount = null;
                         }
                         else
                         {
-                            production.DiscountPercent = Convert.ToDouble(reader["Discount"]);
+                            production.Discount = Convert.ToDouble(reader["Discount"]);
+                            if (reader["DiscountPercent"] is DBNull)
+                            {
+                                production.DiscountPercent = null;
+                            }
+                            else
+                            {
+                                production.DiscountPercent = Convert.ToDouble(reader["DiscountPercent"]);
+                            }
+                            if (reader["VatPercent"] is DBNull)
+                            {
+                                production.VatPercent = null;
+                            }
+                            else
+                            {
+                                production.VatPercent = Convert.ToDouble(reader["VatPercent"]);
+                            }
+                            production.Status = Convert.ToInt16(reader["Status"].ToString());
+                            production.Note = reader["Note"] is DBNull ? null : reader["Note"].ToString();
+
+
                         }
-                        production.Status = Convert.ToInt16(reader["Status"].ToString());
-                        production.Note = reader["Note"] is DBNull ? null : reader["Note"].ToString();
-
-
                     }
+
+
                 }
-
-
             }
             catch (SqlException ex)
             {
@@ -217,21 +249,22 @@ namespace SPDM.DLL.Repositories
 
                 if (production.IsNew)
                 {
-                    comm.CommandText = "INSERT INTO Production(CreateTime, UpdateTime, UserId, ProductionNo, FiscalYear," +
+                    comm.CommandText = "INSERT INTO Production(CreateTime, UserId, ProductionNo, FiscalYear," +
                         "PartyId, WorkOrderId, WorkOrderDate, TotalExVat, TotalIncVat, Discount, " +
-                        "DiscountPercent, Vat Percent, Status, Note) VALUES(@CreateTime, @UpdateTime, @UserId, @ProductionNo " +
+                        "DiscountPercent, VatPercent, Status, Note) VALUES(@CreateTime, @UserId, @ProductionNo, " +
                         "@FiscalYear, @PartyId, @WorkOrderId, @WorkOrderDate, @TotalExVat," +
-                        " @TotalIncVat, @Discount, @DiscountPercent, @Vat Percent, @Status @Note); SELECT SCOPE_IDENTITY()";
+                        " @TotalIncVat, @Discount, @DiscountPercent, @VatPercent, @Status, @Note); SELECT SCOPE_IDENTITY()";
                     comm.Parameters.Add("@CreateTime", SqlDbType.DateTime).Value = DateTime.Today;
                 }
                 else
                 {
-                    comm.CommandText = "Update Production SET  CreateTime = @CreateTime, UpdateTime =@Updatetime," +
-                        "UserId = @UserId, ProductionNo = @ProductionNo,  FiscalYear = @FiscalYear, PartyId = @PartyId, " +
+                    comm.CommandText = "Update Production SET  UpdateTime = @Updatetime," +
+                        "UserId = @UserId, ProductionNo = @ProductionNo, FiscalYear = @FiscalYear, PartyId = @PartyId, " +
                         "WorkOrderId = @WorkOrderId, WorkOrderDate = @WorkOrderDate, TotalExVat= @TotalExVat, " +
-                        "TotalIncVat = @TotalIncVat, Discount =@Discount, DiscountPercent = @DiscountPercent, " +
-                        "Status= @Status, Note= @Note WHERE Id = @Id";
+                        "TotalIncVat = @TotalIncVat, Discount = @Discount, DiscountPercent = @DiscountPercent, " +
+                        "VatPercent = @VatPercent, Status= @Status, Note= @Note WHERE Id = @Id";
                     comm.Parameters.Add("@Id", SqlDbType.Int).Value = production.Id;
+                    comm.Parameters.Add("@UpdateTime", SqlDbType.DateTime).Value = DateTime.Now;
                 }
                 comm.Parameters.Add("@UserId", SqlDbType.VarChar).Value = production.UserId;
                 comm.Parameters.Add("@ProductionNo", SqlDbType.VarChar).Value = production.ProductionNo;
@@ -241,8 +274,33 @@ namespace SPDM.DLL.Repositories
                 comm.Parameters.Add("@WorkOrderDate", SqlDbType.DateTime).Value = production.WorkOrderDate;
                 comm.Parameters.Add("@TotalExVat", SqlDbType.Decimal).Value = production.TotalExvat;
                 comm.Parameters.Add("@TotalIncVat", SqlDbType.Decimal).Value = production.TotalIncvat;
-                comm.Parameters.Add("@Discount", SqlDbType.Decimal).Value = production.Discount;
-                comm.Parameters.Add("@DiscountPercent", SqlDbType.Decimal).Value = production.DiscountPercent;
+                if (production.Discount.HasValue)
+                {
+                    comm.Parameters.Add("@Discount", SqlDbType.Decimal).Value = production.Discount.Value;
+                }
+                else
+                {
+                    comm.Parameters.Add("@Discount", SqlDbType.Decimal).Value = DBNull.Value;
+                }
+
+                if (production.DiscountPercent.HasValue)
+                {
+                    comm.Parameters.Add("@DiscountPercent", SqlDbType.Decimal).Value = production.DiscountPercent.Value;
+                }
+                else
+                {
+                    comm.Parameters.Add("@DiscountPercent", SqlDbType.Decimal).Value = DBNull.Value;
+                }
+
+                if (production.VatPercent.HasValue)
+                {
+                    comm.Parameters.Add("@VatPercent", SqlDbType.Decimal).Value = production.VatPercent.Value;
+                }
+                else
+                {
+                    comm.Parameters.Add("@VatPercent", SqlDbType.Decimal).Value = DBNull.Value;
+                }
+                
                 comm.Parameters.Add("@Status", SqlDbType.VarChar).Value = production.Status;
                 comm.Parameters.Add("@Note", SqlDbType.VarChar).Value = production.Note;
 

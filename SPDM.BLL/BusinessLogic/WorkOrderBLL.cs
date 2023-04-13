@@ -111,9 +111,51 @@ namespace SPDM.BLL.BusinessLogic
             }
         }
 
-        public void SendToProduction(int workOrderId)
+        public void SendToProduction(int workOrderId, int userId)
         {
+            WorkOrderDLL workOrderDLL = new WorkOrderDLL();
+            WorkOrderDetailDLL workOrderDetailDLL = new WorkOrderDetailDLL();
+            ProductionDLL productionDLL = new ProductionDLL();
+            ProductionDetailDLL productionDetailDLL = new ProductionDetailDLL();    
+
             WorkOrder workOrder = GetById(workOrderId);
+            string where = "WorkOrderId=" + workOrderId;
+            List<WorkOrderDetail> workOrderDetails = workOrderDetailDLL.GetAll(where);
+            Production production = new Production();
+            production.UserId = userId;
+            production.ProductionNo = "p_" + workOrder.WorkOrderNo;
+            production.Fiscalyear = workOrder.Fiscalyear;
+            production.PartyId = workOrder.PartyId;
+            production.WorkOrderId = workOrder.Id;
+            production.WorkOrderDate = workOrder.WorkOrderDate; 
+            production.TotalExvat = workOrder.TotalExvat;
+            production.TotalIncvat = workOrder.TotalIncvat;
+            production.Discount = workOrder.Discount;
+            production.DiscountPercent = workOrder.DiscountPercent;
+            production.VatPercent = workOrder.VatPercent;
+            production.Status = (int)WorkOderStatus.InProduction;
+            production.Note = workOrder.Note;
+
+            productionDLL.Save(production);
+            foreach (WorkOrderDetail workOrderDetail in workOrderDetails)
+            {
+                ProductionDetail productionDetail = new ProductionDetail();
+                productionDetail.ProductionId = production.Id;
+                productionDetail.WorkOrderDetailId = workOrderDetail.Id;
+                productionDetail.ItemId = workOrderDetail.ItemId;
+                productionDetail.Unit = workOrderDetail.Unit;
+                productionDetail.UnitPrice = workOrderDetail.UnitPrice;
+                productionDetail.Length = workOrderDetail.Length;
+                productionDetail.TotalExvat = workOrderDetail.TotalExvat;
+                productionDetail.TotalIncvat = workOrderDetail.TotalIncvat;
+                productionDetail.Discount = workOrderDetail.Discount;
+                productionDetail.DiscountPercent = workOrderDetail.DiscountPercent;
+                productionDetail.VatPercent = workOrderDetail.VatPercent;
+                productionDetailDLL.Save(productionDetail);
+            }
+
+            workOrder.Status = (int)WorkOderStatus.InProduction;
+            workOrderDLL.Save(workOrder);
         }
     }
 }

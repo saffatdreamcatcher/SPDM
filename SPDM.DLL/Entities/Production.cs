@@ -45,11 +45,14 @@ namespace SPDM.DLL.Entities
         private double totalincvat;
         public double TotalIncvat { get => totalincvat; set => totalincvat = value; }
 
-        private double discount;
-        public double Discount { get => discount; set => discount = value; }
+        private double? discount;
+        public double? Discount { get => discount; set => discount = value; }
 
         private double? discountpercent;
         public double? DiscountPercent { get => discountpercent; set => discountpercent = value; }
+
+        private double? vatpercent;
+        public double? VatPercent { get => vatpercent; set => vatpercent = value; }
 
         private int status;
         public int Status { get => status; set => status = value; }

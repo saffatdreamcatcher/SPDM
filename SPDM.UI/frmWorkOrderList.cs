@@ -110,7 +110,8 @@ namespace SPDM.UI
         {
             int workOrderId = Convert.ToInt32(gridView1.GetFocusedRowCellValue("Id"));
             WorkOrderBLL workOrderBLL = new WorkOrderBLL();
-            workOrderBLL.SendToProduction(workOrderId);
+            workOrderBLL.SendToProduction(workOrderId, Global.Userid);
+            
         }
     }
 }
