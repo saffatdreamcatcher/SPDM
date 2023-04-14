@@ -109,9 +109,19 @@ namespace SPDM.UI
         private void btnSendToProduction_ButtonPressed(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             int workOrderId = Convert.ToInt32(gridView1.GetFocusedRowCellValue("Id"));
-            WorkOrderBLL workOrderBLL = new WorkOrderBLL();
-            workOrderBLL.SendToProduction(workOrderId, Global.Userid);
+            WorkOrderStatus workOrderStatus = (WorkOrderStatus)Enum.Parse(typeof(WorkOrderStatus), gridView1.GetFocusedRowCellValue("Status").ToString());
+            if (workOrderStatus == WorkOrderStatus.Placed)
+            {
+                WorkOrderBLL workOrderBLL = new WorkOrderBLL();
+                workOrderBLL.SendToProduction(workOrderId, Global.Userid);
+            }
+            else
+            {
+                MessageBox.Show("WorkOrder with Placed is only allowed to transfer.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+            }
+
             
+
         }
     }
 }

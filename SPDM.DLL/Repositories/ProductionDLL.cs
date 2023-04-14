@@ -71,6 +71,7 @@ namespace SPDM.DLL.Repositories
                             production.UpdateTime = Convert.ToDateTime(reader["UpdateTime"]);
                         }
                         production.Id = id;
+                        production.ProductionNo = reader["ProductionNo"].ToString();
                         production.UserId = Convert.ToInt32(reader["UserId"]);
                         production.Fiscalyear = reader["FiscalYear"].ToString();
                         production.PartyId = Convert.ToInt32(reader["PartyId"]);
@@ -102,7 +103,7 @@ namespace SPDM.DLL.Repositories
                         {
                             production.VatPercent = Convert.ToDouble(reader["VatPercent"]);
                         }
-                        production.Status = Convert.ToInt16 (reader["Status"]);
+                        production.Status = (WorkOrderStatus)Convert.ToInt16(reader["Status"]);
                         production.Note = reader["Note"] is DBNull ? null : reader["Note"].ToString();
                         productions.Add(production);
                     }
@@ -149,6 +150,7 @@ namespace SPDM.DLL.Repositories
                             production.UpdateTime = Convert.ToDateTime(reader["UpdateTime"]);
                         }
                         production.Id = id;
+                        production.ProductionNo = reader["ProductionNo"].ToString();
                         production.UserId = Convert.ToInt32(reader["UserId"]);
                         production.Fiscalyear = reader["FiscalYear"].ToString();
                         production.PartyId = Convert.ToInt32(reader["PartyId"]);
@@ -179,7 +181,7 @@ namespace SPDM.DLL.Repositories
                             {
                                 production.VatPercent = Convert.ToDouble(reader["VatPercent"]);
                             }
-                            production.Status = Convert.ToInt16(reader["Status"].ToString());
+                            production.Status = (WorkOrderStatus)Convert.ToInt16(reader["Status"].ToString());
                             production.Note = reader["Note"] is DBNull ? null : reader["Note"].ToString();
 
 
@@ -301,7 +303,7 @@ namespace SPDM.DLL.Repositories
                     comm.Parameters.Add("@VatPercent", SqlDbType.Decimal).Value = DBNull.Value;
                 }
                 
-                comm.Parameters.Add("@Status", SqlDbType.VarChar).Value = production.Status;
+                comm.Parameters.Add("@Status", SqlDbType.VarChar).Value = (Int16)production.Status;
                 comm.Parameters.Add("@Note", SqlDbType.VarChar).Value = production.Note;
 
                 if (production.IsNew)

@@ -90,7 +90,7 @@ namespace SPDM.DLL.Repositories
                             workorder.VatPercent = Convert.ToDouble(reader["VatPercent"]); 
                         }
 
-                        workorder.Status = Convert.ToInt32(reader["Status"]);
+                        workorder.Status = (WorkOrderStatus)Convert.ToInt32(reader["Status"]);
                         workorder.Note = reader["Note"] is DBNull ? null : reader["Note"].ToString();
                         workorders.Add(workorder);
                     }
@@ -156,7 +156,7 @@ namespace SPDM.DLL.Repositories
                             workorder.VatPercent = Convert.ToDouble(reader["VatPercent"]);
                         }
 
-                        workorder.Status = Convert.ToInt32(reader["Status"] is DBNull ? null : reader["Status"]);
+                        workorder.Status = (WorkOrderStatus)Convert.ToInt32(reader["Status"]);
                         workorder.Note = reader["Note"] is DBNull ? null : reader["Note"].ToString();
 
                     }
@@ -284,7 +284,7 @@ namespace SPDM.DLL.Repositories
                     comm.Parameters.Add("@VatPercent", SqlDbType.Decimal).Value = DBNull.Value;
                 }
 
-                comm.Parameters.Add("@Status", SqlDbType.VarChar).Value = workorder.Status;
+                comm.Parameters.Add("@Status", SqlDbType.SmallInt).Value = (Int16)workorder.Status;
                 comm.Parameters.Add("@Note", SqlDbType.VarChar).Value = workorder.Note;
 
                 if (workorder.IsNew)

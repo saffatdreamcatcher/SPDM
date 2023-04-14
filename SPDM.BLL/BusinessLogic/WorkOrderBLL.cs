@@ -133,7 +133,7 @@ namespace SPDM.BLL.BusinessLogic
             production.Discount = workOrder.Discount;
             production.DiscountPercent = workOrder.DiscountPercent;
             production.VatPercent = workOrder.VatPercent;
-            production.Status = (int)WorkOderStatus.InProduction;
+            production.Status = WorkOrderStatus.InProduction;
             production.Note = workOrder.Note;
 
             productionDLL.Save(production);
@@ -154,7 +154,7 @@ namespace SPDM.BLL.BusinessLogic
                 productionDetailDLL.Save(productionDetail);
             }
 
-            workOrder.Status = (int)WorkOderStatus.InProduction;
+            workOrder.Status = (WorkOrderStatus)WorkOrderStatus.InProduction;
             workOrderDLL.Save(workOrder);
         }
     }

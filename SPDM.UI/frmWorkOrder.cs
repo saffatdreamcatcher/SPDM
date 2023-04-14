@@ -37,7 +37,7 @@ namespace SPDM.UI
             
             LoadItem();
             LoadParty();
-            txtStatus.Text = WorkOderStatus.Placed.ToString();
+            txtStatus.Text = WorkOrderStatus.Placed.ToString();
             txtFiscalYear.Text = Global.FiscalYear;
             if (workorderdId > 0)
             {
@@ -274,7 +274,7 @@ namespace SPDM.UI
             nupVatPercent.Value = 0;
             nupTotalexVat.Value = 0;
             nupTotalIncVat.Value = 0;
-            txtStatus.Text = WorkOderStatus.Placed.ToString();
+            txtStatus.Text = WorkOrderStatus.Placed.ToString();
             txtNote.Text = String.Empty;
             workOrderDetails.Clear();
             gvWorkOrderDetail.DataSource = workOrderDetails;
@@ -349,7 +349,7 @@ namespace SPDM.UI
                     workOrder.VatPercent = Convert.ToDouble(nupVatPercent.Value);
                 }
 
-                workOrder.Status = 1;
+                workOrder.Status = (WorkOrderStatus)Enum.Parse(typeof(WorkOrderStatus), txtStatus.Text);
                 workOrder.Note = txtNote.Text;
                 List<WorkOrderDetail> workOrderDetails1 = workOrderDetails.ToList();
                 WorkOrderBLL workOrderBLL = new WorkOrderBLL();

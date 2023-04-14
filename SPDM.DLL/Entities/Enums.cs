@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace SPDM.DLL.Entities
 {
-    public enum WorkOderStatus
+    public enum WorkOrderStatus
     {
         Placed = 1,
         InProduction,
+        ReadyForStock,
         InStock,
         Delivered,
         Recevied
