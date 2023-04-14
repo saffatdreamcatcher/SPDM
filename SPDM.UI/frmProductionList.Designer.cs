@@ -94,6 +94,10 @@
             this.colCreateTime});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
+            this.gridView1.MasterRowEmpty += new DevExpress.XtraGrid.Views.Grid.MasterRowEmptyEventHandler(this.gridView1_MasterRowEmpty);
+            this.gridView1.MasterRowExpanded += new DevExpress.XtraGrid.Views.Grid.CustomMasterRowEventHandler(this.gridView1_MasterRowExpanded);
+            this.gridView1.MasterRowGetChildList += new DevExpress.XtraGrid.Views.Grid.MasterRowGetChildListEventHandler(this.gridView1_MasterRowGetChildList);
+            this.gridView1.MasterRowGetRelationCount += new DevExpress.XtraGrid.Views.Grid.MasterRowGetRelationCountEventHandler(this.gridView1_MasterRowGetRelationCount);
             // 
             // colUpdateTime
             // 
@@ -157,8 +161,6 @@
             this.colTotalExvat.FieldName = "TotalExvat";
             this.colTotalExvat.MinWidth = 25;
             this.colTotalExvat.Name = "colTotalExvat";
-            this.colTotalExvat.Visible = true;
-            this.colTotalExvat.VisibleIndex = 4;
             this.colTotalExvat.Width = 94;
             // 
             // colTotalIncvat
@@ -167,7 +169,7 @@
             this.colTotalIncvat.MinWidth = 25;
             this.colTotalIncvat.Name = "colTotalIncvat";
             this.colTotalIncvat.Visible = true;
-            this.colTotalIncvat.VisibleIndex = 5;
+            this.colTotalIncvat.VisibleIndex = 4;
             this.colTotalIncvat.Width = 94;
             // 
             // colDiscount
@@ -183,7 +185,7 @@
             this.colDiscountPercent.MinWidth = 25;
             this.colDiscountPercent.Name = "colDiscountPercent";
             this.colDiscountPercent.Visible = true;
-            this.colDiscountPercent.VisibleIndex = 6;
+            this.colDiscountPercent.VisibleIndex = 5;
             this.colDiscountPercent.Width = 94;
             // 
             // colVatPercent
@@ -192,7 +194,7 @@
             this.colVatPercent.MinWidth = 25;
             this.colVatPercent.Name = "colVatPercent";
             this.colVatPercent.Visible = true;
-            this.colVatPercent.VisibleIndex = 7;
+            this.colVatPercent.VisibleIndex = 6;
             this.colVatPercent.Width = 94;
             // 
             // colStatus
@@ -201,7 +203,7 @@
             this.colStatus.MinWidth = 25;
             this.colStatus.Name = "colStatus";
             this.colStatus.Visible = true;
-            this.colStatus.VisibleIndex = 8;
+            this.colStatus.VisibleIndex = 7;
             this.colStatus.Width = 94;
             // 
             // colNote
@@ -210,7 +212,7 @@
             this.colNote.MinWidth = 25;
             this.colNote.Name = "colNote";
             this.colNote.Visible = true;
-            this.colNote.VisibleIndex = 9;
+            this.colNote.VisibleIndex = 8;
             this.colNote.Width = 94;
             // 
             // colId
@@ -244,6 +246,7 @@
             this.Controls.Add(this.gridControl1);
             this.Name = "frmProductionList";
             this.Text = "frmProductionList";
+            this.Load += new System.EventHandler(this.frmProductionList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productionBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();

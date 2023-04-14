@@ -79,15 +79,24 @@ namespace SPDM.DLL.Repositories
                         productiondetail.Length = Convert.ToDouble(reader["Length"]);
                         productiondetail.TotalExvat = Convert.ToDouble(reader["TotalExVat"]);
                         productiondetail.TotalIncvat = Convert.ToDouble(reader["TotalIncVat"]);
-                        productiondetail.Discount = Convert.ToDouble(reader["Discount"]);
-                       
+                        
+
+                        if (reader["Discount"] is DBNull)
+                        {
+                            productiondetail.Discount = null;
+                        }
+                        else
+                        {
+                            productiondetail.Discount = Convert.ToDouble(reader["Discount"]);
+                        }
+
                         if (reader["DiscountPercent"] is DBNull)
                         {
                             productiondetail.DiscountPercent = null;
                         }
                         else
                         {
-                            productiondetail.DiscountPercent = Convert.ToDouble(reader["Discount"]);
+                            productiondetail.DiscountPercent = Convert.ToDouble(reader["DiscountPercent"]);
                         }
 
                         if (reader["VatPercent"] is DBNull)
@@ -152,7 +161,14 @@ namespace SPDM.DLL.Repositories
                         productiondetail.Length = Convert.ToDouble(reader["Length"]);
                         productiondetail.TotalExvat = Convert.ToDouble(reader["TotalExVat"]);
                         productiondetail.TotalIncvat = Convert.ToDouble(reader["TotalIncVat"]);
-                        productiondetail.Discount = Convert.ToDouble(reader["Discount"]);
+                        if (reader["Discount"] is DBNull)
+                        {
+                            productiondetail.Discount = null;
+                        }
+                        else
+                        {
+                            productiondetail.Discount = Convert.ToDouble(reader["Discount"]);
+                        }
                         productiondetail.DiscountPercent = Convert.ToDouble(reader["DiscountPercent"] is DBNull ? null : reader["DiscountPercent"].ToString());
                         productiondetail.VatPercent = Convert.ToDouble(reader["VatPercent"] is DBNull ? null : reader["VatPercent"].ToString());
 
