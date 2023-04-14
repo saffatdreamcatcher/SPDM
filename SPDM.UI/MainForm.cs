@@ -155,6 +155,17 @@ namespace SPDM.UI
             myForm.Show();
         }
 
+        private void productionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CloseAllForms();
+            frmProductionList myForm = new frmProductionList();
+            myForm.TopLevel = false;
+            myForm.AutoScroll = true;
+            pForm.Controls.Add(myForm);
+            myForm.WindowState = FormWindowState.Maximized;
+            myForm.Show();
+        }
+
 
 
 
