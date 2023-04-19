@@ -61,8 +61,17 @@ namespace SPDM.DLL.Repositories
                     {
                         int id = Convert.ToInt32(reader["id"]);
                         DateTime createTime = Convert.ToDateTime(reader["CreateTime"]);
-                        DateTime Updatetime = Convert.ToDateTime(reader["UpdateTime"]);
+                        
                         Sale sale = new Sale(id, createTime);
+                        if (reader["UpdateTime"] is DBNull)
+                        {
+                            sale.UpdateTime = null;
+                        }
+                        else
+                        {
+                            sale.UpdateTime = Convert.ToDateTime(reader["UpdateTime"]);
+                        }
+                        sale.Id = id;
                         sale.UserId = Convert.ToInt32(reader["UserId"]);
                         sale.WorkOrderId = Convert.ToInt32(reader["WorkOrderId"]);
                         sale.Fiscalyear = reader["FiscalYear"].ToString();
@@ -71,8 +80,15 @@ namespace SPDM.DLL.Repositories
                         sale.SaleDate = Convert.ToDateTime(reader["SaleDate"]);
                         sale.TotalExvat = Convert.ToDouble(reader["TotalExVat"]);
                         sale.TotalIncvat = Convert.ToDouble(reader["TotalIncVat"]);
-
-
+                        if (reader["Discount"] is DBNull)
+                        {
+                            sale.Discount = null;
+                        }
+                        else
+                        {
+                            sale.Discount = Convert.ToDouble(reader["Discount"]);
+                        }
+                        sale.DiscountPercent = Convert.ToDouble(reader["DiscountPercent"]);
 
                         if (reader["VatPercent"] is DBNull)
                         {
@@ -85,7 +101,7 @@ namespace SPDM.DLL.Repositories
 
                         sale.DeliveryAddress = reader["DeliveryAddress"].ToString();
                         sale.DeliveryDate = Convert.ToDateTime(reader["DeliveryDate"]);
-                        sale.Status = Convert.ToInt32(reader["Note"] is DBNull ? null : reader["Note"]);
+                        sale.Status = Convert.ToInt32(reader["Status"]);
                         sale.Note = reader["Note"] is DBNull ? null : reader["Note"].ToString();
                         sales.Add(sale);
                     }
@@ -123,7 +139,15 @@ namespace SPDM.DLL.Repositories
                     {
                         id = Convert.ToInt32(reader["id"]);
                         DateTime createTime = Convert.ToDateTime(reader["CreateTime"]);
-                        DateTime updateTime = Convert.ToDateTime(reader["UpdateTime"]);
+                        if (reader["UpdateTime"] is DBNull)
+                        {
+                            sale.UpdateTime = null;
+                        }
+                        else
+                        {
+                            sale.UpdateTime = Convert.ToDateTime(reader["UpdateTime"]);
+                        }
+                        sale.Id = id;
                         sale.UserId = Convert.ToInt32(reader["UserId"]);
                         sale.WorkOrderId = Convert.ToInt32(reader["UserId"]);
                         sale.Fiscalyear = reader["FiscalYear"].ToString();
@@ -133,7 +157,15 @@ namespace SPDM.DLL.Repositories
                         sale.TotalExvat = Convert.ToDouble(reader["TotalExVat"]);
                         sale.TotalIncvat = Convert.ToDouble(reader["TotalIncVat"]);
 
-
+                        if (reader["Discount"] is DBNull)
+                        {
+                            sale.Discount = null;
+                        }
+                        else
+                        {
+                            sale.Discount = Convert.ToDouble(reader["Discount"]);
+                        }
+                        sale.DiscountPercent = Convert.ToDouble(reader["DiscountPercent"]);
 
                         if (reader["VatPercent"] is DBNull)
                         {
@@ -146,7 +178,7 @@ namespace SPDM.DLL.Repositories
 
                         sale.DeliveryAddress = reader["DeliveryAddress"].ToString();
                         sale.DeliveryDate = Convert.ToDateTime(reader["DeliveryDate"]);
-                        sale.Status = Convert.ToInt32(reader["Note"] is DBNull ? null : reader["Note"]);
+                        sale.Status =  Convert.ToInt32(reader["Status"]);
                         sale.Note = reader["Note"] is DBNull ? null : reader["Note"].ToString();
 
 
@@ -217,39 +249,59 @@ namespace SPDM.DLL.Repositories
 
                 if (sale.IsNew)
                 {
-                    comm.CommandText = "INSERT INTO Sale(CreateTime, UpdateTime, UserId, FiscalYear, SaleId, PartyId, " +
+                    comm.CommandText = "INSERT INTO Sale(CreateTime, UserId, FiscalYear, WorkOrderId, PartyId, " +
                                        "ChallanNo, SaleDate, TotalExVat, TotalIncVat, Discount, " +
-                                       "DiscountPercent, Vat Percent, DeliveryAddress, DeliveryDate, " +
-                                       "Status, Note) VALUES(@CreateTime, @UpdateTime, @UserId," +
-                                       "@FiscalYear, @SaleId, @PartyId, @ChallanNo, @SaleDate, @TotalExVat," +
-                                       " @TotalIncVat, @Discount, @DiscountPercent, @Vat Percent, " +
-                                       " @DeliveryAddress, @DeliveryDate, @Status @Note); SELECT SCOPE_IDENTITY()";
+                                       "DiscountPercent, VatPercent, DeliveryAddress, DeliveryDate, " +
+                                       "Status, Note) VALUES(@CreateTime, @UserId," +
+                                       "@FiscalYear, @WorkOrderId, @PartyId, @ChallanNo, @SaleDate, @TotalExVat," +
+                                       " @TotalIncVat, @Discount, @DiscountPercent, @VatPercent, " +
+                                       " @DeliveryAddress, @DeliveryDate, @Status, @Note); SELECT SCOPE_IDENTITY()";
                     comm.Parameters.Add("@CreateTime", SqlDbType.DateTime).Value = DateTime.Today;
                 }
                 else
                 {
-                    comm.CommandText = "Update Sale SET  CreateTime = @CreateTime, UpdateTime =@Updatetime, " +
+                    comm.CommandText = "Update Sale SET UpdateTime =@Updatetime, " +
                                        "UserId = @UserId, FiscalYear = @FiscalYear, " +
                                        "PartyId = @PartyId, ChallanNo = @ChallanNo, SaleDate = @SaleDate," +
                                        "TotalExVat= @TotalExVat, TotalIncVat = @TotalIncVat, Discount =@Discount," +
-                                       "DiscountPercent = @DiscountPercent, Vat Percent= @VatPercent, " +
+                                       "DiscountPercent = @DiscountPercent, VatPercent= @VatPercent, " +
                                        "DeliveryAddress = @DeliveryAddress, DeliveryDate =  @DeliveryDate, " +
                                        "Status = @Status, Note= @Note WHERE Id = @Id";
                     comm.Parameters.Add("@Id", SqlDbType.Int).Value = sale.Id;
+                    comm.Parameters.Add("@UpdateTime", SqlDbType.DateTime).Value = DateTime.Now;
                 }
                 comm.Parameters.Add("@UserId", SqlDbType.VarChar).Value = sale.UserId;
                 comm.Parameters.Add("@FiscalYear", SqlDbType.VarChar).Value = sale.Fiscalyear;
-                comm.Parameters.Add("@SaleId", SqlDbType.Int).Value = sale.UserId;
+                comm.Parameters.Add("@WorkOrderId", SqlDbType.Int).Value = sale.WorkOrderId;
                 comm.Parameters.Add("@PartyId", SqlDbType.Int).Value = sale.PartyId;
                 comm.Parameters.Add("@ChallanNo", SqlDbType.Int).Value = sale.ChallanNo;
                 comm.Parameters.Add("@SaleDate", SqlDbType.DateTime).Value = sale.SaleDate;
                 comm.Parameters.Add("@TotalExVat", SqlDbType.Decimal).Value = sale.TotalExvat;
                 comm.Parameters.Add("@TotalIncVat", SqlDbType.Decimal).Value = sale.TotalIncvat;
-                comm.Parameters.Add("@Discount", SqlDbType.Decimal).Value = sale.Discount;
+                
+                if (sale.Discount.HasValue)
+                {
+                    comm.Parameters.Add("@Discount", SqlDbType.Decimal).Value = sale.Discount.Value;
+                }
+                else
+                {
+                    comm.Parameters.Add("@Discount", SqlDbType.Decimal).Value = DBNull.Value;
+                }
                 comm.Parameters.Add("@DiscountPercent", SqlDbType.Decimal).Value = sale.DiscountPercent;
-                comm.Parameters.Add("@VatPercent", SqlDbType.Decimal).Value = sale.VatPercent;
+               
+                if (sale.VatPercent.HasValue)
+                {
+                    comm.Parameters.Add("@VatPercent", SqlDbType.Decimal).Value = sale.VatPercent.Value;
+                }
+                else
+                {
+                    comm.Parameters.Add("@VatPercent", SqlDbType.Decimal).Value = DBNull.Value;
+                }
+
+                comm.Parameters.Add("@DeliveryAddress", SqlDbType.Text).Value = sale.DeliveryAddress;
+                comm.Parameters.Add("@DeliveryDate", SqlDbType.DateTime).Value = sale.DeliveryDate;
                 comm.Parameters.Add("@Status", SqlDbType.VarChar).Value = sale.Status;
-                comm.Parameters.Add("@Note", SqlDbType.VarChar).Value = sale.Note;
+                comm.Parameters.Add("@Note", SqlDbType.Text).Value = sale.Note;
 
                 if (sale.IsNew)
                 {

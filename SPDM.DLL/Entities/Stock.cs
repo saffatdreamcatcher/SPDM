@@ -18,8 +18,8 @@ namespace SPDM.DLL.Entities
 
         }
 
-        private DateTime updatetime;
-        public DateTime UpdateTime { get => updatetime; set => updatetime = value; }
+        private DateTime? updatetime;
+        public DateTime? UpdateTime { get => updatetime; set => updatetime = value; }
 
 
         private int userid;
@@ -40,8 +40,8 @@ namespace SPDM.DLL.Entities
         private string coilno;
         public string CoilNo { get => coilno; set => coilno = value; }
 
-        private string din;
-        public string Din { get => din; set => din = value; }
+        private double? din;
+        public double? Din { get => din; set => din = value; }
 
         private int unit;
         public int Unit { get => unit; set => unit = value; }

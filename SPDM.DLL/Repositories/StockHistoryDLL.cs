@@ -62,8 +62,17 @@ namespace SPDM.DLL.Repositories
                     {
                         int id = Convert.ToInt32(reader["id"]);
                         DateTime createTime = Convert.ToDateTime(reader["CreateTime"]);
-                        DateTime Updatetime = Convert.ToDateTime(reader["UpdateTime"]);
+                        
                         StockHistory stockhistory = new StockHistory(id, createTime);
+                        if (reader["UpdateTime"] is DBNull)
+                        {
+                            stockhistory.UpdateTime = null;
+                        }
+                        else
+                        {
+                            stockhistory.UpdateTime = Convert.ToDateTime(reader["UpdateTime"]);
+                        }
+                        stockhistory.Id = id;
                         stockhistory.UserId = Convert.ToInt32(reader["UserId"]);
                         stockhistory.CategoryId = Convert.ToInt32(reader["CategoryId"]);
                         stockhistory.Fiscalyear = reader["FiscalYear"].ToString();
@@ -71,20 +80,8 @@ namespace SPDM.DLL.Repositories
                         stockhistory.Drum = reader["Drum"].ToString();
                         stockhistory.CoilNo = reader["CoilNo"].ToString();
                         stockhistory.Unit = Convert.ToInt32(reader["Unit"]);
-
-
-
-                        if (reader["Din"] is DBNull)
-                        {
-                            stockhistory.Din = null;
-                        }
-                        else
-                        {
-                            stockhistory.Din = reader["VatPercent"].ToString();
-                        }
-
-                        stockhistory.OpeningQuantityInKM = Convert.ToInt32(reader["OpeningQuantityInKM"]);
-                        stockhistory.OpeningQuantityInFKM = Convert.ToInt32(reader["OpeningQuantityInFKM"]);
+                        stockhistory.QuantityInKM = Convert.ToInt32(reader["QuantityInKM"]);
+                        stockhistory.QuantityInFKM = Convert.ToInt32(reader["QuantityInFKM"]);
                         stockhistory.Note = reader["Note"] is DBNull ? null : reader["Note"].ToString();
                         stockhistory.Status = Convert.ToInt32(reader["Status"]);
                         stockhistories.Add(stockhistory);
@@ -123,7 +120,6 @@ namespace SPDM.DLL.Repositories
                     {
                         id = Convert.ToInt32(reader["id"]);  
                         DateTime createTime = Convert.ToDateTime(reader["CreateTime"]);
-                        DateTime updateTime = Convert.ToDateTime(reader["UpdateTime"]);
                         if (reader["UpdateTime"] is DBNull)
                         {
                             stockhistory.UpdateTime = null;
@@ -132,6 +128,7 @@ namespace SPDM.DLL.Repositories
                         {
                             stockhistory.UpdateTime = Convert.ToDateTime(reader["UpdateTime"]);
                         }
+                        stockhistory.Id = id;
                         stockhistory.UserId = Convert.ToInt32(reader["UserId"]);
                         stockhistory.CategoryId = Convert.ToInt32(reader["CategoryId"]);
                         stockhistory.Fiscalyear = reader["FiscalYear"].ToString();
@@ -139,20 +136,8 @@ namespace SPDM.DLL.Repositories
                         stockhistory.Drum = reader["Drum"].ToString();
                         stockhistory.CoilNo = reader["CoilNo"].ToString();
                         stockhistory.Unit = Convert.ToInt32(reader["Unit"]);
-
-
-
-                        if (reader["Din"] is DBNull)
-                        {
-                            stockhistory.Din = null;
-                        }
-                        else
-                        {
-                            stockhistory.Din = reader["VatPercent"].ToString();
-                        }
-
-                        stockhistory.OpeningQuantityInKM = Convert.ToInt32(reader["OpeningQuantityInKM"]);
-                        stockhistory.OpeningQuantityInFKM = Convert.ToInt32(reader["OpeningQuantityInFKM"]);
+                        stockhistory.QuantityInKM = Convert.ToInt32(reader["QuantityInKM"]);
+                        stockhistory.QuantityInFKM = Convert.ToInt32(reader["QuantityInFKM"]);
                         stockhistory.Note = reader["Note"] is DBNull ? null : reader["Note"].ToString();
                         stockhistory.Status = Convert.ToInt32(reader["Status"]);
 
@@ -226,39 +211,35 @@ namespace SPDM.DLL.Repositories
 
                 if (stockhistory.IsNew)
                 {
-                    comm.CommandText = "INSERT INTO StockHistory(CreateTime, UpdateTime, UserId, CategoryId, ItemId, FiscalYear " +
-                                       "Drum, CoilNo, Din, Unit, OpeningQuantityInKM, OpeningQuantityInFKM " +
-                                       "CurrentQuantityInKM, CurrentQuantityInFKM, Status, Note " +
-                                       ") VALUES(@CreateTime, @UpdateTime, @UserId, @CategoryId, @ItemId, @FiscalYear" +
-                                       " @Drum, @CoilNo, @Din, @Unit, @OpeningQuantityInKM, @OpeningQuantityInFKM" +
-                                       //" @TotalIncVat, @Discount, @DiscountPercent, @Vat Percent, " +
-                                       " @CurrentQuantityInKM, @CurrentQuantityInFKM, @Status, @Note); SELECT SCOPE_IDENTITY()";
+                    comm.CommandText = "INSERT INTO StockHistory(CreateTime, UserId, CategoryId, ItemId, FiscalYear, " +
+                                       "Drum, CoilNo, Unit, QuantityInKM, QuantityInFKM, " +
+                                       "Status, Note " +
+                                       ") VALUES(@CreateTime, @UserId, @CategoryId, @ItemId, @FiscalYear, " +
+                                       " @Drum, @CoilNo, @Unit, @QuantityInKM, @QuantityInFKM, " +
+                                       " @Status, @Note); SELECT SCOPE_IDENTITY()";
                     comm.Parameters.Add("@CreateTime", SqlDbType.DateTime).Value = DateTime.Today;
                 }
                 else
                 {
-                    comm.CommandText = "Update StockHistory SET  CreateTime = @CreateTime, UpdateTime =@Updatetime, " +
-                                       "UserId = @UserId, FiscalYear = @FiscalYear, CategoryId = @CategoryId  " +
-                                       "ItemId = @ItemId, Drum =@Drum, CoilNo = @CoilNo, Din = @Din, Unit= @Unit" +
-                                       "OpeningQuantityInKM = @OpeningQuantityInKM, OpeningQuantityInFKM= @OpeningQuantityInKM, " +
-                                       "CurrentQuantityInKM = @CurrentQuantityInKM, CurrentQuantityInFKM =  @CurrentQuantityInFKM, " +
+                    comm.CommandText = "Update StockHistory SET UpdateTime =@Updatetime, " +
+                                       "UserId = @UserId, FiscalYear = @FiscalYear, CategoryId = @CategoryId,  " +
+                                       "ItemId = @ItemId, Drum =@Drum, CoilNo = @CoilNo, Unit= @Unit, " +
+                                       "QuantityInKM = @QuantityInKM, QuantityInFKM= @QuantityInFKM, " +
                                        " Status = @Status, Note= @Note WHERE Id = @Id";
                     comm.Parameters.Add("@Id", SqlDbType.Int).Value = stockhistory.Id;
+                    comm.Parameters.Add("@UpdateTime", SqlDbType.DateTime).Value = DateTime.Now;
                 }
-                comm.Parameters.Add("@UserId", SqlDbType.VarChar).Value = stockhistory.UserId;
+                comm.Parameters.Add("@UserId", SqlDbType.Int).Value = stockhistory.UserId;
                 comm.Parameters.Add("@FiscalYear", SqlDbType.VarChar).Value = stockhistory.Fiscalyear;
                 comm.Parameters.Add("@CategoryId", SqlDbType.Int).Value = stockhistory.CategoryId;
                 comm.Parameters.Add("@ItemId", SqlDbType.Int).Value = stockhistory.ItemId;
-                comm.Parameters.Add("@Drum", SqlDbType.Int).Value = stockhistory.Drum;
-                comm.Parameters.Add("@CoilNo", SqlDbType.DateTime).Value = stockhistory.CoilNo;
-                comm.Parameters.Add("@Din", SqlDbType.Decimal).Value = stockhistory.Din;
-                comm.Parameters.Add("@unit", SqlDbType.Decimal).Value = stockhistory.Unit;
-                comm.Parameters.Add("@OpeningQuantityInKM", SqlDbType.Decimal).Value = stockhistory.OpeningQuantityInKM;
-                comm.Parameters.Add("@OpeningQuantityInFKM", SqlDbType.Decimal).Value = stockhistory.OpeningQuantityInFKM;
-                comm.Parameters.Add("@CurrentQuantityInKM", SqlDbType.Decimal).Value = stockhistory.CurrentQuantityInKM;
-                comm.Parameters.Add("@CurrentQuantityInFKM", SqlDbType.VarChar).Value = stockhistory.CurrentQuantityInFKM;
-                comm.Parameters.Add("@Status", SqlDbType.VarChar).Value = stockhistory.Status;
-                comm.Parameters.Add("@Note", SqlDbType.VarChar).Value = stockhistory.Note;
+                comm.Parameters.Add("@Drum", SqlDbType.VarChar).Value = stockhistory.Drum;
+                comm.Parameters.Add("@CoilNo", SqlDbType.VarChar).Value = stockhistory.CoilNo;
+                comm.Parameters.Add("@Unit", SqlDbType.SmallInt).Value = stockhistory.Unit;
+                comm.Parameters.Add("@QuantityInKM", SqlDbType.Decimal).Value = stockhistory.QuantityInKM;
+                comm.Parameters.Add("@QuantityInFKM", SqlDbType.Decimal).Value = stockhistory.QuantityInFKM;
+                comm.Parameters.Add("@Status", SqlDbType.SmallInt).Value = stockhistory.Status;
+                comm.Parameters.Add("@Note", SqlDbType.Text).Value = stockhistory.Note;
 
                 if (stockhistory.IsNew)
                 {

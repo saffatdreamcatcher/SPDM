@@ -104,6 +104,30 @@
     <Compile Include="frmRole.Designer.cs">
       <DependentUpon>frmRole.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmSale.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSale.Designer.cs">
+      <DependentUpon>frmSale.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSaleDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSaleDetail.Designer.cs">
+      <DependentUpon>frmSaleDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStock.Designer.cs">
+      <DependentUpon>frmStock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmStockHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStockHistory.Designer.cs">
+      <DependentUpon>frmStockHistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -160,6 +184,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmRole.resx">
       <DependentUpon>frmRole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSale.resx">
+      <DependentUpon>frmSale.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSaleDetail.resx">
+      <DependentUpon>frmSaleDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmStock.resx">
+      <DependentUpon>frmStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmStockHistory.resx">
+      <DependentUpon>frmStockHistory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmUser.resx">
       <DependentUpon>frmUser.cs</DependentUpon>

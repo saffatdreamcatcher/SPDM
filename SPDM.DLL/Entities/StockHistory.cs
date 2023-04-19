@@ -40,23 +40,15 @@ namespace SPDM.DLL.Entities
         private string coilno;
         public string CoilNo { get => coilno; set => coilno = value; }
 
-        private string din;
-        public string Din { get => din; set => din = value; }
 
         private int unit;
         public int Unit { get => unit; set => unit = value; }
 
-        private int openingquantityinkm;
-        public int OpeningQuantityInKM { get => openingquantityinkm; set => openingquantityinkm = value; }
+        private int quantityinkm;
+        public int QuantityInKM { get => quantityinkm; set => quantityinkm = value; }
 
-        private int openingquantityinfkm;
-        public int OpeningQuantityInFKM { get => openingquantityinfkm; set => openingquantityinfkm = value; }
-
-        private int currentquantityinkm;
-        public int CurrentQuantityInKM { get => currentquantityinkm; set => currentquantityinkm = value; }
-
-        private int currentquantityinfkm;
-        public int CurrentQuantityInFKM { get => currentquantityinfkm; set => currentquantityinfkm = value; }
+        private int quantityinfkm;
+        public int QuantityInFKM { get => quantityinfkm; set => quantityinfkm = value; }
 
         private int status;
         public int Status { get => status; set => status = value; }

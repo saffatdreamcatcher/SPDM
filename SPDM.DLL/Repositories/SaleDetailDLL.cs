@@ -233,31 +233,31 @@ namespace SPDM.DLL.Repositories
 
                 if (saledetail.IsNew)
                 {
-                    comm.CommandText = "INSERT INTO Sale(CreateTime, UpdateTime, SaleId, ItemId, " +
-                                       "Unit, UnitPrice, Length TotalExVat, TotalIncVat, Discount, " +
-                                       "DiscountPercent, Vat Percent, " +
-                                       ") VALUES(@CreateTime, @UpdateTime, @UserId," +
+                    comm.CommandText = "INSERT INTO SaleDetail(CreateTime, SaleId, ItemId, " +
+                                       "Unit, UnitPrice, Length, TotalExVat, TotalIncVat, Discount, " +
+                                       "DiscountPercent, VatPercent " +
+                                       ") VALUES(@CreateTime, " +
                                        " @SaleId, @ItemId, @Unit, @UnitPrice, @Length, @TotalExVat," +
-                                       " @TotalIncVat, @Discount, @DiscountPercent, @Vat Percent, " +
+                                       " @TotalIncVat, @Discount, @DiscountPercent, @VatPercent " +
                                        " ); SELECT SCOPE_IDENTITY()";
                     comm.Parameters.Add("@CreateTime", SqlDbType.DateTime).Value = DateTime.Today;
                 }
                 else
                 {
-                    comm.CommandText = "Update Sale SET  CreateTime = @CreateTime, UpdateTime =@Updatetime, " +
-                                       "UserId = @UserId, " +
+                    comm.CommandText = "Update SaleDetail SET  UpdateTime =@Updatetime, " +
+                                       "SaleId = @SaleId, " +
                                        "ItemId = @ItemId, Unit = @Unit, UnitPrice = @UnitPrice, Length= @Length" +
                                        "TotalExVat= @TotalExVat, TotalIncVat = @TotalIncVat, Discount =@Discount," +
-                                       "DiscountPercent = @DiscountPercent, Vat Percent= @VatPercent, " +
-                                       "DeliveryAddress = @DeliveryAddress, DeliveryDate =  @DeliveryDate, " +
-                                       "Status = @Status, Note= @Note WHERE Id = @Id";
+                                       "DiscountPercent = @DiscountPercent, VatPercent= @VatPercent WHERE Id = @Id";
+                    
                     comm.Parameters.Add("@Id", SqlDbType.Int).Value = saledetail.Id;
+                    comm.Parameters.Add("@UpdateTime", SqlDbType.DateTime).Value = DateTime.Now;
                 }
-                comm.Parameters.Add("@SaleId", SqlDbType.VarChar).Value = saledetail.SaleId;
+                comm.Parameters.Add("@SaleId", SqlDbType.Int).Value = saledetail.SaleId;
                 comm.Parameters.Add("@ItemId", SqlDbType.Int).Value = saledetail.ItemId;
                 comm.Parameters.Add("@Unit", SqlDbType.Int).Value = saledetail.Unit;
                 comm.Parameters.Add("@UnitPrice", SqlDbType.Int).Value = saledetail.UnitPrice;
-                comm.Parameters.Add("@Length", SqlDbType.DateTime).Value = saledetail.Length;
+                comm.Parameters.Add("@Length", SqlDbType.Int).Value = saledetail.Length;
                 comm.Parameters.Add("@TotalExVat", SqlDbType.Decimal).Value = saledetail.TotalExvat;
                 comm.Parameters.Add("@TotalIncVat", SqlDbType.Decimal).Value = saledetail.TotalIncvat;
                 comm.Parameters.Add("@Discount", SqlDbType.Decimal).Value = saledetail.Discount;
