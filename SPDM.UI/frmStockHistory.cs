@@ -47,9 +47,43 @@ namespace SPDM.UI
             //StockHistoryBLL stockHistoryBLL = new StockHistoryBLL();
             //List<StockHistory> stockhistories = stockHistoryBLL.GetAll(where);
 
-            string where = "UserId = 3 and CategoryId = 2 and ItemId = 5";
+            //string where = "UserId = 3 and CategoryId = 2 and ItemId = 5";
+            int UserId = 3;
+            int CategoryId = 2;
+            int ItemId = 5;
+            //string where = "UserId= " + UserId + " and  CategoryId= " + CategoryId + " and  ItemId=" + ItemId;
+
+            string where = $"{"UserId= " + UserId} {" and  CategoryId= " + CategoryId} {" and  ItemId=" + ItemId}";
+
             StockHistoryBLL stockHistoryBLL = new StockHistoryBLL();
             int stockhistory = stockHistoryBLL.GetCount(where);
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            string search = "";
+
+            if(txtUser.Text != "")
+            {
+                if (search != string.Empty)
+
+                    search += "UserId =" + txtUser.Text;
+            }
+
+            if (txtCategory.Text != "")
+            {
+                //search += " AND ";
+                search += "CategoryId =" + txtCategory.Text;
+            }
+
+            if (txtItem.Text != "")
+            {
+                search += " AND ";
+                search += "ItemId =" + txtItem.Text;
+            }
+
+            StockHistoryBLL stockHistoryBLL = new StockHistoryBLL();
+            List<StockHistory> stockhistories = stockHistoryBLL.GetAll(search);
         }
     }
 }

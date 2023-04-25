@@ -188,6 +188,17 @@ namespace SPDM.UI
             myForm.Show();
         }
 
+        private void paymentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CloseAllForms();
+            frmPayment myForm = new frmPayment();
+            myForm.TopLevel = false;
+            myForm.AutoScroll = true;
+            pForm.Controls.Add(myForm);
+            myForm.WindowState = FormWindowState.Maximized;
+            myForm.Show();
+        }
+
 
 
 

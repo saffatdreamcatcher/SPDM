@@ -62,8 +62,17 @@ namespace SPDM.DLL.Repositories
                     {
                         int id = Convert.ToInt32(reader["id"]);
                         DateTime createTime = Convert.ToDateTime(reader["CreateTime"]);
-                        DateTime Updatetime = Convert.ToDateTime(reader["UpdateTime"]);
+                       
                         SaleDetail saledetail = new SaleDetail(id, createTime);
+                        if (reader["UpdateTime"] is DBNull)
+                        {
+                            saledetail.UpdateTime = null;
+                        }
+                        else
+                        {
+                            saledetail.UpdateTime = Convert.ToDateTime(reader["UpdateTime"]);
+                        }
+                        saledetail.Id = id;
                         saledetail.SaleId = Convert.ToInt32(reader["SaleId"]);
                         saledetail.ItemId = Convert.ToInt32(reader["ItemId"]);
                         saledetail.Unit = Convert.ToInt32(reader["Unit"]);
@@ -139,9 +148,15 @@ namespace SPDM.DLL.Repositories
                     {
                         id = Convert.ToInt32(reader["id"]);
                         DateTime createTime = Convert.ToDateTime(reader["CreateTime"]);
-                        DateTime updateTime = Convert.ToDateTime(reader["UpdateTime"]);
-
-
+                        if (reader["UpdateTime"] is DBNull)
+                        {
+                            saledetail.UpdateTime = null;
+                        }
+                        else
+                        {
+                            saledetail.UpdateTime = Convert.ToDateTime(reader["UpdateTime"]);
+                        }
+                        saledetail.Id = id;
                         saledetail.SaleId = Convert.ToInt32(reader["SaleId"]);
                         saledetail.ItemId = Convert.ToInt32(reader["ItemId"]);
                         saledetail.Unit = Convert.ToInt32(reader["Unit"]);
@@ -149,8 +164,6 @@ namespace SPDM.DLL.Repositories
                         saledetail.Length = Convert.ToDouble(reader["Length"]);
                         saledetail.TotalExvat = Convert.ToDouble(reader["TotalExVat"]);
                         saledetail.TotalIncvat = Convert.ToDouble(reader["TotalIncVat"]);
-
-
 
 
                         if (reader["VatPercent"] is DBNull)
@@ -161,8 +174,6 @@ namespace SPDM.DLL.Repositories
                         {
                             saledetail.VatPercent = Convert.ToDouble(reader["VatPercent"]);
                         }
-
-
 
 
 

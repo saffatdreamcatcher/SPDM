@@ -27,8 +27,9 @@ namespace SPDM.UI
         private void SaveSaleDetail()
         {
             SaleDetail saledetail = new SaleDetail();
-            saledetail.SaleId = 2;
-            saledetail.ItemId = 7;
+            saledetail.Id = 0;
+            saledetail.SaleId = 1;
+            saledetail.ItemId = 5;
             saledetail.Unit = 25;
             saledetail.UnitPrice = 6;
             saledetail.Length = 5;

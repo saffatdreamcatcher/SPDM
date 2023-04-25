@@ -61,14 +61,22 @@ namespace SPDM.DLL.Repositories
                     {
                         int id = Convert.ToInt32(reader["id"]);
                         DateTime createTime = Convert.ToDateTime(reader["CreateTime"]);
-                        DateTime Updatetime = Convert.ToDateTime(reader["UpdateTime"]);
                         Payment payment = new Payment(id, createTime);
+                        if (reader["UpdateTime"] is DBNull)
+                        {
+                            payment.UpdateTime = null;
+                        }
+                        else
+                        {
+                            payment.UpdateTime = Convert.ToDateTime(reader["UpdateTime"]);
+                        }
+                        payment.Id = id;
                         payment.UserId = Convert.ToInt32(reader["UserId"]);
                         payment.Fiscalyear = reader["FiscalYear"].ToString();
                         payment.SaleId = Convert.ToInt32(reader["SaleId"]);
                         payment.PartyId = Convert.ToInt32(reader["PartyId"]);
                         payment.PaymentType = Convert.ToInt32(reader["PaymentType"]);
-                        payment.TransactionDate = Convert.ToDateTime(reader["TransactionTime"]);
+                        payment.TransactionDate = Convert.ToDateTime(reader["TransactionDate"]);
                         payment.TotalExvat = Convert.ToDouble(reader["TotalExVat"]);
                         payment.TotalIncvat = Convert.ToDouble(reader["TotalIncVat"]);
                        
@@ -126,13 +134,21 @@ namespace SPDM.DLL.Repositories
                     {
                         id = Convert.ToInt32(reader["id"]);
                         DateTime createTime = Convert.ToDateTime(reader["CreateTime"]);
-                        DateTime updateTime = Convert.ToDateTime(reader["UpdateTime"]);
+                        if (reader["UpdateTime"] is DBNull)
+                        {
+                            payment.UpdateTime = null;
+                        }
+                        else
+                        {
+                            payment.UpdateTime = Convert.ToDateTime(reader["UpdateTime"]);
+                        }
+                        payment.Id = id;
                         payment.UserId = Convert.ToInt32(reader["UserId"]);
                         payment.Fiscalyear = reader["FiscalYear"].ToString();
                         payment.SaleId = Convert.ToInt32(reader["SaleId"]);
                         payment.PartyId = Convert.ToInt32(reader["PartyId"]);
                         payment.PaymentType = Convert.ToInt32(reader["PaymentType"]);
-                        payment.TransactionDate = Convert.ToDateTime(reader["TransactionTime"]);
+                        payment.TransactionDate = Convert.ToDateTime(reader["TransactionDate"]);
                         payment.TotalExvat = Convert.ToDouble(reader["TotalExVat"]);
                         payment.TotalIncvat = Convert.ToDouble(reader["TotalIncVat"]);
 
@@ -224,13 +240,14 @@ namespace SPDM.DLL.Repositories
 
                 if (payment.IsNew)
                 {
-                    comm.CommandText = "INSERT INTO Payment(CreateTime, UpdateTime, UserId, FiscalYear, SaleId, PartyId, PaymentType,TransactionDate, TotalExVat, TotalIncVat, Discount, DiscountPercent, Vat Percent, Note) VALUES(@CreateTime, @UpdateTime, @UserId, @FiscalYear, @SaleId, @PartyId, @PaymentType, @TransactionDate, @TotalExVat, @TotalIncVat, @Discount, @DiscountPercent, @Vat Percent, @Note); SELECT SCOPE_IDENTITY()";
+                    comm.CommandText = "INSERT INTO Payment(CreateTime, UserId, FiscalYear, SaleId, PartyId, PaymentType, TransactionDate, TotalExVat, TotalIncVat, Discount, DiscountPercent, VatPercent, Note) VALUES(@CreateTime, @UserId, @FiscalYear, @SaleId, @PartyId, @PaymentType, @TransactionDate, @TotalExVat, @TotalIncVat, @Discount, @DiscountPercent, @VatPercent, @Note); SELECT SCOPE_IDENTITY()";
                     comm.Parameters.Add("@CreateTime", SqlDbType.DateTime).Value = DateTime.Today;
                 }
                 else
                 {
-                    comm.CommandText = "Update Payment SET  CreateTime = @CreateTime, UpdateTime =@Updatetime, UserId = @UserId, FiscalYear = @FiscalYear, SaleId = @SaleId, PartyId = @PartyId, PaymentType = @PaymentType,TransactionDate = @TransactionDate, TotalExVat= @TotalExVat, TotalIncVat = @TotalIncVat, Discount =@Discount, DiscountPercent = @DiscountPercent, Vat Percent= @VatPercent, Note= @Note WHERE Id = @Id";
+                    comm.CommandText = "Update Payment SET  UpdateTime =@Updatetime, UserId = @UserId, FiscalYear = @FiscalYear, SaleId = @SaleId, PartyId = @PartyId, PaymentType = @PaymentType,TransactionDate = @TransactionDate, TotalExVat= @TotalExVat, TotalIncVat = @TotalIncVat, Discount =@Discount, DiscountPercent = @DiscountPercent, VatPercent= @VatPercent, Note= @Note WHERE Id = @Id";
                     comm.Parameters.Add("@Id", SqlDbType.Int).Value = payment.Id;
+                    comm.Parameters.Add("@UpdateTime", SqlDbType.DateTime).Value = DateTime.Now;
                 }
                 comm.Parameters.Add("@UserId", SqlDbType.VarChar).Value = payment.UserId;
                 comm.Parameters.Add("@FiscalYear", SqlDbType.VarChar).Value = payment.Fiscalyear;
