@@ -57,6 +57,30 @@ namespace SPDM.UI
 
         private void SavePaymentDeatil()
         {
+            //PaymentDetail paymentDetail = new PaymentDetail();
+            //paymentDetail.Id = 0;
+            //paymentDetail.PaymentId = 2;
+            //paymentDetail.TotalExvat = 0;
+            //paymentDetail.TotalIncvat = 9;
+            //paymentDetail.Discount = 0;
+            //paymentDetail.DiscountPercent = 8;
+            //paymentDetail.VatPercent = 7;
+            //paymentDetail.TransactionType = 4;
+            //paymentDetail.BankName = "Bank Asia";
+            //paymentDetail.CheckNo = "A88";
+            //paymentDetail.BkashTransactionNo = "C888";
+
+            //PaymentDetailBLL paymentDetailBLL = new PaymentDetailBLL();
+            //paymentDetailBLL.Save(paymentDetail);
+
+            //PaymentDetailBLL paymentDetailBLL = new PaymentDetailBLL();
+            //List<PaymentDetail> paymentDetails = paymentDetailBLL.GetAll();
+
+            //PaymentDetailBLL paymentDetailBLL = new PaymentDetailBLL();
+            //PaymentDetail paymentDetail = paymentDetailBLL.GetById(2);
+
+            PaymentDetailBLL paymentDetailBLL = new PaymentDetailBLL();
+            int paymentDetail = paymentDetailBLL.GetCount();
 
         }
     }

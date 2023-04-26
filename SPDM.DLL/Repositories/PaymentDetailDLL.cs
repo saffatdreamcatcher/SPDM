@@ -54,7 +54,7 @@ namespace SPDM.DLL.Repositories
                 conn.Open();
 
                 SqlCommand comm = conn.CreateCommand();
-                comm.CommandText = "Select * from PaymentDeatail" + whereClause;
+                comm.CommandText = "Select * from PaymentDetail" + whereClause;
                 using (SqlDataReader reader = comm.ExecuteReader())
                 {
                     while (reader != null && reader.Read())
@@ -70,6 +70,7 @@ namespace SPDM.DLL.Repositories
                         {
                             paymentdetail.UpdateTime = Convert.ToDateTime(reader["UpdateTime"]);
                         }
+                        paymentdetail.Id = id;
                         paymentdetail.PaymentId = Convert.ToInt32(reader["PaymentId"]);
                         paymentdetail.TotalExvat = Convert.ToDouble(reader["TotalExVat"]);
                         paymentdetail.TotalIncvat = Convert.ToDouble(reader["TotalIncVat"]);
@@ -144,7 +145,8 @@ namespace SPDM.DLL.Repositories
                         id = Convert.ToInt32(reader["id"]);
                         DateTime createTime = Convert.ToDateTime(reader["CreateTime"]);
                        
-                        paymentdetail.PaymentId = Convert.ToInt32(reader["PaymentId"].ToString());
+                        
+                        
                         if (reader["UpdateTime"] is DBNull)
                         {
                             paymentdetail.UpdateTime = null;
@@ -153,11 +155,38 @@ namespace SPDM.DLL.Repositories
                         {
                             paymentdetail.UpdateTime = Convert.ToDateTime(reader["UpdateTime"]);
                         }
+                        paymentdetail.Id = id;
+                        paymentdetail.PaymentId = Convert.ToInt32(reader["PaymentId"].ToString());
                         paymentdetail.TotalExvat = Convert.ToDouble(reader["TotalExVat"].ToString());
                         paymentdetail.TotalIncvat = Convert.ToDouble(reader["TotalIncVat"].ToString());
-                        paymentdetail.Discount = Convert.ToDouble(reader["Discount"] is DBNull ? null : reader["Discount"].ToString());
-                        paymentdetail.DiscountPercent = Convert.ToDouble(reader["DiscountPercent"] is DBNull ? null : reader["DiscountPercent"].ToString());
-                        paymentdetail.VatPercent = Convert.ToDouble(reader["VatPercent"] is DBNull ? null : reader["VatPercent"].ToString());
+
+                        if (reader["Discount"] is DBNull)
+                        {
+                            paymentdetail.Discount = null;
+                        }
+                        else
+                        {
+                            paymentdetail.Discount = Convert.ToDouble(reader["Discount"]);
+                        }
+
+                        if (reader["DiscountPercent"] is DBNull)
+                        {
+                            paymentdetail.DiscountPercent = null;
+                        }
+                        else
+                        {
+                            paymentdetail.DiscountPercent = Convert.ToDouble(reader["Discount"]);
+                        }
+
+                        if (reader["VatPercent"] is DBNull)
+                        {
+                            paymentdetail.VatPercent = null;
+                        }
+                        else
+                        {
+                            paymentdetail.VatPercent = Convert.ToDouble(reader["VatPercent"]);
+                        }
+
                         paymentdetail.TransactionType = Convert.ToInt16(reader["TransactionType"].ToString());
                         paymentdetail.BankName = reader["BankName"] is DBNull ? null : reader["BankName"].ToString();
                         paymentdetail.CheckNo = reader["CheckNo"] is DBNull ? null : reader["CheckNo"].ToString();
@@ -230,22 +259,23 @@ namespace SPDM.DLL.Repositories
 
                 if (paymentdetail.IsNew)
                 {
-                    comm.CommandText = "INSERT INTO PaymentDetail(CreateTime, UpdateTime, PaymentId," +
-                                       "  TotalExVat, TotalIncVat, Discount, DiscountPercent, Vat Percent," +
+                    comm.CommandText = "INSERT INTO PaymentDetail(CreateTime, PaymentId," +
+                                       " TotalExVat, TotalIncVat, Discount, DiscountPercent, VatPercent," +
                                        " TransactionType, BankName, CheckNo, BkashTransactionNo) VALUES(@CreateTime," +
-                                       " @UpdateTime, @PaymentId, @TotalExVat, @TotalIncVat, @Discount," +
-                                       " @DiscountPercent, @Vat Percent, @TransactionType, @BankName," +
+                                       " @PaymentId, @TotalExVat, @TotalIncVat, @Discount," +
+                                       " @DiscountPercent, @VatPercent, @TransactionType, @BankName," +
                                        " @CheckNo, @BkashTransactionNo); SELECT SCOPE_IDENTITY()";
                     comm.Parameters.Add("@CreateTime", SqlDbType.DateTime).Value = DateTime.Today;
                 }
                 else
                 {
-                    comm.CommandText = "Update PaymentDetail SET  CreateTime = @CreateTime, UpdateTime =@Updatetime," +
+                    comm.CommandText = "Update PaymentDetail SET  UpdateTime =@Updatetime," +
                                        " PaymentId = @PaymentId, TotalExVat= @TotalExVat, TotalIncVat = @TotalIncVat, " +
-                                       "Discount =@Discount, DiscountPercent = @DiscountPercent, Vat Percent= @VatPercent," +
+                                       " Discount =@Discount, DiscountPercent = @DiscountPercent, VatPercent= @VatPercent," +
                                        " TransactionType= @TransactionType, BankName = @BankName," +
                                        "BkashTransactionNo = @BkashTransactionNo WHERE Id = @Id";
                     comm.Parameters.Add("@Id", SqlDbType.Int).Value = paymentdetail.Id;
+                    comm.Parameters.Add("@UpdateTime", SqlDbType.DateTime).Value = DateTime.Now;
                 }
                 
                 comm.Parameters.Add("@PaymentId", SqlDbType.Int).Value = paymentdetail.PaymentId;

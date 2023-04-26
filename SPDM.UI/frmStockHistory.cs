@@ -61,26 +61,82 @@ namespace SPDM.UI
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            //string search = "";
+
+            //if (txtUser.Text != "")
+            //{
+            //    if (search != string.Empty)
+
+            //       search += "UserId =" + txtUser.Text;
+
+            //}
+
+            //if (txtCategory.Text != "")
+            //{
+            //    if (search != string.Empty)
+            //        //search += " AND ";
+            //        search += "CategoryId =" + txtCategory.Text;
+            //}
+
+            //if (txtItem.Text != "")
+            //{
+            //    //search += " AND ";
+            //    search += "ItemId =" + txtItem.Text;
+            //}
+
+            //using interpolation 
+
+            //string search = "";
+
+            //if (txtUser.Text != "")
+            //{
+            //    //if (search != string.Empty)
+
+            //        search += $"{"UserId =" + txtUser.Text}";
+
+            //}
+
+            //if (txtCategory.Text != "")
+            //{
+            //    if (search != string.Empty)
+            //        //search += " AND ";
+            //        search += $"{"CategoryId =" + txtCategory.Text}";
+            //}
+
+            //if (txtItem.Text != "")
+            //{
+            //    search += " AND ";
+            //    //search += $"{"ItemId =" + txtItem.Text}";
+            //}
+
+
+            //USING FORMAT
+
             string search = "";
 
-            if(txtUser.Text != "")
+            if (txtUser.Text != "")
             {
-                if (search != string.Empty)
+                //if (search != string.Empty)
 
-                    search += "UserId =" + txtUser.Text;
+                search += String.Format("UserId =" + txtUser.Text);
+
             }
 
             if (txtCategory.Text != "")
             {
-                //search += " AND ";
-                search += "CategoryId =" + txtCategory.Text;
+                if (search != string.Empty)
+                    //search += " AND ";
+                    search += String.Format("CategoryId =" + txtCategory.Text);
             }
 
             if (txtItem.Text != "")
             {
                 search += " AND ";
-                search += "ItemId =" + txtItem.Text;
+                search += String.Format("ItemId =" + txtItem.Text);
             }
+
+
+
 
             StockHistoryBLL stockHistoryBLL = new StockHistoryBLL();
             List<StockHistory> stockhistories = stockHistoryBLL.GetAll(search);
