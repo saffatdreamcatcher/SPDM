@@ -66,5 +66,10 @@ namespace SPDM.UI
         {
             e.RelationCount = 1;
         }
+
+        private void btnAddToStock_ButtonPressed(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+
+        }
     }
 }
