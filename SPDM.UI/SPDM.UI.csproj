@@ -238,6 +238,7 @@
     <None Include="Properties\DataSources\SPDM.DLL.Entities.Party.datasource" />
     <None Include="Properties\DataSources\SPDM.DLL.Entities.Production.datasource" />
     <None Include="Properties\DataSources\SPDM.DLL.Entities.Role.datasource" />
+    <None Include="Properties\DataSources\SPDM.DLL.Entities.Stock.datasource" />
     <None Include="Properties\DataSources\SPDM.DLL.Entities.User.datasource" />
     <None Include="Properties\DataSources\SPDM.DLL.Entities.WorkOrder.datasource" />
     <None Include="Properties\DataSources\SPDM.DLL.Entities.WorkOrderDetail.datasource" />

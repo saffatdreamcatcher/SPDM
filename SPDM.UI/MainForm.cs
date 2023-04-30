@@ -169,7 +169,7 @@ namespace SPDM.UI
         private void stockToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CloseAllForms();
-            frmStockHistory myForm = new frmStockHistory();
+            frmStock myForm = new frmStock();
             myForm.TopLevel = false;
             myForm.AutoScroll = true;
             pForm.Controls.Add(myForm);

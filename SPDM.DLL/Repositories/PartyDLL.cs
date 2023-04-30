@@ -62,6 +62,14 @@ namespace SPDM.DLL.Repositories
                         int id = Convert.ToInt32(reader["id"]);
                         DateTime createTime = Convert.ToDateTime(reader["CreateTime"]);
                         Party party = new Party(id, createTime);
+                        if (reader["UpdateTime"] is DBNull)
+                        {
+                            party.UpdateTime = null;
+                        }
+                        else
+                        {
+                            party.UpdateTime = Convert.ToDateTime(reader["UpdateTime"]);
+                        }
                         party.Account = reader["Account"].ToString();
                         party.Name = reader["Name"].ToString();
                         party.Address = reader["Address"].ToString();
@@ -108,8 +116,15 @@ namespace SPDM.DLL.Repositories
                     {
                         id = Convert.ToInt32(reader["id"]);
                         DateTime createTime = Convert.ToDateTime(reader["CreateTime"]);
-                        DateTime updateTime = Convert.ToDateTime(reader["UpdateTime"]);
                         party = new Party(id, createTime);
+                        if (reader["UpdateTime"] is DBNull)
+                        {
+                            party.UpdateTime = null;
+                        }
+                        else
+                        {
+                            party.UpdateTime = Convert.ToDateTime(reader["UpdateTime"]);
+                        }
                         party.Account = reader["Account"].ToString();
                         party.Name = reader["Name"].ToString();
                         party.Address = reader["Address"].ToString();

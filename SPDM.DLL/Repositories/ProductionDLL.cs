@@ -165,27 +165,27 @@ namespace SPDM.DLL.Repositories
                         else
                         {
                             production.Discount = Convert.ToDouble(reader["Discount"]);
-                            if (reader["DiscountPercent"] is DBNull)
-                            {
-                                production.DiscountPercent = null;
-                            }
-                            else
-                            {
-                                production.DiscountPercent = Convert.ToDouble(reader["DiscountPercent"]);
-                            }
-                            if (reader["VatPercent"] is DBNull)
-                            {
-                                production.VatPercent = null;
-                            }
-                            else
-                            {
-                                production.VatPercent = Convert.ToDouble(reader["VatPercent"]);
-                            }
-                            production.Status = (WorkOrderStatus)Convert.ToInt16(reader["Status"].ToString());
-                            production.Note = reader["Note"] is DBNull ? null : reader["Note"].ToString();
-
 
                         }
+                        if (reader["DiscountPercent"] is DBNull)
+                        {
+                            production.DiscountPercent = null;
+                        }
+                        else
+                        {
+                            production.DiscountPercent = Convert.ToDouble(reader["DiscountPercent"]);
+                        }
+                        if (reader["VatPercent"] is DBNull)
+                        {
+                            production.VatPercent = null;
+                        }
+                        else
+                        {
+                            production.VatPercent = Convert.ToDouble(reader["VatPercent"]);
+                        }
+
+                        production.Status = (WorkOrderStatus)Convert.ToInt16(reader["Status"].ToString());
+                        production.Note = reader["Note"] is DBNull ? null : reader["Note"].ToString();
                     }
 
 

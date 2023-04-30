@@ -69,7 +69,24 @@ namespace SPDM.UI
 
         private void btnAddToStock_ButtonPressed(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
+            //int productionId = Convert.ToInt32(gridView1.GetFocusedRowCellValue("Id"));
+            //WorkOrderStatus workOrderStatus = (WorkOrderStatus)Enum.Parse(typeof(WorkOrderStatus), gridView1.GetFocusedRowCellValue("Status").ToString());
+            //if (workOrderStatus == WorkOrderStatus.InProduction)
+            //{
+            //    ProductionBLL productionBLL = new ProductionBLL();
+            //    productionBLL.AddToStock(productionId, Global.Userid);
 
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Production with InProduction is only allowed to transfer.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+            //}
+
+            int productionId = Convert.ToInt32(gridView1.GetFocusedRowCellValue("Id"));
+            frmStock frmstock = new frmStock();
+            frmstock.ShowDialog(productionId);
         }
+
+       
     }
 }

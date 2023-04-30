@@ -77,5 +77,21 @@ namespace SPDM.BLL.BusinessLogic
             }
         }
 
+        public void AddToStock(int productionId, int userId)
+        {
+            ProductionDLL productionDLL = new ProductionDLL();
+            ProductionDetailDLL productionDetailDLL = new ProductionDetailDLL();
+            StockDLL stockDLL = new StockDLL();
+            StockHistoryDLL stockHistoryDLL = new StockHistoryDLL();
+
+            Production production = GetById(productionId);
+            string where = "ProductionId=" + productionId;
+            List<ProductionDetail> productionDetails = productionDetailDLL.GetAll(where);
+            Stock stock = new Stock();
+            stock.UserId = userId;
+            stock.Fiscalyear = production.Fiscalyear;
+            
+        }
+
     }
 }
