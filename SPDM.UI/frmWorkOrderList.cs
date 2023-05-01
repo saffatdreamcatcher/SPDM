@@ -90,6 +90,7 @@ namespace SPDM.UI
                 string where = "workorderId= " + workOrderId;
                 WorkOrderDetailBLL workOrderDetailBLL = new WorkOrderDetailBLL();
                 List<WorkOrderDetail> workOrderDetails = workOrderDetailBLL.GetAll(where);
+
                 foreach (WorkOrderDetail workOrderDetail in workOrderDetails)
                 {
                     workOrderDetailBLL.Delete(workOrderDetail.Id);

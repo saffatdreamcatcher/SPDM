@@ -14,7 +14,7 @@ namespace SPDM.UI
 {
     public partial class frmStock : Form
     {
-        //private BindingList<ProductionDetail> productionDetails = new BindingList<ProductionDetail>();
+        private BindingList<Stock> stocks = new BindingList<Stock>();
         private int productionId;
        
 
@@ -30,24 +30,29 @@ namespace SPDM.UI
 
         private void SaveStock()
         {
-            Stock stock = new Stock();
-            stock.Id = 4;
-            stock.UserId = Global.Userid;
-            stock.CategoryId = 2;
-            stock.ItemId = 5;
-            stock.Fiscalyear = "June-July 2025";
-            stock.Drum = "A 11";
-            stock.CoilNo = "12B";
-            //stock.Din = "9";
-            stock.Unit = 15;
-            stock.OpeningQuantityInKM = 110;
-            stock.OpeningQuantityInFKM = 11;
-            stock.CurrentQuantityInKM = 150;
-            stock.CurrentQuantityInFKM = 16;
-            stock.Note = "";
+            //Stock stock = new Stock();
+            //stock.Id = productionId;
+            //stock.UserId = Global.Userid;
+            //stock.CategoryId = 2;
+            //stock.ItemId = Convert.ToInt32(cmoItemId.SelectedValue);
+            //stock.Fiscalyear = Global.FiscalYear;
+            //stock.Drum = txtDrum.Text;
+            //stock.CoilNo = txtCoilNo.Text;
+            //stock.Din = Convert.ToDouble(txtDin.Text);
+            //stock.Unit = Convert.ToInt32(nupUnit.Value);
+            //stock.OpeningQuantityInKM = Convert.ToInt32(nUpOQinKM.Value);
+            //stock.OpeningQuantityInFKM = Convert.ToInt32(nUpOQinFKM.Value);
+            //stock.CurrentQuantityInKM = Convert.ToInt32(nUpCQinKM.Value);
+            //stock.CurrentQuantityInFKM = Convert.ToInt32(nUpCQinFKM.Value);
+            //stock.Note = txtNote.Text;
 
+            //StockBLL stockBLL = new StockBLL();
+            //stockBLL.Save(stock);
+
+            
+            List<Stock> stocks1 = stocks.ToList();
             StockBLL stockBLL = new StockBLL();
-            stockBLL.Save(stock);
+            stockBLL.Save(productionId, stocks1);
 
             //StockBLL stockBLL = new StockBLL();
             //List<Stock> stocks = stockBLL.GetAll();
@@ -77,7 +82,7 @@ namespace SPDM.UI
             WorkOrder workOrder = workOrderBLL.GetById(production.WorkOrderId);
 
             txtProductionNo.Text = production.ProductionNo;
-            txtFiscalyear.Text = production.Fiscalyear;
+            txtFiscalYear.Text = production.Fiscalyear;
             txtPartyId.Text = party.Name;
             txtWorkOrderId.Text = workOrder.WorkOrderNo;
             dtpWorkOrderDate.Value = DateTime.Now;
@@ -128,6 +133,55 @@ namespace SPDM.UI
         private void label19_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            AddNew();
+        }
+        private void AddNew()
+        {
+
+            bool isValid = IsStockValid();
+            if (isValid)
+            {
+                Stock stock = new Stock();
+                stock.UpdateTime = DateTime.Now;
+                stock.ItemId = Convert.ToInt32(cmoItemId.SelectedValue);
+                stock.UserId = Global.Userid;
+                stock.Fiscalyear = txtFiscalYear.Text;
+                stock.Drum = txtDrum.Text;
+                stock.CoilNo = txtCoilNo.Text;
+                stock.Din = Convert.ToDouble(txtDin.Text);
+                stock.Unit = Convert.ToInt32(nupUnit.Text);
+                stock.OpeningQuantityInKM = Convert.ToInt32(nUpOQinKM.Value);
+                stock.OpeningQuantityInFKM = Convert.ToInt32(nUpOQinFKM.Value);
+                stock.CurrentQuantityInKM = Convert.ToInt32(nUpCQinKM.Value);
+                stock.CurrentQuantityInFKM = Convert.ToInt32(nUpCQinFKM.Value);
+                stock.Note = txtNote.Text;
+
+                ItemBLL itemBLL = new ItemBLL();
+                Item item = itemBLL.GetById(stock.ItemId);
+                stock.CategoryId = Convert.ToInt32(item.CategoryId);
+
+                stocks.Add(stock);
+                gVStock.DataSource = stocks;
+                gVStock.Refresh();
+            }
+        }
+
+        private bool IsStockValid()
+        {
+            eP.Clear();
+            Boolean iv = true;
+
+            if (Convert.ToInt32(cmoItemId.SelectedValue) == -1)
+            {
+                cmoItemId.Focus();
+                eP.SetError(cmoItemId, "Can't empty");
+                iv = false;
+            }
+            return iv;
         }
     }
 }

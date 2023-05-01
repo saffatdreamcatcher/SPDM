@@ -351,9 +351,11 @@ namespace SPDM.UI
 
                 workOrder.Status = (WorkOrderStatus)Enum.Parse(typeof(WorkOrderStatus), txtStatus.Text);
                 workOrder.Note = txtNote.Text;
+
                 List<WorkOrderDetail> workOrderDetails1 = workOrderDetails.ToList();
                 WorkOrderBLL workOrderBLL = new WorkOrderBLL();
                 workOrderBLL.Save(workOrder, workOrderDetails1);
+
                 ClearWorkOrderFields();
 
             }
