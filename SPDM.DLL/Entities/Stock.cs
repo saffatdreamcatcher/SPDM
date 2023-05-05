@@ -61,5 +61,11 @@ namespace SPDM.DLL.Entities
         private string note;
         public string Note { get => note; set => note = value; }
 
+        private string categoryname;
+        public string CategoryName { get => categoryname; set => categoryname = value; }
+
+        private string itemname;
+        public string ItemName { get => itemname; set => itemname = value; }
+
     }
 }

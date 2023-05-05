@@ -57,12 +57,19 @@
             this.cmoCategory = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.cmoItem = new System.Windows.Forms.ComboBox();
+            this.dTPFromDate = new System.Windows.Forms.DateTimePicker();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.dTPToDate = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.gvStock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stockBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // gvStock
             // 
+            this.gvStock.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gvStock.AutoGenerateColumns = false;
             this.gvStock.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gvStock.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -84,11 +91,11 @@
             this.currentQuantityInFKMDataGridViewTextBoxColumn,
             this.noteDataGridViewTextBoxColumn});
             this.gvStock.DataSource = this.stockBindingSource;
-            this.gvStock.Location = new System.Drawing.Point(31, 163);
+            this.gvStock.Location = new System.Drawing.Point(12, 185);
             this.gvStock.Name = "gvStock";
             this.gvStock.RowHeadersWidth = 51;
             this.gvStock.RowTemplate.Height = 24;
-            this.gvStock.Size = new System.Drawing.Size(1338, 293);
+            this.gvStock.Size = new System.Drawing.Size(1455, 341);
             this.gvStock.TabIndex = 0;
             // 
             // idDataGridViewTextBoxColumn
@@ -117,7 +124,6 @@
             this.createTimeDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.createTimeDataGridViewTextBoxColumn.Name = "createTimeDataGridViewTextBoxColumn";
             this.createTimeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.createTimeDataGridViewTextBoxColumn.Visible = false;
             this.createTimeDataGridViewTextBoxColumn.Width = 125;
             // 
             // updateTimeDataGridViewTextBoxColumn
@@ -144,7 +150,6 @@
             this.categoryIdDataGridViewTextBoxColumn.HeaderText = "CategoryId";
             this.categoryIdDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.categoryIdDataGridViewTextBoxColumn.Name = "categoryIdDataGridViewTextBoxColumn";
-            this.categoryIdDataGridViewTextBoxColumn.Visible = false;
             this.categoryIdDataGridViewTextBoxColumn.Width = 125;
             // 
             // itemIdDataGridViewTextBoxColumn
@@ -153,7 +158,6 @@
             this.itemIdDataGridViewTextBoxColumn.HeaderText = "ItemId";
             this.itemIdDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.itemIdDataGridViewTextBoxColumn.Name = "itemIdDataGridViewTextBoxColumn";
-            this.itemIdDataGridViewTextBoxColumn.Visible = false;
             this.itemIdDataGridViewTextBoxColumn.Width = 125;
             // 
             // fiscalyearDataGridViewTextBoxColumn
@@ -243,7 +247,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(738, 63);
+            this.label1.Location = new System.Drawing.Point(600, 63);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(39, 16);
             this.label1.TabIndex = 1;
@@ -252,7 +256,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(963, 62);
+            this.label2.Location = new System.Drawing.Point(887, 65);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(30, 16);
             this.label2.TabIndex = 2;
@@ -260,21 +264,21 @@
             // 
             // txtDrum
             // 
-            this.txtDrum.Location = new System.Drawing.Point(783, 63);
+            this.txtDrum.Location = new System.Drawing.Point(661, 62);
             this.txtDrum.Name = "txtDrum";
-            this.txtDrum.Size = new System.Drawing.Size(162, 22);
+            this.txtDrum.Size = new System.Drawing.Size(186, 22);
             this.txtDrum.TabIndex = 3;
             // 
             // txtCoil
             // 
-            this.txtCoil.Location = new System.Drawing.Point(1009, 60);
+            this.txtCoil.Location = new System.Drawing.Point(950, 57);
             this.txtCoil.Name = "txtCoil";
-            this.txtCoil.Size = new System.Drawing.Size(149, 22);
+            this.txtCoil.Size = new System.Drawing.Size(180, 22);
             this.txtCoil.TabIndex = 4;
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(1198, 59);
+            this.btnSearch.Location = new System.Drawing.Point(1062, 98);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(87, 23);
             this.btnSearch.TabIndex = 5;
@@ -285,7 +289,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(715, 105);
+            this.label3.Location = new System.Drawing.Point(41, 59);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(62, 16);
             this.label3.TabIndex = 6;
@@ -294,16 +298,16 @@
             // cmoCategory
             // 
             this.cmoCategory.FormattingEnabled = true;
-            this.cmoCategory.Location = new System.Drawing.Point(783, 105);
+            this.cmoCategory.Location = new System.Drawing.Point(109, 58);
             this.cmoCategory.Name = "cmoCategory";
-            this.cmoCategory.Size = new System.Drawing.Size(164, 24);
+            this.cmoCategory.Size = new System.Drawing.Size(198, 24);
             this.cmoCategory.TabIndex = 7;
             this.cmoCategory.SelectedIndexChanged += new System.EventHandler(this.cmoCategory_SelectedIndexChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(963, 108);
+            this.label4.Location = new System.Drawing.Point(330, 64);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(32, 16);
             this.label4.TabIndex = 8;
@@ -312,16 +316,53 @@
             // cmoItem
             // 
             this.cmoItem.FormattingEnabled = true;
-            this.cmoItem.Location = new System.Drawing.Point(1009, 104);
+            this.cmoItem.Location = new System.Drawing.Point(368, 58);
             this.cmoItem.Name = "cmoItem";
-            this.cmoItem.Size = new System.Drawing.Size(149, 24);
+            this.cmoItem.Size = new System.Drawing.Size(205, 24);
             this.cmoItem.TabIndex = 9;
+            // 
+            // dTPFromDate
+            // 
+            this.dTPFromDate.Location = new System.Drawing.Point(109, 109);
+            this.dTPFromDate.Name = "dTPFromDate";
+            this.dTPFromDate.Size = new System.Drawing.Size(200, 22);
+            this.dTPFromDate.TabIndex = 10;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(33, 114);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(70, 16);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "From Date";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(315, 110);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(56, 16);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "To Date";
+            // 
+            // dTPToDate
+            // 
+            this.dTPToDate.Location = new System.Drawing.Point(373, 110);
+            this.dTPToDate.Name = "dTPToDate";
+            this.dTPToDate.Size = new System.Drawing.Size(200, 22);
+            this.dTPToDate.TabIndex = 12;
             // 
             // frmStockList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1473, 636);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ClientSize = new System.Drawing.Size(1479, 595);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.dTPToDate);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.dTPFromDate);
             this.Controls.Add(this.cmoItem);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.cmoCategory);
@@ -346,6 +387,19 @@
 
         private System.Windows.Forms.DataGridView gvStock;
         private System.Windows.Forms.BindingSource stockBindingSource;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtDrum;
+        private System.Windows.Forms.TextBox txtCoil;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cmoCategory;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cmoItem;
+        private System.Windows.Forms.DateTimePicker dTPFromDate;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DateTimePicker dTPToDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn isNewDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn createTimeDataGridViewTextBoxColumn;
@@ -363,14 +417,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn currentQuantityInKMDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn currentQuantityInFKMDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn noteDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtDrum;
-        private System.Windows.Forms.TextBox txtCoil;
-        private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox cmoCategory;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox cmoItem;
     }
 }

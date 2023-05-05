@@ -54,7 +54,9 @@ namespace SPDM.DLL.Repositories
                 conn.Open();
 
                 SqlCommand comm = conn.CreateCommand();
-                comm.CommandText = "Select * from Stock" + whereClause;
+                comm.CommandText = "Select Stock.*, Category.Name AS CategoryName, Item.Name AS ItemName from Stock " +
+                                    "inner join Category on Stock.CategoryId = Category.Id " +
+                                    "inner join Item on Stock.ItemId = Item.Id" + whereClause;
                 using (SqlDataReader reader = comm.ExecuteReader())
                 {
                     while (reader != null && reader.Read())
@@ -96,7 +98,8 @@ namespace SPDM.DLL.Repositories
                         stock.CurrentQuantityInKM = Convert.ToInt32(reader["CurrentQuantityInKM"]);
                         stock.CurrentQuantityInFKM = Convert.ToInt32(reader["CurrentQuantityInFKM"]);
                         stock.Note = reader["Note"] is DBNull ? null : reader["Note"].ToString();
-
+                        stock.CategoryName = reader["CategoryName"].ToString();
+                        stock.ItemName = reader["ItemName"].ToString();
                         stocks.Add(stock);
                     }
                 }
@@ -164,7 +167,8 @@ namespace SPDM.DLL.Repositories
                         stock.CurrentQuantityInKM = Convert.ToInt32(reader["CurrentQuantityInKM"]);
                         stock.CurrentQuantityInFKM = Convert.ToInt32(reader["CurrentQuantityInFKM"]);
                         stock.Note = reader["Note"] is DBNull ? null : reader["Note"].ToString();
-
+                        stock.CategoryName = reader["CategoryName"].ToString();
+                        stock.ItemName = reader["ItemName"].ToString();
 
 
 
@@ -242,7 +246,7 @@ namespace SPDM.DLL.Repositories
                                        ") VALUES(@CreateTime, @UserId, @CategoryId, @ItemId, @FiscalYear, " +
                                        "@Drum, @CoilNo, @Din, @Unit, @OpeningQuantityInKM, @OpeningQuantityInFKM, " +
                                        "@CurrentQuantityInKM, @CurrentQuantityInFKM, @Note); SELECT SCOPE_IDENTITY()";
-                    comm.Parameters.Add("@CreateTime", SqlDbType.DateTime).Value = DateTime.Today;
+                    comm.Parameters.Add("@CreateTime", SqlDbType.DateTime).Value = DateTime.Now;
                 }
                 else
                 {

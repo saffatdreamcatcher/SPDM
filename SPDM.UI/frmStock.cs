@@ -159,9 +159,17 @@ namespace SPDM.UI
                 stock.CurrentQuantityInKM = Convert.ToInt32(nUpCQinKM.Value);
                 stock.CurrentQuantityInFKM = Convert.ToInt32(nUpCQinFKM.Value);
                 stock.Note = txtNote.Text;
-
+                stock.ItemName = cmoItemId.Text;
+                
+                
+                
                 ItemBLL itemBLL = new ItemBLL();
                 Item item = itemBLL.GetById(stock.ItemId);
+
+                CategoryBLL categoryBLL = new CategoryBLL();
+                Category category = categoryBLL.GetById(item.CategoryId);
+
+                stock.CategoryName = category.Name;
                 stock.CategoryId = Convert.ToInt32(item.CategoryId);
 
                 stocks.Add(stock);

@@ -54,6 +54,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtProductionNo = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.nUpCQinFKM = new System.Windows.Forms.NumericUpDown();
             this.label20 = new System.Windows.Forms.Label();
@@ -75,12 +77,16 @@
             this.label13 = new System.Windows.Forms.Label();
             this.stockBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gVStock = new System.Windows.Forms.DataGridView();
+            this.stockBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.eP = new System.Windows.Forms.ErrorProvider(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.updateTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.userIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoryIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fiscalyearDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CategoryName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.drumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.coilNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dinDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -92,10 +98,6 @@
             this.noteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isNewDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.createTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stockBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.eP = new System.Windows.Forms.ErrorProvider(this.components);
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label21 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nupVatPercent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupDiscountPercent)).BeginInit();
@@ -376,6 +378,22 @@
             this.groupBox1.Text = "Production Detail";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(452, 155);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(205, 22);
+            this.textBox1.TabIndex = 50;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(395, 155);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(36, 16);
+            this.label21.TabIndex = 49;
+            this.label21.Text = "Note";
+            // 
             // btnAdd
             // 
             this.btnAdd.Location = new System.Drawing.Point(724, 155);
@@ -572,6 +590,8 @@
             this.categoryIdDataGridViewTextBoxColumn,
             this.itemIdDataGridViewTextBoxColumn,
             this.fiscalyearDataGridViewTextBoxColumn,
+            this.ItemName,
+            this.CategoryName,
             this.drumDataGridViewTextBoxColumn,
             this.coilNoDataGridViewTextBoxColumn,
             this.dinDataGridViewTextBoxColumn,
@@ -588,8 +608,16 @@
             this.gVStock.Name = "gVStock";
             this.gVStock.RowHeadersWidth = 51;
             this.gVStock.RowTemplate.Height = 24;
-            this.gVStock.Size = new System.Drawing.Size(1384, 150);
+            this.gVStock.Size = new System.Drawing.Size(1398, 150);
             this.gVStock.TabIndex = 10;
+            // 
+            // stockBindingSource1
+            // 
+            this.stockBindingSource1.DataSource = typeof(SPDM.DLL.Entities.Stock);
+            // 
+            // eP
+            // 
+            this.eP.ContainerControl = this;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -644,6 +672,22 @@
             this.fiscalyearDataGridViewTextBoxColumn.Name = "fiscalyearDataGridViewTextBoxColumn";
             this.fiscalyearDataGridViewTextBoxColumn.Visible = false;
             this.fiscalyearDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // ItemName
+            // 
+            this.ItemName.DataPropertyName = "ItemName";
+            this.ItemName.HeaderText = "ItemName";
+            this.ItemName.MinimumWidth = 6;
+            this.ItemName.Name = "ItemName";
+            this.ItemName.Width = 125;
+            // 
+            // CategoryName
+            // 
+            this.CategoryName.DataPropertyName = "CategoryName";
+            this.CategoryName.HeaderText = "CategoryName";
+            this.CategoryName.MinimumWidth = 6;
+            this.CategoryName.Name = "CategoryName";
+            this.CategoryName.Width = 125;
             // 
             // drumDataGridViewTextBoxColumn
             // 
@@ -738,30 +782,6 @@
             this.createTimeDataGridViewTextBoxColumn.Visible = false;
             this.createTimeDataGridViewTextBoxColumn.Width = 125;
             // 
-            // stockBindingSource1
-            // 
-            this.stockBindingSource1.DataSource = typeof(SPDM.DLL.Entities.Stock);
-            // 
-            // eP
-            // 
-            this.eP.ContainerControl = this;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(452, 155);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(205, 22);
-            this.textBox1.TabIndex = 50;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(395, 155);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(36, 16);
-            this.label21.TabIndex = 49;
-            this.label21.Text = "Note";
-            // 
             // frmStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -844,12 +864,17 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.DataGridView gVStock;
         private System.Windows.Forms.BindingSource stockBindingSource1;
+        private System.Windows.Forms.ErrorProvider eP;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label21;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn updateTimeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn userIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn categoryIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn itemIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fiscalyearDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItemName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CategoryName;
         private System.Windows.Forms.DataGridViewTextBoxColumn drumDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn coilNoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dinDataGridViewTextBoxColumn;
@@ -861,8 +886,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn noteDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn isNewDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn createTimeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.ErrorProvider eP;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label21;
     }
 }
