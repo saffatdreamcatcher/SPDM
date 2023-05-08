@@ -41,7 +41,7 @@ namespace SPDM.DLL.Repositories
 
         public List<Party> GetAll(string whereClause = "")
         {
-            var customers = new List<Party>();
+            var parties = new List<Party>();
             var myConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
             SqlConnection conn = new SqlConnection();
             if (!string.IsNullOrEmpty(whereClause))
@@ -81,7 +81,7 @@ namespace SPDM.DLL.Repositories
                         party.Fax = reader["Fax"] is DBNull ? null : reader["Fax"].ToString();
                         party.Email = reader["Email"] is DBNull ? null : reader["Email"].ToString();
                         party.Note = reader["Note"] is DBNull ? null : reader["Note"].ToString();
-                        customers.Add(party);
+                        parties.Add(party);
                     }
                 }
 
@@ -94,7 +94,7 @@ namespace SPDM.DLL.Repositories
             {
                 conn.Close();
             }
-            return customers;
+            return parties;
         }
 
         public Party GetById(int id)

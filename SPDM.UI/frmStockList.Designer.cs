@@ -61,6 +61,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.dTPToDate = new System.Windows.Forms.DateTimePicker();
+            this.btnClose = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gvStock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stockBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -91,7 +92,7 @@
             this.currentQuantityInFKMDataGridViewTextBoxColumn,
             this.noteDataGridViewTextBoxColumn});
             this.gvStock.DataSource = this.stockBindingSource;
-            this.gvStock.Location = new System.Drawing.Point(12, 185);
+            this.gvStock.Location = new System.Drawing.Point(12, 186);
             this.gvStock.Name = "gvStock";
             this.gvStock.RowHeadersWidth = 51;
             this.gvStock.RowTemplate.Height = 24;
@@ -353,12 +354,25 @@
             this.dTPToDate.Size = new System.Drawing.Size(200, 22);
             this.dTPToDate.TabIndex = 12;
             // 
+            // btnClose
+            // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.Location = new System.Drawing.Point(1450, -1);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(31, 28);
+            this.btnClose.TabIndex = 35;
+            this.btnClose.Text = "X";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
             // frmStockList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1479, 595);
+            this.ControlBox = false;
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.dTPToDate);
             this.Controls.Add(this.label5);
@@ -417,5 +431,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn currentQuantityInKMDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn currentQuantityInFKMDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn noteDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button btnClose;
     }
 }

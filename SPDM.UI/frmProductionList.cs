@@ -23,6 +23,7 @@ namespace SPDM.UI
         private void frmProductionList_Load(object sender, EventArgs e)
         {
             LoadProduction();
+            LoadParty();
         }
 
         private void LoadProduction()
@@ -31,6 +32,26 @@ namespace SPDM.UI
             List<Production> productions = productionBLL.GetAll();
             gridControl1.DataSource = productions;
             gridControl1.ForceInitialize();
+        }
+
+
+        
+
+        private void LoadParty()
+        {
+            
+                Party party = new Party();
+                party.Id = 0;
+                party.Name = "Please Select-";
+                PartyBLL partyBLL = new PartyBLL();
+                List<Party> parties = partyBLL.GetAll();
+                cmoParty.DataSource = parties;
+                parties.Insert(0, party);
+                cmoParty.ValueMember = "Id";
+                cmoParty.DisplayMember = "Name";
+            
+
+
         }
 
         private void gridView1_MasterRowEmpty(object sender, DevExpress.XtraGrid.Views.Grid.MasterRowEmptyEventArgs e)
@@ -87,6 +108,74 @@ namespace SPDM.UI
             frmstock.ShowDialog(productionId);
         }
 
-       
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            string search = "";
+
+            StringBuilder sB = new StringBuilder();
+
+
+            if (txtProduction.Text != string.Empty)
+            {
+                
+                sB.Append(" ProductionNo LIKE '%");
+                sB.Append(txtProduction.Text);
+                sB.Append("%'");
+            }
+
+            if (Convert.ToInt32(cmoParty.SelectedValue) > 0)
+            {
+                if (sB.ToString() != string.Empty)
+                {
+                    sB.Append(" AND");
+
+                }
+
+                sB.Append(" PartyId =");
+                sB.Append(cmoParty.SelectedValue);
+            }
+
+            if (dTPFromDate.Value.ToString() != "")
+            {
+
+                if (sB.ToString() != string.Empty)
+                {
+                    sB.Append(" AND");
+
+                }
+
+                sB.Append(" Format(Production.CreateTime, 'yyyy-MM-dd') <= '");
+                sB.Append(dTPFromDate.Value.ToString("yyyy-MM-dd"));
+                sB.Append("'");
+            }
+
+            if (dTPToDate.Value.ToString() != "")
+            {
+
+                if (sB.ToString() != string.Empty)
+                {
+                    sB.Append("AND");
+
+                }
+
+                sB.Append(" Format(Production.CreateTime, 'yyyy-MM-dd') >= '");
+                sB.Append(dTPToDate.Value.ToString("yyyy - MM - dd"));
+                sB.Append("'");
+
+            }
+
+            string ss = sB.ToString();
+
+            ProductionBLL productionBLL = new ProductionBLL();
+            List<Production> productions = productionBLL.GetAll(ss);
+            gridControl1.DataSource = productions;
+
+
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
