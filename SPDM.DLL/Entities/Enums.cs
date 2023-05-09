@@ -8,7 +8,7 @@ namespace SPDM.DLL.Entities
 {
     public enum WorkOrderStatus
     {
-        Placed = 1,
+        Placed = 0,
         InProduction,
         ReadyForStock,
         InStock,

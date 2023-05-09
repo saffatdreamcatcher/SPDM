@@ -19,6 +19,13 @@ namespace SPDM.UI
         public frmWorkOrderList()
         {
             InitializeComponent();
+            InitializeComboBox();
+        }
+
+        public void InitializeComboBox()
+        {
+            cmoStatus.Items.AddRange(Enum.GetNames(typeof(WorkOrderStatus)));
+            cmoStatus.SelectedIndex = 0;
         }
 
         private void btnAddNew_Click(object sender, EventArgs e)
@@ -31,6 +38,7 @@ namespace SPDM.UI
         private void frmWorkOrderList_Load(object sender, EventArgs e)
         {
             LoadWorkOrder();
+            LoadParty();
         }
 
         private void LoadWorkOrder()
@@ -42,6 +50,21 @@ namespace SPDM.UI
 
         }
 
+        private void LoadParty()
+        {
+
+            Party party = new Party();
+            party.Id = 0;
+            party.Name = "Please Select-";
+            PartyBLL partyBLL = new PartyBLL();
+            List<Party> parties = partyBLL.GetAll();
+            cmoParty.DataSource = parties;
+            parties.Insert(0, party);
+            cmoParty.ValueMember = "Id";
+            cmoParty.DisplayMember = "Name";
+
+
+        }
         private void gridView1_MasterRowGetChildList(object sender, DevExpress.XtraGrid.Views.Grid.MasterRowGetChildListEventArgs e)
         {
             List<WorkOrderDetail> workOrderDetails = new List<WorkOrderDetail>();
@@ -122,6 +145,67 @@ namespace SPDM.UI
             }
 
             
+
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            StringBuilder sB = new StringBuilder();
+
+
+            if (txtWorkOrderNo.Text != string.Empty)
+            {
+
+                sB.Append(" WorkOrderNo LIKE '%");
+                sB.Append(txtWorkOrderNo.Text);
+                sB.Append("%'");
+            }
+
+            if (Convert.ToInt32(cmoParty.SelectedValue) > 0)
+            {
+                if (sB.ToString() != string.Empty)
+                {
+                    sB.Append(" AND");
+
+                }
+
+                sB.Append(" PartyId =");
+                sB.Append(cmoParty.SelectedIndex);
+            }
+
+            if (dTPWorkOrderDate.Value.ToString() != "")
+            {
+
+                if (sB.ToString() != string.Empty)
+                {
+                    sB.Append(" AND");
+
+                }
+
+                sB.Append(" Format(WorkOrder.CreateTime, 'yyyy-MM-dd') = '");
+                sB.Append(dTPWorkOrderDate.Value.ToString("yyyy-MM-dd"));
+                sB.Append("'");
+            }
+
+
+
+            if (Convert.ToInt32(cmoStatus.SelectedValue) >= 0)
+            {
+                if (sB.ToString() != string.Empty)
+                {
+                    sB.Append(" AND");
+
+                }
+
+                sB.Append(" Status =");
+                sB.Append(cmoStatus.SelectedIndex);
+            }
+
+            string ss = sB.ToString();
+
+            WorkOrderBLL workOrderBLL = new WorkOrderBLL();
+            List<WorkOrder> workOrders = workOrderBLL.GetAll(ss);
+            gridControl1.DataSource = workOrders;
 
         }
     }

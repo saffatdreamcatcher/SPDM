@@ -49,7 +49,6 @@ namespace SPDM.UI
                 parties.Insert(0, party);
                 cmoParty.ValueMember = "Id";
                 cmoParty.DisplayMember = "Name";
-            
 
 
         }
@@ -110,7 +109,7 @@ namespace SPDM.UI
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            string search = "";
+            
 
             StringBuilder sB = new StringBuilder();
 
