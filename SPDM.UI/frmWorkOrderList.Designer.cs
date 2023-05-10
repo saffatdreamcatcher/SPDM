@@ -80,6 +80,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.dTPWorkOrderDate = new System.Windows.Forms.DateTimePicker();
             this.btnSearch = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dTPDeliveryDate = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.workOrderBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -105,16 +107,16 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControl1.DataSource = this.workOrderBindingSource;
-            this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
-            this.gridControl1.Location = new System.Drawing.Point(39, 139);
+            this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(8);
+            this.gridControl1.Location = new System.Drawing.Point(39, 156);
             this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.gridControl1.Margin = new System.Windows.Forms.Padding(8);
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemHyperLinkEdit1,
             this.repositoryItemHyperLinkEdit2,
             this.btnSendToProduction});
-            this.gridControl1.Size = new System.Drawing.Size(1420, 486);
+            this.gridControl1.Size = new System.Drawing.Size(1420, 469);
             this.gridControl1.TabIndex = 2;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -364,7 +366,7 @@
             // 
             this.cmoStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmoStatus.FormattingEnabled = true;
-            this.cmoStatus.Location = new System.Drawing.Point(1119, 41);
+            this.cmoStatus.Location = new System.Drawing.Point(124, 102);
             this.cmoStatus.Name = "cmoStatus";
             this.cmoStatus.Size = new System.Drawing.Size(204, 24);
             this.cmoStatus.TabIndex = 3;
@@ -372,7 +374,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(1050, 49);
+            this.label1.Location = new System.Drawing.Point(52, 107);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(44, 16);
             this.label1.TabIndex = 4;
@@ -381,7 +383,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(60, 49);
+            this.label2.Location = new System.Drawing.Point(12, 46);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(94, 16);
             this.label2.TabIndex = 5;
@@ -389,15 +391,15 @@
             // 
             // txtWorkOrderNo
             // 
-            this.txtWorkOrderNo.Location = new System.Drawing.Point(170, 46);
+            this.txtWorkOrderNo.Location = new System.Drawing.Point(124, 43);
             this.txtWorkOrderNo.Name = "txtWorkOrderNo";
-            this.txtWorkOrderNo.Size = new System.Drawing.Size(186, 22);
+            this.txtWorkOrderNo.Size = new System.Drawing.Size(204, 22);
             this.txtWorkOrderNo.TabIndex = 6;
             // 
             // cmoParty
             // 
             this.cmoParty.FormattingEnabled = true;
-            this.cmoParty.Location = new System.Drawing.Point(450, 46);
+            this.cmoParty.Location = new System.Drawing.Point(409, 43);
             this.cmoParty.Name = "cmoParty";
             this.cmoParty.Size = new System.Drawing.Size(205, 24);
             this.cmoParty.TabIndex = 11;
@@ -405,7 +407,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(393, 52);
+            this.label4.Location = new System.Drawing.Point(354, 49);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(38, 16);
             this.label4.TabIndex = 10;
@@ -414,34 +416,54 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(677, 49);
+            this.label5.Location = new System.Drawing.Point(643, 45);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(105, 16);
+            this.label5.Size = new System.Drawing.Size(139, 16);
             this.label5.TabIndex = 13;
-            this.label5.Text = "WorkOrder Date";
+            this.label5.Text = "From WorkOrder Date";
             // 
             // dTPWorkOrderDate
             // 
-            this.dTPWorkOrderDate.Location = new System.Drawing.Point(802, 44);
+            this.dTPWorkOrderDate.Location = new System.Drawing.Point(788, 41);
             this.dTPWorkOrderDate.Name = "dTPWorkOrderDate";
             this.dTPWorkOrderDate.Size = new System.Drawing.Size(200, 22);
             this.dTPWorkOrderDate.TabIndex = 12;
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(1371, 41);
+            this.btnSearch.Location = new System.Drawing.Point(1357, 37);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.Size = new System.Drawing.Size(102, 26);
             this.btnSearch.TabIndex = 14;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(1017, 43);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(106, 16);
+            this.label3.TabIndex = 16;
+            this.label3.Text = "To DeliveryDate";
+            // 
+            // dTPDeliveryDate
+            // 
+            this.dTPDeliveryDate.Location = new System.Drawing.Point(1129, 39);
+            this.dTPDeliveryDate.Name = "dTPDeliveryDate";
+            this.dTPDeliveryDate.Size = new System.Drawing.Size(200, 22);
+            this.dTPDeliveryDate.TabIndex = 15;
+            // 
             // frmWorkOrderList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1613, 642);
+            this.ControlBox = false;
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.dTPDeliveryDate);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dTPWorkOrderDate);
@@ -504,5 +526,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker dTPWorkOrderDate;
         private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DateTimePicker dTPDeliveryDate;
     }
 }

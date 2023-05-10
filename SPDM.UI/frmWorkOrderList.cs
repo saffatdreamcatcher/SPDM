@@ -19,12 +19,19 @@ namespace SPDM.UI
         public frmWorkOrderList()
         {
             InitializeComponent();
-            InitializeComboBox();
+            
         }
 
-        public void InitializeComboBox()
+        public void LoadComboBox()
         {
-            cmoStatus.Items.AddRange(Enum.GetNames(typeof(WorkOrderStatus)));
+            //cmoStatus.Items.AddRange(Enum.GetNames(typeof(WorkOrderStatus)));
+            //cmoStatus.SelectedIndex = 0;
+
+            string[] enumElements = Enum.GetNames(typeof(WorkOrderStatus));
+            foreach (var item in enumElements)
+            {
+                cmoStatus.Items.Add(item);
+            }
             cmoStatus.SelectedIndex = 0;
         }
 
@@ -39,6 +46,7 @@ namespace SPDM.UI
         {
             LoadWorkOrder();
             LoadParty();
+            LoadComboBox();
         }
 
         private void LoadWorkOrder()
@@ -182,8 +190,22 @@ namespace SPDM.UI
 
                 }
 
-                sB.Append(" Format(WorkOrder.CreateTime, 'yyyy-MM-dd') = '");
+                sB.Append(" Format(WorkOrder.WorkOrderDate, 'yyyy-MM-dd') >= '");
                 sB.Append(dTPWorkOrderDate.Value.ToString("yyyy-MM-dd"));
+                sB.Append("'");
+            }
+
+            if (dTPDeliveryDate.Value.ToString() != "")
+            {
+
+                if (sB.ToString() != string.Empty)
+                {
+                    sB.Append(" AND");
+
+                }
+
+                sB.Append(" Format(WorkOrder.DeliveryDate, 'yyyy-MM-dd') <= '");
+                sB.Append(dTPDeliveryDate.Value.ToString("yyyy-MM-dd"));
                 sB.Append("'");
             }
 
