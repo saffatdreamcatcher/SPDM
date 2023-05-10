@@ -33,6 +33,9 @@ namespace SPDM.UI
                 cmoStatus.Items.Add(item);
             }
             cmoStatus.SelectedIndex = 0;
+           
+
+
         }
 
         private void btnAddNew_Click(object sender, EventArgs e)
@@ -159,7 +162,7 @@ namespace SPDM.UI
         private void btnSearch_Click(object sender, EventArgs e)
         {
             StringBuilder sB = new StringBuilder();
-
+            var number = (int)(((WorkOrderStatus)Enum.Parse(typeof(WorkOrderStatus), cmoStatus.Text.ToString())));
 
             if (txtWorkOrderNo.Text != string.Empty)
             {
@@ -220,7 +223,8 @@ namespace SPDM.UI
                 }
 
                 sB.Append(" Status =");
-                sB.Append(cmoStatus.SelectedIndex);
+                sB.Append(cmoStatus.SelectedValue);
+               
             }
 
             string ss = sB.ToString();
