@@ -55,5 +55,8 @@ namespace SPDM.DLL.Entities
         private string itemName;
 
         public string ItemName { get => itemName; set => itemName = value; }
+
+        private double? drum;
+        public double? Drum { get => drum; set => drum = value; }
     }
 }

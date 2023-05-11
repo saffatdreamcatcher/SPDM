@@ -161,8 +161,11 @@ namespace SPDM.UI
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            
             StringBuilder sB = new StringBuilder();
-            var number = (int)(((WorkOrderStatus)Enum.Parse(typeof(WorkOrderStatus), cmoStatus.Text.ToString())));
+            var number = (int)(WorkOrderStatus)Enum.Parse(typeof(WorkOrderStatus), cmoStatus.Text.ToString());
+
+            //string m = Enum.GetName(typeof(WorkOrderStatus), number);
 
             if (txtWorkOrderNo.Text != string.Empty)
             {

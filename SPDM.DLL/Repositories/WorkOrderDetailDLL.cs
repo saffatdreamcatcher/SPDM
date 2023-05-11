@@ -111,6 +111,15 @@ namespace SPDM.DLL.Repositories
                         }
                         workorderdetail.ItemName = reader["ItemName"].ToString();
 
+                        if (reader["Drum"] is DBNull)
+                        {
+                            workorderdetail.Drum = null;
+                        }
+                        else
+                        {
+                            workorderdetail.Drum = Convert.ToDouble(reader["Drum"]);
+                        }
+
                         workorders.Add(workorderdetail);
                     }
                 }
@@ -186,6 +195,16 @@ namespace SPDM.DLL.Repositories
                         }
 
                         workorderdetail.ItemName = reader["ItemName"].ToString();
+
+
+                        if (reader["Drum"] is DBNull)
+                        {
+                            workorderdetail.Drum = null;
+                        }
+                        else
+                        {
+                            workorderdetail.Drum = Convert.ToDouble(reader["Drum"]);
+                        }
                     }
                 }
 
@@ -253,10 +272,10 @@ namespace SPDM.DLL.Repositories
                 {
                     comm.CommandText = "INSERT INTO WorkOrderDetail(CreateTime, WorkOrderId, ItemId, Unit, " +
                                        "UnitPrice, Length, TotalExVat, TotalIncVat, Discount, " +
-                                       "DiscountPercent, VatPercent " +
+                                       "DiscountPercent, VatPercent, Drum " +
                                        ") VALUES(@CreateTime, @WorkOrderId," +
                                        " @ItemId, @Unit, @UnitPrice, @Length, @TotalExVat," +
-                                       " @TotalIncVat, @Discount, @DiscountPercent, @VatPercent " +
+                                       " @TotalIncVat, @Discount, @DiscountPercent, @VatPercent, @Drum " +
                                        "); SELECT SCOPE_IDENTITY()";
                     comm.Parameters.Add("@CreateTime", SqlDbType.DateTime).Value = DateTime.Now;
                 }
@@ -266,7 +285,7 @@ namespace SPDM.DLL.Repositories
                                        "WorkOrderId = @WorkOrderId, " +
                                        "ItemId = @ItemId, Unit = @Unit, UnitPrice = @UnitPrice, Length = @Length ," +
                                        "TotalExVat= @TotalExVat, TotalIncVat = @TotalIncVat, Discount =@Discount," +
-                                       "DiscountPercent = @DiscountPercent, VatPercent = @VatPercent " +
+                                       "DiscountPercent = @DiscountPercent, VatPercent = @VatPercent, Drum = @Drum " +
                                        " WHERE Id = @Id";
                     comm.Parameters.Add("@Id", SqlDbType.Int).Value = workorderdetail.Id;
                     comm.Parameters.Add("@UpdateTime", SqlDbType.DateTime).Value = DateTime.Now;
@@ -304,8 +323,16 @@ namespace SPDM.DLL.Repositories
                 {
                     comm.Parameters.Add("@VatPercent", SqlDbType.Decimal).Value = DBNull.Value;
                 }
-                
-                
+
+                if (workorderdetail.Drum.HasValue)
+                {
+                    comm.Parameters.Add("@Drum", SqlDbType.Decimal).Value = workorderdetail.Drum.Value;
+                }
+                else
+                {
+                    comm.Parameters.Add("@Drum", SqlDbType.Decimal).Value = DBNull.Value;
+                }
+
 
                 if (workorderdetail.IsNew)
                 {

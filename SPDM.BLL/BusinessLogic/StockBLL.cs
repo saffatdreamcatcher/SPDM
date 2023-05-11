@@ -10,6 +10,7 @@ namespace SPDM.BLL.BusinessLogic
 {
     public class StockBLL
     {
+       
         public void Save(int productionId, List<Stock> stocks)
         {
             try
@@ -19,10 +20,21 @@ namespace SPDM.BLL.BusinessLogic
                 ProductionDLL productionDLL = new ProductionDLL();
                 WorkOrderDLL workOrderDLL = new WorkOrderDLL();
                 ProductionDetailDLL productionDetailDLL = new ProductionDetailDLL();
+                Production production = productionDLL.GetById(productionId);
+                
+                
+                WorkOrderDetailDLL workOrderDetailDLL = new WorkOrderDetailDLL();
+                
+                
+                
+                
+
                 foreach (Stock stock in stocks)
                 {
                     //Save To Stock
                     stockDLL.Save(stock);
+
+                    string where1 = $"{"WorkOrderId= " + production.WorkOrderId} {" and  ItemId= " + stock.ItemId}";
 
                     //Save To StockHistory
                     StockHistory stockHistory = new StockHistory();
@@ -38,11 +50,14 @@ namespace SPDM.BLL.BusinessLogic
                     stockHistory.QuantityInFKM = stock.OpeningQuantityInFKM;
                     stockHistory.Note = stock.Note;
                     stockHistoryDLL.Save(stockHistory);
-                    
-                }
-                
 
-                Production production = productionDLL.GetById(productionId);
+                    List<WorkOrderDetail> workOrderDetails = workOrderDetailDLL.GetAll(where1);
+                    WorkOrderDetail workOrderDetail = workOrderDetails[0];
+
+                    workOrderDetail.Drum = Convert.ToDouble(stock.Drum);
+                    workOrderDetailDLL.Save(workOrderDetail);
+                }
+               
 
                 //Update WorkOrder
                 WorkOrder workOrder = workOrderDLL.GetById(production.WorkOrderId);
