@@ -180,7 +180,7 @@ namespace SPDM.UI
         private void saleToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CloseAllForms();
-            frmSaleDetail myForm = new frmSaleDetail();
+            frmSale myForm = new frmSale();
             myForm.TopLevel = false;
             myForm.AutoScroll = true;
             pForm.Controls.Add(myForm);

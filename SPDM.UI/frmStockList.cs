@@ -75,17 +75,15 @@ namespace SPDM.UI
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            string search = "";
-
-            StringBuilder sB = new StringBuilder();
             
 
+            StringBuilder sB = new StringBuilder();
+
+             //string search = "";
             //if (Convert.ToInt32(cmoCategory.SelectedValue) > 0)
 
             //{
             //    search += " Stock.CategoryId =" + cmoCategory.SelectedValue;
-            //    //sB.Append(" Stock.CategoryId =");
-            //    //sB.Append(cmoCategory.SelectedValue);
 
             //}
 
@@ -102,7 +100,7 @@ namespace SPDM.UI
             //if (txtDrum.Text != "")
             //{
 
-            //        if (search != string.Empty)
+            //        if (string != string.Empty)
             //        {
             //            search += " AND";
 
@@ -163,7 +161,7 @@ namespace SPDM.UI
 
             if (Convert.ToInt32(cmoItem.SelectedValue) > 0)
             {
-                if (sB.ToString() != string.Empty)
+                if (!string.IsNullOrEmpty(sB.ToString()))
                 {
                     sB.Append(" AND");
 
@@ -173,10 +171,10 @@ namespace SPDM.UI
                 sB.Append(cmoItem.SelectedValue);
             }
 
-            if (txtDrum.Text != "")
+            if (!string.IsNullOrEmpty(txtDrum.Text))
             {
 
-                if (sB.ToString() != string.Empty)
+                if (!string.IsNullOrEmpty(sB.ToString()))
                 {
                     sB.Append(" AND");
 
@@ -188,9 +186,9 @@ namespace SPDM.UI
 
             }
 
-            if (txtCoil.Text != "")
+            if (!string.IsNullOrEmpty(txtCoil.Text))
             {
-                if (sB.ToString() != string.Empty)
+                if (!string.IsNullOrEmpty(sB.ToString()))
                 {
                     sB.Append(" AND");
 
@@ -202,10 +200,11 @@ namespace SPDM.UI
                 sB.Append("%'");
             }
 
-            if (dTPFromDate.Value.ToString() != "")
+            //if (dTPFromDate.Value.ToString() != "")
+            if (!string.IsNullOrEmpty(dTPFromDate.Value.ToString()))
             {
 
-                if (sB.ToString() != string.Empty)
+                if (!string.IsNullOrEmpty(sB.ToString()))
                 {
                     sB.Append(" AND");
 
@@ -216,10 +215,11 @@ namespace SPDM.UI
                 sB.Append("'");
             }
 
-            if (dTPToDate.Value.ToString() != "")
+            //if (dTPToDate.Value.ToString() != "")
+            if (!string.IsNullOrEmpty(dTPToDate.Value.ToString()))
             {
 
-                if (sB.ToString() != string.Empty)
+                if (!string.IsNullOrEmpty(sB.ToString()))
                 {
                     sB.Append("AND");
 
