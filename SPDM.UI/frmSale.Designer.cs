@@ -64,21 +64,29 @@
             this.label17 = new System.Windows.Forms.Label();
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
             this.label18 = new System.Windows.Forms.Label();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            this.nupTotalIncVat1 = new System.Windows.Forms.NumericUpDown();
             this.label19 = new System.Windows.Forms.Label();
             this.txtStatus = new System.Windows.Forms.TextBox();
             this.txtParty = new System.Windows.Forms.TextBox();
+            this.txtCoilNo = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.txtDrum = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.txtAvilableQinKM = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.txtAvilableQinFKM = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.nupTotalIncVat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupDiscountPercent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupVatPercent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupTotalIncVat1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSaveSale
             // 
-            this.btnSaveSale.Location = new System.Drawing.Point(46, 585);
+            this.btnSaveSale.Location = new System.Drawing.Point(51, 616);
             this.btnSaveSale.Name = "btnSaveSale";
             this.btnSaveSale.Size = new System.Drawing.Size(147, 46);
             this.btnSaveSale.TabIndex = 0;
@@ -296,6 +304,7 @@
             this.cmoItem.Name = "cmoItem";
             this.cmoItem.Size = new System.Drawing.Size(205, 24);
             this.cmoItem.TabIndex = 38;
+            this.cmoItem.SelectedIndexChanged += new System.EventHandler(this.cmoItem_SelectedIndexChanged);
             // 
             // label13
             // 
@@ -387,17 +396,17 @@
             this.label18.TabIndex = 47;
             this.label18.Text = "Vat %";
             // 
-            // numericUpDown3
+            // nupTotalIncVat1
             // 
-            this.numericUpDown3.Location = new System.Drawing.Point(817, 427);
-            this.numericUpDown3.Maximum = new decimal(new int[] {
+            this.nupTotalIncVat1.Location = new System.Drawing.Point(817, 427);
+            this.nupTotalIncVat1.Maximum = new decimal(new int[] {
             -1981284352,
             -1966660860,
             0,
             0});
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(200, 22);
-            this.numericUpDown3.TabIndex = 50;
+            this.nupTotalIncVat1.Name = "nupTotalIncVat1";
+            this.nupTotalIncVat1.Size = new System.Drawing.Size(200, 22);
+            this.nupTotalIncVat1.TabIndex = 50;
             // 
             // label19
             // 
@@ -423,15 +432,88 @@
             this.txtParty.Size = new System.Drawing.Size(210, 22);
             this.txtParty.TabIndex = 52;
             // 
+            // txtCoilNo
+            // 
+            this.txtCoilNo.Location = new System.Drawing.Point(460, 503);
+            this.txtCoilNo.Name = "txtCoilNo";
+            this.txtCoilNo.Size = new System.Drawing.Size(209, 22);
+            this.txtCoilNo.TabIndex = 56;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(381, 509);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(51, 16);
+            this.label20.TabIndex = 55;
+            this.label20.Text = "Coil No";
+            // 
+            // txtDrum
+            // 
+            this.txtDrum.Location = new System.Drawing.Point(98, 503);
+            this.txtDrum.Name = "txtDrum";
+            this.txtDrum.Size = new System.Drawing.Size(201, 22);
+            this.txtDrum.TabIndex = 54;
+            this.txtDrum.TextChanged += new System.EventHandler(this.txtDrum_TextChanged);
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(34, 506);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(39, 16);
+            this.label21.TabIndex = 53;
+            this.label21.Text = "Drum";
+            // 
+            // txtAvilableQinKM
+            // 
+            this.txtAvilableQinKM.Location = new System.Drawing.Point(818, 500);
+            this.txtAvilableQinKM.Name = "txtAvilableQinKM";
+            this.txtAvilableQinKM.Size = new System.Drawing.Size(199, 22);
+            this.txtAvilableQinKM.TabIndex = 58;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(717, 506);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(95, 16);
+            this.label22.TabIndex = 57;
+            this.label22.Text = "AvilableQinKM";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(1074, 509);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(103, 16);
+            this.label23.TabIndex = 59;
+            this.label23.Text = "AvilableQinFKM";
+            // 
+            // txtAvilableQinFKM
+            // 
+            this.txtAvilableQinFKM.Location = new System.Drawing.Point(1188, 503);
+            this.txtAvilableQinFKM.Name = "txtAvilableQinFKM";
+            this.txtAvilableQinFKM.Size = new System.Drawing.Size(192, 22);
+            this.txtAvilableQinFKM.TabIndex = 60;
+            // 
             // frmSale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1478, 674);
+            this.Controls.Add(this.txtAvilableQinFKM);
+            this.Controls.Add(this.label23);
+            this.Controls.Add(this.txtAvilableQinKM);
+            this.Controls.Add(this.label22);
+            this.Controls.Add(this.txtCoilNo);
+            this.Controls.Add(this.label20);
+            this.Controls.Add(this.txtDrum);
+            this.Controls.Add(this.label21);
             this.Controls.Add(this.txtParty);
             this.Controls.Add(this.txtStatus);
-            this.Controls.Add(this.numericUpDown3);
+            this.Controls.Add(this.nupTotalIncVat1);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.numericUpDown2);
             this.Controls.Add(this.label18);
@@ -477,7 +559,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nupVatPercent)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupTotalIncVat1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -521,9 +603,17 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.NumericUpDown numericUpDown2;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.NumericUpDown numericUpDown3;
+        private System.Windows.Forms.NumericUpDown nupTotalIncVat1;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.TextBox txtStatus;
         private System.Windows.Forms.TextBox txtParty;
+        private System.Windows.Forms.TextBox txtCoilNo;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox txtDrum;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.TextBox txtAvilableQinKM;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.TextBox txtAvilableQinFKM;
     }
 }
