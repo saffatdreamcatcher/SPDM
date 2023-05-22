@@ -12,14 +12,14 @@ using System.Windows.Forms;
 
 namespace SPDM.UI
 {
-    
+
     public partial class frmSale : Form
     {
         private List<WorkOrderDetail> workOrderDetails;
         private BindingList<SaleDetail> saleDetails = new BindingList<SaleDetail>();
         private int saleId;
 
-        WorkOrder workOrder ;
+        WorkOrder workOrder;
 
 
         public frmSale()
@@ -57,7 +57,7 @@ namespace SPDM.UI
             //-------------------------------------------
             bool isValid = IsSaleValid();
             if (isValid)
-            { 
+            {
                 Sale sale = new Sale();
                 sale.Id = saleId;
                 sale.UserId = Global.Userid;
@@ -73,15 +73,15 @@ namespace SPDM.UI
 
                 }
                 sale.Discount = workOrder.Discount;
-                sale.DiscountPercent =workOrder.DiscountPercent;
+                sale.DiscountPercent = workOrder.DiscountPercent;
                 if (nupVatPercent.Value > 0)
                 {
                     sale.VatPercent = Convert.ToDouble(nupVatPercent.Value);
                 }
                 sale.DeliveryDate = dtpDeliveryDate.Value;
                 sale.DeliveryAddress = txtDeliveryAddress.Text;
-                sale.Status = (int) (WorkOrderStatus)Enum.Parse(typeof(WorkOrderStatus), txtStatus.Text);
-                sale.Note = txtNote.Text;   
+                sale.Status = (int)(WorkOrderStatus)Enum.Parse(typeof(WorkOrderStatus), txtStatus.Text);
+                sale.Note = txtNote.Text;
 
 
                 List<SaleDetail> saleDetails1 = saleDetails.ToList();
@@ -105,6 +105,7 @@ namespace SPDM.UI
         private void btnSearch_Click(object sender, EventArgs e)
         {
             ClearSale();
+            ClearSaleDetail();
             if (!string.IsNullOrEmpty(txtWorkOrderNo.Text))
             {
                 WorkOrder workOrder1 = new WorkOrder();
@@ -153,34 +154,8 @@ namespace SPDM.UI
                     nupDiscountPercent.Value = Convert.ToDecimal(workOrder.DiscountPercent);
                     nupVatPercent.Value = Convert.ToDecimal(workOrder.VatPercent);
                     txtStatus.Text = workOrder.Status.ToString();
-
-
-
                 }
             }
-
-        }
-
-
-
-
-        private void frmSale_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void nupDiscountPercent_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtUnit_TextChanged(object sender, EventArgs e)
-        {
 
         }
 
@@ -196,8 +171,7 @@ namespace SPDM.UI
             txtCoilNo.Text = "";
             txtAvilableQinKM.Text = "";
             txtAvilableQinFKM.Text = "";
-
-
+            cmoItem.DataSource = null;
         }
 
         private void ShowWorkOrderdetail()
@@ -207,7 +181,7 @@ namespace SPDM.UI
 
             foreach (WorkOrderDetail workOrderDetail in workOrderDetails)
             {
-                
+
                 if (workOrderDetail.ItemId == ii)
                 {
 
@@ -242,7 +216,7 @@ namespace SPDM.UI
 
             if (txtChallanNo.Text == string.Empty)
             {
-                
+
                 eP.SetError(txtChallanNo, "Can't empty");
                 iv = false;
 
@@ -250,7 +224,7 @@ namespace SPDM.UI
             return iv;
         }
 
-            private bool IsSaleDetailValid()
+        private bool IsSaleDetailValid()
         {
             eP.Clear();
             Boolean iv = true;
@@ -273,12 +247,11 @@ namespace SPDM.UI
                 eP.SetError(txtAvilableQinKM, "Avilable quantity is less than length");
                 iv = false;
             }
-                return iv;
+            return iv;
 
-            
+
 
         }
-
 
 
         private void cmoItem_SelectedIndexChanged(object sender, EventArgs e)
@@ -312,8 +285,6 @@ namespace SPDM.UI
             {
                 ShowStock();
             }
-
-
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -330,23 +301,20 @@ namespace SPDM.UI
                 saleDetail.VatPercent = Convert.ToDouble(nupVatPercent1.Value);
                 saleDetail.TotalIncvat = Convert.ToDouble(nupTotalIncVat1.Value);
 
-                foreach(WorkOrderDetail workOrderDetail in workOrderDetails)
+                foreach (WorkOrderDetail workOrderDetail in workOrderDetails)
                 {
-                    if(workOrderDetail.ItemId == saleDetail.ItemId)
+                    if (workOrderDetail.ItemId == saleDetail.ItemId)
                     {
                         saleDetail.Discount = workOrderDetail.Discount;
                         break;
                     }
                 }
 
+                saleDetails.Add(saleDetail);
+                gvSaleDetail.DataSource = saleDetails;
+                gvSaleDetail.Refresh();
 
-               
-               
-                    saleDetails.Add(saleDetail);
-                    gvSaleDetail.DataSource = saleDetails;
-                    gvSaleDetail.Refresh();
-                
-                
+
             }
         }
     }

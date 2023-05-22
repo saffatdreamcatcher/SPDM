@@ -197,7 +197,6 @@
             this.nupDiscountPercent.Name = "nupDiscountPercent";
             this.nupDiscountPercent.Size = new System.Drawing.Size(201, 22);
             this.nupDiscountPercent.TabIndex = 21;
-            this.nupDiscountPercent.ValueChanged += new System.EventHandler(this.nupDiscountPercent_ValueChanged);
             // 
             // label9
             // 
@@ -207,7 +206,6 @@
             this.label9.Size = new System.Drawing.Size(74, 16);
             this.label9.TabIndex = 20;
             this.label9.Text = "Discount %";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // nupVatPercent
             // 
@@ -360,7 +358,6 @@
             this.txtUnit.Name = "txtUnit";
             this.txtUnit.Size = new System.Drawing.Size(205, 22);
             this.txtUnit.TabIndex = 42;
-            this.txtUnit.TextChanged += new System.EventHandler(this.txtUnit_TextChanged);
             // 
             // label15
             // 
@@ -743,7 +740,6 @@
             this.Controls.Add(this.btnSaveSale);
             this.Name = "frmSale";
             this.Text = "frmSale";
-            this.Load += new System.EventHandler(this.frmSale_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nupTotalIncVat)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupDiscountPercent)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupVatPercent)).EndInit();

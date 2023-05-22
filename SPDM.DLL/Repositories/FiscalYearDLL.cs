@@ -68,7 +68,6 @@ namespace SPDM.DLL.Repositories
                         fiscalyears.Add(fiscalYear);
                     }
                 }
-
             }
             catch (SqlException ex)
             {
@@ -107,7 +106,6 @@ namespace SPDM.DLL.Repositories
 
                     }
                 }
-
 
             }
             catch (SqlException ex)
