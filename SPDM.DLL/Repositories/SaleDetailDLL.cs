@@ -88,7 +88,7 @@ namespace SPDM.DLL.Repositories
                         }
                         else
                         {
-                            saledetail.Discount = Convert.ToDouble(reader["VatPercent"]);
+                            saledetail.Discount = Convert.ToDouble(reader["Discount"]);
                         }
 
 
@@ -98,7 +98,7 @@ namespace SPDM.DLL.Repositories
                         }
                         else
                         {
-                            saledetail.DiscountPercent = Convert.ToDouble(reader["VatPercent"]);
+                            saledetail.DiscountPercent = Convert.ToDouble(reader["DiscountPercent"]);
                         }
 
 
@@ -271,10 +271,34 @@ namespace SPDM.DLL.Repositories
                 comm.Parameters.Add("@Length", SqlDbType.Int).Value = saledetail.Length;
                 comm.Parameters.Add("@TotalExVat", SqlDbType.Decimal).Value = saledetail.TotalExvat;
                 comm.Parameters.Add("@TotalIncVat", SqlDbType.Decimal).Value = saledetail.TotalIncvat;
-                comm.Parameters.Add("@Discount", SqlDbType.Decimal).Value = saledetail.Discount;
-                comm.Parameters.Add("@DiscountPercent", SqlDbType.Decimal).Value = saledetail.DiscountPercent;
-                comm.Parameters.Add("@VatPercent", SqlDbType.Decimal).Value = saledetail.VatPercent;
-                
+                if (saledetail.Discount.HasValue)
+                {
+                    comm.Parameters.Add("@Discount", SqlDbType.Decimal).Value = saledetail.Discount.Value;
+                }
+                else
+                {
+                    comm.Parameters.Add("@Discount", SqlDbType.Decimal).Value = DBNull.Value;
+                }
+                if (saledetail.DiscountPercent.HasValue)
+                {
+                    comm.Parameters.Add("@DiscountPercent", SqlDbType.Decimal).Value = saledetail.DiscountPercent.Value;
+                }
+                else
+                {
+                    comm.Parameters.Add("@DiscountPercent", SqlDbType.Decimal).Value = DBNull.Value;
+                }
+
+                if (saledetail.VatPercent.HasValue)
+                {
+                    comm.Parameters.Add("@VatPercent", SqlDbType.Decimal).Value = saledetail.VatPercent.Value;
+                }
+                else
+                {
+                    comm.Parameters.Add("@VatPercent", SqlDbType.Decimal).Value = DBNull.Value;
+                }
+
+
+
 
                 if (saledetail.IsNew)
                 {

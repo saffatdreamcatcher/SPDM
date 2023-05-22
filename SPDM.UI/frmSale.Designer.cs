@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnSaveSale = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtWorkOrderNo = new System.Windows.Forms.TextBox();
@@ -44,11 +45,11 @@
             this.label11 = new System.Windows.Forms.Label();
             this.txtChallanNo = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.dtpWorkOrderDate = new System.Windows.Forms.DateTimePicker();
+            this.dtpSaleDate = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.dtpDeliveryDate = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtDeliveryAddress = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtNote = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -60,9 +61,9 @@
             this.label15 = new System.Windows.Forms.Label();
             this.txtUnitPrice = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.nupDiscountPercent1 = new System.Windows.Forms.NumericUpDown();
             this.label17 = new System.Windows.Forms.Label();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.nupVatPercent1 = new System.Windows.Forms.NumericUpDown();
             this.label18 = new System.Windows.Forms.Label();
             this.nupTotalIncVat1 = new System.Windows.Forms.NumericUpDown();
             this.label19 = new System.Windows.Forms.Label();
@@ -76,19 +77,40 @@
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.txtAvilableQinFKM = new System.Windows.Forms.TextBox();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.gvSaleDetail = new System.Windows.Forms.DataGridView();
+            this.eP = new System.Windows.Forms.ErrorProvider(this.components);
+            this.updateTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.saleIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unitPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lengthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalExvatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalIncvatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.discountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.discountPercentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vatPercentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.isNewDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.createTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.saleDetailBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.nupTotalIncVat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupDiscountPercent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupVatPercent)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupDiscountPercent1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupVatPercent1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupTotalIncVat1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvSaleDetail)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.saleDetailBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSaveSale
             // 
-            this.btnSaveSale.Location = new System.Drawing.Point(51, 616);
+            this.btnSaveSale.Location = new System.Drawing.Point(1399, 638);
             this.btnSaveSale.Name = "btnSaveSale";
-            this.btnSaveSale.Size = new System.Drawing.Size(147, 46);
+            this.btnSaveSale.Size = new System.Drawing.Size(78, 30);
             this.btnSaveSale.TabIndex = 0;
             this.btnSaveSale.Text = "Save Sale";
             this.btnSaveSale.UseVisualStyleBackColor = true;
@@ -229,14 +251,14 @@
             this.label4.TabIndex = 26;
             this.label4.Text = "Challan No:";
             // 
-            // dtpWorkOrderDate
+            // dtpSaleDate
             // 
-            this.dtpWorkOrderDate.CustomFormat = "dd/MM/yyyy";
-            this.dtpWorkOrderDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpWorkOrderDate.Location = new System.Drawing.Point(459, 247);
-            this.dtpWorkOrderDate.Name = "dtpWorkOrderDate";
-            this.dtpWorkOrderDate.Size = new System.Drawing.Size(200, 22);
-            this.dtpWorkOrderDate.TabIndex = 29;
+            this.dtpSaleDate.CustomFormat = "dd/MM/yyyy";
+            this.dtpSaleDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpSaleDate.Location = new System.Drawing.Point(459, 247);
+            this.dtpSaleDate.Name = "dtpSaleDate";
+            this.dtpSaleDate.Size = new System.Drawing.Size(200, 22);
+            this.dtpSaleDate.TabIndex = 29;
             // 
             // label5
             // 
@@ -265,12 +287,12 @@
             this.label6.TabIndex = 30;
             this.label6.Text = "Delivery Date";
             // 
-            // textBox1
+            // txtDeliveryAddress
             // 
-            this.textBox1.Location = new System.Drawing.Point(1188, 243);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(186, 22);
-            this.textBox1.TabIndex = 33;
+            this.txtDeliveryAddress.Location = new System.Drawing.Point(1188, 243);
+            this.txtDeliveryAddress.Name = "txtDeliveryAddress";
+            this.txtDeliveryAddress.Size = new System.Drawing.Size(186, 22);
+            this.txtDeliveryAddress.TabIndex = 33;
             // 
             // label8
             // 
@@ -299,6 +321,7 @@
             // 
             // cmoItem
             // 
+            this.cmoItem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmoItem.FormattingEnabled = true;
             this.cmoItem.Location = new System.Drawing.Point(94, 370);
             this.cmoItem.Name = "cmoItem";
@@ -364,12 +387,12 @@
             this.label16.TabIndex = 43;
             this.label16.Text = "Unit Price";
             // 
-            // numericUpDown1
+            // nupDiscountPercent1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(98, 424);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(201, 22);
-            this.numericUpDown1.TabIndex = 46;
+            this.nupDiscountPercent1.Location = new System.Drawing.Point(98, 424);
+            this.nupDiscountPercent1.Name = "nupDiscountPercent1";
+            this.nupDiscountPercent1.Size = new System.Drawing.Size(201, 22);
+            this.nupDiscountPercent1.TabIndex = 46;
             // 
             // label17
             // 
@@ -380,12 +403,12 @@
             this.label17.TabIndex = 45;
             this.label17.Text = "Discount %";
             // 
-            // numericUpDown2
+            // nupVatPercent1
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(458, 425);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(211, 22);
-            this.numericUpDown2.TabIndex = 48;
+            this.nupVatPercent1.Location = new System.Drawing.Point(458, 425);
+            this.nupVatPercent1.Name = "nupVatPercent1";
+            this.nupVatPercent1.Size = new System.Drawing.Size(211, 22);
+            this.nupVatPercent1.TabIndex = 48;
             // 
             // label18
             // 
@@ -434,7 +457,7 @@
             // 
             // txtCoilNo
             // 
-            this.txtCoilNo.Location = new System.Drawing.Point(460, 503);
+            this.txtCoilNo.Location = new System.Drawing.Point(460, 490);
             this.txtCoilNo.Name = "txtCoilNo";
             this.txtCoilNo.Size = new System.Drawing.Size(209, 22);
             this.txtCoilNo.TabIndex = 56;
@@ -442,7 +465,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(381, 509);
+            this.label20.Location = new System.Drawing.Point(381, 493);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(51, 16);
             this.label20.TabIndex = 55;
@@ -450,7 +473,7 @@
             // 
             // txtDrum
             // 
-            this.txtDrum.Location = new System.Drawing.Point(98, 503);
+            this.txtDrum.Location = new System.Drawing.Point(97, 487);
             this.txtDrum.Name = "txtDrum";
             this.txtDrum.Size = new System.Drawing.Size(201, 22);
             this.txtDrum.TabIndex = 54;
@@ -459,7 +482,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(34, 506);
+            this.label21.Location = new System.Drawing.Point(39, 493);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(39, 16);
             this.label21.TabIndex = 53;
@@ -467,7 +490,7 @@
             // 
             // txtAvilableQinKM
             // 
-            this.txtAvilableQinKM.Location = new System.Drawing.Point(818, 500);
+            this.txtAvilableQinKM.Location = new System.Drawing.Point(818, 493);
             this.txtAvilableQinKM.Name = "txtAvilableQinKM";
             this.txtAvilableQinKM.Size = new System.Drawing.Size(199, 22);
             this.txtAvilableQinKM.TabIndex = 58;
@@ -475,7 +498,7 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(717, 506);
+            this.label22.Location = new System.Drawing.Point(707, 496);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(95, 16);
             this.label22.TabIndex = 57;
@@ -484,7 +507,7 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(1074, 509);
+            this.label23.Location = new System.Drawing.Point(1066, 496);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(103, 16);
             this.label23.TabIndex = 59;
@@ -492,17 +515,184 @@
             // 
             // txtAvilableQinFKM
             // 
-            this.txtAvilableQinFKM.Location = new System.Drawing.Point(1188, 503);
+            this.txtAvilableQinFKM.Location = new System.Drawing.Point(1182, 496);
             this.txtAvilableQinFKM.Name = "txtAvilableQinFKM";
             this.txtAvilableQinFKM.Size = new System.Drawing.Size(192, 22);
             this.txtAvilableQinFKM.TabIndex = 60;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Location = new System.Drawing.Point(1385, 422);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(81, 27);
+            this.btnAdd.TabIndex = 61;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // gvSaleDetail
+            // 
+            this.gvSaleDetail.AutoGenerateColumns = false;
+            this.gvSaleDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gvSaleDetail.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.updateTimeDataGridViewTextBoxColumn,
+            this.saleIdDataGridViewTextBoxColumn,
+            this.itemIdDataGridViewTextBoxColumn,
+            this.unitDataGridViewTextBoxColumn,
+            this.unitPriceDataGridViewTextBoxColumn,
+            this.lengthDataGridViewTextBoxColumn,
+            this.totalExvatDataGridViewTextBoxColumn,
+            this.totalIncvatDataGridViewTextBoxColumn,
+            this.discountDataGridViewTextBoxColumn,
+            this.discountPercentDataGridViewTextBoxColumn,
+            this.vatPercentDataGridViewTextBoxColumn,
+            this.idDataGridViewTextBoxColumn,
+            this.isNewDataGridViewCheckBoxColumn,
+            this.createTimeDataGridViewTextBoxColumn});
+            this.gvSaleDetail.DataSource = this.saleDetailBindingSource;
+            this.gvSaleDetail.Location = new System.Drawing.Point(77, 524);
+            this.gvSaleDetail.Name = "gvSaleDetail";
+            this.gvSaleDetail.RowHeadersWidth = 51;
+            this.gvSaleDetail.RowTemplate.Height = 24;
+            this.gvSaleDetail.Size = new System.Drawing.Size(1303, 168);
+            this.gvSaleDetail.TabIndex = 62;
+            // 
+            // eP
+            // 
+            this.eP.ContainerControl = this;
+            // 
+            // updateTimeDataGridViewTextBoxColumn
+            // 
+            this.updateTimeDataGridViewTextBoxColumn.DataPropertyName = "UpdateTime";
+            this.updateTimeDataGridViewTextBoxColumn.HeaderText = "UpdateTime";
+            this.updateTimeDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.updateTimeDataGridViewTextBoxColumn.Name = "updateTimeDataGridViewTextBoxColumn";
+            this.updateTimeDataGridViewTextBoxColumn.Visible = false;
+            this.updateTimeDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // saleIdDataGridViewTextBoxColumn
+            // 
+            this.saleIdDataGridViewTextBoxColumn.DataPropertyName = "SaleId";
+            this.saleIdDataGridViewTextBoxColumn.HeaderText = "SaleId";
+            this.saleIdDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.saleIdDataGridViewTextBoxColumn.Name = "saleIdDataGridViewTextBoxColumn";
+            this.saleIdDataGridViewTextBoxColumn.Visible = false;
+            this.saleIdDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // itemIdDataGridViewTextBoxColumn
+            // 
+            this.itemIdDataGridViewTextBoxColumn.DataPropertyName = "ItemId";
+            this.itemIdDataGridViewTextBoxColumn.HeaderText = "ItemId";
+            this.itemIdDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.itemIdDataGridViewTextBoxColumn.Name = "itemIdDataGridViewTextBoxColumn";
+            this.itemIdDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // unitDataGridViewTextBoxColumn
+            // 
+            this.unitDataGridViewTextBoxColumn.DataPropertyName = "Unit";
+            this.unitDataGridViewTextBoxColumn.HeaderText = "Unit";
+            this.unitDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.unitDataGridViewTextBoxColumn.Name = "unitDataGridViewTextBoxColumn";
+            this.unitDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // unitPriceDataGridViewTextBoxColumn
+            // 
+            this.unitPriceDataGridViewTextBoxColumn.DataPropertyName = "UnitPrice";
+            this.unitPriceDataGridViewTextBoxColumn.HeaderText = "UnitPrice";
+            this.unitPriceDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.unitPriceDataGridViewTextBoxColumn.Name = "unitPriceDataGridViewTextBoxColumn";
+            this.unitPriceDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // lengthDataGridViewTextBoxColumn
+            // 
+            this.lengthDataGridViewTextBoxColumn.DataPropertyName = "Length";
+            this.lengthDataGridViewTextBoxColumn.HeaderText = "Length";
+            this.lengthDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.lengthDataGridViewTextBoxColumn.Name = "lengthDataGridViewTextBoxColumn";
+            this.lengthDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // totalExvatDataGridViewTextBoxColumn
+            // 
+            this.totalExvatDataGridViewTextBoxColumn.DataPropertyName = "TotalExvat";
+            this.totalExvatDataGridViewTextBoxColumn.HeaderText = "TotalExvat";
+            this.totalExvatDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.totalExvatDataGridViewTextBoxColumn.Name = "totalExvatDataGridViewTextBoxColumn";
+            this.totalExvatDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // totalIncvatDataGridViewTextBoxColumn
+            // 
+            this.totalIncvatDataGridViewTextBoxColumn.DataPropertyName = "TotalIncvat";
+            this.totalIncvatDataGridViewTextBoxColumn.HeaderText = "TotalIncvat";
+            this.totalIncvatDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.totalIncvatDataGridViewTextBoxColumn.Name = "totalIncvatDataGridViewTextBoxColumn";
+            this.totalIncvatDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // discountDataGridViewTextBoxColumn
+            // 
+            this.discountDataGridViewTextBoxColumn.DataPropertyName = "Discount";
+            this.discountDataGridViewTextBoxColumn.HeaderText = "Discount";
+            this.discountDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.discountDataGridViewTextBoxColumn.Name = "discountDataGridViewTextBoxColumn";
+            this.discountDataGridViewTextBoxColumn.Visible = false;
+            this.discountDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // discountPercentDataGridViewTextBoxColumn
+            // 
+            this.discountPercentDataGridViewTextBoxColumn.DataPropertyName = "DiscountPercent";
+            this.discountPercentDataGridViewTextBoxColumn.HeaderText = "DiscountPercent";
+            this.discountPercentDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.discountPercentDataGridViewTextBoxColumn.Name = "discountPercentDataGridViewTextBoxColumn";
+            this.discountPercentDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // vatPercentDataGridViewTextBoxColumn
+            // 
+            this.vatPercentDataGridViewTextBoxColumn.DataPropertyName = "VatPercent";
+            this.vatPercentDataGridViewTextBoxColumn.HeaderText = "VatPercent";
+            this.vatPercentDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.vatPercentDataGridViewTextBoxColumn.Name = "vatPercentDataGridViewTextBoxColumn";
+            this.vatPercentDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.Visible = false;
+            this.idDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // isNewDataGridViewCheckBoxColumn
+            // 
+            this.isNewDataGridViewCheckBoxColumn.DataPropertyName = "IsNew";
+            this.isNewDataGridViewCheckBoxColumn.HeaderText = "IsNew";
+            this.isNewDataGridViewCheckBoxColumn.MinimumWidth = 6;
+            this.isNewDataGridViewCheckBoxColumn.Name = "isNewDataGridViewCheckBoxColumn";
+            this.isNewDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.isNewDataGridViewCheckBoxColumn.Visible = false;
+            this.isNewDataGridViewCheckBoxColumn.Width = 125;
+            // 
+            // createTimeDataGridViewTextBoxColumn
+            // 
+            this.createTimeDataGridViewTextBoxColumn.DataPropertyName = "CreateTime";
+            this.createTimeDataGridViewTextBoxColumn.HeaderText = "CreateTime";
+            this.createTimeDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.createTimeDataGridViewTextBoxColumn.Name = "createTimeDataGridViewTextBoxColumn";
+            this.createTimeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.createTimeDataGridViewTextBoxColumn.Visible = false;
+            this.createTimeDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // saleDetailBindingSource
+            // 
+            this.saleDetailBindingSource.DataSource = typeof(SPDM.DLL.Entities.SaleDetail);
             // 
             // frmSale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1478, 674);
+            this.ClientSize = new System.Drawing.Size(1478, 732);
+            this.Controls.Add(this.gvSaleDetail);
+            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.txtAvilableQinFKM);
             this.Controls.Add(this.label23);
             this.Controls.Add(this.txtAvilableQinKM);
@@ -515,9 +705,9 @@
             this.Controls.Add(this.txtStatus);
             this.Controls.Add(this.nupTotalIncVat1);
             this.Controls.Add(this.label19);
-            this.Controls.Add(this.numericUpDown2);
+            this.Controls.Add(this.nupVatPercent1);
             this.Controls.Add(this.label18);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.nupDiscountPercent1);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.txtUnitPrice);
             this.Controls.Add(this.label16);
@@ -529,11 +719,11 @@
             this.Controls.Add(this.label13);
             this.Controls.Add(this.txtNote);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtDeliveryAddress);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.dtpDeliveryDate);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.dtpWorkOrderDate);
+            this.Controls.Add(this.dtpSaleDate);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtChallanNo);
             this.Controls.Add(this.label4);
@@ -557,9 +747,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.nupTotalIncVat)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupDiscountPercent)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupVatPercent)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupDiscountPercent1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupVatPercent1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupTotalIncVat1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvSaleDetail)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.saleDetailBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -583,11 +776,11 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtChallanNo;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DateTimePicker dtpWorkOrderDate;
+        private System.Windows.Forms.DateTimePicker dtpSaleDate;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker dtpDeliveryDate;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtDeliveryAddress;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtNote;
         private System.Windows.Forms.Label label12;
@@ -599,9 +792,9 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox txtUnitPrice;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown nupDiscountPercent1;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.NumericUpDown nupVatPercent1;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.NumericUpDown nupTotalIncVat1;
         private System.Windows.Forms.Label label19;
@@ -615,5 +808,23 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.TextBox txtAvilableQinFKM;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.DataGridView gvSaleDetail;
+        private System.Windows.Forms.BindingSource saleDetailBindingSource;
+        private System.Windows.Forms.ErrorProvider eP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn updateTimeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn saleIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn unitDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn unitPriceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lengthDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalExvatDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalIncvatDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn discountDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn discountPercentDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vatPercentDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn isNewDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn createTimeDataGridViewTextBoxColumn;
     }
 }

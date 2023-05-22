@@ -256,7 +256,7 @@ namespace SPDM.DLL.Repositories
                                        "@FiscalYear, @WorkOrderId, @PartyId, @ChallanNo, @SaleDate, @TotalExVat," +
                                        " @TotalIncVat, @Discount, @DiscountPercent, @VatPercent, " +
                                        " @DeliveryAddress, @DeliveryDate, @Status, @Note); SELECT SCOPE_IDENTITY()";
-                    comm.Parameters.Add("@CreateTime", SqlDbType.DateTime).Value = DateTime.Today;
+                    comm.Parameters.Add("@CreateTime", SqlDbType.DateTime).Value = DateTime.Now;
                 }
                 else
                 {
@@ -287,8 +287,15 @@ namespace SPDM.DLL.Repositories
                 {
                     comm.Parameters.Add("@Discount", SqlDbType.Decimal).Value = DBNull.Value;
                 }
-                comm.Parameters.Add("@DiscountPercent", SqlDbType.Decimal).Value = sale.DiscountPercent;
-               
+                if (sale.DiscountPercent.HasValue)
+                {
+                    comm.Parameters.Add("@DiscountPercent", SqlDbType.Decimal).Value = sale.DiscountPercent.Value;
+                }
+                else
+                {
+                    comm.Parameters.Add("@DiscountPercent", SqlDbType.Decimal).Value = DBNull.Value;
+                }
+
                 if (sale.VatPercent.HasValue)
                 {
                     comm.Parameters.Add("@VatPercent", SqlDbType.Decimal).Value = sale.VatPercent.Value;

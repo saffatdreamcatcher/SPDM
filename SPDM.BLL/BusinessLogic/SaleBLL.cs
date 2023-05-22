@@ -10,13 +10,25 @@ namespace SPDM.BLL.BusinessLogic
 {
     public class SaleBLL
     {
-        public int Save(Sale sale)
+        public int Save(Sale sale, List<SaleDetail> saleDetails)
         {
             try
             {
+                
                 SaleDLL saleDLL = new SaleDLL();
-                return saleDLL.Save(sale);
+                SaleDetailDLL saleDetailDLL = new SaleDetailDLL();
+                saleDLL.Save(sale);
+            
+            
+
+            foreach (SaleDetail saleDetail in saleDetails)
+            {
+                saleDetail.SaleId = sale.Id;
+                saleDetailDLL.Save(saleDetail);
             }
+            return sale.Id;
+
+        }
             catch (Exception ex)
             {
                 throw ex;

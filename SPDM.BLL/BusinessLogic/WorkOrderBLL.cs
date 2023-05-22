@@ -10,7 +10,7 @@ namespace SPDM.BLL.BusinessLogic
 {
     public class WorkOrderBLL
     {
-        public int Save(WorkOrder workorder, List<WorkOrderDetail> workOrderDetails)
+        public int Save(WorkOrder workorder, List<WorkOrderDetail> newWorkOrderDetails)
         {
             try
             {
@@ -26,12 +26,14 @@ namespace SPDM.BLL.BusinessLogic
                 }
                 workorderDLL.Save(workorder);
 
+                // Remove oldWorkOrderDetails which are deleted from grid
                 foreach (WorkOrderDetail oldWorkOrderDetail in oldWorkOrderDetailList)
+
                 {
                     isFound = false;
-                    foreach (WorkOrderDetail workOrderDetail in workOrderDetails)
+                    foreach (WorkOrderDetail newWorkOrderDetail in newWorkOrderDetails)
                     {
-                        if(oldWorkOrderDetail.Id == workOrderDetail.Id)
+                        if(oldWorkOrderDetail.Id == newWorkOrderDetail.Id)
                         {
                             isFound = true;
                             break;  
@@ -42,8 +44,8 @@ namespace SPDM.BLL.BusinessLogic
                         workorderDetailDLL.Delete(oldWorkOrderDetail.Id);
                     }
                 }
-
-                foreach (WorkOrderDetail detail in workOrderDetails)
+                // new WorkOrderDetails and update old WorkOrderDetails
+                foreach (WorkOrderDetail detail in newWorkOrderDetails)
                 {
                     detail.WorkOrderId = workorder.Id;
                     workorderDetailDLL.Save(detail);
