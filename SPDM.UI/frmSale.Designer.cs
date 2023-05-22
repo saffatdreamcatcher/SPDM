@@ -80,9 +80,11 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.gvSaleDetail = new System.Windows.Forms.DataGridView();
             this.eP = new System.Windows.Forms.ErrorProvider(this.components);
+            this.saleDetailBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.updateTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.saleIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unitPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lengthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -94,7 +96,7 @@
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isNewDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.createTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.saleDetailBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lblWorkOrder = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nupTotalIncVat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupDiscountPercent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupVatPercent)).BeginInit();
@@ -108,7 +110,7 @@
             // 
             // btnSaveSale
             // 
-            this.btnSaveSale.Location = new System.Drawing.Point(1399, 638);
+            this.btnSaveSale.Location = new System.Drawing.Point(1302, 698);
             this.btnSaveSale.Name = "btnSaveSale";
             this.btnSaveSale.Size = new System.Drawing.Size(78, 30);
             this.btnSaveSale.TabIndex = 0;
@@ -447,6 +449,7 @@
             // 
             // txtParty
             // 
+            this.txtParty.Enabled = false;
             this.txtParty.Location = new System.Drawing.Point(98, 114);
             this.txtParty.Name = "txtParty";
             this.txtParty.Size = new System.Drawing.Size(210, 22);
@@ -519,7 +522,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(1385, 422);
+            this.btnAdd.Location = new System.Drawing.Point(1293, 422);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(81, 27);
             this.btnAdd.TabIndex = 61;
@@ -535,6 +538,7 @@
             this.updateTimeDataGridViewTextBoxColumn,
             this.saleIdDataGridViewTextBoxColumn,
             this.itemIdDataGridViewTextBoxColumn,
+            this.itemNameDataGridViewTextBoxColumn,
             this.unitDataGridViewTextBoxColumn,
             this.unitPriceDataGridViewTextBoxColumn,
             this.lengthDataGridViewTextBoxColumn,
@@ -557,6 +561,10 @@
             // eP
             // 
             this.eP.ContainerControl = this;
+            // 
+            // saleDetailBindingSource
+            // 
+            this.saleDetailBindingSource.DataSource = typeof(SPDM.DLL.Entities.SaleDetail);
             // 
             // updateTimeDataGridViewTextBoxColumn
             // 
@@ -582,7 +590,16 @@
             this.itemIdDataGridViewTextBoxColumn.HeaderText = "ItemId";
             this.itemIdDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.itemIdDataGridViewTextBoxColumn.Name = "itemIdDataGridViewTextBoxColumn";
+            this.itemIdDataGridViewTextBoxColumn.Visible = false;
             this.itemIdDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // itemNameDataGridViewTextBoxColumn
+            // 
+            this.itemNameDataGridViewTextBoxColumn.DataPropertyName = "ItemName";
+            this.itemNameDataGridViewTextBoxColumn.HeaderText = "ItemName";
+            this.itemNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.itemNameDataGridViewTextBoxColumn.Name = "itemNameDataGridViewTextBoxColumn";
+            this.itemNameDataGridViewTextBoxColumn.Width = 125;
             // 
             // unitDataGridViewTextBoxColumn
             // 
@@ -630,7 +647,6 @@
             this.discountDataGridViewTextBoxColumn.HeaderText = "Discount";
             this.discountDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.discountDataGridViewTextBoxColumn.Name = "discountDataGridViewTextBoxColumn";
-            this.discountDataGridViewTextBoxColumn.Visible = false;
             this.discountDataGridViewTextBoxColumn.Width = 125;
             // 
             // discountPercentDataGridViewTextBoxColumn
@@ -678,9 +694,14 @@
             this.createTimeDataGridViewTextBoxColumn.Visible = false;
             this.createTimeDataGridViewTextBoxColumn.Width = 125;
             // 
-            // saleDetailBindingSource
+            // lblWorkOrder
             // 
-            this.saleDetailBindingSource.DataSource = typeof(SPDM.DLL.Entities.SaleDetail);
+            this.lblWorkOrder.AutoSize = true;
+            this.lblWorkOrder.Location = new System.Drawing.Point(818, 44);
+            this.lblWorkOrder.Name = "lblWorkOrder";
+            this.lblWorkOrder.Size = new System.Drawing.Size(11, 16);
+            this.lblWorkOrder.TabIndex = 63;
+            this.lblWorkOrder.Text = "-";
             // 
             // frmSale
             // 
@@ -688,6 +709,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1478, 732);
+            this.Controls.Add(this.lblWorkOrder);
             this.Controls.Add(this.gvSaleDetail);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.txtAvilableQinFKM);
@@ -740,6 +762,7 @@
             this.Controls.Add(this.btnSaveSale);
             this.Name = "frmSale";
             this.Text = "frmSale";
+            this.Load += new System.EventHandler(this.frmSale_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nupTotalIncVat)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupDiscountPercent)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupVatPercent)).EndInit();
@@ -811,6 +834,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn updateTimeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn saleIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn itemIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn unitDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn unitPriceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lengthDataGridViewTextBoxColumn;
@@ -822,5 +846,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn isNewDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn createTimeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Label lblWorkOrder;
     }
 }

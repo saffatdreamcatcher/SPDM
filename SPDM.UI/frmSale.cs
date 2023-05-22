@@ -94,6 +94,7 @@ namespace SPDM.UI
 
         private void ClearSale()
         {
+            lblWorkOrder.Text = "";
             txtParty.Text = "";
             txtFiscalYear.Text = "";
             nupTotalIncVat.Value = 0;
@@ -104,8 +105,17 @@ namespace SPDM.UI
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+
+            
             ClearSale();
             ClearSaleDetail();
+
+            //if (txtWorkOrderNo.Text == string.Empty)
+            //{
+            //    MessageBox.Show("Please enter Work Order No");
+            //}
+
+
             if (!string.IsNullOrEmpty(txtWorkOrderNo.Text))
             {
                 WorkOrder workOrder1 = new WorkOrder();
@@ -116,13 +126,17 @@ namespace SPDM.UI
 
                 ItemBLL itemBLL = new ItemBLL();
                 string where = "WorkOrderNo= '" + txtWorkOrderNo.Text + "'";
+                where = where +  " and Status = " + (int) WorkOrderStatus.InStock;
                 List<WorkOrder> workOrders = workOrderBLL.GetAll(where);
                 WorkOrderDetailBLL workOrderDetailBLL = new WorkOrderDetailBLL();
 
 
+                if (workOrders.Count == 0)
+                {
+                    lblWorkOrder.Text = "Work Order not found";
+                }
 
-
-                if (workOrders.Count > 0)
+                    if (workOrders.Count > 0)
                 {
                     workOrder = workOrders[0];
                     Party party = partyBLL.GetById(workOrder.PartyId);
@@ -171,7 +185,7 @@ namespace SPDM.UI
             txtCoilNo.Text = "";
             txtAvilableQinKM.Text = "";
             txtAvilableQinFKM.Text = "";
-            cmoItem.DataSource = null;
+            //cmoItem.DataSource = null;
         }
 
         private void ShowWorkOrderdetail()
@@ -215,6 +229,14 @@ namespace SPDM.UI
 
 
             if (txtChallanNo.Text == string.Empty)
+            {
+
+                eP.SetError(txtChallanNo, "Can't empty");
+                iv = false;
+
+            }
+
+            if (txtDeliveryAddress.Text == string.Empty)
             {
 
                 eP.SetError(txtChallanNo, "Can't empty");
@@ -294,6 +316,7 @@ namespace SPDM.UI
             {
                 SaleDetail saleDetail = new SaleDetail();
                 saleDetail.ItemId = Convert.ToInt32(cmoItem.SelectedValue);
+                saleDetail.ItemName = cmoItem.Text;
                 saleDetail.Length = Convert.ToDouble(txtLength.Text);
                 saleDetail.Unit = Convert.ToInt32(txtUnit.Text);
                 saleDetail.UnitPrice = Convert.ToInt32(txtUnitPrice.Text);
@@ -316,6 +339,11 @@ namespace SPDM.UI
 
 
             }
+        }
+
+        private void frmSale_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
