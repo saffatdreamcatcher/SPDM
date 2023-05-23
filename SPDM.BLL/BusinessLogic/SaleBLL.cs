@@ -14,7 +14,50 @@ namespace SPDM.BLL.BusinessLogic
         {
             try
             {
-                
+                WorkOrderDetailDLL workOrderDetailDLL = new WorkOrderDetailDLL();    
+                string where = "WorkOrderId = " + sale.WorkOrderId;
+                List<WorkOrderDetail>workOrderDetails = workOrderDetailDLL.GetAll(where);
+                //WorkOrderDetail workOrderDetail = workOrderDetails[0];
+                StockDLL stockDLL = new StockDLL();
+                StockHistoryDLL stockHistoryDLL = new StockHistoryDLL();
+
+                foreach (SaleDetail sd in saleDetails)
+                {
+                    foreach (WorkOrderDetail wod in workOrderDetails)
+                    {
+                        if (sd.ItemId == wod.ItemId)
+                        {
+                            string where1 = "Drum= '"+  wod.Drum + "'";
+                            where1 = where1 + " and ItemId= " + sd.ItemId;
+                            List<Stock> stocks = stockDLL.GetAll(where1);
+                          
+                            if (stocks.Count > 0 )
+                            {
+                                Stock stock = stocks[0];
+                                stock.CurrentQuantityInKM = stock.CurrentQuantityInKM - (int)wod.Length;
+                                stockDLL.Save(stock);
+
+                                StockHistory stockHistory = new StockHistory();
+                                stockHistory.UserId = stock.UserId;
+                                stockHistory.CategoryId = stock.CategoryId;
+                                stockHistory.ItemId = stock.ItemId;
+                                stockHistory.CategoryId = 2;
+                                stockHistory.Fiscalyear = stock.Fiscalyear;
+                                stockHistory.Drum = stock.Drum;
+                                stockHistory.CoilNo = stock.CoilNo;
+                                stockHistory.Unit = stock.Unit;
+                                stockHistory.QuantityInKM = - (int)wod.Length;
+                                //stockHistory.QuantityInFKM = stock.OpeningQuantityInFKM;
+                                stockHistory.Note = stock.Note;
+                                stockHistoryDLL.Save(stockHistory);
+                            }
+                            
+                            break;
+
+                        }
+                    }
+                }
+
                 SaleDLL saleDLL = new SaleDLL();
                 SaleDetailDLL saleDetailDLL = new SaleDetailDLL();
                 saleDLL.Save(sale);

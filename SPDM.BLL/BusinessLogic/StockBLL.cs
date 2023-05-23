@@ -24,17 +24,11 @@ namespace SPDM.BLL.BusinessLogic
                 
                 
                 WorkOrderDetailDLL workOrderDetailDLL = new WorkOrderDetailDLL();
-                
-                
-                
-                
-
+               
                 foreach (Stock stock in stocks)
                 {
                     //Save To Stock
                     stockDLL.Save(stock);
-
-                    string where1 = $"{"WorkOrderId= " + production.WorkOrderId} {" and  ItemId= " + stock.ItemId}";
 
                     //Save To StockHistory
                     StockHistory stockHistory = new StockHistory();
@@ -51,9 +45,12 @@ namespace SPDM.BLL.BusinessLogic
                     stockHistory.Note = stock.Note;
                     stockHistoryDLL.Save(stockHistory);
 
+                    //Update drum in workOrderDeatail
+                    string where1 = $"{"WorkOrderId= " + production.WorkOrderId} {" and  ItemId= " + stock.ItemId}";
+
                     List<WorkOrderDetail> workOrderDetails = workOrderDetailDLL.GetAll(where1);
                     WorkOrderDetail workOrderDetail = workOrderDetails[0];
-
+                    
                     workOrderDetail.Drum = Convert.ToDouble(stock.Drum);
                     workOrderDetailDLL.Save(workOrderDetail);
                 }
