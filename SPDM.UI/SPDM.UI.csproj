@@ -122,6 +122,12 @@
     <Compile Include="frmSaleDetail.Designer.cs">
       <DependentUpon>frmSaleDetail.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmSaleList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSaleList.Designer.cs">
+      <DependentUpon>frmSaleList.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmStock.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -206,6 +212,9 @@
     <EmbeddedResource Include="frmSaleDetail.resx">
       <DependentUpon>frmSaleDetail.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmSaleList.resx">
+      <DependentUpon>frmSaleList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmStock.resx">
       <DependentUpon>frmStock.cs</DependentUpon>
     </EmbeddedResource>
@@ -247,6 +256,7 @@
     <None Include="Properties\DataSources\SPDM.DLL.Entities.Party.datasource" />
     <None Include="Properties\DataSources\SPDM.DLL.Entities.Production.datasource" />
     <None Include="Properties\DataSources\SPDM.DLL.Entities.Role.datasource" />
+    <None Include="Properties\DataSources\SPDM.DLL.Entities.Sale.datasource" />
     <None Include="Properties\DataSources\SPDM.DLL.Entities.SaleDetail.datasource" />
     <None Include="Properties\DataSources\SPDM.DLL.Entities.Stock.datasource" />
     <None Include="Properties\DataSources\SPDM.DLL.Entities.User.datasource" />

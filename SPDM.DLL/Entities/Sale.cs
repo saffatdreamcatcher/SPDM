@@ -61,8 +61,8 @@ namespace SPDM.DLL.Entities
         public DateTime deliverydate;
         public DateTime DeliveryDate { get => deliverydate; set => deliverydate = value; }
 
-        private int status;
-        public int Status { get => status; set => status = value; }
+        private WorkOrderStatus status;
+        public WorkOrderStatus Status { get => status; set => status = value; }
 
         private string note;
         public string Note { get => note; set => note = value; }

@@ -14,12 +14,14 @@ namespace SPDM.BLL.BusinessLogic
         {
             try
             {
-                WorkOrderDetailDLL workOrderDetailDLL = new WorkOrderDetailDLL();    
+                WorkOrderDetailDLL workOrderDetailDLL = new WorkOrderDetailDLL();
                 string where = "WorkOrderId = " + sale.WorkOrderId;
-                List<WorkOrderDetail>workOrderDetails = workOrderDetailDLL.GetAll(where);
-                //WorkOrderDetail workOrderDetail = workOrderDetails[0];
+                List<WorkOrderDetail> workOrderDetails = workOrderDetailDLL.GetAll(where);
                 StockDLL stockDLL = new StockDLL();
                 StockHistoryDLL stockHistoryDLL = new StockHistoryDLL();
+                SaleDLL saleDLL = new SaleDLL();
+                SaleDetailDLL saleDetailDLL = new SaleDetailDLL();
+                WorkOrderDLL workOrderDLL = new WorkOrderDLL();
 
                 foreach (SaleDetail sd in saleDetails)
                 {
@@ -27,11 +29,11 @@ namespace SPDM.BLL.BusinessLogic
                     {
                         if (sd.ItemId == wod.ItemId)
                         {
-                            string where1 = "Drum= '"+  wod.Drum + "'";
+                            string where1 = "Drum= '" + wod.Drum + "'";
                             where1 = where1 + " and ItemId= " + sd.ItemId;
                             List<Stock> stocks = stockDLL.GetAll(where1);
-                          
-                            if (stocks.Count > 0 )
+
+                            if (stocks.Count > 0)
                             {
                                 Stock stock = stocks[0];
                                 stock.CurrentQuantityInKM = stock.CurrentQuantityInKM - (int)wod.Length;
@@ -46,32 +48,35 @@ namespace SPDM.BLL.BusinessLogic
                                 stockHistory.Drum = stock.Drum;
                                 stockHistory.CoilNo = stock.CoilNo;
                                 stockHistory.Unit = stock.Unit;
-                                stockHistory.QuantityInKM = - (int)wod.Length;
+                                stockHistory.QuantityInKM = -(int)wod.Length;
                                 //stockHistory.QuantityInFKM = stock.OpeningQuantityInFKM;
                                 stockHistory.Note = stock.Note;
                                 stockHistoryDLL.Save(stockHistory);
                             }
-                            
+
                             break;
 
                         }
                     }
                 }
 
-                SaleDLL saleDLL = new SaleDLL();
-                SaleDetailDLL saleDetailDLL = new SaleDetailDLL();
+
+                WorkOrder workOrder1 = workOrderDLL.GetById(sale.WorkOrderId);
+                workOrder1.Status = WorkOrderStatus.Sold;
+                workOrderDLL.Save(workOrder1);
+
+
                 saleDLL.Save(sale);
-            
-            
 
-            foreach (SaleDetail saleDetail in saleDetails)
-            {
-                saleDetail.SaleId = sale.Id;
-                saleDetailDLL.Save(saleDetail);
+
+                foreach (SaleDetail saleDetail in saleDetails)
+                {
+                    saleDetail.SaleId = sale.Id;
+                    saleDetailDLL.Save(saleDetail);
+                }
+                return sale.Id;
+
             }
-            return sale.Id;
-
-        }
             catch (Exception ex)
             {
                 throw ex;

@@ -80,9 +80,8 @@ namespace SPDM.UI
                 }
                 sale.DeliveryDate = dtpDeliveryDate.Value;
                 sale.DeliveryAddress = txtDeliveryAddress.Text;
-                sale.Status = (int)(WorkOrderStatus)Enum.Parse(typeof(WorkOrderStatus), txtStatus.Text);
+                sale.Status = WorkOrderStatus.Sold;
                 sale.Note = txtNote.Text;
-
 
                 List<SaleDetail> saleDetails1 = saleDetails.ToList();
                 SaleBLL saleBLL = new SaleBLL();
@@ -238,10 +237,14 @@ namespace SPDM.UI
 
             if (txtDeliveryAddress.Text == string.Empty)
             {
-
                 eP.SetError(txtChallanNo, "Can't empty");
                 iv = false;
+            }
+            if (saleDetails.Count == 0)
+            {
 
+                eP.SetError(gvSaleDetail, "Sale Detail can't be empty");
+                iv = false;
             }
             return iv;
         }
@@ -344,6 +347,11 @@ namespace SPDM.UI
         private void frmSale_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

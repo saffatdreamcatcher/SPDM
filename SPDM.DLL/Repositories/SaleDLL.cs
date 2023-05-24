@@ -88,7 +88,15 @@ namespace SPDM.DLL.Repositories
                         {
                             sale.Discount = Convert.ToDouble(reader["Discount"]);
                         }
-                        sale.DiscountPercent = Convert.ToDouble(reader["DiscountPercent"]);
+                        //sale.DiscountPercent = Convert.ToDouble(reader["DiscountPercent"]);
+                        if (reader["DiscountPercent"] is DBNull)
+                        {
+                            sale.DiscountPercent = null;
+                        }
+                        else
+                        {
+                            sale.DiscountPercent = Convert.ToDouble(reader["DiscountPercent"]);
+                        }
 
                         if (reader["VatPercent"] is DBNull)
                         {
@@ -101,7 +109,7 @@ namespace SPDM.DLL.Repositories
 
                         sale.DeliveryAddress = reader["DeliveryAddress"].ToString();
                         sale.DeliveryDate = Convert.ToDateTime(reader["DeliveryDate"]);
-                        sale.Status = Convert.ToInt32(reader["Status"]);
+                        sale.Status = (WorkOrderStatus)Convert.ToInt32(reader["Status"]);
                         sale.Note = reader["Note"] is DBNull ? null : reader["Note"].ToString();
                         sales.Add(sale);
                     }
@@ -178,10 +186,8 @@ namespace SPDM.DLL.Repositories
 
                         sale.DeliveryAddress = reader["DeliveryAddress"].ToString();
                         sale.DeliveryDate = Convert.ToDateTime(reader["DeliveryDate"]);
-                        sale.Status =  Convert.ToInt32(reader["Status"]);
+                        sale.Status = (WorkOrderStatus) Convert.ToInt32(reader["Status"]);
                         sale.Note = reader["Note"] is DBNull ? null : reader["Note"].ToString();
-
-
 
                     }
                 }

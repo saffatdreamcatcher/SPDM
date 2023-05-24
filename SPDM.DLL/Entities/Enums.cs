@@ -12,7 +12,7 @@ namespace SPDM.DLL.Entities
         InProduction,
         ReadyForStock,
         InStock,
-        Delivered,
+        Sold,
         Recevied
     }
 }
