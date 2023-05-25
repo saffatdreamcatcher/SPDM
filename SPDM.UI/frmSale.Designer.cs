@@ -79,6 +79,11 @@
             this.txtAvilableQinFKM = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.gvSaleDetail = new System.Windows.Forms.DataGridView();
+            this.eP = new System.Windows.Forms.ErrorProvider(this.components);
+            this.lblWorkOrder = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.saleDetailBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.updateTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.saleIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -94,11 +99,6 @@
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isNewDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.createTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.saleDetailBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.eP = new System.Windows.Forms.ErrorProvider(this.components);
-            this.lblWorkOrder = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.btnClose = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nupTotalIncVat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupDiscountPercent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupVatPercent)).BeginInit();
@@ -106,8 +106,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.nupVatPercent1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupTotalIncVat1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvSaleDetail)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.saleDetailBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.saleDetailBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSaveSale
@@ -560,6 +560,45 @@
             this.gvSaleDetail.Size = new System.Drawing.Size(1303, 168);
             this.gvSaleDetail.TabIndex = 62;
             // 
+            // eP
+            // 
+            this.eP.ContainerControl = this;
+            // 
+            // lblWorkOrder
+            // 
+            this.lblWorkOrder.AutoSize = true;
+            this.lblWorkOrder.Location = new System.Drawing.Point(818, 44);
+            this.lblWorkOrder.Name = "lblWorkOrder";
+            this.lblWorkOrder.Size = new System.Drawing.Size(11, 16);
+            this.lblWorkOrder.TabIndex = 63;
+            this.lblWorkOrder.Text = "-";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.ForeColor = System.Drawing.Color.Green;
+            this.label24.Location = new System.Drawing.Point(32, 25);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(52, 25);
+            this.label24.TabIndex = 64;
+            this.label24.Text = "Sale";
+            // 
+            // btnClose
+            // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.Location = new System.Drawing.Point(1453, 0);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(26, 23);
+            this.btnClose.TabIndex = 65;
+            this.btnClose.Text = "X";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // saleDetailBindingSource
+            // 
+            this.saleDetailBindingSource.DataSource = typeof(SPDM.DLL.Entities.SaleDetail);
+            // 
             // updateTimeDataGridViewTextBoxColumn
             // 
             this.updateTimeDataGridViewTextBoxColumn.DataPropertyName = "UpdateTime";
@@ -625,6 +664,7 @@
             this.totalExvatDataGridViewTextBoxColumn.HeaderText = "TotalExvat";
             this.totalExvatDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.totalExvatDataGridViewTextBoxColumn.Name = "totalExvatDataGridViewTextBoxColumn";
+            this.totalExvatDataGridViewTextBoxColumn.Visible = false;
             this.totalExvatDataGridViewTextBoxColumn.Width = 125;
             // 
             // totalIncvatDataGridViewTextBoxColumn
@@ -641,6 +681,7 @@
             this.discountDataGridViewTextBoxColumn.HeaderText = "Discount";
             this.discountDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.discountDataGridViewTextBoxColumn.Name = "discountDataGridViewTextBoxColumn";
+            this.discountDataGridViewTextBoxColumn.Visible = false;
             this.discountDataGridViewTextBoxColumn.Width = 125;
             // 
             // discountPercentDataGridViewTextBoxColumn
@@ -687,45 +728,6 @@
             this.createTimeDataGridViewTextBoxColumn.ReadOnly = true;
             this.createTimeDataGridViewTextBoxColumn.Visible = false;
             this.createTimeDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // saleDetailBindingSource
-            // 
-            this.saleDetailBindingSource.DataSource = typeof(SPDM.DLL.Entities.SaleDetail);
-            // 
-            // eP
-            // 
-            this.eP.ContainerControl = this;
-            // 
-            // lblWorkOrder
-            // 
-            this.lblWorkOrder.AutoSize = true;
-            this.lblWorkOrder.Location = new System.Drawing.Point(818, 44);
-            this.lblWorkOrder.Name = "lblWorkOrder";
-            this.lblWorkOrder.Size = new System.Drawing.Size(11, 16);
-            this.lblWorkOrder.TabIndex = 63;
-            this.lblWorkOrder.Text = "-";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.ForeColor = System.Drawing.Color.Green;
-            this.label24.Location = new System.Drawing.Point(32, 25);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(52, 25);
-            this.label24.TabIndex = 64;
-            this.label24.Text = "Sale";
-            // 
-            // btnClose
-            // 
-            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.Location = new System.Drawing.Point(1453, 0);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(26, 23);
-            this.btnClose.TabIndex = 65;
-            this.btnClose.Text = "X";
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // frmSale
             // 
@@ -796,8 +798,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.nupVatPercent1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupTotalIncVat1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvSaleDetail)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.saleDetailBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.saleDetailBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -857,6 +859,9 @@
         private System.Windows.Forms.DataGridView gvSaleDetail;
         private System.Windows.Forms.BindingSource saleDetailBindingSource;
         private System.Windows.Forms.ErrorProvider eP;
+        private System.Windows.Forms.Label lblWorkOrder;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.DataGridViewTextBoxColumn updateTimeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn saleIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn itemIdDataGridViewTextBoxColumn;
@@ -872,8 +877,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn isNewDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn createTimeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Label lblWorkOrder;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Button btnClose;
     }
 }

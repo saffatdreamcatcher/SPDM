@@ -248,6 +248,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\DataSources\frmCategory.datasource" />
     <None Include="Properties\DataSources\frmRole.datasource" />
@@ -284,6 +285,12 @@
       <Project>{20833284-fcbe-4a50-a262-4f206044fcc0}</Project>
       <Name>SPDM.DLL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bin %282%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -24,8 +24,8 @@ namespace SPDM.UI
 
         public void LoadComboBox()
         {
-            cmoStatus.Items.AddRange(Enum.GetNames(typeof(WorkOrderStatus)));
-            cmoStatus.SelectedIndex = 0;
+            //cmoStatus.Items.AddRange(Enum.GetNames(typeof(WorkOrderStatus)));
+            //cmoStatus.SelectedIndex = 0;
 
             string[] enumElements = Enum.GetNames(typeof(WorkOrderStatus));
             foreach (var item in enumElements)
@@ -33,8 +33,6 @@ namespace SPDM.UI
                 cmoStatus.Items.Add(item);
             }
             cmoStatus.SelectedIndex = 0;
-
-
 
         }
 
@@ -222,11 +220,13 @@ namespace SPDM.UI
                 if (sB.ToString() != string.Empty)
                 {
                     sB.Append(" AND");
-
                 }
 
                 sB.Append(" Status =");
-                sB.Append(cmoStatus.SelectedValue);
+                WorkOrderStatus st = (WorkOrderStatus)Enum.Parse(typeof(WorkOrderStatus), cmoStatus.Text);
+                int ZZ = (int)st;
+                sB.Append(ZZ);
+                
                
             }
 

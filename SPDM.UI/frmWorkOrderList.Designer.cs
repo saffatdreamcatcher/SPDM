@@ -331,6 +331,7 @@
             this.repositoryItemHyperLinkEdit1.AutoHeight = false;
             this.repositoryItemHyperLinkEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Edit", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.repositoryItemHyperLinkEdit1.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.repositoryItemHyperLinkEdit1.Caption = "Edit";
             this.repositoryItemHyperLinkEdit1.ExportMode = DevExpress.XtraEditors.Repository.ExportMode.Value;
             this.repositoryItemHyperLinkEdit1.Name = "repositoryItemHyperLinkEdit1";
@@ -355,7 +356,9 @@
             this.repositoryItemHyperLinkEdit2.AutoHeight = false;
             this.repositoryItemHyperLinkEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Delete", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.repositoryItemHyperLinkEdit2.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.repositoryItemHyperLinkEdit2.ExportMode = DevExpress.XtraEditors.Repository.ExportMode.Value;
+            this.repositoryItemHyperLinkEdit2.Image = global::SPDM.UI.Properties.Resources.bin__2_;
             this.repositoryItemHyperLinkEdit2.Name = "repositoryItemHyperLinkEdit2";
             this.repositoryItemHyperLinkEdit2.NullText = "Delete";
             this.repositoryItemHyperLinkEdit2.NullValuePrompt = "Delete";

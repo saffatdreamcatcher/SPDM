@@ -53,6 +53,13 @@
             this.colCreateTime = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colUserId1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnAddNew = new System.Windows.Forms.Button();
+            this.txtChallanNo = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtDeliveryAddress = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cmoStatus = new System.Windows.Forms.ComboBox();
+            this.btnSearch = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saleBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -64,7 +71,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControl1.DataSource = this.saleBindingSource;
-            this.gridControl1.Location = new System.Drawing.Point(12, 205);
+            this.gridControl1.Location = new System.Drawing.Point(12, 130);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.Size = new System.Drawing.Size(1336, 331);
@@ -271,13 +278,73 @@
             // btnAddNew
             // 
             this.btnAddNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAddNew.Location = new System.Drawing.Point(1219, 134);
+            this.btnAddNew.Location = new System.Drawing.Point(1219, 78);
             this.btnAddNew.Name = "btnAddNew";
             this.btnAddNew.Size = new System.Drawing.Size(129, 36);
             this.btnAddNew.TabIndex = 1;
             this.btnAddNew.Text = "Add New";
             this.btnAddNew.UseVisualStyleBackColor = true;
             this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
+            // 
+            // txtChallanNo
+            // 
+            this.txtChallanNo.Location = new System.Drawing.Point(137, 40);
+            this.txtChallanNo.Name = "txtChallanNo";
+            this.txtChallanNo.Size = new System.Drawing.Size(204, 22);
+            this.txtChallanNo.TabIndex = 8;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(34, 43);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(73, 16);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Challan No";
+            // 
+            // txtDeliveryAddress
+            // 
+            this.txtDeliveryAddress.Location = new System.Drawing.Point(514, 37);
+            this.txtDeliveryAddress.Name = "txtDeliveryAddress";
+            this.txtDeliveryAddress.Size = new System.Drawing.Size(204, 22);
+            this.txtDeliveryAddress.TabIndex = 10;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(388, 40);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(111, 16);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Delivery Address";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(778, 40);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(44, 16);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Status";
+            // 
+            // cmoStatus
+            // 
+            this.cmoStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmoStatus.FormattingEnabled = true;
+            this.cmoStatus.Location = new System.Drawing.Point(850, 35);
+            this.cmoStatus.Name = "cmoStatus";
+            this.cmoStatus.Size = new System.Drawing.Size(204, 24);
+            this.cmoStatus.TabIndex = 11;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(1104, 35);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(102, 26);
+            this.btnSearch.TabIndex = 15;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // frmSaleList
             // 
@@ -286,6 +353,13 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1414, 662);
             this.ControlBox = false;
+            this.Controls.Add(this.btnSearch);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.cmoStatus);
+            this.Controls.Add(this.txtDeliveryAddress);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtChallanNo);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnAddNew);
             this.Controls.Add(this.gridControl1);
             this.Name = "frmSaleList";
@@ -295,6 +369,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.saleBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -324,5 +399,12 @@
         private DevExpress.XtraGrid.Columns.GridColumn colCreateTime;
         private System.Windows.Forms.Button btnAddNew;
         private DevExpress.XtraGrid.Columns.GridColumn colUserId1;
+        private System.Windows.Forms.TextBox txtChallanNo;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtDeliveryAddress;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cmoStatus;
+        private System.Windows.Forms.Button btnSearch;
     }
 }

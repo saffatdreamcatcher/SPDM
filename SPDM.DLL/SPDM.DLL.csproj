@@ -83,6 +83,8 @@
     <Compile Include="Repositories\WorkOrderDetailDLL.cs" />
     <Compile Include="Repositories\WorkOrderDLL.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Entities\Icons\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
