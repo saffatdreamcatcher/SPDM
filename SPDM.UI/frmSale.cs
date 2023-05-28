@@ -80,7 +80,6 @@ namespace SPDM.UI
                 }
                 sale.DeliveryDate = dtpDeliveryDate.Value;
                 sale.DeliveryAddress = txtDeliveryAddress.Text;
-                sale.Status = WorkOrderStatus.Sold;
                 sale.Note = txtNote.Text;
 
                 List<SaleDetail> saleDetails1 = saleDetails.ToList();

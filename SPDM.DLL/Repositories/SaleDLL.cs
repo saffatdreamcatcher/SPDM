@@ -109,7 +109,6 @@ namespace SPDM.DLL.Repositories
 
                         sale.DeliveryAddress = reader["DeliveryAddress"].ToString();
                         sale.DeliveryDate = Convert.ToDateTime(reader["DeliveryDate"]);
-                        sale.Status = (WorkOrderStatus)Convert.ToInt32(reader["Status"]);
                         sale.Note = reader["Note"] is DBNull ? null : reader["Note"].ToString();
                         sales.Add(sale);
                     }
@@ -186,7 +185,6 @@ namespace SPDM.DLL.Repositories
 
                         sale.DeliveryAddress = reader["DeliveryAddress"].ToString();
                         sale.DeliveryDate = Convert.ToDateTime(reader["DeliveryDate"]);
-                        sale.Status = (WorkOrderStatus) Convert.ToInt32(reader["Status"]);
                         sale.Note = reader["Note"] is DBNull ? null : reader["Note"].ToString();
 
                     }
@@ -258,10 +256,10 @@ namespace SPDM.DLL.Repositories
                     comm.CommandText = "INSERT INTO Sale(CreateTime, UserId, FiscalYear, WorkOrderId, PartyId, " +
                                        "ChallanNo, SaleDate, TotalExVat, TotalIncVat, Discount, " +
                                        "DiscountPercent, VatPercent, DeliveryAddress, DeliveryDate, " +
-                                       "Status, Note) VALUES(@CreateTime, @UserId," +
+                                       "Note) VALUES(@CreateTime, @UserId," +
                                        "@FiscalYear, @WorkOrderId, @PartyId, @ChallanNo, @SaleDate, @TotalExVat," +
                                        " @TotalIncVat, @Discount, @DiscountPercent, @VatPercent, " +
-                                       " @DeliveryAddress, @DeliveryDate, @Status, @Note); SELECT SCOPE_IDENTITY()";
+                                       " @DeliveryAddress, @DeliveryDate, @Note); SELECT SCOPE_IDENTITY()";
                     comm.Parameters.Add("@CreateTime", SqlDbType.DateTime).Value = DateTime.Now;
                 }
                 else
@@ -272,7 +270,7 @@ namespace SPDM.DLL.Repositories
                                        "TotalExVat= @TotalExVat, TotalIncVat = @TotalIncVat, Discount =@Discount," +
                                        "DiscountPercent = @DiscountPercent, VatPercent= @VatPercent, " +
                                        "DeliveryAddress = @DeliveryAddress, DeliveryDate =  @DeliveryDate, " +
-                                       "Status = @Status, Note= @Note WHERE Id = @Id";
+                                       "Note= @Note WHERE Id = @Id";
                     comm.Parameters.Add("@Id", SqlDbType.Int).Value = sale.Id;
                     comm.Parameters.Add("@UpdateTime", SqlDbType.DateTime).Value = DateTime.Now;
                 }
@@ -313,7 +311,6 @@ namespace SPDM.DLL.Repositories
 
                 comm.Parameters.Add("@DeliveryAddress", SqlDbType.Text).Value = sale.DeliveryAddress;
                 comm.Parameters.Add("@DeliveryDate", SqlDbType.DateTime).Value = sale.DeliveryDate;
-                comm.Parameters.Add("@Status", SqlDbType.TinyInt).Value = (Int16)sale.Status;
                 comm.Parameters.Add("@Note", SqlDbType.Text).Value = sale.Note;
 
                 if (sale.IsNew)
