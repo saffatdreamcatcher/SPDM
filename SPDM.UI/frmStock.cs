@@ -152,17 +152,18 @@ namespace SPDM.UI
                 stock.Fiscalyear = txtFiscalYear.Text;
                 stock.Drum = txtDrum.Text;
                 stock.CoilNo = txtCoilNo.Text;
-                stock.Din = Convert.ToDouble(txtDin.Text);
-                stock.Unit = Convert.ToInt32(nupUnit.Text);
+                stock.Din = Convert.ToInt32(txtDin.Text);
+                stock.Unit = 1;
                 stock.OpeningQuantityInKM = Convert.ToInt32(nUpOQinKM.Value);
                 stock.OpeningQuantityInFKM = Convert.ToInt32(nUpOQinFKM.Value);
                 stock.CurrentQuantityInKM = Convert.ToInt32(nUpCQinKM.Value);
                 stock.CurrentQuantityInFKM = Convert.ToInt32(nUpCQinFKM.Value);
                 stock.Note = txtNote.Text;
                 stock.ItemName = cmoItemId.Text;
-                
-                
-                
+                stock.Length = Convert.ToDouble(nupLength.Text);
+
+
+
                 ItemBLL itemBLL = new ItemBLL();
                 Item item = itemBLL.GetById(stock.ItemId);
 
@@ -190,6 +191,11 @@ namespace SPDM.UI
                 iv = false;
             }
             return iv;
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

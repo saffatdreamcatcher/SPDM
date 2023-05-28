@@ -226,7 +226,6 @@ namespace SPDM.UI
                 WorkOrderStatus st = (WorkOrderStatus)Enum.Parse(typeof(WorkOrderStatus), cmoStatus.Text);
                 int ZZ = (int)st;
                 sB.Append(ZZ);
-                
                
             }
 
@@ -236,6 +235,11 @@ namespace SPDM.UI
             List<WorkOrder> workOrders = workOrderBLL.GetAll(ss);
             gridControl1.DataSource = workOrders;
 
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

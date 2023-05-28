@@ -125,7 +125,7 @@ namespace SPDM.UI
 
                 ItemBLL itemBLL = new ItemBLL();
                 string where = "WorkOrderNo= '" + txtWorkOrderNo.Text + "'";
-                where = where + " and Status = " + (int)WorkOrderStatus.InStock;
+                where = where + " and Status = " + (int)WorkOrderStatus.Sold;
                 List<WorkOrder> workOrders = workOrderBLL.GetAll(where);
                 WorkOrderDetailBLL workOrderDetailBLL = new WorkOrderDetailBLL();
 

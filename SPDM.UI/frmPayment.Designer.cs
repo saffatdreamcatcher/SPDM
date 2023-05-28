@@ -34,7 +34,7 @@
             // 
             // btnSavePayment
             // 
-            this.btnSavePayment.Location = new System.Drawing.Point(286, 147);
+            this.btnSavePayment.Location = new System.Drawing.Point(295, 150);
             this.btnSavePayment.Name = "btnSavePayment";
             this.btnSavePayment.Size = new System.Drawing.Size(171, 43);
             this.btnSavePayment.TabIndex = 0;
@@ -56,6 +56,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnSavePaymentDeatil);
             this.Controls.Add(this.btnSavePayment);

@@ -34,19 +34,19 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.txtName = new System.Windows.Forms.TextBox();
             this.gvRole = new System.Windows.Forms.DataGridView();
-            this.epRole = new System.Windows.Forms.ErrorProvider(this.components);
-            this.btnClose = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.roleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.createTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isNewDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Edit = new System.Windows.Forms.DataGridViewLinkColumn();
             this.Delete = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.roleBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.epRole = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnClose = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gvRole)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.epRole)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epRole)).BeginInit();
             this.SuspendLayout();
             // 
             // lblName
@@ -83,7 +83,7 @@
             this.txtName.Location = new System.Drawing.Point(127, 99);
             this.txtName.Multiline = true;
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(323, 22);
+            this.txtName.Size = new System.Drawing.Size(284, 22);
             this.txtName.TabIndex = 23;
             // 
             // gvRole
@@ -105,36 +105,6 @@
             this.gvRole.Size = new System.Drawing.Size(1177, 191);
             this.gvRole.TabIndex = 27;
             this.gvRole.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvRole_CellClick);
-            // 
-            // epRole
-            // 
-            this.epRole.ContainerControl = this;
-            // 
-            // btnClose
-            // 
-            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.Location = new System.Drawing.Point(1223, 0);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(26, 23);
-            this.btnClose.TabIndex = 33;
-            this.btnClose.Text = "X";
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Green;
-            this.label1.Location = new System.Drawing.Point(13, 6);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 20);
-            this.label1.TabIndex = 34;
-            this.label1.Text = "Role";
-            // 
-            // roleBindingSource
-            // 
-            this.roleBindingSource.DataSource = typeof(SPDM.DLL.Entities.Role);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -191,6 +161,36 @@
             this.Delete.UseColumnTextForLinkValue = true;
             this.Delete.Width = 125;
             // 
+            // roleBindingSource
+            // 
+            this.roleBindingSource.DataSource = typeof(SPDM.DLL.Entities.Role);
+            // 
+            // epRole
+            // 
+            this.epRole.ContainerControl = this;
+            // 
+            // btnClose
+            // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.Location = new System.Drawing.Point(1223, 0);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(26, 23);
+            this.btnClose.TabIndex = 33;
+            this.btnClose.Text = "X";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Green;
+            this.label1.Location = new System.Drawing.Point(13, 6);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(47, 20);
+            this.label1.TabIndex = 34;
+            this.label1.Text = "Role";
+            // 
             // frmRole
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -211,8 +211,8 @@
             this.Name = "frmRole";
             this.Load += new System.EventHandler(this.frmRole_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gvRole)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.epRole)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epRole)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

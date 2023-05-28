@@ -83,7 +83,6 @@ namespace SPDM.DLL.Repositories
                         stock.Unit = Convert.ToInt32(reader["Unit"]);
 
 
-
                         if (reader["Din"] is DBNull)
                         {
                             stock.Din = null;
@@ -100,6 +99,7 @@ namespace SPDM.DLL.Repositories
                         stock.Note = reader["Note"] is DBNull ? null : reader["Note"].ToString();
                         stock.CategoryName = reader["CategoryName"].ToString();
                         stock.ItemName = reader["ItemName"].ToString();
+                        stock.Length = Convert.ToDouble(reader["Length"]);
                         stocks.Add(stock);
                     }
                 }
@@ -169,8 +169,7 @@ namespace SPDM.DLL.Repositories
                         stock.Note = reader["Note"] is DBNull ? null : reader["Note"].ToString();
                         stock.CategoryName = reader["CategoryName"].ToString();
                         stock.ItemName = reader["ItemName"].ToString();
-
-
+                        stock.Length = Convert.ToDouble(reader["Length"]);
 
                     }
                 }
@@ -242,10 +241,10 @@ namespace SPDM.DLL.Repositories
                 {
                     comm.CommandText = "INSERT INTO Stock(CreateTime, UserId, CategoryId, ItemId, FiscalYear, " +
                                        "Drum, CoilNo, Din, Unit, OpeningQuantityInKM, OpeningQuantityInFKM, " +
-                                       "CurrentQuantityInKM, CurrentQuantityInFKM, Note " +
+                                       "CurrentQuantityInKM, CurrentQuantityInFKM, Note, Length " +
                                        ") VALUES(@CreateTime, @UserId, @CategoryId, @ItemId, @FiscalYear, " +
                                        "@Drum, @CoilNo, @Din, @Unit, @OpeningQuantityInKM, @OpeningQuantityInFKM, " +
-                                       "@CurrentQuantityInKM, @CurrentQuantityInFKM, @Note); SELECT SCOPE_IDENTITY()";
+                                       "@CurrentQuantityInKM, @CurrentQuantityInFKM, @Note, @Length); SELECT SCOPE_IDENTITY()";
                     comm.Parameters.Add("@CreateTime", SqlDbType.DateTime).Value = DateTime.Now;
                 }
                 else
@@ -255,7 +254,7 @@ namespace SPDM.DLL.Repositories
                                        "ItemId = @ItemId, Drum =@Drum, CoilNo = @CoilNo, Din = @Din, Unit= @Unit, " +
                                        "OpeningQuantityInKM = @OpeningQuantityInKM, OpeningQuantityInFKM= @OpeningQuantityInFKM, " +
                                        "CurrentQuantityInKM = @CurrentQuantityInKM, CurrentQuantityInFKM =  @CurrentQuantityInFKM, " +
-                                       "Note= @Note WHERE Id = @Id";
+                                       "Note= @Note, Length= @Length WHERE Id = @Id";
                     comm.Parameters.Add("@Id", SqlDbType.Int).Value = stock.Id;
                     comm.Parameters.Add("@UpdateTime", SqlDbType.DateTime).Value = DateTime.Now;
                 }
@@ -280,7 +279,7 @@ namespace SPDM.DLL.Repositories
                 comm.Parameters.Add("@CurrentQuantityInKM", SqlDbType.Decimal).Value = stock.CurrentQuantityInKM;
                 comm.Parameters.Add("@CurrentQuantityInFKM", SqlDbType.Decimal).Value = stock.CurrentQuantityInFKM;
                 comm.Parameters.Add("@Note", SqlDbType.VarChar).Value = stock.Note;
-
+                comm.Parameters.Add("@Length", SqlDbType.Decimal).Value = stock.Length;
                 if (stock.IsNew)
                 {
                     primaryKey = Convert.ToInt32(comm.ExecuteScalar());

@@ -38,11 +38,11 @@
             this.lblIsActive = new System.Windows.Forms.Label();
             this.chkIsActive = new System.Windows.Forms.CheckBox();
             this.gvUser = new System.Windows.Forms.DataGridView();
+            this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.resetbtn = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.epUser = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnClose = new System.Windows.Forms.Button();
-            this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.createTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,8 +56,8 @@
             this.Edit = new System.Windows.Forms.DataGridViewLinkColumn();
             this.Delete = new System.Windows.Forms.DataGridViewLinkColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gvUser)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.epUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epUser)).BeginInit();
             this.SuspendLayout();
             // 
             // txtUserName
@@ -153,6 +153,10 @@
             this.gvUser.TabIndex = 13;
             this.gvUser.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvUser_CellClick);
             // 
+            // userBindingSource
+            // 
+            this.userBindingSource.DataSource = typeof(SPDM.DLL.Entities.User);
+            // 
             // resetbtn
             // 
             this.resetbtn.Location = new System.Drawing.Point(243, 190);
@@ -188,10 +192,6 @@
             this.btnClose.Text = "X";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // userBindingSource
-            // 
-            this.userBindingSource.DataSource = typeof(SPDM.DLL.Entities.User);
             // 
             // label1
             // 
@@ -253,6 +253,7 @@
             this.lockoutEnabledDataGridViewCheckBoxColumn.HeaderText = "LockoutEnabled";
             this.lockoutEnabledDataGridViewCheckBoxColumn.MinimumWidth = 6;
             this.lockoutEnabledDataGridViewCheckBoxColumn.Name = "lockoutEnabledDataGridViewCheckBoxColumn";
+            this.lockoutEnabledDataGridViewCheckBoxColumn.Visible = false;
             this.lockoutEnabledDataGridViewCheckBoxColumn.Width = 125;
             // 
             // accessFailedCountDataGridViewTextBoxColumn
@@ -270,6 +271,7 @@
             this.isActiveDataGridViewCheckBoxColumn.HeaderText = "IsActive";
             this.isActiveDataGridViewCheckBoxColumn.MinimumWidth = 6;
             this.isActiveDataGridViewCheckBoxColumn.Name = "isActiveDataGridViewCheckBoxColumn";
+            this.isActiveDataGridViewCheckBoxColumn.Visible = false;
             this.isActiveDataGridViewCheckBoxColumn.Width = 125;
             // 
             // isNewDataGridViewCheckBoxColumn
@@ -323,8 +325,8 @@
             this.Name = "frmUser";
             this.Load += new System.EventHandler(this.frmUser_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gvUser)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.epUser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epUser)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

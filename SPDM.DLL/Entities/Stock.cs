@@ -67,5 +67,8 @@ namespace SPDM.DLL.Entities
         private string itemname;
         public string ItemName { get => itemname; set => itemname = value; }
 
+        private double length;
+        public double Length { get => length; set => length = value; }
+
     }
 }

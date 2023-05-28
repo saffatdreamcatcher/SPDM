@@ -313,7 +313,7 @@ namespace SPDM.DLL.Repositories
 
                 comm.Parameters.Add("@DeliveryAddress", SqlDbType.Text).Value = sale.DeliveryAddress;
                 comm.Parameters.Add("@DeliveryDate", SqlDbType.DateTime).Value = sale.DeliveryDate;
-                comm.Parameters.Add("@Status", SqlDbType.VarChar).Value = sale.Status;
+                comm.Parameters.Add("@Status", SqlDbType.TinyInt).Value = (Int16)sale.Status;
                 comm.Parameters.Add("@Note", SqlDbType.Text).Value = sale.Note;
 
                 if (sale.IsNew)

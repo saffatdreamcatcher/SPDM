@@ -68,10 +68,6 @@
             this.cmoItemId = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.gvWorkOrderDetail = new System.Windows.Forms.DataGridView();
-            this.Edit = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.eP = new System.Windows.Forms.ErrorProvider(this.components);
-            this.btnSave = new System.Windows.Forms.Button();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.createTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.updateTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -86,7 +82,11 @@
             this.totalExvatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalIncvatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isNewDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Edit = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewLinkColumn();
             this.workOrderDetailBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.eP = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnSave = new System.Windows.Forms.Button();
             this.workOrderDetailBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gWorkOrder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nupVatPercent)).BeginInit();
@@ -100,8 +100,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.nupLength)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupUnitPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvWorkOrderDetail)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.eP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.workOrderDetailBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.workOrderDetailBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -530,38 +530,6 @@
             this.gvWorkOrderDetail.TabIndex = 2;
             this.gvWorkOrderDetail.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvWorkOrderDetail_CellClick);
             // 
-            // Edit
-            // 
-            this.Edit.HeaderText = "Edit";
-            this.Edit.MinimumWidth = 6;
-            this.Edit.Name = "Edit";
-            this.Edit.Text = "Edit";
-            this.Edit.UseColumnTextForLinkValue = true;
-            this.Edit.Width = 80;
-            // 
-            // Delete
-            // 
-            this.Delete.HeaderText = "Delete";
-            this.Delete.MinimumWidth = 6;
-            this.Delete.Name = "Delete";
-            this.Delete.Text = "Delete";
-            this.Delete.UseColumnTextForLinkValue = true;
-            this.Delete.Width = 80;
-            // 
-            // eP
-            // 
-            this.eP.ContainerControl = this;
-            // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(53, 738);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(83, 34);
-            this.btnSave.TabIndex = 3;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
             // idDataGridViewTextBoxColumn
             // 
             this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
@@ -682,9 +650,41 @@
             this.isNewDataGridViewCheckBoxColumn.Visible = false;
             this.isNewDataGridViewCheckBoxColumn.Width = 125;
             // 
+            // Edit
+            // 
+            this.Edit.HeaderText = "Edit";
+            this.Edit.MinimumWidth = 6;
+            this.Edit.Name = "Edit";
+            this.Edit.Text = "Edit";
+            this.Edit.UseColumnTextForLinkValue = true;
+            this.Edit.Width = 80;
+            // 
+            // Delete
+            // 
+            this.Delete.HeaderText = "Delete";
+            this.Delete.MinimumWidth = 6;
+            this.Delete.Name = "Delete";
+            this.Delete.Text = "Delete";
+            this.Delete.UseColumnTextForLinkValue = true;
+            this.Delete.Width = 80;
+            // 
             // workOrderDetailBindingSource1
             // 
             this.workOrderDetailBindingSource1.DataSource = typeof(SPDM.DLL.Entities.WorkOrderDetail);
+            // 
+            // eP
+            // 
+            this.eP.ContainerControl = this;
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(53, 738);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(83, 34);
+            this.btnSave.TabIndex = 3;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // workOrderDetailBindingSource
             // 
@@ -694,6 +694,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1395, 817);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.gvWorkOrderDetail);
@@ -717,8 +718,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.nupLength)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupUnitPrice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvWorkOrderDetail)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.eP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.workOrderDetailBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.workOrderDetailBindingSource)).EndInit();
             this.ResumeLayout(false);
 
