@@ -80,5 +80,10 @@ namespace SPDM.UI
         {
             this.Close();
         }
+
+        private void repositoryItemHyperLinkEdit1_ButtonPressed(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+
+        }
     }
 }

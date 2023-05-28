@@ -143,7 +143,7 @@ namespace SPDM.DLL.Repositories
 
                 SqlCommand comm = conn.CreateCommand();
                 comm.CommandText = "Select SaleDetail.*, Item.Name AS ItemName from SaleDetail " +
-                                     "inner join Item on SaleDetail.ItemId = Item.Id " + id;
+                                     "inner join Item on SaleDetail.ItemId = Item.Id  where SaleDetail.Id = " + id;
                 using (SqlDataReader reader = comm.ExecuteReader())
                 {
                     while (reader != null && reader.Read())
