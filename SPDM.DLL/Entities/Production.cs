@@ -54,9 +54,6 @@ namespace SPDM.DLL.Entities
         private double? vatpercent;
         public double? VatPercent { get => vatpercent; set => vatpercent = value; }
 
-        private WorkOrderStatus status;
-        public WorkOrderStatus Status { get => status; set => status = value; }
-
         private string note;
         public string Note { get => note; set => note = value; }
     } 

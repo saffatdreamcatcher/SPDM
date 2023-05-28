@@ -103,7 +103,6 @@ namespace SPDM.DLL.Repositories
                         {
                             production.VatPercent = Convert.ToDouble(reader["VatPercent"]);
                         }
-                        production.Status = (WorkOrderStatus)Convert.ToInt16(reader["Status"]);
                         production.Note = reader["Note"] is DBNull ? null : reader["Note"].ToString();
                         productions.Add(production);
                     }
@@ -184,7 +183,6 @@ namespace SPDM.DLL.Repositories
                             production.VatPercent = Convert.ToDouble(reader["VatPercent"]);
                         }
 
-                        production.Status = (WorkOrderStatus)Convert.ToInt16(reader["Status"].ToString());
                         production.Note = reader["Note"] is DBNull ? null : reader["Note"].ToString();
                     }
 
@@ -253,9 +251,9 @@ namespace SPDM.DLL.Repositories
                 {
                     comm.CommandText = "INSERT INTO Production(CreateTime, UserId, ProductionNo, FiscalYear," +
                         "PartyId, WorkOrderId, WorkOrderDate, TotalExVat, TotalIncVat, Discount, " +
-                        "DiscountPercent, VatPercent, [Status], Note) VALUES (@CreateTime, @UserId, @ProductionNo, " +
+                        "DiscountPercent, VatPercent, Note) VALUES (@CreateTime, @UserId, @ProductionNo, " +
                         "@FiscalYear, @PartyId, @WorkOrderId, @WorkOrderDate, @TotalExVat," +
-                        " @TotalIncVat, @Discount, @DiscountPercent, @VatPercent, @Status, @Note); SELECT SCOPE_IDENTITY()";
+                        " @TotalIncVat, @Discount, @DiscountPercent, @VatPercent, @Note); SELECT SCOPE_IDENTITY()";
                     comm.Parameters.Add("@CreateTime", SqlDbType.DateTime).Value = DateTime.Today;
                 }
                 else
@@ -264,7 +262,7 @@ namespace SPDM.DLL.Repositories
                         "UserId = @UserId, ProductionNo = @ProductionNo, FiscalYear = @FiscalYear, PartyId = @PartyId, " +
                         "WorkOrderId = @WorkOrderId, WorkOrderDate = @WorkOrderDate, TotalExVat= @TotalExVat, " +
                         "TotalIncVat = @TotalIncVat, Discount = @Discount, DiscountPercent = @DiscountPercent, " +
-                        "VatPercent = @VatPercent, [Status] = @Status, Note= @Note WHERE Id = @Id";
+                        "VatPercent = @VatPercent, Note= @Note WHERE Id = @Id";
                     comm.Parameters.Add("@Id", SqlDbType.Int).Value = production.Id;
                     comm.Parameters.Add("@UpdateTime", SqlDbType.DateTime).Value = DateTime.Now;
                 }
@@ -303,7 +301,6 @@ namespace SPDM.DLL.Repositories
                     comm.Parameters.Add("@VatPercent", SqlDbType.Decimal).Value = DBNull.Value;
                 }
                 
-                comm.Parameters.Add("@Status", SqlDbType.VarChar).Value = (Int16)production.Status;
                 comm.Parameters.Add("@Note", SqlDbType.VarChar).Value = production.Note;
 
                 if (production.IsNew)

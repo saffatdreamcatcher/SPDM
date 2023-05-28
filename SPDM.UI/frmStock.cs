@@ -90,7 +90,7 @@ namespace SPDM.UI
             nupTotalIncVat.Value = Convert.ToDecimal(production.TotalIncvat);
             nupDiscountPercent.Value = production.DiscountPercent.HasValue ? Convert.ToDecimal(production.DiscountPercent.Value) : 0;
             nupVatPercent.Value = production.VatPercent.HasValue ? Convert.ToDecimal(production.VatPercent.Value) : 0;
-            txtStatus.Text = production.Status.ToString();
+            txtStatus.Text = workOrder.Status.ToString();
             txtNote.Text = production.Note;
 
 
