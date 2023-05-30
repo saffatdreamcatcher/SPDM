@@ -62,9 +62,9 @@ namespace SPDM.DLL.Repositories
                     while (reader != null && reader.Read())
                     {
                         int id = Convert.ToInt32(reader["id"]);
-                        
                         DateTime createTime = Convert.ToDateTime(reader["CreateTime"]);
                         WorkOrderDetail workorderdetail = new WorkOrderDetail(id, createTime);
+
                         if (reader["UpdateTime"] is DBNull)
                         {
                             workorderdetail.UpdateTime = null;

@@ -24,7 +24,7 @@ namespace SPDM.UI
             frmSale myform = new frmSale();
             myform.ShowDialog();
             LoadSale();
-           
+
         }
 
         private void LoadSale()
@@ -39,14 +39,14 @@ namespace SPDM.UI
         {
 
             LoadSale();
-            
+
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
 
             StringBuilder sB = new StringBuilder();
-          
+
 
             if (txtChallanNo.Text != string.Empty)
             {
@@ -83,7 +83,12 @@ namespace SPDM.UI
 
         private void repositoryItemHyperLinkEdit1_ButtonPressed(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-
+            if (MessageBox.Show("Are you sure you want to delete?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+            {
+                int saleId = Convert.ToInt32(gridView1.GetFocusedRowCellValue("Id"));
+                SaleBLL saleBLL = new SaleBLL();
+                saleBLL.Delete(saleId);
+            }
         }
-    }
+    } 
 }

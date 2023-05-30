@@ -100,6 +100,20 @@ namespace SPDM.BLL.BusinessLogic
 
         }
 
+        public bool IsExist(string whereClause = "")
+        {
+            try
+            {
+                WorkOrderDLL workorderDLL = new WorkOrderDLL();
+                return workorderDLL.IsExist(whereClause);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
         public int Delete(int id)
         {
             try

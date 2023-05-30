@@ -209,6 +209,19 @@ namespace SPDM.UI
                 eP.SetError(cmoItemId, "Can't empty");
                 iv = false;
             }
+
+            foreach(WorkOrderDetail workOrderDetail in workOrderDetails)
+            {
+                if (workOrderDetail.ItemId == (int)cmoItemId.SelectedValue)
+                {
+                    cmoItemId.Focus();
+                    eP.SetError(cmoItemId, "Already added!");
+                    iv = false;
+                    break;
+                }
+                
+            }
+
             return iv;
         }
 
@@ -222,6 +235,23 @@ namespace SPDM.UI
                 eP.SetError(txtWorkOrderNo, "Can't empty");
                 iv = false;
 
+            }
+
+            if (txtWorkOrderNo.Text != string.Empty)
+            {
+                WorkOrderBLL workOrderBLL = new WorkOrderBLL();
+                string whereClause = "WorkOrderNo= '" + txtWorkOrderNo.Text + "'";
+                if (workorderdId > 0)
+                {
+                    whereClause += " and Id !=" + workorderdId;
+                }
+                bool workOrderExist = workOrderBLL.IsExist(whereClause);
+                if (workOrderExist)
+                {
+                    txtWorkOrderNo.Focus();
+                    eP.SetError(txtWorkOrderNo, "Already exists");
+                    iv = false;
+                }
             }
 
 
@@ -247,7 +277,6 @@ namespace SPDM.UI
                 iv = false;
             }
             return iv;
-
 
         }
         

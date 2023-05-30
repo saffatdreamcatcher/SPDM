@@ -88,7 +88,6 @@ namespace SPDM.DLL.Repositories
                         {
                             sale.Discount = Convert.ToDouble(reader["Discount"]);
                         }
-                        //sale.DiscountPercent = Convert.ToDouble(reader["DiscountPercent"]);
                         if (reader["DiscountPercent"] is DBNull)
                         {
                             sale.DiscountPercent = null;
@@ -156,7 +155,7 @@ namespace SPDM.DLL.Repositories
                         }
                         sale.Id = id;
                         sale.UserId = Convert.ToInt32(reader["UserId"]);
-                        sale.WorkOrderId = Convert.ToInt32(reader["UserId"]);
+                        sale.WorkOrderId = Convert.ToInt32(reader["WorkOrderId"]);
                         sale.Fiscalyear = reader["FiscalYear"].ToString();
                         sale.PartyId = Convert.ToInt32(reader["PartyId"]);
                         sale.ChallanNo = Convert.ToInt32(reader["ChallanNo"]);
@@ -172,7 +171,14 @@ namespace SPDM.DLL.Repositories
                         {
                             sale.Discount = Convert.ToDouble(reader["Discount"]);
                         }
-                        sale.DiscountPercent = Convert.ToDouble(reader["DiscountPercent"]);
+                        if (reader["DiscountPercent"] is DBNull)
+                        {
+                            sale.DiscountPercent = null;
+                        }
+                        else
+                        {
+                            sale.DiscountPercent = Convert.ToDouble(reader["DiscountPercent"]);
+                        }
 
                         if (reader["VatPercent"] is DBNull)
                         {

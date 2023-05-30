@@ -211,6 +211,40 @@ namespace SPDM.DLL.Repositories
             return count;
         }
 
+        public bool IsExist(string whereClause = "")
+        {
+            bool isExist = false;
+            var myConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
+            SqlConnection conn = new SqlConnection();
+            try
+            {
+                conn.ConnectionString = myConnectionString;
+                conn.Open();
+
+                SqlCommand comm = conn.CreateCommand();
+
+                comm.CommandText = "SELECT " +
+                        "CASE WHEN COUNT( Id ) >= 1 THEN " +
+                        "CAST( 1 as BIT ) " +
+                        "ELSE " +
+                        " CAST( 0 as BIT ) " +
+                        "END As IsPresent " +
+                        "FROM [dbo].[WorkOrder] " +
+                        "WHERE " + whereClause ;
+                isExist = Convert.ToBoolean(comm.ExecuteScalar());
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return isExist;
+        }
+
 
 
         public int Save(WorkOrder workorder)
