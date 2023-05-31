@@ -32,8 +32,20 @@ namespace SPDM.UI
             this.ShowDialog();
             
         }
+
+        public void GenerateWorkOrderNo()
+        {
+            string dt = DateTime.Now.ToString("MM/dd/yyyyHH:mm:ss");
+            string dt2 = dt.Replace("/", "");
+            string dt3 = dt2.Replace(":", "");
+            string s = "W-" + Global.Userid + "-" + dt3;
+
+            txtWorkOrderNo.Text = s;
+        }
         private void frmWorkOrder_Load(object sender, EventArgs e)
         {
+           
+            GenerateWorkOrderNo();
             
             LoadItem();
             LoadParty();
@@ -42,7 +54,6 @@ namespace SPDM.UI
             if (workorderdId > 0)
             {
                 LoadOldWorkOrderWithDetails();
-
             }
 
         }
@@ -386,6 +397,7 @@ namespace SPDM.UI
                 workOrderBLL.Save(workOrder, workOrderDetails1);
 
                 ClearWorkOrderFields();
+                GenerateWorkOrderNo();
 
             }
   

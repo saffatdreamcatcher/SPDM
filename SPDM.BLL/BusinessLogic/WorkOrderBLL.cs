@@ -63,8 +63,10 @@ namespace SPDM.BLL.BusinessLogic
         {
             try
             {
+                
                 WorkOrderDLL workorderDLL = new WorkOrderDLL();
                 return workorderDLL.GetAll(whereclause);
+
             }
             catch (Exception ex)
             {
@@ -118,6 +120,15 @@ namespace SPDM.BLL.BusinessLogic
         {
             try
             {
+                string where = "workorderId= " + id;
+                WorkOrderDetailDLL workOrderDetailDLL = new WorkOrderDetailDLL();
+                List<WorkOrderDetail> workOrderDetails = workOrderDetailDLL.GetAll(where);
+
+                foreach (WorkOrderDetail workOrderDetail in workOrderDetails)
+                {
+                    workOrderDetailDLL.Delete(workOrderDetail.Id);
+                }
+
                 WorkOrderDLL workorderDLL = new WorkOrderDLL();
                 return workorderDLL.Delete(id);
             }

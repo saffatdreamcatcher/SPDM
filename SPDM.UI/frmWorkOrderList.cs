@@ -38,20 +38,31 @@ namespace SPDM.UI
 
         private void btnAddNew_Click(object sender, EventArgs e)
         {
+            
+            
             frmWorkOrder myform = new frmWorkOrder();
             myform.ShowDialog();
+
             LoadWorkOrder();
-        }
+    }
 
         private void frmWorkOrderList_Load(object sender, EventArgs e)
-        {
-            LoadWorkOrder();
-            LoadParty();
-            LoadComboBox();
+        {   try
+            {
+                LoadWorkOrder();
+                LoadParty();
+                LoadComboBox();
+                
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+            }
         }
 
         private void LoadWorkOrder()
         {
+
             WorkOrderBLL workOrderBLL = new WorkOrderBLL();
             List<WorkOrder> workOrders = workOrderBLL.GetAll();
             gridControl1.DataSource = workOrders;
@@ -112,6 +123,7 @@ namespace SPDM.UI
             int workOrderId = Convert.ToInt32(gridView1.GetFocusedRowCellValue("Id"));
             frmWorkOrder frmWorkOrder = new frmWorkOrder();
             frmWorkOrder.ShowDialog(workOrderId);
+                
         }
 
         private void repositoryItemHyperLinkEdit2_ButtonPressed(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -119,19 +131,6 @@ namespace SPDM.UI
             if (MessageBox.Show("Are you sure you want to delete?", "Confirmation",MessageBoxButtons.YesNo, MessageBoxIcon.Question,MessageBoxDefaultButton.Button1) == DialogResult.Yes)
             {
                 int workOrderId = Convert.ToInt32(gridView1.GetFocusedRowCellValue("Id"));
-                string where = "workorderId= " + workOrderId;
-                WorkOrderDetailBLL workOrderDetailBLL = new WorkOrderDetailBLL();
-                List<WorkOrderDetail> workOrderDetails = workOrderDetailBLL.GetAll(where);
-
-                foreach (WorkOrderDetail workOrderDetail in workOrderDetails)
-                {
-                    workOrderDetailBLL.Delete(workOrderDetail.Id);
-                }
-
-                //for (int i = 0; i < workOrderDetails.Count; i++)
-                //{
-                //    workOrderDetailBLL.Delete(workOrderDetails[i].Id);
-                //}
                 WorkOrderBLL workOrderBLL = new WorkOrderBLL();
                 workOrderBLL.Delete(workOrderId);
                 LoadWorkOrder();
@@ -150,16 +149,19 @@ namespace SPDM.UI
             }
             else
             {
-                MessageBox.Show("WorkOrder with Placed is only allowed to transfer.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                MessageBox.Show("WorkOrder with Placed is only allowed to transfer in production.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
-
-            
 
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
             
+            searchWorkOrder();
+        }
+
+        private void searchWorkOrder()
+        {
             StringBuilder sB = new StringBuilder();
             var number = (int)(WorkOrderStatus)Enum.Parse(typeof(WorkOrderStatus), cmoStatus.Text.ToString());
 
@@ -226,7 +228,7 @@ namespace SPDM.UI
                 WorkOrderStatus st = (WorkOrderStatus)Enum.Parse(typeof(WorkOrderStatus), cmoStatus.Text);
                 int ZZ = (int)st;
                 sB.Append(ZZ);
-               
+
             }
 
             string ss = sB.ToString();
@@ -241,5 +243,7 @@ namespace SPDM.UI
         {
             this.Close();
         }
+
+        
     }
 }

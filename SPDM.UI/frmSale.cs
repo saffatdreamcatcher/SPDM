@@ -118,8 +118,6 @@ namespace SPDM.UI
             {
                 WorkOrder workOrder1 = new WorkOrder();
                 WorkOrderBLL workOrderBLL = new WorkOrderBLL();
-                //Sale sale = new Sale();
-                //SaleBLL saleBLL = new SaleBLL();
                 PartyBLL partyBLL = new PartyBLL();
 
                 ItemBLL itemBLL = new ItemBLL();
