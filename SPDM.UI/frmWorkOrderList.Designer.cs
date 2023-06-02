@@ -229,6 +229,8 @@
             this.colTotalIncvat.FieldName = "TotalIncvat";
             this.colTotalIncvat.MinWidth = 76;
             this.colTotalIncvat.Name = "colTotalIncvat";
+            this.colTotalIncvat.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "TotalIncvat", "SUM={0:0.##}")});
             this.colTotalIncvat.Visible = true;
             this.colTotalIncvat.VisibleIndex = 5;
             this.colTotalIncvat.Width = 287;

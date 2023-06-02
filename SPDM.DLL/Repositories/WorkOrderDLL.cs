@@ -285,7 +285,7 @@ namespace SPDM.DLL.Repositories
                 comm.Parameters.Add("@UserId", SqlDbType.VarChar).Value = workorder.UserId;
                 comm.Parameters.Add("@FiscalYear", SqlDbType.VarChar).Value = workorder.Fiscalyear;
                 comm.Parameters.Add("@PartyId", SqlDbType.Int).Value = workorder.PartyId;
-                comm.Parameters.Add("@WorkOrderNo", SqlDbType.Int).Value = workorder.WorkOrderNo;
+                comm.Parameters.Add("@WorkOrderNo", SqlDbType.VarChar).Value = workorder.WorkOrderNo;
                 comm.Parameters.Add("@WorkOrderDate", SqlDbType.DateTime).Value = workorder.WorkOrderDate;
                 comm.Parameters.Add("@DeliveryDate", SqlDbType.DateTime).Value = workorder.DeliveryDate;
                 comm.Parameters.Add("@TotalExVat", SqlDbType.Decimal).Value = workorder.TotalExvat;

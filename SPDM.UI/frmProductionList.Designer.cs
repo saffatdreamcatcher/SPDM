@@ -78,10 +78,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControl1.DataSource = this.productionBindingSource;
-            this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(8);
             this.gridControl1.Location = new System.Drawing.Point(26, 112);
             this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.gridControl1.Margin = new System.Windows.Forms.Padding(8);
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.btnAddToStock});
@@ -194,6 +194,8 @@
             this.colTotalIncvat.FieldName = "TotalIncvat";
             this.colTotalIncvat.MinWidth = 61;
             this.colTotalIncvat.Name = "colTotalIncvat";
+            this.colTotalIncvat.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count, "TotalIncvat", "{0}")});
             this.colTotalIncvat.Visible = true;
             this.colTotalIncvat.VisibleIndex = 5;
             this.colTotalIncvat.Width = 227;

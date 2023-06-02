@@ -123,14 +123,14 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="repositoryItemHyperLinkEdit2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAAOsAAADrASts18IAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwa
-        AAABUElEQVRYR7WXS0oDQRRFewHROHcZTnQiWUPEzxb8zB1m4CSQmcsQl+NvAe5AJ4Ki94IvhPb145bv
-        9YEDzU3VrQoUdFfXyBl8gV/wuyezZ3gKR+EK9hcd8gKWsg3fIctf4QouezLjbxzDsVuwjANo/27OYIAj
-        aOP2GVQxg1bM5yHUcS6X8ANawVhyDfeM3ENvwhjewT/swgW0g0RvYf+wtcoO62M31+Bag2wepD0GSdhh
-        fdEBXpM6SA7Nfd6EHfgEH+GUAVCzkg0cQsv4TNSsZAPVWYhakslC1JJMFqKWZLIQtSSThaglmSxELclk
-        IWpJJgtRSzJZiFqSyULUkkwWopZkshC1JJOFeBPUN5+XlWyA73a+4x9+n4malWwgQ3OfeglRab6s8Eq1
-        eQ27gdf/lHPtK/sNTqAELym26yrPYRMnkB+Yn9ArVORcdhxDh677AYiChKG/mIaAAAAAAElFTkSuQmCC
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
+        6gAAAOoB+Ss1JgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFQSURBVFhHtZdL
+        SgNBFEV7AdE4dxlOdCJZQ8TPFvzMHWbgJJCZyxCX428B7kAngqL3gi+E9vXjlu/1gQPNTdWtChR0V9fI
+        GXyBX/C7J7NneApH4Qr2Fx3yApayDd8hy1/hCi57MuNvHMOxW7CMA2j/bs5ggCNo4/YZVDGDVsznIdRx
+        LpfwA1rBWHIN94zcQ2/CGN7BP+zCBbSDRG9h/7C1yg7rYzfX4FqDbB6kPQZJ2GF90QFekzpIDs193oQd
+        +AQf4ZQBULOSDRxCy/hM1KxkA9VZiFqSyULUkkwWopZkshC1JJOFqCWZLEQtyWQhakkmC1FLMlmIWpLJ
+        QtSSTBailmSyELUkk4V4E9Q3n5eVbIDvdr7jH36fiZqVbCBDc596CVFpvqzwSrV5DbuB1/+Uc+0r+w1O
+        oAQvKbbrKs9hEyeQH5if0CtU5Fx2HEOHrvsBiIKEob+YhoAAAAAASUVORK5CYII=
 </value>
   </data>
 </root>

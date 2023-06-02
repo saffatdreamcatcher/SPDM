@@ -44,7 +44,7 @@ namespace SPDM.UI
             myform.ShowDialog();
 
             LoadWorkOrder();
-    }
+        }
 
         private void frmWorkOrderList_Load(object sender, EventArgs e)
         {   try
@@ -105,6 +105,7 @@ namespace SPDM.UI
             gridViewTests.Columns["IsNew"].Visible = false;
             gridViewTests.Columns["UpdateTime"].Visible = false;
             gridViewTests.Columns["TotalExvat"].Visible = false;
+
             gridViewTests.EndUpdate();
         }
 

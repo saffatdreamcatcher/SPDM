@@ -80,6 +80,11 @@ namespace SPDM.UI
 
             workOrderDetails = new BindingList<WorkOrderDetail>(workOrderDetails1);
             gvWorkOrderDetail.DataSource = workOrderDetails;
+
+            if (workOrder.Status != WorkOrderStatus.Placed)
+            {
+                btnSave.Enabled = false;
+            }
         }
 
         private void gvWorkOrderDetail_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -221,18 +226,37 @@ namespace SPDM.UI
                 iv = false;
             }
 
-            foreach(WorkOrderDetail workOrderDetail in workOrderDetails)
+            if (nupLength.Value == 0)
             {
-                if (workOrderDetail.ItemId == (int)cmoItemId.SelectedValue)
+                nupLength.Focus();
+                eP.SetError(nupLength, "Length must be greater than zero");
+                iv = false;
+            }
+
+            //foreach(WorkOrderDetail workOrderDetail in workOrderDetails)
+            //{
+            //    if (workOrderDetail.ItemId == (int)cmoItemId.SelectedValue)
+            //    {
+            //        cmoItemId.Focus();
+            //        eP.SetError(cmoItemId, "Already added!");
+            //        iv = false;
+            //        break;
+            //    }
+                
+            //}
+
+            for (int i = 0; i < workOrderDetails.Count; i++)
+            {
+                if (i == editIndex)
+                    continue;
+                if (workOrderDetails[i].ItemId == (int)cmoItemId.SelectedValue)
                 {
                     cmoItemId.Focus();
                     eP.SetError(cmoItemId, "Already added!");
                     iv = false;
                     break;
                 }
-                
             }
-
             return iv;
         }
 
