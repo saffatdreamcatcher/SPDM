@@ -250,7 +250,7 @@ namespace SPDM.DLL.Repositories
                 {
                     comm.CommandText = "Update ProductionDetail SET UpdateTime =@Updatetime," +
                         "ProductionId = @ProductionId, " +
-                        "WorkOrderDetailId = @WorkOrderDetailId, ItemId =@ItemId, Unit = @Unit, Length= @Length TotalExVat= @TotalExVat, " +
+                        "WorkOrderDetailId = @WorkOrderDetailId, ItemId =@ItemId, Unit = @Unit, Length= @Length, TotalExVat= @TotalExVat, " +
                         "TotalIncVat = @TotalIncVat, Discount =@Discount, DiscountPercent = @DiscountPercent, " +
                         "VatPercent = @VatPercent WHERE Id = @Id";
                     comm.Parameters.Add("@Id", SqlDbType.Int).Value = productiondetail.Id;

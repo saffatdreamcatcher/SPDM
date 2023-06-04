@@ -52,12 +52,12 @@ namespace SPDM.UI
                 LoadWorkOrder();
                 LoadParty();
                 LoadComboBox();
-                
             }
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
+
         }
 
         private void LoadWorkOrder()
@@ -105,8 +105,14 @@ namespace SPDM.UI
             gridViewTests.Columns["IsNew"].Visible = false;
             gridViewTests.Columns["UpdateTime"].Visible = false;
             gridViewTests.Columns["TotalExvat"].Visible = false;
+            gridViewTests.Columns["WorkOrderId"].Visible = false;
+            gridViewTests.Columns["ItemId"].Visible = false;
+            gridViewTests.Columns["CreateTime"].Visible = false;
+            gridViewTests.Columns["Discount"].Visible = false;
+            gridViewTests.Columns["ItemName"].VisibleIndex = 0;
 
             gridViewTests.EndUpdate();
+
         }
 
         private void gridView1_MasterRowEmpty(object sender, MasterRowEmptyEventArgs e)
@@ -141,27 +147,37 @@ namespace SPDM.UI
 
         private void btnSendToProduction_ButtonPressed(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            int workOrderId = Convert.ToInt32(gridView1.GetFocusedRowCellValue("Id"));
-            WorkOrderStatus workOrderStatus = (WorkOrderStatus)Enum.Parse(typeof(WorkOrderStatus), gridView1.GetFocusedRowCellValue("Status").ToString());
-            if (workOrderStatus == WorkOrderStatus.Placed)
+            try
             {
-                WorkOrderBLL workOrderBLL = new WorkOrderBLL();
-                workOrderBLL.SendToProduction(workOrderId, Global.Userid);
+                int workOrderId = Convert.ToInt32(gridView1.GetFocusedRowCellValue("Id"));
+                WorkOrderStatus workOrderStatus = (WorkOrderStatus)Enum.Parse(typeof(WorkOrderStatus), gridView1.GetFocusedRowCellValue("Status").ToString());
+                if (workOrderStatus == WorkOrderStatus.Placed)
+                {
+                    if (MessageBox.Show("Are you sure you want to Send to Production?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+                    {
+                        WorkOrderBLL workOrderBLL = new WorkOrderBLL();
+                        workOrderBLL.SendToProduction(workOrderId, Global.Userid);
+                        LoadWorkOrder();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("WorkOrder with Placed is only allowed to transfer in production.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                }
             }
-            else
+            catch(Exception ex)
             {
-                MessageBox.Show("WorkOrder with Placed is only allowed to transfer in production.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
-
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
             
-            searchWorkOrder();
+            SearchWorkOrder();
         }
 
-        private void searchWorkOrder()
+        private void SearchWorkOrder()
         {
             StringBuilder sB = new StringBuilder();
             var number = (int)(WorkOrderStatus)Enum.Parse(typeof(WorkOrderStatus), cmoStatus.Text.ToString());

@@ -150,7 +150,7 @@ namespace SPDM.BLL.BusinessLogic
             List<WorkOrderDetail> workOrderDetails = workOrderDetailDLL.GetAll(where);
             Production production = new Production();
             production.UserId = userId;
-            production.ProductionNo = "p_" + workOrder.WorkOrderNo;
+            production.ProductionNo = "P-" + workOrder.WorkOrderNo;
             production.Fiscalyear = workOrder.Fiscalyear;
             production.PartyId = workOrder.PartyId;
             production.WorkOrderId = workOrder.Id;
@@ -163,6 +163,7 @@ namespace SPDM.BLL.BusinessLogic
             production.Note = workOrder.Note;
 
             productionDLL.Save(production);
+
             foreach (WorkOrderDetail workOrderDetail in workOrderDetails)
             {
                 ProductionDetail productionDetail = new ProductionDetail();
@@ -180,7 +181,7 @@ namespace SPDM.BLL.BusinessLogic
                 productionDetailDLL.Save(productionDetail);
             }
 
-            workOrder.Status = (WorkOrderStatus)WorkOrderStatus.InProduction;
+            workOrder.Status = WorkOrderStatus.InProduction;
             workOrderDLL.Save(workOrder);
         }
     }

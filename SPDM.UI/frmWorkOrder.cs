@@ -135,6 +135,7 @@ namespace SPDM.UI
                 workorderd.VatPercent = Convert.ToDouble(nupVatPercent1.Value);
 
                 double total = workorderd.Unit * workorderd.UnitPrice * workorderd.Length;
+
                 if (workorderd.DiscountPercent > 0)
                 {
                     double totaldiscount = total * (workorderd.DiscountPercent.Value / 100);
