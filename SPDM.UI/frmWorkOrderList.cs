@@ -22,12 +22,15 @@ namespace SPDM.UI
             
         }
 
-        public void LoadComboBox()
+        public void LoadStatus()
         {
             //cmoStatus.Items.AddRange(Enum.GetNames(typeof(WorkOrderStatus)));
             //cmoStatus.SelectedIndex = 0;
 
             string[] enumElements = Enum.GetNames(typeof(WorkOrderStatus));
+
+            cmoStatus.Items.Add("All");
+
             foreach (var item in enumElements)
             {
                 cmoStatus.Items.Add(item);
@@ -37,21 +40,19 @@ namespace SPDM.UI
         }
 
         private void btnAddNew_Click(object sender, EventArgs e)
-        {
-            
-            
+        { 
             frmWorkOrder myform = new frmWorkOrder();
             myform.ShowDialog();
 
-            LoadWorkOrder();
+            SearchWorkOrder();
         }
 
         private void frmWorkOrderList_Load(object sender, EventArgs e)
         {   try
             {
-                LoadWorkOrder();
                 LoadParty();
-                LoadComboBox();
+                LoadStatus();
+                SearchWorkOrder();
             }
             catch(Exception ex)
             {
@@ -85,6 +86,7 @@ namespace SPDM.UI
 
 
         }
+
         private void gridView1_MasterRowGetChildList(object sender, DevExpress.XtraGrid.Views.Grid.MasterRowGetChildListEventArgs e)
         {
             List<WorkOrderDetail> workOrderDetails = new List<WorkOrderDetail>();
@@ -140,7 +142,7 @@ namespace SPDM.UI
                 int workOrderId = Convert.ToInt32(gridView1.GetFocusedRowCellValue("Id"));
                 WorkOrderBLL workOrderBLL = new WorkOrderBLL();
                 workOrderBLL.Delete(workOrderId);
-                LoadWorkOrder();
+                SearchWorkOrder();
             }
             
         }
@@ -157,7 +159,7 @@ namespace SPDM.UI
                     {
                         WorkOrderBLL workOrderBLL = new WorkOrderBLL();
                         workOrderBLL.SendToProduction(workOrderId, Global.Userid);
-                        LoadWorkOrder();
+                        SearchWorkOrder();
                     }
                 }
                 else
@@ -180,7 +182,8 @@ namespace SPDM.UI
         private void SearchWorkOrder()
         {
             StringBuilder sB = new StringBuilder();
-            var number = (int)(WorkOrderStatus)Enum.Parse(typeof(WorkOrderStatus), cmoStatus.Text.ToString());
+
+            //var number = (int)(WorkOrderStatus)Enum.Parse(typeof(WorkOrderStatus), cmoStatus.Text.ToString());
 
             //string m = Enum.GetName(typeof(WorkOrderStatus), number);
 
@@ -204,7 +207,7 @@ namespace SPDM.UI
                 sB.Append(cmoParty.SelectedIndex);
             }
 
-            if (dTPWorkOrderDate.Value.ToString() != "")
+            if (dEFromWorkOrderDate.EditValue != null)
             {
 
                 if (sB.ToString() != string.Empty)
@@ -214,11 +217,11 @@ namespace SPDM.UI
                 }
 
                 sB.Append(" Format(WorkOrder.WorkOrderDate, 'yyyy-MM-dd') >= '");
-                sB.Append(dTPWorkOrderDate.Value.ToString("yyyy-MM-dd"));
+                sB.Append(dEFromWorkOrderDate.DateTime.ToString("yyyy-MM-dd"));
                 sB.Append("'");
             }
 
-            if (dTPDeliveryDate.Value.ToString() != "")
+            if (dEToDeliveryDate.EditValue != null)
             {
 
                 if (sB.ToString() != string.Empty)
@@ -228,13 +231,13 @@ namespace SPDM.UI
                 }
 
                 sB.Append(" Format(WorkOrder.DeliveryDate, 'yyyy-MM-dd') <= '");
-                sB.Append(dTPDeliveryDate.Value.ToString("yyyy-MM-dd"));
+                sB.Append(dEToDeliveryDate.DateTime.ToString("yyyy-MM-dd"));
                 sB.Append("'");
             }
 
 
 
-            if (Convert.ToInt32(cmoStatus.SelectedValue) >= 0)
+            if (cmoStatus.Text != "All")
             {
                 if (sB.ToString() != string.Empty)
                 {

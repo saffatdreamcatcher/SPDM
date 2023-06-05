@@ -79,17 +79,21 @@
             this.cmoParty = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.dTPWorkOrderDate = new System.Windows.Forms.DateTimePicker();
             this.btnSearch = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.dTPDeliveryDate = new System.Windows.Forms.DateTimePicker();
             this.btnClose = new System.Windows.Forms.Button();
+            this.dEFromWorkOrderDate = new DevExpress.XtraEditors.DateEdit();
+            this.dEToDeliveryDate = new DevExpress.XtraEditors.DateEdit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.workOrderBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSendToProduction)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dEFromWorkOrderDate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dEFromWorkOrderDate.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dEToDeliveryDate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dEToDeliveryDate.Properties.CalendarTimeProperties)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAddNew
@@ -109,16 +113,16 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControl1.DataSource = this.workOrderBindingSource;
-            this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(10);
-            this.gridControl1.Location = new System.Drawing.Point(3, 141);
+            this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(12, 12, 12, 12);
+            this.gridControl1.Location = new System.Drawing.Point(4, 176);
             this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Margin = new System.Windows.Forms.Padding(10);
+            this.gridControl1.Margin = new System.Windows.Forms.Padding(12, 12, 12, 12);
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemHyperLinkEdit1,
             this.repositoryItemHyperLinkEdit2,
             this.btnSendToProduction});
-            this.gridControl1.Size = new System.Drawing.Size(1516, 508);
+            this.gridControl1.Size = new System.Drawing.Size(1895, 635);
             this.gridControl1.TabIndex = 2;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -150,7 +154,7 @@
             this.gcSendToProduction,
             this.gcEdit,
             this.gcDelete});
-            this.gridView1.DetailHeight = 1065;
+            this.gridView1.DetailHeight = 1331;
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowFooter = true;
@@ -162,155 +166,155 @@
             // colUpdateTime
             // 
             this.colUpdateTime.FieldName = "UpdateTime";
-            this.colUpdateTime.MinWidth = 76;
+            this.colUpdateTime.MinWidth = 95;
             this.colUpdateTime.Name = "colUpdateTime";
-            this.colUpdateTime.Width = 284;
+            this.colUpdateTime.Width = 355;
             // 
             // colUserId
             // 
             this.colUserId.FieldName = "UserId";
-            this.colUserId.MinWidth = 76;
+            this.colUserId.MinWidth = 95;
             this.colUserId.Name = "colUserId";
-            this.colUserId.Width = 284;
+            this.colUserId.Width = 355;
             // 
             // colWorkOrderNo
             // 
             this.colWorkOrderNo.FieldName = "WorkOrderNo";
-            this.colWorkOrderNo.MinWidth = 76;
+            this.colWorkOrderNo.MinWidth = 95;
             this.colWorkOrderNo.Name = "colWorkOrderNo";
             this.colWorkOrderNo.Visible = true;
             this.colWorkOrderNo.VisibleIndex = 0;
-            this.colWorkOrderNo.Width = 287;
+            this.colWorkOrderNo.Width = 359;
             // 
             // colFiscalyear
             // 
             this.colFiscalyear.FieldName = "Fiscalyear";
-            this.colFiscalyear.MinWidth = 76;
+            this.colFiscalyear.MinWidth = 95;
             this.colFiscalyear.Name = "colFiscalyear";
             this.colFiscalyear.Visible = true;
             this.colFiscalyear.VisibleIndex = 1;
-            this.colFiscalyear.Width = 287;
+            this.colFiscalyear.Width = 359;
             // 
             // colPartyId
             // 
             this.colPartyId.FieldName = "PartyId";
-            this.colPartyId.MinWidth = 76;
+            this.colPartyId.MinWidth = 95;
             this.colPartyId.Name = "colPartyId";
             this.colPartyId.Visible = true;
             this.colPartyId.VisibleIndex = 2;
-            this.colPartyId.Width = 287;
+            this.colPartyId.Width = 359;
             // 
             // colWorkOrderDate
             // 
             this.colWorkOrderDate.FieldName = "WorkOrderDate";
-            this.colWorkOrderDate.MinWidth = 76;
+            this.colWorkOrderDate.MinWidth = 95;
             this.colWorkOrderDate.Name = "colWorkOrderDate";
             this.colWorkOrderDate.Visible = true;
             this.colWorkOrderDate.VisibleIndex = 3;
-            this.colWorkOrderDate.Width = 287;
+            this.colWorkOrderDate.Width = 359;
             // 
             // colDeliveryDate
             // 
             this.colDeliveryDate.FieldName = "DeliveryDate";
-            this.colDeliveryDate.MinWidth = 76;
+            this.colDeliveryDate.MinWidth = 95;
             this.colDeliveryDate.Name = "colDeliveryDate";
             this.colDeliveryDate.Visible = true;
             this.colDeliveryDate.VisibleIndex = 4;
-            this.colDeliveryDate.Width = 287;
+            this.colDeliveryDate.Width = 359;
             // 
             // colTotalExvat
             // 
             this.colTotalExvat.FieldName = "TotalExvat";
-            this.colTotalExvat.MinWidth = 76;
+            this.colTotalExvat.MinWidth = 95;
             this.colTotalExvat.Name = "colTotalExvat";
-            this.colTotalExvat.Width = 284;
+            this.colTotalExvat.Width = 355;
             // 
             // colTotalIncvat
             // 
             this.colTotalIncvat.FieldName = "TotalIncvat";
-            this.colTotalIncvat.MinWidth = 76;
+            this.colTotalIncvat.MinWidth = 95;
             this.colTotalIncvat.Name = "colTotalIncvat";
             this.colTotalIncvat.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "TotalIncvat", "SUM={0:0.##}")});
             this.colTotalIncvat.Visible = true;
             this.colTotalIncvat.VisibleIndex = 5;
-            this.colTotalIncvat.Width = 287;
+            this.colTotalIncvat.Width = 359;
             // 
             // colDiscount
             // 
             this.colDiscount.FieldName = "Discount";
-            this.colDiscount.MinWidth = 76;
+            this.colDiscount.MinWidth = 95;
             this.colDiscount.Name = "colDiscount";
-            this.colDiscount.Width = 284;
+            this.colDiscount.Width = 355;
             // 
             // colDiscountPercent
             // 
             this.colDiscountPercent.FieldName = "DiscountPercent";
-            this.colDiscountPercent.MinWidth = 76;
+            this.colDiscountPercent.MinWidth = 95;
             this.colDiscountPercent.Name = "colDiscountPercent";
             this.colDiscountPercent.Visible = true;
             this.colDiscountPercent.VisibleIndex = 6;
-            this.colDiscountPercent.Width = 287;
+            this.colDiscountPercent.Width = 359;
             // 
             // colVatPercent
             // 
             this.colVatPercent.FieldName = "VatPercent";
-            this.colVatPercent.MinWidth = 76;
+            this.colVatPercent.MinWidth = 95;
             this.colVatPercent.Name = "colVatPercent";
             this.colVatPercent.Visible = true;
             this.colVatPercent.VisibleIndex = 7;
-            this.colVatPercent.Width = 287;
+            this.colVatPercent.Width = 359;
             // 
             // colStatus
             // 
             this.colStatus.FieldName = "Status";
-            this.colStatus.MinWidth = 76;
+            this.colStatus.MinWidth = 95;
             this.colStatus.Name = "colStatus";
             this.colStatus.Visible = true;
             this.colStatus.VisibleIndex = 8;
-            this.colStatus.Width = 287;
+            this.colStatus.Width = 359;
             // 
             // colNote
             // 
             this.colNote.FieldName = "Note";
-            this.colNote.MinWidth = 76;
+            this.colNote.MinWidth = 95;
             this.colNote.Name = "colNote";
             this.colNote.Visible = true;
             this.colNote.VisibleIndex = 9;
-            this.colNote.Width = 287;
+            this.colNote.Width = 359;
             // 
             // colId
             // 
             this.colId.FieldName = "Id";
-            this.colId.MinWidth = 76;
+            this.colId.MinWidth = 95;
             this.colId.Name = "colId";
-            this.colId.Width = 284;
+            this.colId.Width = 355;
             // 
             // colIsNew
             // 
             this.colIsNew.FieldName = "IsNew";
-            this.colIsNew.MinWidth = 76;
+            this.colIsNew.MinWidth = 95;
             this.colIsNew.Name = "colIsNew";
             this.colIsNew.OptionsColumn.ReadOnly = true;
-            this.colIsNew.Width = 284;
+            this.colIsNew.Width = 355;
             // 
             // colCreateTime
             // 
             this.colCreateTime.FieldName = "CreateTime";
-            this.colCreateTime.MinWidth = 76;
+            this.colCreateTime.MinWidth = 95;
             this.colCreateTime.Name = "colCreateTime";
             this.colCreateTime.OptionsColumn.ReadOnly = true;
-            this.colCreateTime.Width = 284;
+            this.colCreateTime.Width = 355;
             // 
             // gcSendToProduction
             // 
             this.gcSendToProduction.Caption = "To Production";
             this.gcSendToProduction.ColumnEdit = this.btnSendToProduction;
-            this.gcSendToProduction.MinWidth = 61;
+            this.gcSendToProduction.MinWidth = 76;
             this.gcSendToProduction.Name = "gcSendToProduction";
             this.gcSendToProduction.Visible = true;
             this.gcSendToProduction.VisibleIndex = 10;
-            this.gcSendToProduction.Width = 342;
+            this.gcSendToProduction.Width = 427;
             // 
             // btnSendToProduction
             // 
@@ -326,11 +330,11 @@
             // 
             this.gcEdit.Caption = "Edit";
             this.gcEdit.ColumnEdit = this.repositoryItemHyperLinkEdit1;
-            this.gcEdit.MinWidth = 76;
+            this.gcEdit.MinWidth = 95;
             this.gcEdit.Name = "gcEdit";
             this.gcEdit.Visible = true;
             this.gcEdit.VisibleIndex = 11;
-            this.gcEdit.Width = 194;
+            this.gcEdit.Width = 242;
             // 
             // repositoryItemHyperLinkEdit1
             // 
@@ -351,11 +355,11 @@
             // 
             this.gcDelete.Caption = "Delete";
             this.gcDelete.ColumnEdit = this.repositoryItemHyperLinkEdit2;
-            this.gcDelete.MinWidth = 76;
+            this.gcDelete.MinWidth = 95;
             this.gcDelete.Name = "gcDelete";
             this.gcDelete.Visible = true;
             this.gcDelete.VisibleIndex = 12;
-            this.gcDelete.Width = 199;
+            this.gcDelete.Width = 249;
             // 
             // repositoryItemHyperLinkEdit2
             // 
@@ -431,13 +435,6 @@
             this.label5.TabIndex = 13;
             this.label5.Text = "From WorkOrder Date";
             // 
-            // dTPWorkOrderDate
-            // 
-            this.dTPWorkOrderDate.Location = new System.Drawing.Point(788, 41);
-            this.dTPWorkOrderDate.Name = "dTPWorkOrderDate";
-            this.dTPWorkOrderDate.Size = new System.Drawing.Size(200, 22);
-            this.dTPWorkOrderDate.TabIndex = 12;
-            // 
             // btnSearch
             // 
             this.btnSearch.Location = new System.Drawing.Point(1371, 39);
@@ -457,13 +454,6 @@
             this.label3.TabIndex = 16;
             this.label3.Text = "To DeliveryDate";
             // 
-            // dTPDeliveryDate
-            // 
-            this.dTPDeliveryDate.Location = new System.Drawing.Point(1129, 39);
-            this.dTPDeliveryDate.Name = "dTPDeliveryDate";
-            this.dTPDeliveryDate.Size = new System.Drawing.Size(200, 22);
-            this.dTPDeliveryDate.TabIndex = 15;
-            // 
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -475,6 +465,32 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // dEFromWorkOrderDate
+            // 
+            this.dEFromWorkOrderDate.EditValue = null;
+            this.dEFromWorkOrderDate.Location = new System.Drawing.Point(798, 46);
+            this.dEFromWorkOrderDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dEFromWorkOrderDate.Name = "dEFromWorkOrderDate";
+            this.dEFromWorkOrderDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dEFromWorkOrderDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dEFromWorkOrderDate.Size = new System.Drawing.Size(188, 22);
+            this.dEFromWorkOrderDate.TabIndex = 39;
+            // 
+            // dEToDeliveryDate
+            // 
+            this.dEToDeliveryDate.EditValue = null;
+            this.dEToDeliveryDate.Location = new System.Drawing.Point(1148, 39);
+            this.dEToDeliveryDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dEToDeliveryDate.Name = "dEToDeliveryDate";
+            this.dEToDeliveryDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dEToDeliveryDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dEToDeliveryDate.Size = new System.Drawing.Size(185, 22);
+            this.dEToDeliveryDate.TabIndex = 40;
+            // 
             // frmWorkOrderList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -482,12 +498,12 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1613, 642);
             this.ControlBox = false;
+            this.Controls.Add(this.dEToDeliveryDate);
+            this.Controls.Add(this.dEFromWorkOrderDate);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.dTPDeliveryDate);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.dTPWorkOrderDate);
             this.Controls.Add(this.cmoParty);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtWorkOrderNo);
@@ -505,6 +521,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnSendToProduction)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dEFromWorkOrderDate.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dEFromWorkOrderDate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dEToDeliveryDate.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dEToDeliveryDate.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -545,10 +565,10 @@
         private System.Windows.Forms.ComboBox cmoParty;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DateTimePicker dTPWorkOrderDate;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker dTPDeliveryDate;
         private System.Windows.Forms.Button btnClose;
+        private DevExpress.XtraEditors.DateEdit dEFromWorkOrderDate;
+        private DevExpress.XtraEditors.DateEdit dEToDeliveryDate;
     }
 }
