@@ -60,16 +60,20 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.dTPToDate = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
-            this.dTPFromDate = new System.Windows.Forms.DateTimePicker();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtProduction = new System.Windows.Forms.TextBox();
             this.btnClose = new System.Windows.Forms.Button();
+            this.dTPFromDate = new DevExpress.XtraEditors.DateEdit();
+            this.dTPToDate = new DevExpress.XtraEditors.DateEdit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAddToStock)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dTPFromDate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dTPFromDate.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dTPToDate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dTPToDate.Properties.CalendarTimeProperties)).BeginInit();
             this.SuspendLayout();
             // 
             // gridControl1
@@ -316,13 +320,6 @@
             this.label6.TabIndex = 17;
             this.label6.Text = "To Date";
             // 
-            // dTPToDate
-            // 
-            this.dTPToDate.Location = new System.Drawing.Point(1051, 57);
-            this.dTPToDate.Name = "dTPToDate";
-            this.dTPToDate.Size = new System.Drawing.Size(200, 22);
-            this.dTPToDate.TabIndex = 16;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -331,13 +328,6 @@
             this.label5.Size = new System.Drawing.Size(70, 16);
             this.label5.TabIndex = 15;
             this.label5.Text = "From Date";
-            // 
-            // dTPFromDate
-            // 
-            this.dTPFromDate.Location = new System.Drawing.Point(754, 56);
-            this.dTPFromDate.Name = "dTPFromDate";
-            this.dTPFromDate.Size = new System.Drawing.Size(200, 22);
-            this.dTPFromDate.TabIndex = 14;
             // 
             // btnSearch
             // 
@@ -367,6 +357,30 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // dTPFromDate
+            // 
+            this.dTPFromDate.EditValue = null;
+            this.dTPFromDate.Location = new System.Drawing.Point(750, 56);
+            this.dTPFromDate.Name = "dTPFromDate";
+            this.dTPFromDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dTPFromDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dTPFromDate.Size = new System.Drawing.Size(200, 22);
+            this.dTPFromDate.TabIndex = 37;
+            // 
+            // dTPToDate
+            // 
+            this.dTPToDate.EditValue = null;
+            this.dTPToDate.Location = new System.Drawing.Point(1059, 57);
+            this.dTPToDate.Name = "dTPToDate";
+            this.dTPToDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dTPToDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dTPToDate.Size = new System.Drawing.Size(194, 22);
+            this.dTPToDate.TabIndex = 38;
+            // 
             // frmProductionList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -374,13 +388,13 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1429, 639);
             this.ControlBox = false;
+            this.Controls.Add(this.dTPToDate);
+            this.Controls.Add(this.dTPFromDate);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.txtProduction);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.dTPToDate);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.dTPFromDate);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmoParty);
@@ -392,6 +406,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.productionBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAddToStock)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dTPFromDate.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dTPFromDate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dTPToDate.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dTPToDate.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -425,11 +443,11 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DateTimePicker dTPToDate;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DateTimePicker dTPFromDate;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox txtProduction;
         private System.Windows.Forms.Button btnClose;
+        private DevExpress.XtraEditors.DateEdit dTPFromDate;
+        private DevExpress.XtraEditors.DateEdit dTPToDate;
     }
 }
