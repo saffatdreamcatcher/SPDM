@@ -22,17 +22,18 @@ namespace SPDM.UI
 
         private void frmProductionList_Load(object sender, EventArgs e)
         {
-            LoadProduction();
+            //LoadProduction();
             LoadParty();
+            SearchProduction();
         }
 
-        private void LoadProduction()
-        {
-            ProductionBLL productionBLL = new ProductionBLL();
-            List<Production> productions = productionBLL.GetAll();
-            gridControl1.DataSource = productions;
-            gridControl1.ForceInitialize();
-        }
+        //private void LoadProduction()
+        //{
+        //    ProductionBLL productionBLL = new ProductionBLL();
+        //    List<Production> productions = productionBLL.GetAll();
+        //    gridControl1.DataSource = productions;
+        //    gridControl1.ForceInitialize();
+        //}
 
 
         private void LoadParty()
@@ -126,7 +127,7 @@ namespace SPDM.UI
                 sB.Append(cmoParty.SelectedValue);
             }
 
-            if (dTPFromDate.EditValue != "")
+            if (dTPFromDate.EditValue != null)
             {
 
                 if (sB.ToString() != string.Empty)
@@ -140,7 +141,7 @@ namespace SPDM.UI
                 sB.Append("'");
             }
 
-            if (dTPToDate.EditValue != "")
+            if (dTPToDate.EditValue != null)
             {
 
                 if (sB.ToString() != string.Empty)
@@ -165,6 +166,17 @@ namespace SPDM.UI
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void repositoryItemHyperLinkEdit1_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to delete?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+            {
+                int Id = Convert.ToInt32(gridView1.GetFocusedRowCellValue("Id"));
+                ProductionBLL productionBLL = new ProductionBLL();
+                productionBLL.Delete(Id);
+                SearchProduction();
+            }
         }
     }
 }

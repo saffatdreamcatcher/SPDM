@@ -69,7 +69,22 @@ namespace SPDM.BLL.BusinessLogic
             try
             {
                 ProductionDLL productionDLL = new ProductionDLL();
-                return productionDLL.Delete(id);
+                ProductionDetailDLL productionDetailDLL = new ProductionDetailDLL();
+                WorkOrderDLL workOrderDLL = new WorkOrderDLL();
+                Production production = productionDLL.GetById(id);
+                string where = "ProductionId=" + id;
+                List<ProductionDetail> productionDetails= productionDetailDLL.GetAll(where);
+                WorkOrder workOrder = workOrderDLL.GetById(production.WorkOrderId);
+
+                foreach (ProductionDetail productionDetail in productionDetails)
+                {
+                    productionDetailDLL.Delete(productionDetail.Id);
+                }
+
+                workOrder.Status = WorkOrderStatus.Placed;
+                workOrderDLL.Save(workOrder);
+                return productionDLL.Delete(id); 
+                
             }
             catch (Exception ex)
             {
