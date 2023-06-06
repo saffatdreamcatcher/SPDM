@@ -34,6 +34,11 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.productionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -56,6 +61,8 @@
             this.colCreateTime = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gCAddToStock = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnAddToStock = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.gcDelete = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemHyperLinkEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit();
             this.cmoParty = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -70,6 +77,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.productionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAddToStock)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dTPFromDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dTPFromDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dTPToDate.Properties)).BeginInit();
@@ -88,7 +96,8 @@
             this.gridControl1.Margin = new System.Windows.Forms.Padding(8);
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.btnAddToStock});
+            this.btnAddToStock,
+            this.repositoryItemHyperLinkEdit1});
             this.gridControl1.Size = new System.Drawing.Size(1386, 495);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -118,7 +127,8 @@
             this.colId,
             this.colIsNew,
             this.colCreateTime,
-            this.gCAddToStock});
+            this.gCAddToStock,
+            this.gcDelete});
             this.gridView1.DetailHeight = 852;
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
@@ -285,6 +295,25 @@
             this.btnAddToStock.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.btnAddToStock.ButtonPressed += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnAddToStock_ButtonPressed);
             // 
+            // gcDelete
+            // 
+            this.gcDelete.Caption = "Delete";
+            this.gcDelete.ColumnEdit = this.repositoryItemHyperLinkEdit1;
+            this.gcDelete.MinWidth = 25;
+            this.gcDelete.Name = "gcDelete";
+            this.gcDelete.Visible = true;
+            this.gcDelete.VisibleIndex = 9;
+            this.gcDelete.Width = 94;
+            // 
+            // repositoryItemHyperLinkEdit1
+            // 
+            this.repositoryItemHyperLinkEdit1.AutoHeight = false;
+            this.repositoryItemHyperLinkEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Delete", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.repositoryItemHyperLinkEdit1.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.repositoryItemHyperLinkEdit1.Caption = "Delete";
+            this.repositoryItemHyperLinkEdit1.Name = "repositoryItemHyperLinkEdit1";
+            // 
             // cmoParty
             // 
             this.cmoParty.FormattingEnabled = true;
@@ -366,6 +395,9 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dTPFromDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dTPFromDate.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.dTPFromDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dTPFromDate.Properties.MaskSettings.Set("mask", "dd/MM/yyyy");
             this.dTPFromDate.Size = new System.Drawing.Size(200, 22);
             this.dTPFromDate.TabIndex = 37;
             // 
@@ -378,6 +410,9 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dTPToDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dTPToDate.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.dTPToDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dTPToDate.Properties.MaskSettings.Set("mask", "dd/MM/yyyy");
             this.dTPToDate.Size = new System.Drawing.Size(194, 22);
             this.dTPToDate.TabIndex = 38;
             // 
@@ -406,6 +441,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.productionBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAddToStock)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dTPFromDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dTPFromDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dTPToDate.Properties.CalendarTimeProperties)).EndInit();
@@ -449,5 +485,7 @@
         private System.Windows.Forms.Button btnClose;
         private DevExpress.XtraEditors.DateEdit dTPFromDate;
         private DevExpress.XtraEditors.DateEdit dTPToDate;
+        private DevExpress.XtraGrid.Columns.GridColumn gcDelete;
+        private DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit repositoryItemHyperLinkEdit1;
     }
 }

@@ -63,7 +63,6 @@
             this.label17 = new System.Windows.Forms.Label();
             this.nupLength = new System.Windows.Forms.NumericUpDown();
             this.label16 = new System.Windows.Forms.Label();
-            this.txtDin = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.txtCoilNo = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -72,9 +71,6 @@
             this.cmoItemId = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.gVStock = new System.Windows.Forms.DataGridView();
-            this.stockBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.eP = new System.Windows.Forms.ErrorProvider(this.components);
-            this.btnClose = new System.Windows.Forms.Button();
             this.itemNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoryNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.updateTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -95,6 +91,10 @@
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isNewDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.createTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stockBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.eP = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnClose = new System.Windows.Forms.Button();
+            this.nUpDin = new System.Windows.Forms.NumericUpDown();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nupVatPercent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupDiscountPercent)).BeginInit();
@@ -107,6 +107,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gVStock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stockBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nUpDin)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSaveStock
@@ -349,6 +350,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.nUpDin);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.label21);
             this.groupBox1.Controls.Add(this.btnAdd);
@@ -358,7 +360,6 @@
             this.groupBox1.Controls.Add(this.label17);
             this.groupBox1.Controls.Add(this.nupLength);
             this.groupBox1.Controls.Add(this.label16);
-            this.groupBox1.Controls.Add(this.txtDin);
             this.groupBox1.Controls.Add(this.label15);
             this.groupBox1.Controls.Add(this.txtCoilNo);
             this.groupBox1.Controls.Add(this.label8);
@@ -463,13 +464,6 @@
             this.label16.TabIndex = 38;
             this.label16.Text = "Length";
             // 
-            // txtDin
-            // 
-            this.txtDin.Location = new System.Drawing.Point(1137, 52);
-            this.txtDin.Name = "txtDin";
-            this.txtDin.Size = new System.Drawing.Size(201, 22);
-            this.txtDin.TabIndex = 33;
-            // 
             // label15
             // 
             this.label15.AutoSize = true;
@@ -561,25 +555,6 @@
             this.gVStock.RowTemplate.Height = 24;
             this.gVStock.Size = new System.Drawing.Size(1398, 150);
             this.gVStock.TabIndex = 10;
-            // 
-            // stockBindingSource
-            // 
-            this.stockBindingSource.DataSource = typeof(SPDM.DLL.Entities.Stock);
-            // 
-            // eP
-            // 
-            this.eP.ContainerControl = this;
-            // 
-            // btnClose
-            // 
-            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.Location = new System.Drawing.Point(1442, 1);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(31, 28);
-            this.btnClose.TabIndex = 37;
-            this.btnClose.Text = "X";
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // itemNameDataGridViewTextBoxColumn
             // 
@@ -754,6 +729,32 @@
             this.createTimeDataGridViewTextBoxColumn.Visible = false;
             this.createTimeDataGridViewTextBoxColumn.Width = 125;
             // 
+            // stockBindingSource
+            // 
+            this.stockBindingSource.DataSource = typeof(SPDM.DLL.Entities.Stock);
+            // 
+            // eP
+            // 
+            this.eP.ContainerControl = this;
+            // 
+            // btnClose
+            // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.Location = new System.Drawing.Point(1442, 1);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(31, 28);
+            this.btnClose.TabIndex = 37;
+            this.btnClose.Text = "X";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // nUpDin
+            // 
+            this.nUpDin.Location = new System.Drawing.Point(1151, 52);
+            this.nUpDin.Name = "nUpDin";
+            this.nUpDin.Size = new System.Drawing.Size(201, 22);
+            this.nUpDin.TabIndex = 51;
+            // 
             // frmStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -783,6 +784,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gVStock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.stockBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nUpDin)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -818,7 +820,6 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.ComboBox cmoItemId;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox txtDin;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox txtCoilNo;
         private System.Windows.Forms.Label label8;
@@ -855,5 +856,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn isNewDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn createTimeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.NumericUpDown nUpDin;
     }
 }

@@ -22,18 +22,17 @@ namespace SPDM.UI
 
         private void frmProductionList_Load(object sender, EventArgs e)
         {
-            //LoadProduction();
+            LoadProduction();
             LoadParty();
-            SearchProduction();
         }
 
-        //private void LoadProduction()
-        //{
-        //    ProductionBLL productionBLL = new ProductionBLL();
-        //    List<Production> productions = productionBLL.GetAll();
-        //    gridControl1.DataSource = productions;
-        //    gridControl1.ForceInitialize();
-        //}
+        private void LoadProduction()
+        {
+            ProductionBLL productionBLL = new ProductionBLL();
+            List<Production> productions = productionBLL.GetAll();
+            gridControl1.DataSource = productions;
+            gridControl1.ForceInitialize();
+        }
 
 
         private void LoadParty()
@@ -127,7 +126,7 @@ namespace SPDM.UI
                 sB.Append(cmoParty.SelectedValue);
             }
 
-            if (dTPFromDate.Value.ToString() != "")
+            if (dTPFromDate.EditValue != "")
             {
 
                 if (sB.ToString() != string.Empty)
@@ -137,11 +136,11 @@ namespace SPDM.UI
                 }
 
                 sB.Append(" Format(Production.CreateTime, 'yyyy-MM-dd') <= '");
-                sB.Append(dTPFromDate.Value.ToString("yyyy-MM-dd"));
+                sB.Append(dTPFromDate.DateTime.ToString("yyyy-MM-dd"));
                 sB.Append("'");
             }
 
-            if (dTPToDate.Value.ToString() != "")
+            if (dTPToDate.EditValue != "")
             {
 
                 if (sB.ToString() != string.Empty)
@@ -151,7 +150,7 @@ namespace SPDM.UI
                 }
 
                 sB.Append(" Format(Production.CreateTime, 'yyyy-MM-dd') >= '");
-                sB.Append(dTPToDate.Value.ToString("yyyy - MM - dd"));
+                sB.Append(dTPToDate.DateTime.ToString("yyyy-MM-dd"));
                 sB.Append("'");
 
             }

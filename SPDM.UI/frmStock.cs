@@ -152,7 +152,7 @@ namespace SPDM.UI
                 stock.Fiscalyear = txtFiscalYear.Text;
                 stock.Drum = txtDrum.Text;
                 stock.CoilNo = txtCoilNo.Text;
-                stock.Din = Convert.ToInt32(txtDin.Text);
+                stock.Din = Convert.ToInt32(nUpDin.Value);
                 stock.Unit = 1;
                 stock.OpeningQuantityInKM = Convert.ToInt32(nUpOQinKM.Value);
                 stock.OpeningQuantityInFKM = Convert.ToInt32(nUpOQinFKM.Value);
