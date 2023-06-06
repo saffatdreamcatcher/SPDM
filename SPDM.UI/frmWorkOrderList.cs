@@ -61,15 +61,15 @@ namespace SPDM.UI
 
         }
 
-        private void LoadWorkOrder()
-        {
+        //private void LoadWorkOrder()
+        //{
 
-            WorkOrderBLL workOrderBLL = new WorkOrderBLL();
-            List<WorkOrder> workOrders = workOrderBLL.GetAll();
-            gridControl1.DataSource = workOrders;
-            gridControl1.ForceInitialize();
+        //    WorkOrderBLL workOrderBLL = new WorkOrderBLL();
+        //    List<WorkOrder> workOrders = workOrderBLL.GetAll();
+        //    gridControl1.DataSource = workOrders;
+        //    gridControl1.ForceInitialize();
 
-        }
+        //}
 
         private void LoadParty()
         {
@@ -221,7 +221,7 @@ namespace SPDM.UI
                 sB.Append("'");
             }
 
-            if (dEToDeliveryDate.EditValue != null)
+            if (dEToWorkOrderDate.EditValue != null)
             {
 
                 if (sB.ToString() != string.Empty)
@@ -230,8 +230,8 @@ namespace SPDM.UI
 
                 }
 
-                sB.Append(" Format(WorkOrder.DeliveryDate, 'yyyy-MM-dd') <= '");
-                sB.Append(dEToDeliveryDate.DateTime.ToString("yyyy-MM-dd"));
+                sB.Append(" Format(WorkOrder.WorkOrderDate, 'yyyy-MM-dd') <= '");
+                sB.Append(dEToWorkOrderDate.DateTime.ToString("yyyy-MM-dd"));
                 sB.Append("'");
             }
 
