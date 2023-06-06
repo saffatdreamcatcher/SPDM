@@ -61,15 +61,6 @@ namespace SPDM.UI
 
         }
 
-        //private void LoadWorkOrder()
-        //{
-
-        //    WorkOrderBLL workOrderBLL = new WorkOrderBLL();
-        //    List<WorkOrder> workOrders = workOrderBLL.GetAll();
-        //    gridControl1.DataSource = workOrders;
-        //    gridControl1.ForceInitialize();
-
-        //}
 
         private void LoadParty()
         {

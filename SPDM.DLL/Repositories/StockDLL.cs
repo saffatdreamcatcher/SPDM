@@ -225,6 +225,40 @@ namespace SPDM.DLL.Repositories
         }
 
 
+        public bool IsExist(string whereClause = "")
+        {
+            bool isExist = false;
+            var myConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
+            SqlConnection conn = new SqlConnection();
+            try
+            {
+                conn.ConnectionString = myConnectionString;
+                conn.Open();
+
+                SqlCommand comm = conn.CreateCommand();
+
+                comm.CommandText = "SELECT " +
+                        "CASE WHEN COUNT( Id ) >= 1 THEN " +
+                        "CAST( 1 as BIT ) " +
+                        "ELSE " +
+                        " CAST( 0 as BIT ) " +
+                        "END As IsPresent " +
+                        "FROM [dbo].[Stock] " +
+                        "WHERE " + whereClause;
+                isExist = Convert.ToBoolean(comm.ExecuteScalar());
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return isExist;
+        }
+
         public int Save(Stock stock)
         {
             int primaryKey = 0;

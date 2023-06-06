@@ -120,6 +120,20 @@ namespace SPDM.BLL.BusinessLogic
 
         }
 
+        public bool IsExist(string whereClause = "")
+        {
+            try
+            {
+                StockDLL stockDLL = new StockDLL();
+                return stockDLL.IsExist(whereClause);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
         public int Delete(int id)
         {
             try

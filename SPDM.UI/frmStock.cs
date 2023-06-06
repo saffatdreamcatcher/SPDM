@@ -16,7 +16,7 @@ namespace SPDM.UI
     {
         private BindingList<Stock> stocks = new BindingList<Stock>();
         private int productionId;
-       
+        private int editIndex = -1;
 
         public frmStock()
         {
@@ -156,8 +156,8 @@ namespace SPDM.UI
                 stock.Unit = 1;
                 stock.OpeningQuantityInKM = Convert.ToInt32(nUpOQinKM.Value);
                 stock.OpeningQuantityInFKM = Convert.ToInt32(nUpOQinFKM.Value);
-                stock.CurrentQuantityInKM = Convert.ToInt32(nUpCQinKM.Value);
-                stock.CurrentQuantityInFKM = Convert.ToInt32(nUpCQinFKM.Value);
+                stock.CurrentQuantityInKM = Convert.ToInt32(nUpOQinKM.Value);
+                stock.CurrentQuantityInFKM = Convert.ToInt32(nUpOQinFKM.Value);
                 stock.Note = txtNote.Text;
                 stock.ItemName = cmoItemId.Text;
                 stock.Length = Convert.ToDouble(nupLength.Text);
@@ -190,6 +190,35 @@ namespace SPDM.UI
                 eP.SetError(cmoItemId, "Can't empty");
                 iv = false;
             }
+
+            if (txtDrum.Text != string.Empty)
+            {
+                StockBLL stockBLL = new StockBLL();
+                string whereClause = "Drum= '" + txtDrum.Text + "'";
+                
+                bool stockExist = stockBLL.IsExist(whereClause);
+                if (stockExist)
+                {
+                    txtDrum.Focus();
+                    eP.SetError(txtDrum, "Already exists");
+                    iv = false;
+                }
+            }
+
+
+            for (int i = 0; i < stocks.Count; i++)
+            {
+                if (i == editIndex)
+                    continue;
+                if (stocks[i].ItemId == (int)cmoItemId.SelectedValue)
+                {
+                    cmoItemId.Focus();
+                    eP.SetError(cmoItemId, "Already added!");
+                    iv = false;
+                    break;
+                }
+            }
+
             return iv;
         }
 
