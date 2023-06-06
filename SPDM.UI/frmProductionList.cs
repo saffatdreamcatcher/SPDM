@@ -22,20 +22,19 @@ namespace SPDM.UI
 
         private void frmProductionList_Load(object sender, EventArgs e)
         {
-            LoadProduction();
+            //LoadProduction();
             LoadParty();
+            SearchProduction();
         }
 
-        private void LoadProduction()
-        {
-            ProductionBLL productionBLL = new ProductionBLL();
-            List<Production> productions = productionBLL.GetAll();
-            gridControl1.DataSource = productions;
-            gridControl1.ForceInitialize();
-        }
+        //private void LoadProduction()
+        //{
+        //    ProductionBLL productionBLL = new ProductionBLL();
+        //    List<Production> productions = productionBLL.GetAll();
+        //    gridControl1.DataSource = productions;
+        //    gridControl1.ForceInitialize();
+        //}
 
-
-        
 
         private void LoadParty()
         {
@@ -68,6 +67,8 @@ namespace SPDM.UI
             gridViewTests.Columns["UpdateTime"].Visible = false;
             gridViewTests.Columns["CreateTime"].Visible = false;
             gridViewTests.Columns["TotalExvat"].Visible = false;
+            gridViewTests.Columns["ProductionId"].Visible = false;
+            gridViewTests.Columns["WorkOrderDetailId"].Visible = false;
             gridViewTests.EndUpdate();
         }
 
@@ -80,6 +81,7 @@ namespace SPDM.UI
             ProductionDetailBLL productionDetailBLL = new ProductionDetailBLL();
             productionDetails = productionDetailBLL.GetAll(where);
             e.ChildList = productionDetails;
+
         }
 
         private void gridView1_MasterRowGetRelationCount(object sender, DevExpress.XtraGrid.Views.Grid.MasterRowGetRelationCountEventArgs e)
@@ -97,14 +99,17 @@ namespace SPDM.UI
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            
+            SearchProduction();
+        }
 
+        private void SearchProduction()
+        {
             StringBuilder sB = new StringBuilder();
 
 
             if (txtProduction.Text != string.Empty)
             {
-                
+
                 sB.Append(" ProductionNo LIKE '%");
                 sB.Append(txtProduction.Text);
                 sB.Append("%'");
@@ -156,8 +161,6 @@ namespace SPDM.UI
             ProductionBLL productionBLL = new ProductionBLL();
             List<Production> productions = productionBLL.GetAll(ss);
             gridControl1.DataSource = productions;
-
-
         }
 
         private void btnClose_Click(object sender, EventArgs e)

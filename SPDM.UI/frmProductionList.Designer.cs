@@ -143,7 +143,7 @@
             this.colProductionNo.MinWidth = 61;
             this.colProductionNo.Name = "colProductionNo";
             this.colProductionNo.Visible = true;
-            this.colProductionNo.VisibleIndex = 1;
+            this.colProductionNo.VisibleIndex = 0;
             this.colProductionNo.Width = 227;
             // 
             // colFiscalyear
@@ -152,7 +152,7 @@
             this.colFiscalyear.MinWidth = 61;
             this.colFiscalyear.Name = "colFiscalyear";
             this.colFiscalyear.Visible = true;
-            this.colFiscalyear.VisibleIndex = 2;
+            this.colFiscalyear.VisibleIndex = 1;
             this.colFiscalyear.Width = 227;
             // 
             // colPartyId
@@ -161,7 +161,7 @@
             this.colPartyId.MinWidth = 61;
             this.colPartyId.Name = "colPartyId";
             this.colPartyId.Visible = true;
-            this.colPartyId.VisibleIndex = 3;
+            this.colPartyId.VisibleIndex = 2;
             this.colPartyId.Width = 227;
             // 
             // colWorkOrderId
@@ -169,8 +169,6 @@
             this.colWorkOrderId.FieldName = "WorkOrderId";
             this.colWorkOrderId.MinWidth = 61;
             this.colWorkOrderId.Name = "colWorkOrderId";
-            this.colWorkOrderId.Visible = true;
-            this.colWorkOrderId.VisibleIndex = 0;
             this.colWorkOrderId.Width = 227;
             // 
             // colWorkOrderDate
@@ -179,7 +177,7 @@
             this.colWorkOrderDate.MinWidth = 61;
             this.colWorkOrderDate.Name = "colWorkOrderDate";
             this.colWorkOrderDate.Visible = true;
-            this.colWorkOrderDate.VisibleIndex = 4;
+            this.colWorkOrderDate.VisibleIndex = 3;
             this.colWorkOrderDate.Width = 227;
             // 
             // colTotalExvat
@@ -197,7 +195,7 @@
             this.colTotalIncvat.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count, "TotalIncvat", "{0}")});
             this.colTotalIncvat.Visible = true;
-            this.colTotalIncvat.VisibleIndex = 5;
+            this.colTotalIncvat.VisibleIndex = 4;
             this.colTotalIncvat.Width = 227;
             // 
             // colDiscount
@@ -213,7 +211,7 @@
             this.colDiscountPercent.MinWidth = 61;
             this.colDiscountPercent.Name = "colDiscountPercent";
             this.colDiscountPercent.Visible = true;
-            this.colDiscountPercent.VisibleIndex = 6;
+            this.colDiscountPercent.VisibleIndex = 5;
             this.colDiscountPercent.Width = 227;
             // 
             // colVatPercent
@@ -222,7 +220,7 @@
             this.colVatPercent.MinWidth = 61;
             this.colVatPercent.Name = "colVatPercent";
             this.colVatPercent.Visible = true;
-            this.colVatPercent.VisibleIndex = 7;
+            this.colVatPercent.VisibleIndex = 6;
             this.colVatPercent.Width = 227;
             // 
             // colStatus
@@ -230,8 +228,6 @@
             this.colStatus.FieldName = "Status";
             this.colStatus.MinWidth = 61;
             this.colStatus.Name = "colStatus";
-            this.colStatus.Visible = true;
-            this.colStatus.VisibleIndex = 8;
             this.colStatus.Width = 227;
             // 
             // colNote
@@ -240,7 +236,7 @@
             this.colNote.MinWidth = 61;
             this.colNote.Name = "colNote";
             this.colNote.Visible = true;
-            this.colNote.VisibleIndex = 9;
+            this.colNote.VisibleIndex = 7;
             this.colNote.Width = 227;
             // 
             // colId
@@ -272,7 +268,7 @@
             this.gCAddToStock.MinWidth = 49;
             this.gCAddToStock.Name = "gCAddToStock";
             this.gCAddToStock.Visible = true;
-            this.gCAddToStock.VisibleIndex = 10;
+            this.gCAddToStock.VisibleIndex = 8;
             this.gCAddToStock.Width = 182;
             // 
             // btnAddToStock

@@ -57,10 +57,6 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.nUpCQinFKM = new System.Windows.Forms.NumericUpDown();
-            this.label20 = new System.Windows.Forms.Label();
-            this.nUpCQinKM = new System.Windows.Forms.NumericUpDown();
-            this.label19 = new System.Windows.Forms.Label();
             this.nUpOQinFKM = new System.Windows.Forms.NumericUpDown();
             this.label18 = new System.Windows.Forms.Label();
             this.nUpOQinKM = new System.Windows.Forms.NumericUpDown();
@@ -76,9 +72,9 @@
             this.cmoItemId = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.gVStock = new System.Windows.Forms.DataGridView();
+            this.stockBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.eP = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnClose = new System.Windows.Forms.Button();
-            this.stockBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.itemNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoryNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.updateTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -105,14 +101,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.nupTotalIncVat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupTotalexVat)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nUpCQinFKM)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nUpCQinKM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nUpOQinFKM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nUpOQinKM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupLength)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gVStock)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.eP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stockBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eP)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSaveStock
@@ -191,6 +185,7 @@
             // 
             // nupVatPercent
             // 
+            this.nupVatPercent.Enabled = false;
             this.nupVatPercent.Location = new System.Drawing.Point(131, 143);
             this.nupVatPercent.Name = "nupVatPercent";
             this.nupVatPercent.Size = new System.Drawing.Size(188, 22);
@@ -207,6 +202,7 @@
             // 
             // nupDiscountPercent
             // 
+            this.nupDiscountPercent.Enabled = false;
             this.nupDiscountPercent.Location = new System.Drawing.Point(1151, 89);
             this.nupDiscountPercent.Name = "nupDiscountPercent";
             this.nupDiscountPercent.Size = new System.Drawing.Size(201, 22);
@@ -285,6 +281,7 @@
             // 
             // txtWorkOrderId
             // 
+            this.txtWorkOrderId.Enabled = false;
             this.txtWorkOrderId.Location = new System.Drawing.Point(1151, 32);
             this.txtWorkOrderId.Name = "txtWorkOrderId";
             this.txtWorkOrderId.Size = new System.Drawing.Size(197, 22);
@@ -301,6 +298,7 @@
             // 
             // txtPartyId
             // 
+            this.txtPartyId.Enabled = false;
             this.txtPartyId.Location = new System.Drawing.Point(775, 35);
             this.txtPartyId.Name = "txtPartyId";
             this.txtPartyId.Size = new System.Drawing.Size(206, 22);
@@ -326,6 +324,7 @@
             // 
             // txtFiscalYear
             // 
+            this.txtFiscalYear.Enabled = false;
             this.txtFiscalYear.Location = new System.Drawing.Point(456, 35);
             this.txtFiscalYear.Name = "txtFiscalYear";
             this.txtFiscalYear.Size = new System.Drawing.Size(201, 22);
@@ -342,6 +341,7 @@
             // 
             // txtProductionNo
             // 
+            this.txtProductionNo.Enabled = false;
             this.txtProductionNo.Location = new System.Drawing.Point(131, 35);
             this.txtProductionNo.Name = "txtProductionNo";
             this.txtProductionNo.Size = new System.Drawing.Size(188, 22);
@@ -352,10 +352,6 @@
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.label21);
             this.groupBox1.Controls.Add(this.btnAdd);
-            this.groupBox1.Controls.Add(this.nUpCQinFKM);
-            this.groupBox1.Controls.Add(this.label20);
-            this.groupBox1.Controls.Add(this.nUpCQinKM);
-            this.groupBox1.Controls.Add(this.label19);
             this.groupBox1.Controls.Add(this.nUpOQinFKM);
             this.groupBox1.Controls.Add(this.label18);
             this.groupBox1.Controls.Add(this.nUpOQinKM);
@@ -380,7 +376,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(452, 155);
+            this.textBox1.Location = new System.Drawing.Point(92, 155);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(205, 22);
             this.textBox1.TabIndex = 50;
@@ -388,7 +384,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(395, 155);
+            this.label21.Location = new System.Drawing.Point(44, 155);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(36, 16);
             this.label21.TabIndex = 49;
@@ -396,55 +392,13 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(785, 152);
+            this.btnAdd.Location = new System.Drawing.Point(452, 149);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(112, 28);
             this.btnAdd.TabIndex = 48;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // nUpCQinFKM
-            // 
-            this.nUpCQinFKM.Location = new System.Drawing.Point(96, 159);
-            this.nUpCQinFKM.Maximum = new decimal(new int[] {
-            1000000,
-            0,
-            0,
-            0});
-            this.nUpCQinFKM.Name = "nUpCQinFKM";
-            this.nUpCQinFKM.Size = new System.Drawing.Size(201, 22);
-            this.nUpCQinFKM.TabIndex = 47;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(19, 161);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(63, 16);
-            this.label20.TabIndex = 46;
-            this.label20.Text = "CQInFKM";
-            // 
-            // nUpCQinKM
-            // 
-            this.nUpCQinKM.Location = new System.Drawing.Point(1137, 104);
-            this.nUpCQinKM.Maximum = new decimal(new int[] {
-            1000000,
-            0,
-            0,
-            0});
-            this.nUpCQinKM.Name = "nUpCQinKM";
-            this.nUpCQinKM.Size = new System.Drawing.Size(201, 22);
-            this.nUpCQinKM.TabIndex = 45;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(1044, 104);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(55, 16);
-            this.label19.TabIndex = 44;
-            this.label19.Text = "CQInKM";
             // 
             // nUpOQinFKM
             // 
@@ -461,11 +415,11 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(708, 100);
+            this.label18.Location = new System.Drawing.Point(697, 100);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(64, 16);
+            this.label18.Size = new System.Drawing.Size(75, 16);
             this.label18.TabIndex = 42;
-            this.label18.Text = "OQInFKM";
+            this.label18.Text = "TotalInFKM";
             // 
             // nUpOQinKM
             // 
@@ -482,11 +436,11 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(387, 98);
+            this.label17.Location = new System.Drawing.Point(364, 100);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(56, 16);
+            this.label17.Size = new System.Drawing.Size(67, 16);
             this.label17.TabIndex = 40;
-            this.label17.Text = "OQInKM";
+            this.label17.Text = "TotalInKM";
             // 
             // nupLength
             // 
@@ -608,6 +562,10 @@
             this.gVStock.Size = new System.Drawing.Size(1398, 150);
             this.gVStock.TabIndex = 10;
             // 
+            // stockBindingSource
+            // 
+            this.stockBindingSource.DataSource = typeof(SPDM.DLL.Entities.Stock);
+            // 
             // eP
             // 
             this.eP.ContainerControl = this;
@@ -622,10 +580,6 @@
             this.btnClose.Text = "X";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // stockBindingSource
-            // 
-            this.stockBindingSource.DataSource = typeof(SPDM.DLL.Entities.Stock);
             // 
             // itemNameDataGridViewTextBoxColumn
             // 
@@ -731,7 +685,7 @@
             // openingQuantityInKMDataGridViewTextBoxColumn
             // 
             this.openingQuantityInKMDataGridViewTextBoxColumn.DataPropertyName = "OpeningQuantityInKM";
-            this.openingQuantityInKMDataGridViewTextBoxColumn.HeaderText = "OpeningQuantityInKM";
+            this.openingQuantityInKMDataGridViewTextBoxColumn.HeaderText = "TotalInKM";
             this.openingQuantityInKMDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.openingQuantityInKMDataGridViewTextBoxColumn.Name = "openingQuantityInKMDataGridViewTextBoxColumn";
             this.openingQuantityInKMDataGridViewTextBoxColumn.Width = 135;
@@ -739,7 +693,7 @@
             // openingQuantityInFKMDataGridViewTextBoxColumn
             // 
             this.openingQuantityInFKMDataGridViewTextBoxColumn.DataPropertyName = "OpeningQuantityInFKM";
-            this.openingQuantityInFKMDataGridViewTextBoxColumn.HeaderText = "OpeningQuantityInFKM";
+            this.openingQuantityInFKMDataGridViewTextBoxColumn.HeaderText = "TotalInFKM";
             this.openingQuantityInFKMDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.openingQuantityInFKMDataGridViewTextBoxColumn.Name = "openingQuantityInFKMDataGridViewTextBoxColumn";
             this.openingQuantityInFKMDataGridViewTextBoxColumn.Width = 135;
@@ -750,6 +704,7 @@
             this.currentQuantityInKMDataGridViewTextBoxColumn.HeaderText = "CurrentQuantityInKM";
             this.currentQuantityInKMDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.currentQuantityInKMDataGridViewTextBoxColumn.Name = "currentQuantityInKMDataGridViewTextBoxColumn";
+            this.currentQuantityInKMDataGridViewTextBoxColumn.Visible = false;
             this.currentQuantityInKMDataGridViewTextBoxColumn.Width = 135;
             // 
             // currentQuantityInFKMDataGridViewTextBoxColumn
@@ -758,6 +713,7 @@
             this.currentQuantityInFKMDataGridViewTextBoxColumn.HeaderText = "CurrentQuantityInFKM";
             this.currentQuantityInFKMDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.currentQuantityInFKMDataGridViewTextBoxColumn.Name = "currentQuantityInFKMDataGridViewTextBoxColumn";
+            this.currentQuantityInFKMDataGridViewTextBoxColumn.Visible = false;
             this.currentQuantityInFKMDataGridViewTextBoxColumn.Width = 135;
             // 
             // noteDataGridViewTextBoxColumn
@@ -821,14 +777,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.nupTotalexVat)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nUpCQinFKM)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nUpCQinKM)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nUpOQinFKM)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nUpOQinKM)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupLength)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gVStock)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.eP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.stockBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eP)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -874,10 +828,6 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.NumericUpDown nupLength;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.NumericUpDown nUpCQinFKM;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.NumericUpDown nUpCQinKM;
-        private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.DataGridView gVStock;
         private System.Windows.Forms.ErrorProvider eP;
