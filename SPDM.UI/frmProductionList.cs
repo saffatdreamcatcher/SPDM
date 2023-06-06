@@ -136,7 +136,7 @@ namespace SPDM.UI
 
                 }
 
-                sB.Append(" Format(Production.CreateTime, 'yyyy-MM-dd') <= '");
+                sB.Append(" Format(Production.CreateTime, 'yyyy-MM-dd') >= '");
                 sB.Append(dTPFromDate.DateTime.ToString("yyyy-MM-dd"));
                 sB.Append("'");
             }
@@ -150,7 +150,7 @@ namespace SPDM.UI
 
                 }
 
-                sB.Append(" Format(Production.CreateTime, 'yyyy-MM-dd') >= '");
+                sB.Append(" Format(Production.CreateTime, 'yyyy-MM-dd') <= '");
                 sB.Append(dTPToDate.DateTime.ToString("yyyy-MM-dd"));
                 sB.Append("'");
 
