@@ -21,8 +21,11 @@ namespace SPDM.BLL.BusinessLogic
                 WorkOrderDLL workOrderDLL = new WorkOrderDLL();
                 ProductionDetailDLL productionDetailDLL = new ProductionDetailDLL();
                 Production production = productionDLL.GetById(productionId);
-                
-                
+
+                if (production.Id == 0)
+                {
+                    throw new Exception("Production doesnt exist!");       
+                }
                 WorkOrderDetailDLL workOrderDetailDLL = new WorkOrderDetailDLL();
                
                 foreach (Stock stock in stocks)

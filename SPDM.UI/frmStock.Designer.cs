@@ -54,6 +54,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtProductionNo = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.nUpDin = new System.Windows.Forms.NumericUpDown();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -91,23 +92,23 @@
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isNewDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.createTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewLinkColumn();
             this.stockBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.eP = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnClose = new System.Windows.Forms.Button();
-            this.nUpDin = new System.Windows.Forms.NumericUpDown();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nupVatPercent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupDiscountPercent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupTotalIncVat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupTotalexVat)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nUpDin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nUpOQinFKM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nUpOQinKM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupLength)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gVStock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stockBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eP)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nUpDin)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSaveStock
@@ -373,7 +374,14 @@
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Production Detail";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            
+            // 
+            // nUpDin
+            // 
+            this.nUpDin.Location = new System.Drawing.Point(1151, 52);
+            this.nUpDin.Name = "nUpDin";
+            this.nUpDin.Size = new System.Drawing.Size(201, 22);
+            this.nUpDin.TabIndex = 51;
             // 
             // textBox1
             // 
@@ -547,7 +555,8 @@
             this.noteDataGridViewTextBoxColumn,
             this.idDataGridViewTextBoxColumn,
             this.isNewDataGridViewCheckBoxColumn,
-            this.createTimeDataGridViewTextBoxColumn});
+            this.createTimeDataGridViewTextBoxColumn,
+            this.Delete});
             this.gVStock.DataSource = this.stockBindingSource;
             this.gVStock.Location = new System.Drawing.Point(26, 455);
             this.gVStock.Name = "gVStock";
@@ -555,6 +564,7 @@
             this.gVStock.RowTemplate.Height = 24;
             this.gVStock.Size = new System.Drawing.Size(1398, 150);
             this.gVStock.TabIndex = 10;
+            this.gVStock.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gVStock_CellClick);
             // 
             // itemNameDataGridViewTextBoxColumn
             // 
@@ -729,6 +739,16 @@
             this.createTimeDataGridViewTextBoxColumn.Visible = false;
             this.createTimeDataGridViewTextBoxColumn.Width = 125;
             // 
+            // Delete
+            // 
+            this.Delete.HeaderText = "Delete";
+            this.Delete.MinimumWidth = 6;
+            this.Delete.Name = "Delete";
+            this.Delete.Text = "Delete";
+            this.Delete.ToolTipText = "Delete";
+            this.Delete.UseColumnTextForLinkValue = true;
+            this.Delete.Width = 125;
+            // 
             // stockBindingSource
             // 
             this.stockBindingSource.DataSource = typeof(SPDM.DLL.Entities.Stock);
@@ -747,13 +767,6 @@
             this.btnClose.Text = "X";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // nUpDin
-            // 
-            this.nUpDin.Location = new System.Drawing.Point(1151, 52);
-            this.nUpDin.Name = "nUpDin";
-            this.nUpDin.Size = new System.Drawing.Size(201, 22);
-            this.nUpDin.TabIndex = 51;
             // 
             // frmStock
             // 
@@ -778,13 +791,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.nupTotalexVat)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nUpDin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nUpOQinFKM)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nUpOQinKM)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupLength)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gVStock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.stockBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eP)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nUpDin)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -836,6 +849,7 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.BindingSource stockBindingSource;
+        private System.Windows.Forms.NumericUpDown nUpDin;
         private System.Windows.Forms.DataGridViewTextBoxColumn itemNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn categoryNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn updateTimeDataGridViewTextBoxColumn;
@@ -856,6 +870,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn isNewDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn createTimeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.NumericUpDown nUpDin;
+        private System.Windows.Forms.DataGridViewLinkColumn Delete;
     }
 }

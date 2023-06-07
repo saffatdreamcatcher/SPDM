@@ -15,6 +15,7 @@ namespace SPDM.UI
     public partial class frmStock : Form
     {
         private BindingList<Stock> stocks = new BindingList<Stock>();
+        private BindingList<ProductionDetail> productionDetails = new BindingList<ProductionDetail>();
         private int productionId;
         private int editIndex = -1;
 
@@ -48,20 +49,66 @@ namespace SPDM.UI
 
             //StockBLL stockBLL = new StockBLL();
             //stockBLL.Save(stock);
+            bool isValid = IsProductionProductionDetailValid();
+            if (isValid)
+            {
+                try
+                {
 
-            
-            List<Stock> stocks1 = stocks.ToList();
-            StockBLL stockBLL = new StockBLL();
-            stockBLL.Save(productionId, stocks1);
+                    List<Stock> stocks1 = stocks.ToList();
+                    StockBLL stockBLL = new StockBLL();
+                    stockBLL.Save(productionId, stocks1);
 
-            //StockBLL stockBLL = new StockBLL();
-            //List<Stock> stocks = stockBLL.GetAll();
+                    //int countStock = stocks.Count;
 
-            //StockBLL stockBLL = new StockBLL();
-            //Stock stock = stockBLL.GetById(2);
+                    //int countItem = cmoItemId.Items.Count;
 
-            //StockBLL stockBLL = new StockBLL();
-            //int stock = stockBLL.GetCount();
+
+                    //BindingList<Stock> stocks = (BindingList<Stock>)gVStock.DataSource;
+
+
+                    //int rC = gVStock.RowCount;
+                    //BindingList<Stock> stocks1 = gVStock.DataSource as BindingList<Stock>;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                }
+
+                ClearProduction();
+                ClearProductionDetail();
+
+                //StockBLL stockBLL = new StockBLL();
+                //List<Stock> stocks = stockBLL.GetAll();
+
+                //StockBLL stockBLL = new StockBLL();
+                //Stock stock = stockBLL.GetById(2);
+
+                //StockBLL stockBLL = new StockBLL();
+                //int stock = stockBLL.GetCount();
+            }
+        }
+        private bool IsProductionProductionDetailValid()
+        {
+            eP.Clear();
+            Boolean iv = true;
+            int countStock = stocks.Count;
+            int countItem = cmoItemId.Items.Count;
+            if (countItem != countStock)
+            {
+                gVStock.Focus();
+                eP.SetError(gVStock, "Items and stocks numbers must be the same");
+                iv = false;
+
+            }
+
+            if (txtProductionNo.Text == String.Empty)
+            {
+                txtProductionNo.Focus();
+                eP.SetError(txtProductionNo, "Please enter Production No!");
+                iv = false;
+            }
+            return iv;
         }
 
         public void ShowDialog(int productionId)
@@ -69,7 +116,6 @@ namespace SPDM.UI
             this.productionId = productionId;
             this.ShowDialog();
             
-
         }
 
         private void LoadProduction()
@@ -96,7 +142,7 @@ namespace SPDM.UI
 
             string where = "productionId= " + productionId;
             ProductionDetailBLL productionDetailBLL = new ProductionDetailBLL();
-            List<ProductionDetail> productionDetails =productionDetailBLL.GetAll(where);
+            List<ProductionDetail> productionDetails = productionDetailBLL.GetAll(where);
 
             string search = "Item.Id in(";
 
@@ -119,22 +165,7 @@ namespace SPDM.UI
         {
             LoadProduction();
         }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label19_Click(object sender, EventArgs e)
-        {
-
-        }
-
+       
         private void btnAdd_Click(object sender, EventArgs e)
         {
             AddNew();
@@ -226,5 +257,49 @@ namespace SPDM.UI
         {
             this.Close();
         }
+
+        private void gVStock_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            ManageEdit(e);
+        }
+
+        private void ManageEdit(DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 20)
+            {
+                int rowindex = e.RowIndex;
+                stocks.RemoveAt(rowindex);
+                gVStock.DataSource = stocks;
+                ClearProductionDetail();
+               
+            }
+        }
+
+        private void ClearProduction()
+        {
+            txtProductionNo.Text = String.Empty;
+            txtFiscalYear.Text = String.Empty;
+            txtPartyId.Text = String.Empty; 
+            txtWorkOrderId.Text = String.Empty;
+            nupTotalexVat.Value = 0;
+            nupTotalIncVat.Value = 0;
+            nupDiscountPercent.Value = 0;
+            nupVatPercent.Value = 0;
+            txtStatus.Text = String.Empty;
+            txtNote.Text = String.Empty;
+        }
+
+        private void ClearProductionDetail()
+        {
+            cmoItemId.SelectedValue = -1;
+            txtDrum.Text = "";
+            txtCoilNo.Text = "";
+            nupLength.Value = 0;
+            nUpDin.Value = 0;
+            nUpOQinKM.Value = 0;
+            nUpOQinFKM.Value = 0;
+            editIndex = -1;
+        }
+
     }
 }

@@ -529,6 +529,7 @@
             this.gvWorkOrderDetail.Size = new System.Drawing.Size(1288, 260);
             this.gvWorkOrderDetail.TabIndex = 2;
             this.gvWorkOrderDetail.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvWorkOrderDetail_CellClick);
+            
             // 
             // idDataGridViewTextBoxColumn
             // 

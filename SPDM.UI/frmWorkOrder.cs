@@ -350,11 +350,13 @@ namespace SPDM.UI
         {
             double totalIncVat = 0;
             double totalExVat = 0;
+
             foreach (WorkOrderDetail workOrderDetail in workOrderDetails)
             {
                 totalIncVat = totalIncVat + workOrderDetail.TotalIncvat;
             }
             totalExVat = totalIncVat;
+
             if (nupDiscountPercent.Value > 0)
             {
                 double totalDiscount = Convert.ToDouble(nupDiscountPercent.Value / 100) * totalIncVat;
@@ -427,5 +429,7 @@ namespace SPDM.UI
             }
   
         }
+
+        
     }
 }

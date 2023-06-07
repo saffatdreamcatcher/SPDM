@@ -78,9 +78,9 @@ namespace SPDM.UI
                 cboCategory.SelectedValue = Convert.ToInt32(gvItem.Rows[e.RowIndex].Cells[4].Value);
                 txtName.Text = Convert.ToString(gvItem.Rows[e.RowIndex].Cells[1].Value);
                 txtNumber.Text = Convert.ToString(gvItem.Rows[e.RowIndex].Cells[5].Value);
-                nUpUnit.Value = Convert.ToInt32(gvItem.Rows[e.RowIndex].Cells[7].Value);
-                nUpPrice.Value = Convert.ToInt32(gvItem.Rows[e.RowIndex].Cells[8].Value);
-                nUpVatRate.Value = Convert.ToInt32(gvItem.Rows[e.RowIndex].Cells[9].Value);
+                nUpUnit.Value = Convert.ToInt32(gvItem.Rows[e.RowIndex].Cells[8].Value);
+                nUpPrice.Value = Convert.ToInt32(gvItem.Rows[e.RowIndex].Cells[9].Value);
+                nUpVatRate.Value = Convert.ToInt32(gvItem.Rows[e.RowIndex].Cells[10].Value);
                 chkIsBlocked.Checked = Convert.ToBoolean(gvItem.Rows[e.RowIndex].Cells[11].Value);
 
                 ItemBLL itemBLL = new ItemBLL();
