@@ -29,21 +29,21 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions7 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject25 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject26 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject27 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject28 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions8 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject29 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject30 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject31 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject32 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions9 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject33 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject34 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject35 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject36 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmWorkOrderList));
             this.btnAddNew = new System.Windows.Forms.Button();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
@@ -113,16 +113,16 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControl1.DataSource = this.workOrderBindingSource;
-            this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(12);
-            this.gridControl1.Location = new System.Drawing.Point(15, 143);
+            this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(15, 15, 15, 15);
+            this.gridControl1.Location = new System.Drawing.Point(19, 179);
             this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Margin = new System.Windows.Forms.Padding(12);
+            this.gridControl1.Margin = new System.Windows.Forms.Padding(15, 15, 15, 15);
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemHyperLinkEdit1,
             this.repositoryItemHyperLinkEdit2,
             this.btnSendToProduction});
-            this.gridControl1.Size = new System.Drawing.Size(1458, 483);
+            this.gridControl1.Size = new System.Drawing.Size(1822, 604);
             this.gridControl1.TabIndex = 2;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -154,7 +154,7 @@
             this.gcSendToProduction,
             this.gcEdit,
             this.gcDelete});
-            this.gridView1.DetailHeight = 1331;
+            this.gridView1.DetailHeight = 1664;
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowFooter = true;
@@ -166,165 +166,165 @@
             // colUpdateTime
             // 
             this.colUpdateTime.FieldName = "UpdateTime";
-            this.colUpdateTime.MinWidth = 95;
+            this.colUpdateTime.MinWidth = 119;
             this.colUpdateTime.Name = "colUpdateTime";
-            this.colUpdateTime.Width = 355;
+            this.colUpdateTime.Width = 444;
             // 
             // colUserId
             // 
             this.colUserId.FieldName = "UserId";
-            this.colUserId.MinWidth = 95;
+            this.colUserId.MinWidth = 119;
             this.colUserId.Name = "colUserId";
-            this.colUserId.Width = 355;
+            this.colUserId.Width = 444;
             // 
             // colWorkOrderNo
             // 
             this.colWorkOrderNo.FieldName = "WorkOrderNo";
-            this.colWorkOrderNo.MinWidth = 95;
+            this.colWorkOrderNo.MinWidth = 119;
             this.colWorkOrderNo.Name = "colWorkOrderNo";
             this.colWorkOrderNo.Visible = true;
             this.colWorkOrderNo.VisibleIndex = 0;
-            this.colWorkOrderNo.Width = 359;
+            this.colWorkOrderNo.Width = 449;
             // 
             // colFiscalyear
             // 
             this.colFiscalyear.FieldName = "Fiscalyear";
-            this.colFiscalyear.MinWidth = 95;
+            this.colFiscalyear.MinWidth = 119;
             this.colFiscalyear.Name = "colFiscalyear";
             this.colFiscalyear.Visible = true;
             this.colFiscalyear.VisibleIndex = 1;
-            this.colFiscalyear.Width = 359;
+            this.colFiscalyear.Width = 449;
             // 
             // colPartyId
             // 
             this.colPartyId.FieldName = "PartyId";
-            this.colPartyId.MinWidth = 95;
+            this.colPartyId.MinWidth = 119;
             this.colPartyId.Name = "colPartyId";
             this.colPartyId.Visible = true;
             this.colPartyId.VisibleIndex = 2;
-            this.colPartyId.Width = 359;
+            this.colPartyId.Width = 449;
             // 
             // colWorkOrderDate
             // 
             this.colWorkOrderDate.DisplayFormat.FormatString = "dd/MM/yyyy";
             this.colWorkOrderDate.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.colWorkOrderDate.FieldName = "WorkOrderDate";
-            this.colWorkOrderDate.MinWidth = 95;
+            this.colWorkOrderDate.MinWidth = 119;
             this.colWorkOrderDate.Name = "colWorkOrderDate";
             this.colWorkOrderDate.Visible = true;
             this.colWorkOrderDate.VisibleIndex = 3;
-            this.colWorkOrderDate.Width = 359;
+            this.colWorkOrderDate.Width = 449;
             // 
             // colDeliveryDate
             // 
             this.colDeliveryDate.DisplayFormat.FormatString = "dd/MM/yyyy";
             this.colDeliveryDate.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.colDeliveryDate.FieldName = "DeliveryDate";
-            this.colDeliveryDate.MinWidth = 95;
+            this.colDeliveryDate.MinWidth = 119;
             this.colDeliveryDate.Name = "colDeliveryDate";
             this.colDeliveryDate.Visible = true;
             this.colDeliveryDate.VisibleIndex = 4;
-            this.colDeliveryDate.Width = 359;
+            this.colDeliveryDate.Width = 449;
             // 
             // colTotalExvat
             // 
             this.colTotalExvat.FieldName = "TotalExvat";
-            this.colTotalExvat.MinWidth = 95;
+            this.colTotalExvat.MinWidth = 119;
             this.colTotalExvat.Name = "colTotalExvat";
-            this.colTotalExvat.Width = 355;
+            this.colTotalExvat.Width = 444;
             // 
             // colTotalIncvat
             // 
             this.colTotalIncvat.FieldName = "TotalIncvat";
-            this.colTotalIncvat.MinWidth = 95;
+            this.colTotalIncvat.MinWidth = 119;
             this.colTotalIncvat.Name = "colTotalIncvat";
             this.colTotalIncvat.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "TotalIncvat", "SUM={0:0.##}")});
             this.colTotalIncvat.Visible = true;
             this.colTotalIncvat.VisibleIndex = 5;
-            this.colTotalIncvat.Width = 359;
+            this.colTotalIncvat.Width = 449;
             // 
             // colDiscount
             // 
             this.colDiscount.FieldName = "Discount";
-            this.colDiscount.MinWidth = 95;
+            this.colDiscount.MinWidth = 119;
             this.colDiscount.Name = "colDiscount";
-            this.colDiscount.Width = 355;
+            this.colDiscount.Width = 444;
             // 
             // colDiscountPercent
             // 
             this.colDiscountPercent.FieldName = "DiscountPercent";
-            this.colDiscountPercent.MinWidth = 95;
+            this.colDiscountPercent.MinWidth = 119;
             this.colDiscountPercent.Name = "colDiscountPercent";
             this.colDiscountPercent.Visible = true;
             this.colDiscountPercent.VisibleIndex = 6;
-            this.colDiscountPercent.Width = 359;
+            this.colDiscountPercent.Width = 449;
             // 
             // colVatPercent
             // 
             this.colVatPercent.FieldName = "VatPercent";
-            this.colVatPercent.MinWidth = 95;
+            this.colVatPercent.MinWidth = 119;
             this.colVatPercent.Name = "colVatPercent";
             this.colVatPercent.Visible = true;
             this.colVatPercent.VisibleIndex = 7;
-            this.colVatPercent.Width = 359;
+            this.colVatPercent.Width = 449;
             // 
             // colStatus
             // 
             this.colStatus.FieldName = "Status";
-            this.colStatus.MinWidth = 95;
+            this.colStatus.MinWidth = 119;
             this.colStatus.Name = "colStatus";
             this.colStatus.Visible = true;
             this.colStatus.VisibleIndex = 8;
-            this.colStatus.Width = 359;
+            this.colStatus.Width = 449;
             // 
             // colNote
             // 
             this.colNote.FieldName = "Note";
-            this.colNote.MinWidth = 95;
+            this.colNote.MinWidth = 119;
             this.colNote.Name = "colNote";
             this.colNote.Visible = true;
             this.colNote.VisibleIndex = 9;
-            this.colNote.Width = 359;
+            this.colNote.Width = 449;
             // 
             // colId
             // 
             this.colId.FieldName = "Id";
-            this.colId.MinWidth = 95;
+            this.colId.MinWidth = 119;
             this.colId.Name = "colId";
-            this.colId.Width = 355;
+            this.colId.Width = 444;
             // 
             // colIsNew
             // 
             this.colIsNew.FieldName = "IsNew";
-            this.colIsNew.MinWidth = 95;
+            this.colIsNew.MinWidth = 119;
             this.colIsNew.Name = "colIsNew";
             this.colIsNew.OptionsColumn.ReadOnly = true;
-            this.colIsNew.Width = 355;
+            this.colIsNew.Width = 444;
             // 
             // colCreateTime
             // 
             this.colCreateTime.FieldName = "CreateTime";
-            this.colCreateTime.MinWidth = 95;
+            this.colCreateTime.MinWidth = 119;
             this.colCreateTime.Name = "colCreateTime";
             this.colCreateTime.OptionsColumn.ReadOnly = true;
-            this.colCreateTime.Width = 355;
+            this.colCreateTime.Width = 444;
             // 
             // gcSendToProduction
             // 
             this.gcSendToProduction.Caption = "To Production";
             this.gcSendToProduction.ColumnEdit = this.btnSendToProduction;
-            this.gcSendToProduction.MinWidth = 76;
+            this.gcSendToProduction.MinWidth = 95;
             this.gcSendToProduction.Name = "gcSendToProduction";
             this.gcSendToProduction.Visible = true;
             this.gcSendToProduction.VisibleIndex = 10;
-            this.gcSendToProduction.Width = 427;
+            this.gcSendToProduction.Width = 534;
             // 
             // btnSendToProduction
             // 
             this.btnSendToProduction.AutoHeight = false;
             this.btnSendToProduction.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Send To Production", -1, true, true, false, editorButtonImageOptions7, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject25, serializableAppearanceObject26, serializableAppearanceObject27, serializableAppearanceObject28, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Send To Production", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.btnSendToProduction.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.btnSendToProduction.Name = "btnSendToProduction";
             this.btnSendToProduction.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
@@ -334,17 +334,17 @@
             // 
             this.gcEdit.Caption = "Edit";
             this.gcEdit.ColumnEdit = this.repositoryItemHyperLinkEdit1;
-            this.gcEdit.MinWidth = 95;
+            this.gcEdit.MinWidth = 119;
             this.gcEdit.Name = "gcEdit";
             this.gcEdit.Visible = true;
             this.gcEdit.VisibleIndex = 11;
-            this.gcEdit.Width = 242;
+            this.gcEdit.Width = 302;
             // 
             // repositoryItemHyperLinkEdit1
             // 
             this.repositoryItemHyperLinkEdit1.AutoHeight = false;
             this.repositoryItemHyperLinkEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Edit", -1, true, true, false, editorButtonImageOptions8, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject29, serializableAppearanceObject30, serializableAppearanceObject31, serializableAppearanceObject32, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Edit", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.repositoryItemHyperLinkEdit1.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.repositoryItemHyperLinkEdit1.Caption = "Edit";
             this.repositoryItemHyperLinkEdit1.ExportMode = DevExpress.XtraEditors.Repository.ExportMode.Value;
@@ -359,17 +359,17 @@
             // 
             this.gcDelete.Caption = "Delete";
             this.gcDelete.ColumnEdit = this.repositoryItemHyperLinkEdit2;
-            this.gcDelete.MinWidth = 95;
+            this.gcDelete.MinWidth = 119;
             this.gcDelete.Name = "gcDelete";
             this.gcDelete.Visible = true;
             this.gcDelete.VisibleIndex = 12;
-            this.gcDelete.Width = 249;
+            this.gcDelete.Width = 311;
             // 
             // repositoryItemHyperLinkEdit2
             // 
             this.repositoryItemHyperLinkEdit2.AutoHeight = false;
             this.repositoryItemHyperLinkEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Delete", -1, true, true, false, editorButtonImageOptions9, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject33, serializableAppearanceObject34, serializableAppearanceObject35, serializableAppearanceObject36, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Delete", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.repositoryItemHyperLinkEdit2.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.repositoryItemHyperLinkEdit2.ExportMode = DevExpress.XtraEditors.Repository.ExportMode.Value;
             this.repositoryItemHyperLinkEdit2.Image = ((System.Drawing.Image)(resources.GetObject("repositoryItemHyperLinkEdit2.Image")));
@@ -452,7 +452,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(1016, 49);
+            this.label3.Location = new System.Drawing.Point(1033, 45);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(125, 16);
             this.label3.TabIndex = 16;
@@ -472,8 +472,8 @@
             // dEFromWorkOrderDate
             // 
             this.dEFromWorkOrderDate.EditValue = null;
-            this.dEFromWorkOrderDate.Location = new System.Drawing.Point(798, 46);
-            this.dEFromWorkOrderDate.Margin = new System.Windows.Forms.Padding(4);
+            this.dEFromWorkOrderDate.Location = new System.Drawing.Point(790, 41);
+            this.dEFromWorkOrderDate.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.dEFromWorkOrderDate.Name = "dEFromWorkOrderDate";
             this.dEFromWorkOrderDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -482,14 +482,14 @@
             this.dEFromWorkOrderDate.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
             this.dEFromWorkOrderDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dEFromWorkOrderDate.Properties.MaskSettings.Set("mask", "dd/MM/yyyy");
-            this.dEFromWorkOrderDate.Size = new System.Drawing.Size(188, 22);
+            this.dEFromWorkOrderDate.Size = new System.Drawing.Size(212, 22);
             this.dEFromWorkOrderDate.TabIndex = 39;
             // 
             // dEToWorkOrderDate
             // 
             this.dEToWorkOrderDate.EditValue = null;
-            this.dEToWorkOrderDate.Location = new System.Drawing.Point(1158, 42);
-            this.dEToWorkOrderDate.Margin = new System.Windows.Forms.Padding(4);
+            this.dEToWorkOrderDate.Location = new System.Drawing.Point(1166, 43);
+            this.dEToWorkOrderDate.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.dEToWorkOrderDate.Name = "dEToWorkOrderDate";
             this.dEToWorkOrderDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -498,7 +498,7 @@
             this.dEToWorkOrderDate.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
             this.dEToWorkOrderDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dEToWorkOrderDate.Properties.MaskSettings.Set("mask", "dd/MM/yyyy");
-            this.dEToWorkOrderDate.Size = new System.Drawing.Size(185, 22);
+            this.dEToWorkOrderDate.Size = new System.Drawing.Size(195, 22);
             this.dEToWorkOrderDate.TabIndex = 40;
             // 
             // frmWorkOrderList

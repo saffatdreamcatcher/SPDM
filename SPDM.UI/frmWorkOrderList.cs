@@ -178,7 +178,7 @@ namespace SPDM.UI
 
             //string m = Enum.GetName(typeof(WorkOrderStatus), number);
 
-            if (txtWorkOrderNo.Text != string.Empty)
+            if (!string.IsNullOrEmpty(txtWorkOrderNo.Text))
             {
 
                 sB.Append(" WorkOrderNo LIKE '%");

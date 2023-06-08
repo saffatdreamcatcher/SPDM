@@ -97,7 +97,7 @@ namespace SPDM.UI
             if (countItem != countStock)
             {
                 gVStock.Focus();
-                eP.SetError(gVStock, "Items and stocks numbers must be the same");
+                eP.SetError(gVStock, "All Items need to add in Stock");
                 iv = false;
 
             }
@@ -222,7 +222,7 @@ namespace SPDM.UI
                 iv = false;
             }
 
-            if (txtDrum.Text != string.Empty)
+            if (!string.IsNullOrEmpty(txtDrum.Text))
             {
                 StockBLL stockBLL = new StockBLL();
                 string whereClause = "Drum= '" + txtDrum.Text + "'";

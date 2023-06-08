@@ -265,7 +265,7 @@ namespace SPDM.UI
         {
             eP.Clear();
             Boolean iv = true;
-            if (txtWorkOrderNo.Text == string.Empty)
+            if (!string.IsNullOrEmpty(txtWorkOrderNo.Text))
             {
                 txtWorkOrderNo.Focus();
                 eP.SetError(txtWorkOrderNo, "Can't empty");
@@ -273,7 +273,7 @@ namespace SPDM.UI
 
             }
 
-            if (txtWorkOrderNo.Text != string.Empty)
+            if (!string.IsNullOrEmpty(txtWorkOrderNo.Text))
             {
                 WorkOrderBLL workOrderBLL = new WorkOrderBLL();
                 string whereClause = "WorkOrderNo= '" + txtWorkOrderNo.Text + "'";
@@ -291,7 +291,7 @@ namespace SPDM.UI
             }
 
 
-            if (txtFiscalYear.Text == string.Empty)
+            if (!string.IsNullOrEmpty(txtFiscalYear.Text))
             {
                 //txtFiscalYear.Focus();
                 eP.SetError(txtFiscalYear, "Can't empty");

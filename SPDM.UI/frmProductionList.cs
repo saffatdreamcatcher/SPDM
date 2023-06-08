@@ -95,6 +95,7 @@ namespace SPDM.UI
             int productionId = Convert.ToInt32(gridView1.GetFocusedRowCellValue("Id"));
             frmStock frmstock = new frmStock();
             frmstock.ShowDialog(productionId);
+            SearchProduction();
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -107,7 +108,7 @@ namespace SPDM.UI
             StringBuilder sB = new StringBuilder();
 
 
-            if (txtProduction.Text != string.Empty)
+            if (!string.IsNullOrEmpty(txtProduction.Text))
             {
 
                 sB.Append(" ProductionNo LIKE '%");

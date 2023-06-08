@@ -215,7 +215,7 @@ namespace SPDM.UI
         {
             eP.Clear();
             Boolean iv = true;
-            if (txtParty.Text == string.Empty)
+            if (!string.IsNullOrEmpty(txtParty.Text))
             {
                 txtWorkOrderNo.Focus();
                 eP.SetError(txtParty, "Can't empty");
@@ -224,7 +224,7 @@ namespace SPDM.UI
             }
 
 
-            if (txtChallanNo.Text == string.Empty)
+            if (!string.IsNullOrEmpty(txtChallanNo.Text))
             {
 
                 eP.SetError(txtChallanNo, "Can't empty");
@@ -232,7 +232,7 @@ namespace SPDM.UI
 
             }
 
-            if (txtDeliveryAddress.Text == string.Empty)
+            if (!string.IsNullOrEmpty(txtDeliveryAddress.Text))
             {
                 eP.SetError(txtChallanNo, "Can't empty");
                 iv = false;
@@ -259,7 +259,7 @@ namespace SPDM.UI
             }
 
 
-            if (txtLength.Text == string.Empty)
+            if (!string.IsNullOrEmpty(txtLength.Text))
             {
                 eP.SetError(txtLength, "Can't empty");
                 iv = false;

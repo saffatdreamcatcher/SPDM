@@ -48,14 +48,14 @@ namespace SPDM.UI
             StringBuilder sB = new StringBuilder();
 
 
-            if (txtChallanNo.Text != string.Empty)
+            if (!string.IsNullOrEmpty(txtChallanNo.Text))
             {
                 sB.Append(" ChallanNo LIKE '%");
                 sB.Append(txtChallanNo.Text);
                 sB.Append("%'");
             }
 
-            if (txtDeliveryAddress.Text != string.Empty)
+            if (!string.IsNullOrEmpty(txtDeliveryAddress.Text))
             {
                 if (sB.ToString() != string.Empty)
                 {
