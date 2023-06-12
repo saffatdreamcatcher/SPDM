@@ -43,7 +43,7 @@ namespace SPDM.DLL.Repositories
 
         public List<Category> GetAll(string whereClause = "")
         {
-            var category = new List<Category>();
+            List<Category> category = new List<Category>();
             var myConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
             SqlConnection conn = new SqlConnection();
             if (!string.IsNullOrEmpty(whereClause))

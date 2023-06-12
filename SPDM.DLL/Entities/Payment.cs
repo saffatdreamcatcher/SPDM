@@ -56,6 +56,18 @@ namespace SPDM.DLL.Entities
         private double? vatpercent;
         public double? VatPercent { get => vatpercent; set => vatpercent = value; }
 
+        private int transactiontype;
+        public int TransactionType { get => transactiontype; set => transactiontype = value; }
+
+        private string bankname;
+        public string BankName { get => bankname; set => bankname = value; }
+
+        private string checkno;
+        public string CheckNo { get => checkno; set => checkno = value; }
+
+        private string bkashtransactionno;
+        public string BkashTransactionNo { get => bkashtransactionno; set => bkashtransactionno = value; }
+
         private string note;
         public string Note { get => note; set => note = value; } 
 

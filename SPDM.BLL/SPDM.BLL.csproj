@@ -46,7 +46,6 @@
     <Compile Include="BusinessLogic\ItemBLL.cs" />
     <Compile Include="BusinessLogic\PartyBLL.cs" />
     <Compile Include="BusinessLogic\PaymentBLL.cs" />
-    <Compile Include="BusinessLogic\PaymentDetailBLL.cs" />
     <Compile Include="BusinessLogic\ProductionBLL.cs" />
     <Compile Include="BusinessLogic\ProductionDetailBLL.cs" />
     <Compile Include="BusinessLogic\ProfileBLL.cs" />

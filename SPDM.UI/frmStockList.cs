@@ -21,21 +21,19 @@ namespace SPDM.UI
 
         private void frmStockList_Load(object sender, EventArgs e)
         {
-            LoadStock();
+            //LoadStock();
             LoadCategory();
-
-            //this.dTPFromDate.Format = DateTimePickerFormat.Custom;
-            //dTPFromDate.CustomFormat = " ";
-            
+            LoadItem();
+            SearchStock();
 
         }
 
-        private void LoadStock()
-        {
-            StockBLL stockBLL = new StockBLL();
-            List<Stock> stocks = stockBLL.GetAll();
-            gvStock.DataSource = stocks;
-        }
+        //private void LoadStock()
+        //{
+        //    StockBLL stockBLL = new StockBLL();
+        //    List<Stock> stocks = stockBLL.GetAll();
+        //    gvStock.DataSource = stocks;
+        //}
 
         private void LoadCategory()
         {
@@ -53,102 +51,38 @@ namespace SPDM.UI
 
         private void LoadItem()
         {
+            List<Item> items = new List<Item>();
             
             int comboCategory = Convert.ToInt32(cmoCategory.SelectedValue);
+
             if (comboCategory > 0)
             {
-                Item item = new Item();
-                item.Id = 0;
-                item.Name = "Please Select-";
                 ItemBLL itemBLL = new ItemBLL();
 
                 string where = "CategoryId= " + comboCategory;
-                List<Item> items = itemBLL.GetAll(where);
-                cmoItem.DataSource = items;
-                items.Insert(0, item);
-                cmoItem.ValueMember = "Id";
-                cmoItem.DisplayMember = "Name";
+                items = itemBLL.GetAll(where);
+               
             }
 
+            Item item = new Item();
+            item.Id = 0;
+            item.Name = "Please Select-";
+            items.Insert(0, item);
+            cmoItem.DataSource = items;
+            cmoItem.ValueMember = "Id";
+            cmoItem.DisplayMember = "Name";
 
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            
+            SearchStock();
 
+        }
+
+        private void SearchStock()
+        {
             StringBuilder sB = new StringBuilder();
-
-             //string search = "";
-            //if (Convert.ToInt32(cmoCategory.SelectedValue) > 0)
-
-            //{
-            //    search += " Stock.CategoryId =" + cmoCategory.SelectedValue;
-
-            //}
-
-            //if (Convert.ToInt32(cmoItem.SelectedValue) > 0)
-            //{
-            //    if (search != string.Empty)
-            //    {
-            //        search += " AND";
-            //    }
-            //    search += " ItemId =" + cmoItem.SelectedValue;
-
-            //}
-
-            //if (txtDrum.Text != "")
-            //{
-
-            //        if (string != string.Empty)
-            //        {
-            //            search += " AND";
-
-            //        }
-            //        search += " Drum LIKE '%" + txtDrum.Text + "%'";
-
-            //}
-
-            //if (txtCoil.Text != "")
-            //{
-            //    if (search != string.Empty)
-            //    { 
-            //        search += " AND"; 
-
-            //    }
-
-            //    search += " CoilNo LIKE '%" + txtCoil.Text + "%'";
-
-            //}
-
-            //if (dTPFromDate.Value.ToString() != "")
-            //{
-
-            //    if (search != string.Empty)
-            //    {
-            //        search += " AND";
-
-            //    }
-            //    search += " Format(Stock.CreateTime, 'yyyy-MM-dd') >= '" + dTPFromDate.Value.ToString("yyyy-MM-dd") + "'";
-            //}
-
-            //if (dTPToDate.Value.ToString() != "")
-            //{
-
-            //    if (search != string.Empty)
-            //    {
-            //        search += " AND";
-
-            //    }
-            //    search += " Format(Stock.CreateTime, 'yyyy-MM-dd') <= '" + dTPToDate.Value.ToString("yyyy-MM-dd") + "'";
-
-
-            //}
-
-
-            //StockBLL stockBLL = new StockBLL();
-            //List<Stock> stocks = stockBLL.GetAll(search);
-            //gvStock.DataSource = stocks;
 
             if (Convert.ToInt32(cmoCategory.SelectedValue) > 0)
 
@@ -166,7 +100,7 @@ namespace SPDM.UI
                     sB.Append(" AND");
 
                 }
-               
+
                 sB.Append(" ItemId =");
                 sB.Append(cmoItem.SelectedValue);
             }
@@ -179,7 +113,7 @@ namespace SPDM.UI
                     sB.Append(" AND");
 
                 }
-                
+
                 sB.Append(" Drum LIKE '%");
                 sB.Append(txtDrum.Text);
                 sB.Append("%'");
@@ -194,14 +128,14 @@ namespace SPDM.UI
 
                 }
 
-                
+
                 sB.Append(" CoilNo LIKE '%");
                 sB.Append(txtCoil.Text);
                 sB.Append("%'");
             }
 
             //if (dTPFromDate.Value.ToString() != "")
-            if (!string.IsNullOrEmpty(dTPFromDate.Value.ToString()))
+            if (dTPFromDate.EditValue != null)
             {
 
                 if (!string.IsNullOrEmpty(sB.ToString()))
@@ -209,14 +143,14 @@ namespace SPDM.UI
                     sB.Append(" AND");
 
                 }
-               
+
                 sB.Append(" Format(Stock.CreateTime, 'yyyy-MM-dd') <= '");
-                sB.Append(dTPFromDate.Value.ToString("yyyy-MM-dd"));
+                sB.Append(dTPFromDate.DateTime.ToString("yyyy-MM-dd"));
                 sB.Append("'");
             }
 
             //if (dTPToDate.Value.ToString() != "")
-            if (!string.IsNullOrEmpty(dTPToDate.Value.ToString()))
+            if (dTPToDate.EditValue != null)
             {
 
                 if (!string.IsNullOrEmpty(sB.ToString()))
@@ -224,9 +158,9 @@ namespace SPDM.UI
                     sB.Append("AND");
 
                 }
-                
+
                 sB.Append(" Format(Stock.CreateTime, 'yyyy-MM-dd') >= '");
-                sB.Append(dTPToDate.Value.ToString("yyyy - MM - dd"));
+                sB.Append(dTPToDate.DateTime.ToString("yyyy - MM - dd"));
                 sB.Append("'");
 
             }
@@ -236,7 +170,6 @@ namespace SPDM.UI
             StockBLL stockBLL = new StockBLL();
             List<Stock> stocks = stockBLL.GetAll(ss);
             gvStock.DataSource = stocks;
-
         }
 
         private void cmoCategory_SelectedIndexChanged(object sender, EventArgs e)

@@ -79,8 +79,8 @@ namespace SPDM.UI
             //PaymentDetailBLL paymentDetailBLL = new PaymentDetailBLL();
             //PaymentDetail paymentDetail = paymentDetailBLL.GetById(2);
 
-            PaymentDetailBLL paymentDetailBLL = new PaymentDetailBLL();
-            int paymentDetail = paymentDetailBLL.GetCount();
+            //PaymentDetailBLL paymentDetailBLL = new PaymentDetailBLL();
+            //int paymentDetail = paymentDetailBLL.GetCount();
 
         }
     }

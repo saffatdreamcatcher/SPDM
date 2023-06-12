@@ -12,14 +12,8 @@ namespace SPDM.DLL.Entities
 
         public int Id
         {
-            get
-            {
-                return id;
-            }
-            set
-            {
-                id = value;
-            }
+            get{ return id; }
+            set { id = value; }
 
         }
 

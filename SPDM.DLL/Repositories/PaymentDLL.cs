@@ -97,7 +97,35 @@ namespace SPDM.DLL.Repositories
                         {
                             payment.VatPercent = Convert.ToDouble(reader["VatPercent"]);
                         }
-                      
+
+                        payment.TransactionType = Convert.ToInt32(reader["TransactionType"]);
+
+                        if (reader["BankName"] is DBNull)
+                        {
+                            payment.BankName = null;
+                        }
+                        else
+                        {
+                            payment.BankName = reader["BankName"].ToString();
+                        }
+
+                        if (reader["CheckNo"] is DBNull)
+                        {
+                            payment.CheckNo = null;
+                        }
+                        else
+                        {
+                            payment.CheckNo = reader["CheckNo"].ToString();
+                        }
+
+                        if (reader["BkashTransactionNo"] is DBNull)
+                        {
+                            payment.BkashTransactionNo = null;
+                        }
+                        else
+                        {
+                            payment.BkashTransactionNo = reader["BkashTransactionNo"].ToString();
+                        }
                         payment.Note = reader["Note"] is DBNull ? null : reader["Note"].ToString();
                         payments.Add(payment);
                     }
@@ -170,6 +198,34 @@ namespace SPDM.DLL.Repositories
                             payment.VatPercent = Convert.ToDouble(reader["VatPercent"]);
                         }
 
+                        payment.TransactionType = Convert.ToInt32(reader["TransactionType"]);
+
+                        if (reader["BankName"] is DBNull)
+                        {
+                            payment.BankName = null;
+                        }
+                        else
+                        {
+                            payment.BankName = reader["BankName"].ToString();
+                        }
+
+                        if (reader["CheckNo"] is DBNull)
+                        {
+                            payment.CheckNo = null;
+                        }
+                        else
+                        {
+                            payment.CheckNo = reader["CheckNo"].ToString();
+                        }
+
+                        if (reader["BkashTransactionNo"] is DBNull)
+                        {
+                            payment.BkashTransactionNo = null;
+                        }
+                        else
+                        {
+                            payment.BkashTransactionNo = reader["BkashTransactionNo"].ToString();
+                        }
                         payment.Note = reader["Note"] is DBNull ? null : reader["Note"].ToString();
 
 
@@ -240,12 +296,20 @@ namespace SPDM.DLL.Repositories
 
                 if (payment.IsNew)
                 {
-                    comm.CommandText = "INSERT INTO Payment(CreateTime, UserId, FiscalYear, SaleId, PartyId, PaymentType, TransactionDate, TotalExVat, TotalIncVat, Discount, DiscountPercent, VatPercent, Note) VALUES(@CreateTime, @UserId, @FiscalYear, @SaleId, @PartyId, @PaymentType, @TransactionDate, @TotalExVat, @TotalIncVat, @Discount, @DiscountPercent, @VatPercent, @Note); SELECT SCOPE_IDENTITY()";
+                    comm.CommandText = "INSERT INTO Payment(CreateTime, UserId, FiscalYear, SaleId, PartyId, PaymentType, TransactionDate, " +
+                        "TotalExVat, TotalIncVat, Discount, DiscountPercent, VatPercent, TransactionType, BankName, CheckNo, BkashTransactionNo" +
+                        " Note) VALUES(@CreateTime, @UserId, @FiscalYear, @SaleId, @PartyId, @PaymentType, @TransactionDate, " +
+                        "@TotalExVat, @TotalIncVat, @Discount, @DiscountPercent, @VatPercent, @TransactionType, @BankName, @CheckNo, @BkashTransactionNo" +
+                        " @Note); SELECT SCOPE_IDENTITY()";
                     comm.Parameters.Add("@CreateTime", SqlDbType.DateTime).Value = DateTime.Today;
                 }
                 else
                 {
-                    comm.CommandText = "Update Payment SET  UpdateTime =@Updatetime, UserId = @UserId, FiscalYear = @FiscalYear, SaleId = @SaleId, PartyId = @PartyId, PaymentType = @PaymentType,TransactionDate = @TransactionDate, TotalExVat= @TotalExVat, TotalIncVat = @TotalIncVat, Discount =@Discount, DiscountPercent = @DiscountPercent, VatPercent= @VatPercent, Note= @Note WHERE Id = @Id";
+                    comm.CommandText = "Update Payment SET  UpdateTime =@Updatetime, UserId = @UserId, FiscalYear = @FiscalYear, SaleId = @SaleId," +
+                        " PartyId = @PartyId, PaymentType = @PaymentType,TransactionDate = @TransactionDate, TotalExVat= @TotalExVat, " +
+                        "TotalIncVat = @TotalIncVat, Discount =@Discount, DiscountPercent = @DiscountPercent, VatPercent= @VatPercent," +
+                        "TransactionType = @TransactionType, BankName = @BankName , CheckNo = @CheckNo, BkashTransactionNo = @BkashTransactionNo," +
+                        " Note= @Note WHERE Id = @Id";
                     comm.Parameters.Add("@Id", SqlDbType.Int).Value = payment.Id;
                     comm.Parameters.Add("@UpdateTime", SqlDbType.DateTime).Value = DateTime.Now;
                 }
@@ -260,6 +324,10 @@ namespace SPDM.DLL.Repositories
                 comm.Parameters.Add("@Discount", SqlDbType.Decimal).Value = payment.Discount;
                 comm.Parameters.Add("@DiscountPercent", SqlDbType.Decimal).Value = payment.DiscountPercent;
                 comm.Parameters.Add("@VatPercent", SqlDbType.Decimal).Value = payment.VatPercent;
+                comm.Parameters.Add("@TransactionType", SqlDbType.VarChar).Value = payment.TransactionType;
+                comm.Parameters.Add("@BankName", SqlDbType.VarChar).Value = payment.BankName;
+                comm.Parameters.Add("@CheckNo", SqlDbType.VarChar).Value = payment.CheckNo;
+                comm.Parameters.Add("@BkashTransactionNo", SqlDbType.VarChar).Value = payment.BkashTransactionNo;
                 comm.Parameters.Add("@Note", SqlDbType.VarChar).Value = payment.Note;
 
                 if (payment.IsNew)

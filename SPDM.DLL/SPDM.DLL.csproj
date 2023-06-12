@@ -50,7 +50,6 @@
     <Compile Include="Entities\Item.cs" />
     <Compile Include="Entities\Party.cs" />
     <Compile Include="Entities\Payment.cs" />
-    <Compile Include="Entities\PaymentDetail.cs" />
     <Compile Include="Entities\Production.cs" />
     <Compile Include="Entities\ProductionDetail.cs" />
     <Compile Include="Entities\Profile.cs" />
@@ -68,7 +67,6 @@
     <Compile Include="Repositories\FiscalYearDLL.cs" />
     <Compile Include="Repositories\ItemDLL.cs" />
     <Compile Include="Repositories\PartyDLL.cs" />
-    <Compile Include="Repositories\PaymentDetailDLL.cs" />
     <Compile Include="Repositories\PaymentDLL.cs" />
     <Compile Include="Repositories\ProductionDetailDLL.cs" />
     <Compile Include="Repositories\ProductionDLL.cs" />
