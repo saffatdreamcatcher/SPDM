@@ -21,27 +21,39 @@ namespace SPDM.UI
 
         private void btnSaledetail_Click(object sender, EventArgs e)
         {
-            SaveSaleDetail();
+            //SaveSaleDetail();
         }
 
-        private void SaveSaleDetail()
+        private void wizardControl1_Click(object sender, EventArgs e)
         {
-            SaleDetail saledetail = new SaleDetail();
-            saledetail.Id = 0;
-            saledetail.SaleId = 1;
-            saledetail.ItemId = 5;
-            saledetail.Unit = 25;
-            saledetail.UnitPrice = 6;
-            saledetail.Length = 5;
-            saledetail.TotalExvat = 0;
-            saledetail.TotalIncvat = 5;
-            saledetail.Discount = 3;
-            saledetail.DiscountPercent = 5;
-            saledetail.VatPercent = 7;
-           
 
-            SaleDetailBLL saledetailBLL = new SaleDetailBLL();
-            saledetailBLL.Save(saledetail);
         }
+
+        private void completionWizardPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //private void SaveSaleDetail()
+        //{
+        //    SaleDetail saledetail = new SaleDetail();
+        //    saledetail.Id = 0;
+        //    saledetail.SaleId = 1;
+        //    saledetail.ItemId = 5;
+        //    saledetail.Unit = 25;
+        //    saledetail.UnitPrice = 6;
+        //    saledetail.Length = 5;
+        //    saledetail.TotalExvat = 0;
+        //    saledetail.TotalIncvat = 5;
+        //    saledetail.Discount = 3;
+        //    saledetail.DiscountPercent = 5;
+        //    saledetail.VatPercent = 7;
+
+
+        //    SaleDetailBLL saledetailBLL = new SaleDetailBLL();
+        //    saledetailBLL.Save(saledetail);
+        //}
+
+
     }
 }

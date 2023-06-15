@@ -43,6 +43,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.dTPFromDate = new DevExpress.XtraEditors.DateEdit();
+            this.dTPToDate = new DevExpress.XtraEditors.DateEdit();
+            this.stockBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isNewDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.createTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,14 +62,12 @@
             this.currentQuantityInKMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.currentQuantityInFKMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.noteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stockBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dTPToDate = new DevExpress.XtraEditors.DateEdit();
             ((System.ComponentModel.ISupportInitialize)(this.gvStock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dTPFromDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dTPFromDate.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stockBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dTPToDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dTPToDate.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stockBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // gvStock
@@ -219,8 +219,31 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dTPFromDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dTPFromDate.Properties.EditFormat.FormatString = "dd/MM/yyyy";
+            this.dTPFromDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dTPFromDate.Properties.MaskSettings.Set("mask", "dd/MM/yyyy");
             this.dTPFromDate.Size = new System.Drawing.Size(197, 22);
             this.dTPFromDate.TabIndex = 36;
+            // 
+            // dTPToDate
+            // 
+            this.dTPToDate.EditValue = null;
+            this.dTPToDate.Location = new System.Drawing.Point(390, 115);
+            this.dTPToDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dTPToDate.Name = "dTPToDate";
+            this.dTPToDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dTPToDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dTPToDate.Properties.EditFormat.FormatString = "dd/MM/yyyy";
+            this.dTPToDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dTPToDate.Properties.MaskSettings.Set("mask", "dd/MM/yyyy");
+            this.dTPToDate.Size = new System.Drawing.Size(205, 22);
+            this.dTPToDate.TabIndex = 37;
+            // 
+            // stockBindingSource
+            // 
+            this.stockBindingSource.DataSource = typeof(SPDM.DLL.Entities.Stock);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -248,6 +271,7 @@
             this.createTimeDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.createTimeDataGridViewTextBoxColumn.Name = "createTimeDataGridViewTextBoxColumn";
             this.createTimeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.createTimeDataGridViewTextBoxColumn.Visible = false;
             this.createTimeDataGridViewTextBoxColumn.Width = 125;
             // 
             // updateTimeDataGridViewTextBoxColumn
@@ -364,23 +388,6 @@
             this.noteDataGridViewTextBoxColumn.Name = "noteDataGridViewTextBoxColumn";
             this.noteDataGridViewTextBoxColumn.Width = 80;
             // 
-            // stockBindingSource
-            // 
-            this.stockBindingSource.DataSource = typeof(SPDM.DLL.Entities.Stock);
-            // 
-            // dTPToDate
-            // 
-            this.dTPToDate.EditValue = null;
-            this.dTPToDate.Location = new System.Drawing.Point(390, 115);
-            this.dTPToDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.dTPToDate.Name = "dTPToDate";
-            this.dTPToDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dTPToDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dTPToDate.Size = new System.Drawing.Size(205, 22);
-            this.dTPToDate.TabIndex = 37;
-            // 
             // frmStockList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -409,9 +416,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.gvStock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dTPFromDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dTPFromDate.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stockBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dTPToDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dTPToDate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stockBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -432,6 +439,9 @@
         private System.Windows.Forms.ComboBox cmoItem;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnClose;
+        private DevExpress.XtraEditors.DateEdit dTPFromDate;
+        private DevExpress.XtraEditors.DateEdit dTPToDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn isNewDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn createTimeDataGridViewTextBoxColumn;
@@ -449,8 +459,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn currentQuantityInKMDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn currentQuantityInFKMDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn noteDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button btnClose;
-        private DevExpress.XtraEditors.DateEdit dTPFromDate;
-        private DevExpress.XtraEditors.DateEdit dTPToDate;
     }
 }
