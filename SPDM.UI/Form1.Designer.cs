@@ -98,9 +98,11 @@
             this.txtWorkOrderNo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.wizardPage2 = new DevExpress.XtraWizard.WizardPage();
+            this.cmoTransaction = new System.Windows.Forms.ComboBox();
+            this.label30 = new System.Windows.Forms.Label();
+            this.cmoPayment = new System.Windows.Forms.ComboBox();
             this.label29 = new System.Windows.Forms.Label();
             this.dETransactionDate = new DevExpress.XtraEditors.DateEdit();
-            this.nUpPaymentType = new System.Windows.Forms.NumericUpDown();
             this.label28 = new System.Windows.Forms.Label();
             this.txtFicalYear1 = new System.Windows.Forms.TextBox();
             this.txtPartyId = new System.Windows.Forms.TextBox();
@@ -125,7 +127,6 @@
             this.wizardPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dETransactionDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dETransactionDate.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nUpPaymentType)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eP)).BeginInit();
             this.SuspendLayout();
             // 
@@ -144,6 +145,7 @@
             this.wizardControl1.Size = new System.Drawing.Size(1455, 910);
             this.wizardControl1.Text = "";
             this.wizardControl1.FinishClick += new System.ComponentModel.CancelEventHandler(this.wizardControl1_FinishClick);
+            this.wizardControl1.Click += new System.EventHandler(this.wizardControl1_Click);
             // 
             // wizardPage1
             // 
@@ -530,7 +532,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(-15, 536);
+            this.label17.Location = new System.Drawing.Point(7, 534);
             this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(74, 16);
@@ -838,9 +840,11 @@
             // 
             // wizardPage2
             // 
+            this.wizardPage2.Controls.Add(this.cmoTransaction);
+            this.wizardPage2.Controls.Add(this.label30);
+            this.wizardPage2.Controls.Add(this.cmoPayment);
             this.wizardPage2.Controls.Add(this.label29);
             this.wizardPage2.Controls.Add(this.dETransactionDate);
-            this.wizardPage2.Controls.Add(this.nUpPaymentType);
             this.wizardPage2.Controls.Add(this.label28);
             this.wizardPage2.Controls.Add(this.txtFicalYear1);
             this.wizardPage2.Controls.Add(this.txtPartyId);
@@ -855,6 +859,32 @@
             this.wizardPage2.Name = "wizardPage2";
             this.wizardPage2.Size = new System.Drawing.Size(1415, 732);
             this.wizardPage2.Text = "Payment";
+            this.wizardPage2.Click += new System.EventHandler(this.wizardPage2_Click);
+            // 
+            // cmoTransaction
+            // 
+            this.cmoTransaction.FormattingEnabled = true;
+            this.cmoTransaction.Location = new System.Drawing.Point(510, 196);
+            this.cmoTransaction.Name = "cmoTransaction";
+            this.cmoTransaction.Size = new System.Drawing.Size(181, 24);
+            this.cmoTransaction.TabIndex = 17;
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(367, 205);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(110, 16);
+            this.label30.TabIndex = 16;
+            this.label30.Text = "TransactionType";
+            // 
+            // cmoPayment
+            // 
+            this.cmoPayment.FormattingEnabled = true;
+            this.cmoPayment.Location = new System.Drawing.Point(136, 103);
+            this.cmoPayment.Name = "cmoPayment";
+            this.cmoPayment.Size = new System.Drawing.Size(183, 24);
+            this.cmoPayment.TabIndex = 15;
             // 
             // label29
             // 
@@ -876,13 +906,6 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dETransactionDate.Size = new System.Drawing.Size(181, 22);
             this.dETransactionDate.TabIndex = 13;
-            // 
-            // nUpPaymentType
-            // 
-            this.nUpPaymentType.Location = new System.Drawing.Point(136, 112);
-            this.nUpPaymentType.Name = "nUpPaymentType";
-            this.nUpPaymentType.Size = new System.Drawing.Size(183, 22);
-            this.nUpPaymentType.TabIndex = 12;
             // 
             // label28
             // 
@@ -969,6 +992,7 @@
             this.Controls.Add(this.wizardControl1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.wizardControl1)).EndInit();
             this.wizardControl1.ResumeLayout(false);
             this.wizardPage1.ResumeLayout(false);
@@ -985,7 +1009,6 @@
             this.wizardPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dETransactionDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dETransactionDate.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nUpPaymentType)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eP)).EndInit();
             this.ResumeLayout(false);
 
@@ -1073,7 +1096,9 @@
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label29;
         private DevExpress.XtraEditors.DateEdit dETransactionDate;
-        private System.Windows.Forms.NumericUpDown nUpPaymentType;
         private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.ComboBox cmoTransaction;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.ComboBox cmoPayment;
     }
 }

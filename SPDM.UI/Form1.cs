@@ -267,5 +267,50 @@ namespace SPDM.UI
         }
 
 
+        public void LoadPaymentType()
+        {
+
+            string[] enumElements = Enum.GetNames(typeof(PaymentStatus));
+
+            cmoPayment.Items.Add("Please Select-");
+
+            foreach (var item in enumElements)
+            {
+                cmoPayment.Items.Add(item);
+            }
+            cmoPayment.SelectedIndex = 0;
+
+        }
+
+        public void LoadTransactionType()
+        {
+
+            string[] enumElements = Enum.GetNames(typeof(TransactionStatus));
+
+            cmoTransaction.Items.Add("Please Select-");
+
+            foreach (var item in enumElements)
+            {
+                cmoTransaction.Items.Add(item);
+            }
+            cmoTransaction.SelectedIndex = 0;
+
+        }
+
+        private void wizardPage2_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void wizardControl1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            LoadPaymentType();
+            LoadTransactionType();
+        }
     }
 }

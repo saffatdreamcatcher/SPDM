@@ -46,6 +46,8 @@
     <Compile Include="Entities\Category.cs" />
     <Compile Include="Entities\Entity.cs" />
     <Compile Include="Entities\Enums.cs" />
+    <Compile Include="Entities\Enums1.cs" />
+    <Compile Include="Entities\Enums2.cs" />
     <Compile Include="Entities\FiscalYear.cs" />
     <Compile Include="Entities\Item.cs" />
     <Compile Include="Entities\Party.cs" />

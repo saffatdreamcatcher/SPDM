@@ -179,8 +179,16 @@ namespace SPDM.UI
 
         private void saleToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //CloseAllForms();
+            //frmSaleList myForm = new frmSaleList();
+            //myForm.TopLevel = false;
+            //myForm.AutoScroll = true;
+            //pForm.Controls.Add(myForm);
+            //myForm.WindowState = FormWindowState.Maximized;
+            //myForm.Show();
+
             CloseAllForms();
-            frmSaleList myForm = new frmSaleList();
+            Form1 myForm = new Form1();
             myForm.TopLevel = false;
             myForm.AutoScroll = true;
             pForm.Controls.Add(myForm);
