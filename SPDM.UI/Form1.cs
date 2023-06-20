@@ -50,9 +50,76 @@ namespace SPDM.UI
 
         }
 
+        private void SaveSale()
+        {
+            bool isValid = IsSaleValid();
+            if (isValid)
+            {
+                Sale sale = new Sale();
+                sale.UserId = Global.Userid;
+                sale.Fiscalyear = txtFiscalYear.Text;
+                sale.PartyId = workOrder.PartyId;
+                sale.WorkOrderId = workOrder.Id;
+                sale.ChallanNo = Convert.ToInt32(txtChallanNo.Text);
+                sale.SaleDate = dESaleDate.DateTime;
+                sale.TotalIncvat = Convert.ToDouble(nupTotalIncVat.Value);
+                if (nupDiscountPercent.Value > 0)
+                {
+                    sale.DiscountPercent = Convert.ToDouble(nupDiscountPercent.Value);
 
+                }
+                sale.Discount = workOrder.Discount;
+                sale.DiscountPercent = workOrder.DiscountPercent;
+                if (nupVatPercent.Value > 0)
+                {
+                    sale.VatPercent = Convert.ToDouble(nupVatPercent.Value);
+                }
+                sale.DeliveryDate = dEDeliveryDate.DateTime;
+                sale.DeliveryAddress = txtDeliveryAddress.Text;
+                sale.Note = txtNote.Text;
+
+                List<SaleDetail> saleDetails1 = saleDetails.ToList();
+                SaleBLL saleBLL = new SaleBLL();
+                saleBLL.Save(sale, saleDetails1);
+                saleId = sale.Id;
+
+            }
+        }
+
+        private void SavePayment()
+        {
+            bool isValid = IsPaymentValid();
+            if (isValid)
+            {
+                Payment payment = new Payment();
+                payment.UserId = Global.Userid;
+                payment.Fiscalyear = txtFiscalYear.Text;
+                payment.SaleId = saleId;
+                payment.PartyId = workOrder.PartyId;
+                payment.PaymentType = Convert.ToInt32((PaymentStatus)Enum.Parse(typeof(PaymentStatus), cmoPayment.Text));
+                payment.TransactionDate = dETransactionDate.DateTime;
+                payment.Discount = workOrder.Discount;
+                payment.DiscountPercent = workOrder.DiscountPercent;
+                if (nupVatPercent2.Value > 0)
+                {
+                    payment.VatPercent = Convert.ToDouble(nupVatPercent2.Value);
+                }
+                payment.TotalIncvat = Convert.ToDouble(nupTotalIncVat2.Value);
+                payment.TransactionType = Convert.ToInt32((TransactionStatus)Enum.Parse(typeof(TransactionStatus), cmoTransaction.Text));
+                payment.BankName = txtBankName.Text;
+                payment.CheckNo = txtBankName.Text;
+                payment.BkashTransactionNo = txtBkashNo.Text;
+                payment.Note = txtNote.Text;
+
+                PaymentBLL paymentBLL = new PaymentBLL();
+                paymentBLL.Save(payment);
+            }
+
+        }
         private void wizardControl1_FinishClick(object sender, CancelEventArgs e)
         {
+            SaveSale();
+            SavePayment();
             this.Close();
         }
 
@@ -146,16 +213,17 @@ namespace SPDM.UI
         {
             eP.Clear();
             Boolean iv = true;
-            if (!string.IsNullOrEmpty(txtParty.Text))
+
+            if (string.IsNullOrEmpty(txtParty.Text))
             {
-                txtWorkOrderNo.Focus();
+                txtParty.Focus();
                 eP.SetError(txtParty, "Can't empty");
                 iv = false;
 
             }
 
 
-            if (!string.IsNullOrEmpty(txtChallanNo.Text))
+            if (string.IsNullOrEmpty(txtChallanNo.Text))
             {
 
                 eP.SetError(txtChallanNo, "Can't empty");
@@ -163,9 +231,9 @@ namespace SPDM.UI
 
             }
 
-            if (!string.IsNullOrEmpty(txtDeliveryAddress.Text))
+            if (string.IsNullOrEmpty(txtDeliveryAddress.Text))
             {
-                eP.SetError(txtChallanNo, "Can't empty");
+                eP.SetError(txtDeliveryAddress, "Can't empty");
                 iv = false;
             }
             if (saleDetails.Count == 0)
@@ -190,11 +258,12 @@ namespace SPDM.UI
             }
 
 
-            if (!string.IsNullOrEmpty(txtLength.Text))
+            if (string.IsNullOrEmpty(txtLength.Text))
             {
                 eP.SetError(txtLength, "Can't empty");
                 iv = false;
             }
+
             if (Convert.ToDecimal(txtAvilableQinKM.Text) < Convert.ToDecimal(txtLength.Text))
             {
                 eP.SetError(txtAvilableQinKM, "Avilable quantity is less than length");
@@ -204,7 +273,39 @@ namespace SPDM.UI
 
         }
 
-        private void cmoItem_SelectedIndexChanged(object sender, EventArgs e)
+        private bool IsPaymentValid()
+        {
+            eP.Clear();
+            Boolean iv = true;
+
+            //if (string.IsNullOrEmpty(txtUserId.Text))
+            //{
+            //    txtUserId.Focus();
+            //    eP.SetError(txtUserId, "Can't empty");
+            //    iv = false;
+
+            //}
+
+
+            //if (string.IsNullOrEmpty(txtPartyId.Text))
+            //{
+
+            //    eP.SetError(txtPartyId, "Can't empty");
+            //    iv = false;
+
+            //}
+
+            //if (string.IsNullOrEmpty(txtSaleId.Text))
+            //{
+            //    eP.SetError(txtSaleId, "Can't empty");
+            //    iv = false;
+            //}
+            return iv;
+        }
+
+
+
+            private void cmoItem_SelectedIndexChanged(object sender, EventArgs e)
         {
             ClearSaleDetail();
             if (cmoItem.SelectedIndex > 0)

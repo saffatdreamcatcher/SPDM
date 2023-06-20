@@ -67,6 +67,7 @@ namespace SPDM.BLL.BusinessLogic
 
 
                 saleDLL.Save(sale);
+                
 
 
                 foreach (SaleDetail saleDetail in saleDetails)

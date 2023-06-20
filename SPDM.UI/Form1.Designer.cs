@@ -78,9 +78,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.txtDeliveryAddress = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.dtpDeliveryDate = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
-            this.dtpSaleDate = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.txtChallanNo = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -98,21 +96,29 @@
             this.txtWorkOrderNo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.wizardPage2 = new DevExpress.XtraWizard.WizardPage();
+            this.txtNote2 = new System.Windows.Forms.TextBox();
+            this.txtBkashNo = new System.Windows.Forms.TextBox();
+            this.txtCheckNo = new System.Windows.Forms.TextBox();
+            this.txtBankName = new System.Windows.Forms.TextBox();
+            this.label37 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.nupTotalIncVat2 = new System.Windows.Forms.NumericUpDown();
+            this.nupVatPercent2 = new System.Windows.Forms.NumericUpDown();
+            this.label31 = new System.Windows.Forms.Label();
+            this.nupDiscountPercent2 = new System.Windows.Forms.NumericUpDown();
+            this.label32 = new System.Windows.Forms.Label();
             this.cmoTransaction = new System.Windows.Forms.ComboBox();
             this.label30 = new System.Windows.Forms.Label();
             this.cmoPayment = new System.Windows.Forms.ComboBox();
             this.label29 = new System.Windows.Forms.Label();
             this.dETransactionDate = new DevExpress.XtraEditors.DateEdit();
             this.label28 = new System.Windows.Forms.Label();
-            this.txtFicalYear1 = new System.Windows.Forms.TextBox();
-            this.txtPartyId = new System.Windows.Forms.TextBox();
-            this.label27 = new System.Windows.Forms.Label();
-            this.txtSaleId = new System.Windows.Forms.TextBox();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.txtUserId = new System.Windows.Forms.TextBox();
-            this.label24 = new System.Windows.Forms.Label();
             this.eP = new System.Windows.Forms.ErrorProvider(this.components);
+            this.dESaleDate = new DevExpress.XtraEditors.DateEdit();
+            this.dEDeliveryDate = new DevExpress.XtraEditors.DateEdit();
             ((System.ComponentModel.ISupportInitialize)(this.wizardControl1)).BeginInit();
             this.wizardControl1.SuspendLayout();
             this.wizardPage1.SuspendLayout();
@@ -125,9 +131,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.nupDiscountPercent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupTotalIncVat)).BeginInit();
             this.wizardPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nupTotalIncVat2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupVatPercent2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupDiscountPercent2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dETransactionDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dETransactionDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dESaleDate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dESaleDate.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dEDeliveryDate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dEDeliveryDate.Properties.CalendarTimeProperties)).BeginInit();
             this.SuspendLayout();
             // 
             // wizardControl1
@@ -149,6 +162,8 @@
             // 
             // wizardPage1
             // 
+            this.wizardPage1.Controls.Add(this.dEDeliveryDate);
+            this.wizardPage1.Controls.Add(this.dESaleDate);
             this.wizardPage1.Controls.Add(this.gvSaleDetail);
             this.wizardPage1.Controls.Add(this.btnAdd);
             this.wizardPage1.Controls.Add(this.txtAvilableQinFKM);
@@ -180,9 +195,7 @@
             this.wizardPage1.Controls.Add(this.label12);
             this.wizardPage1.Controls.Add(this.txtDeliveryAddress);
             this.wizardPage1.Controls.Add(this.label8);
-            this.wizardPage1.Controls.Add(this.dtpDeliveryDate);
             this.wizardPage1.Controls.Add(this.label6);
-            this.wizardPage1.Controls.Add(this.dtpSaleDate);
             this.wizardPage1.Controls.Add(this.label5);
             this.wizardPage1.Controls.Add(this.txtChallanNo);
             this.wizardPage1.Controls.Add(this.label4);
@@ -650,35 +663,15 @@
             this.label8.TabIndex = 86;
             this.label8.Text = "Delivery Address:";
             // 
-            // dtpDeliveryDate
-            // 
-            this.dtpDeliveryDate.CustomFormat = "dd/MM/yyyy";
-            this.dtpDeliveryDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDeliveryDate.Location = new System.Drawing.Point(836, 314);
-            this.dtpDeliveryDate.Margin = new System.Windows.Forms.Padding(4);
-            this.dtpDeliveryDate.Name = "dtpDeliveryDate";
-            this.dtpDeliveryDate.Size = new System.Drawing.Size(196, 22);
-            this.dtpDeliveryDate.TabIndex = 85;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(739, 320);
+            this.label6.Location = new System.Drawing.Point(720, 312);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(89, 16);
             this.label6.TabIndex = 84;
             this.label6.Text = "Delivery Date";
-            // 
-            // dtpSaleDate
-            // 
-            this.dtpSaleDate.CustomFormat = "dd/MM/yyyy";
-            this.dtpSaleDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpSaleDate.Location = new System.Drawing.Point(471, 314);
-            this.dtpSaleDate.Margin = new System.Windows.Forms.Padding(4);
-            this.dtpSaleDate.Name = "dtpSaleDate";
-            this.dtpSaleDate.Size = new System.Drawing.Size(204, 22);
-            this.dtpSaleDate.TabIndex = 83;
             // 
             // label5
             // 
@@ -811,7 +804,7 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(769, 58);
+            this.btnSearch.Location = new System.Drawing.Point(717, 49);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(125, 29);
@@ -822,16 +815,16 @@
             // 
             // txtWorkOrderNo
             // 
-            this.txtWorkOrderNo.Location = new System.Drawing.Point(522, 58);
+            this.txtWorkOrderNo.Location = new System.Drawing.Point(480, 52);
             this.txtWorkOrderNo.Margin = new System.Windows.Forms.Padding(4);
             this.txtWorkOrderNo.Name = "txtWorkOrderNo";
-            this.txtWorkOrderNo.Size = new System.Drawing.Size(205, 22);
+            this.txtWorkOrderNo.Size = new System.Drawing.Size(195, 22);
             this.txtWorkOrderNo.TabIndex = 68;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(405, 61);
+            this.label1.Location = new System.Drawing.Point(347, 58);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 16);
@@ -840,26 +833,155 @@
             // 
             // wizardPage2
             // 
+            this.wizardPage2.Controls.Add(this.txtNote2);
+            this.wizardPage2.Controls.Add(this.txtBkashNo);
+            this.wizardPage2.Controls.Add(this.txtCheckNo);
+            this.wizardPage2.Controls.Add(this.txtBankName);
+            this.wizardPage2.Controls.Add(this.label37);
+            this.wizardPage2.Controls.Add(this.label36);
+            this.wizardPage2.Controls.Add(this.label35);
+            this.wizardPage2.Controls.Add(this.label34);
+            this.wizardPage2.Controls.Add(this.label33);
+            this.wizardPage2.Controls.Add(this.nupTotalIncVat2);
+            this.wizardPage2.Controls.Add(this.nupVatPercent2);
+            this.wizardPage2.Controls.Add(this.label31);
+            this.wizardPage2.Controls.Add(this.nupDiscountPercent2);
+            this.wizardPage2.Controls.Add(this.label32);
             this.wizardPage2.Controls.Add(this.cmoTransaction);
             this.wizardPage2.Controls.Add(this.label30);
             this.wizardPage2.Controls.Add(this.cmoPayment);
             this.wizardPage2.Controls.Add(this.label29);
             this.wizardPage2.Controls.Add(this.dETransactionDate);
             this.wizardPage2.Controls.Add(this.label28);
-            this.wizardPage2.Controls.Add(this.txtFicalYear1);
-            this.wizardPage2.Controls.Add(this.txtPartyId);
-            this.wizardPage2.Controls.Add(this.label27);
-            this.wizardPage2.Controls.Add(this.txtSaleId);
-            this.wizardPage2.Controls.Add(this.label26);
-            this.wizardPage2.Controls.Add(this.label25);
-            this.wizardPage2.Controls.Add(this.txtUserId);
-            this.wizardPage2.Controls.Add(this.label24);
             this.wizardPage2.DescriptionText = "";
             this.wizardPage2.Margin = new System.Windows.Forms.Padding(4);
             this.wizardPage2.Name = "wizardPage2";
             this.wizardPage2.Size = new System.Drawing.Size(1415, 732);
             this.wizardPage2.Text = "Payment";
             this.wizardPage2.Click += new System.EventHandler(this.wizardPage2_Click);
+            // 
+            // txtNote2
+            // 
+            this.txtNote2.Location = new System.Drawing.Point(510, 284);
+            this.txtNote2.Name = "txtNote2";
+            this.txtNote2.Size = new System.Drawing.Size(182, 22);
+            this.txtNote2.TabIndex = 115;
+            // 
+            // txtBkashNo
+            // 
+            this.txtBkashNo.Location = new System.Drawing.Point(126, 287);
+            this.txtBkashNo.Name = "txtBkashNo";
+            this.txtBkashNo.Size = new System.Drawing.Size(193, 22);
+            this.txtBkashNo.TabIndex = 114;
+            // 
+            // txtCheckNo
+            // 
+            this.txtCheckNo.Location = new System.Drawing.Point(1152, 193);
+            this.txtCheckNo.Name = "txtCheckNo";
+            this.txtCheckNo.Size = new System.Drawing.Size(182, 22);
+            this.txtCheckNo.TabIndex = 113;
+            // 
+            // txtBankName
+            // 
+            this.txtBankName.Location = new System.Drawing.Point(826, 198);
+            this.txtBankName.Name = "txtBankName";
+            this.txtBankName.Size = new System.Drawing.Size(182, 22);
+            this.txtBankName.TabIndex = 112;
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(441, 290);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(36, 16);
+            this.label37.TabIndex = 111;
+            this.label37.Text = "Note";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(47, 290);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(63, 16);
+            this.label36.TabIndex = 110;
+            this.label36.Text = "BkashNo";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(1063, 196);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(63, 16);
+            this.label35.TabIndex = 109;
+            this.label35.Text = "CheckNo";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(721, 204);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(75, 16);
+            this.label34.TabIndex = 108;
+            this.label34.Text = "BankName";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(29, 211);
+            this.label33.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(81, 16);
+            this.label33.TabIndex = 106;
+            this.label33.Text = "Total Inc Vat";
+            // 
+            // nupTotalIncVat2
+            // 
+            this.nupTotalIncVat2.Location = new System.Drawing.Point(126, 205);
+            this.nupTotalIncVat2.Margin = new System.Windows.Forms.Padding(4);
+            this.nupTotalIncVat2.Maximum = new decimal(new int[] {
+            -1981284352,
+            -1966660860,
+            0,
+            0});
+            this.nupTotalIncVat2.Name = "nupTotalIncVat2";
+            this.nupTotalIncVat2.Size = new System.Drawing.Size(193, 22);
+            this.nupTotalIncVat2.TabIndex = 107;
+            // 
+            // nupVatPercent2
+            // 
+            this.nupVatPercent2.Location = new System.Drawing.Point(1152, 108);
+            this.nupVatPercent2.Margin = new System.Windows.Forms.Padding(4);
+            this.nupVatPercent2.Name = "nupVatPercent2";
+            this.nupVatPercent2.Size = new System.Drawing.Size(184, 22);
+            this.nupVatPercent2.TabIndex = 105;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(1072, 115);
+            this.label31.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(42, 16);
+            this.label31.TabIndex = 104;
+            this.label31.Text = "Vat %";
+            // 
+            // nupDiscountPercent2
+            // 
+            this.nupDiscountPercent2.Location = new System.Drawing.Point(826, 109);
+            this.nupDiscountPercent2.Margin = new System.Windows.Forms.Padding(4);
+            this.nupDiscountPercent2.Name = "nupDiscountPercent2";
+            this.nupDiscountPercent2.Size = new System.Drawing.Size(182, 22);
+            this.nupDiscountPercent2.TabIndex = 103;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(718, 110);
+            this.label32.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(74, 16);
+            this.label32.TabIndex = 102;
+            this.label32.Text = "Discount %";
             // 
             // cmoTransaction
             // 
@@ -904,6 +1026,11 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dETransactionDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dETransactionDate.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.dETransactionDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dETransactionDate.Properties.EditFormat.FormatString = "dd/MM/yyyy";
+            this.dETransactionDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dETransactionDate.Properties.MaskSettings.Set("mask", "dd/MM/yyyy");
             this.dETransactionDate.Size = new System.Drawing.Size(181, 22);
             this.dETransactionDate.TabIndex = 13;
             // 
@@ -916,73 +1043,43 @@
             this.label28.TabIndex = 11;
             this.label28.Text = "PaymentType";
             // 
-            // txtFicalYear1
-            // 
-            this.txtFicalYear1.Location = new System.Drawing.Point(510, 34);
-            this.txtFicalYear1.Name = "txtFicalYear1";
-            this.txtFicalYear1.Size = new System.Drawing.Size(181, 22);
-            this.txtFicalYear1.TabIndex = 10;
-            // 
-            // txtPartyId
-            // 
-            this.txtPartyId.Location = new System.Drawing.Point(1152, 35);
-            this.txtPartyId.Name = "txtPartyId";
-            this.txtPartyId.Size = new System.Drawing.Size(184, 22);
-            this.txtPartyId.TabIndex = 9;
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(1065, 35);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(49, 16);
-            this.label27.TabIndex = 8;
-            this.label27.Text = "PartyId";
-            // 
-            // txtSaleId
-            // 
-            this.txtSaleId.Location = new System.Drawing.Point(826, 35);
-            this.txtSaleId.Name = "txtSaleId";
-            this.txtSaleId.Size = new System.Drawing.Size(182, 22);
-            this.txtSaleId.TabIndex = 7;
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(739, 35);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(46, 16);
-            this.label26.TabIndex = 6;
-            this.label26.Text = "SaleId";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(405, 35);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(72, 16);
-            this.label25.TabIndex = 4;
-            this.label25.Text = "FiscalYear";
-            // 
-            // txtUserId
-            // 
-            this.txtUserId.Location = new System.Drawing.Point(136, 35);
-            this.txtUserId.Name = "txtUserId";
-            this.txtUserId.Size = new System.Drawing.Size(183, 22);
-            this.txtUserId.TabIndex = 3;
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(49, 35);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(47, 16);
-            this.label24.TabIndex = 2;
-            this.label24.Text = "UserId";
-            // 
             // eP
             // 
             this.eP.ContainerControl = this;
+            // 
+            // dESaleDate
+            // 
+            this.dESaleDate.EditValue = null;
+            this.dESaleDate.Location = new System.Drawing.Point(480, 312);
+            this.dESaleDate.Name = "dESaleDate";
+            this.dESaleDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dESaleDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dESaleDate.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.dESaleDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dESaleDate.Properties.EditFormat.FormatString = "dd/MM/yyyy";
+            this.dESaleDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dESaleDate.Properties.MaskSettings.Set("mask", "dd/MM/yyyy");
+            this.dESaleDate.Size = new System.Drawing.Size(195, 22);
+            this.dESaleDate.TabIndex = 117;
+            // 
+            // dEDeliveryDate
+            // 
+            this.dEDeliveryDate.EditValue = null;
+            this.dEDeliveryDate.Location = new System.Drawing.Point(825, 308);
+            this.dEDeliveryDate.Name = "dEDeliveryDate";
+            this.dEDeliveryDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dEDeliveryDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dEDeliveryDate.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.dEDeliveryDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dEDeliveryDate.Properties.EditFormat.FormatString = "dd/MM/yyyy";
+            this.dEDeliveryDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dEDeliveryDate.Properties.MaskSettings.Set("mask", "dd/MM/yyyy");
+            this.dEDeliveryDate.Size = new System.Drawing.Size(196, 22);
+            this.dEDeliveryDate.TabIndex = 118;
             // 
             // Form1
             // 
@@ -1007,9 +1104,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.nupTotalIncVat)).EndInit();
             this.wizardPage2.ResumeLayout(false);
             this.wizardPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nupTotalIncVat2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupVatPercent2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupDiscountPercent2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dETransactionDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dETransactionDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dESaleDate.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dESaleDate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dEDeliveryDate.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dEDeliveryDate.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1066,9 +1170,7 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtDeliveryAddress;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.DateTimePicker dtpDeliveryDate;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DateTimePicker dtpSaleDate;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtChallanNo;
         private System.Windows.Forms.Label label4;
@@ -1086,19 +1188,27 @@
         private System.Windows.Forms.TextBox txtWorkOrderNo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ErrorProvider eP;
-        private System.Windows.Forms.TextBox txtFicalYear1;
-        private System.Windows.Forms.TextBox txtPartyId;
-        private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.TextBox txtSaleId;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.TextBox txtUserId;
-        private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label29;
         private DevExpress.XtraEditors.DateEdit dETransactionDate;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.ComboBox cmoTransaction;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.ComboBox cmoPayment;
+        private System.Windows.Forms.NumericUpDown nupVatPercent2;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.NumericUpDown nupDiscountPercent2;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.TextBox txtNote2;
+        private System.Windows.Forms.TextBox txtBkashNo;
+        private System.Windows.Forms.TextBox txtCheckNo;
+        private System.Windows.Forms.TextBox txtBankName;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.NumericUpDown nupTotalIncVat2;
+        private DevExpress.XtraEditors.DateEdit dEDeliveryDate;
+        private DevExpress.XtraEditors.DateEdit dESaleDate;
     }
 }

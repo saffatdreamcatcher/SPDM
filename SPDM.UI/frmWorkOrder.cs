@@ -265,7 +265,7 @@ namespace SPDM.UI
         {
             eP.Clear();
             Boolean iv = true;
-            if (!string.IsNullOrEmpty(txtWorkOrderNo.Text))
+            if (string.IsNullOrEmpty(txtWorkOrderNo.Text))
             {
                 txtWorkOrderNo.Focus();
                 eP.SetError(txtWorkOrderNo, "Can't empty");
@@ -291,7 +291,7 @@ namespace SPDM.UI
             }
 
 
-            if (!string.IsNullOrEmpty(txtFiscalYear.Text))
+            if (string.IsNullOrEmpty(txtFiscalYear.Text))
             {
                 //txtFiscalYear.Focus();
                 eP.SetError(txtFiscalYear, "Can't empty");

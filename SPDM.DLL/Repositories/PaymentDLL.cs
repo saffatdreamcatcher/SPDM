@@ -297,9 +297,9 @@ namespace SPDM.DLL.Repositories
                 if (payment.IsNew)
                 {
                     comm.CommandText = "INSERT INTO Payment(CreateTime, UserId, FiscalYear, SaleId, PartyId, PaymentType, TransactionDate, " +
-                        "TotalExVat, TotalIncVat, Discount, DiscountPercent, VatPercent, TransactionType, BankName, CheckNo, BkashTransactionNo" +
+                        "TotalExVat, TotalIncVat, Discount, DiscountPercent, VatPercent, TransactionType, BankName, CheckNo, BkashTransactionNo, " +
                         " Note) VALUES(@CreateTime, @UserId, @FiscalYear, @SaleId, @PartyId, @PaymentType, @TransactionDate, " +
-                        "@TotalExVat, @TotalIncVat, @Discount, @DiscountPercent, @VatPercent, @TransactionType, @BankName, @CheckNo, @BkashTransactionNo" +
+                        "@TotalExVat, @TotalIncVat, @Discount, @DiscountPercent, @VatPercent, @TransactionType, @BankName, @CheckNo, @BkashTransactionNo, " +
                         " @Note); SELECT SCOPE_IDENTITY()";
                     comm.Parameters.Add("@CreateTime", SqlDbType.DateTime).Value = DateTime.Today;
                 }
@@ -307,7 +307,7 @@ namespace SPDM.DLL.Repositories
                 {
                     comm.CommandText = "Update Payment SET  UpdateTime =@Updatetime, UserId = @UserId, FiscalYear = @FiscalYear, SaleId = @SaleId," +
                         " PartyId = @PartyId, PaymentType = @PaymentType,TransactionDate = @TransactionDate, TotalExVat= @TotalExVat, " +
-                        "TotalIncVat = @TotalIncVat, Discount =@Discount, DiscountPercent = @DiscountPercent, VatPercent= @VatPercent," +
+                        "TotalIncVat = @TotalIncVat, Discount = @Discount, DiscountPercent = @DiscountPercent, VatPercent= @VatPercent," +
                         "TransactionType = @TransactionType, BankName = @BankName , CheckNo = @CheckNo, BkashTransactionNo = @BkashTransactionNo," +
                         " Note= @Note WHERE Id = @Id";
                     comm.Parameters.Add("@Id", SqlDbType.Int).Value = payment.Id;
@@ -321,9 +321,31 @@ namespace SPDM.DLL.Repositories
                 comm.Parameters.Add("@TransactionDate", SqlDbType.DateTime).Value = payment.TransactionDate;
                 comm.Parameters.Add("@TotalExVat", SqlDbType.Decimal).Value = payment.TotalExvat;
                 comm.Parameters.Add("@TotalIncVat", SqlDbType.Decimal).Value = payment.TotalIncvat;
-                comm.Parameters.Add("@Discount", SqlDbType.Decimal).Value = payment.Discount;
-                comm.Parameters.Add("@DiscountPercent", SqlDbType.Decimal).Value = payment.DiscountPercent;
-                comm.Parameters.Add("@VatPercent", SqlDbType.Decimal).Value = payment.VatPercent;
+                if (payment.Discount.HasValue)
+                {
+                    comm.Parameters.Add("@Discount", SqlDbType.Decimal).Value = payment.Discount.Value;
+                }
+                else
+                {
+                    comm.Parameters.Add("@Discount", SqlDbType.Decimal).Value = DBNull.Value;
+                }
+                if (payment.DiscountPercent.HasValue)
+                {
+                    comm.Parameters.Add("@DiscountPercent", SqlDbType.Decimal).Value = payment.DiscountPercent.Value;
+                }
+                else
+                {
+                    comm.Parameters.Add("@DiscountPercent", SqlDbType.Decimal).Value = DBNull.Value;
+                }
+
+                if (payment.VatPercent.HasValue)
+                {
+                    comm.Parameters.Add("@VatPercent", SqlDbType.Decimal).Value = payment.VatPercent.Value;
+                }
+                else
+                {
+                    comm.Parameters.Add("@VatPercent", SqlDbType.Decimal).Value = DBNull.Value;
+                }
                 comm.Parameters.Add("@TransactionType", SqlDbType.VarChar).Value = payment.TransactionType;
                 comm.Parameters.Add("@BankName", SqlDbType.VarChar).Value = payment.BankName;
                 comm.Parameters.Add("@CheckNo", SqlDbType.VarChar).Value = payment.CheckNo;
