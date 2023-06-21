@@ -16,7 +16,7 @@ namespace SPDM.UI
     {
         private List<WorkOrderDetail> workOrderDetails;
         private BindingList<SaleDetail> saleDetails = new BindingList<SaleDetail>();
-        private int saleId;
+        //private int saleId;
 
         WorkOrder workOrder;
         public Form1()
@@ -50,77 +50,149 @@ namespace SPDM.UI
 
         }
 
-        private void SaveSale()
+        //private void SaveSale()
+        //{
+        //    bool isValid = IsSaleValid();
+        //    if (isValid)
+        //    {
+        //        Sale sale = new Sale();
+        //        sale.UserId = Global.Userid;
+        //        sale.Fiscalyear = txtFiscalYear.Text;
+        //        sale.PartyId = workOrder.PartyId;
+        //        sale.WorkOrderId = workOrder.Id;
+        //        sale.ChallanNo = Convert.ToInt32(txtChallanNo.Text);
+        //        sale.SaleDate = dESaleDate.DateTime;
+        //        sale.TotalIncvat = Convert.ToDouble(nupTotalIncVat.Value);
+        //        if (nupDiscountPercent.Value > 0)
+        //        {
+        //            sale.DiscountPercent = Convert.ToDouble(nupDiscountPercent.Value);
+
+        //        }
+        //        sale.Discount = workOrder.Discount;
+        //        sale.DiscountPercent = workOrder.DiscountPercent;
+        //        if (nupVatPercent.Value > 0)
+        //        {
+        //            sale.VatPercent = Convert.ToDouble(nupVatPercent.Value);
+        //        }
+        //        sale.DeliveryDate = dEDeliveryDate.DateTime;
+        //        sale.DeliveryAddress = txtDeliveryAddress.Text;
+        //        sale.Note = txtNote.Text;
+
+        //        List<SaleDetail> saleDetails1 = saleDetails.ToList();
+        //        SaleBLL saleBLL = new SaleBLL();
+        //        saleBLL.Save(sale, saleDetails1, null);
+        //        SavePayment(sale.Id);
+        //        //saleId = sale.Id;
+
+        //    }
+        //}
+
+        //private void SavePayment(int saleId)
+        //{
+        //    bool isValid = IsPaymentValid();
+        //    if (isValid)
+        //    {
+        //        Payment payment = new Payment();
+        //        payment.UserId = Global.Userid;
+        //        payment.Fiscalyear = txtFiscalYear.Text;
+        //        payment.SaleId = saleId;
+        //        payment.PartyId = workOrder.PartyId;
+        //        payment.PaymentType = Convert.ToInt32((PaymentStatus)Enum.Parse(typeof(PaymentStatus), cmoPayment.Text));
+        //        payment.TransactionDate = dETransactionDate.DateTime;
+        //        payment.Discount = workOrder.Discount;
+        //        payment.DiscountPercent = workOrder.DiscountPercent;
+        //        if (nupVatPercent2.Value > 0)
+        //        {
+        //            payment.VatPercent = Convert.ToDouble(nupVatPercent2.Value);
+        //        }
+        //        payment.TotalIncvat = Convert.ToDouble(nupTotalIncVat2.Value);
+        //        payment.TransactionType = Convert.ToInt32((TransactionStatus)Enum.Parse(typeof(TransactionStatus), cmoTransaction.Text));
+        //        payment.BankName = txtBankName.Text;
+        //        payment.CheckNo = txtBankName.Text;
+        //        payment.BkashTransactionNo = txtBkashNo.Text;
+        //        payment.Note = txtNote.Text;
+
+        //        PaymentBLL paymentBLL = new PaymentBLL();
+        //        paymentBLL.Save(payment);
+        //    }
+
+        //}
+
+        private bool Save()
         {
             bool isValid = IsSaleValid();
-            if (isValid)
+            if (!isValid)
             {
-                Sale sale = new Sale();
-                sale.UserId = Global.Userid;
-                sale.Fiscalyear = txtFiscalYear.Text;
-                sale.PartyId = workOrder.PartyId;
-                sale.WorkOrderId = workOrder.Id;
-                sale.ChallanNo = Convert.ToInt32(txtChallanNo.Text);
-                sale.SaleDate = dESaleDate.DateTime;
-                sale.TotalIncvat = Convert.ToDouble(nupTotalIncVat.Value);
-                if (nupDiscountPercent.Value > 0)
-                {
-                    sale.DiscountPercent = Convert.ToDouble(nupDiscountPercent.Value);
-
-                }
-                sale.Discount = workOrder.Discount;
-                sale.DiscountPercent = workOrder.DiscountPercent;
-                if (nupVatPercent.Value > 0)
-                {
-                    sale.VatPercent = Convert.ToDouble(nupVatPercent.Value);
-                }
-                sale.DeliveryDate = dEDeliveryDate.DateTime;
-                sale.DeliveryAddress = txtDeliveryAddress.Text;
-                sale.Note = txtNote.Text;
-
-                List<SaleDetail> saleDetails1 = saleDetails.ToList();
-                SaleBLL saleBLL = new SaleBLL();
-                saleBLL.Save(sale, saleDetails1);
-                saleId = sale.Id;
-
-            }
-        }
-
-        private void SavePayment()
-        {
-            bool isValid = IsPaymentValid();
-            if (isValid)
-            {
-                Payment payment = new Payment();
-                payment.UserId = Global.Userid;
-                payment.Fiscalyear = txtFiscalYear.Text;
-                payment.SaleId = saleId;
-                payment.PartyId = workOrder.PartyId;
-                payment.PaymentType = Convert.ToInt32((PaymentStatus)Enum.Parse(typeof(PaymentStatus), cmoPayment.Text));
-                payment.TransactionDate = dETransactionDate.DateTime;
-                payment.Discount = workOrder.Discount;
-                payment.DiscountPercent = workOrder.DiscountPercent;
-                if (nupVatPercent2.Value > 0)
-                {
-                    payment.VatPercent = Convert.ToDouble(nupVatPercent2.Value);
-                }
-                payment.TotalIncvat = Convert.ToDouble(nupTotalIncVat2.Value);
-                payment.TransactionType = Convert.ToInt32((TransactionStatus)Enum.Parse(typeof(TransactionStatus), cmoTransaction.Text));
-                payment.BankName = txtBankName.Text;
-                payment.CheckNo = txtBankName.Text;
-                payment.BkashTransactionNo = txtBkashNo.Text;
-                payment.Note = txtNote.Text;
-
-                PaymentBLL paymentBLL = new PaymentBLL();
-                paymentBLL.Save(payment);
+                wizardControl1.SetPreviousPage();
+                return false;
             }
 
+            bool isValid1 = IsPaymentValid();
+            if (!isValid1)
+            {
+                return false;
+            }
+
+            Sale sale = new Sale();
+            sale.UserId = Global.Userid;
+            sale.Fiscalyear = txtFiscalYear.Text;
+            sale.PartyId = workOrder.PartyId;
+            sale.WorkOrderId = workOrder.Id;
+            sale.ChallanNo = Convert.ToInt32(txtChallanNo.Text);
+            sale.SaleDate = dESaleDate.DateTime;
+            sale.TotalIncvat = Convert.ToDouble(nupTotalIncVat.Value);
+            if (nupDiscountPercent.Value > 0)
+            {
+                sale.DiscountPercent = Convert.ToDouble(nupDiscountPercent.Value);
+
+            }
+            sale.Discount = workOrder.Discount;
+            sale.DiscountPercent = workOrder.DiscountPercent;
+            if (nupVatPercent.Value > 0)
+            {
+                sale.VatPercent = Convert.ToDouble(nupVatPercent.Value);
+            }
+            sale.DeliveryDate = dEDeliveryDate.DateTime;
+            sale.DeliveryAddress = txtDeliveryAddress.Text;
+            sale.Note = txtNote.Text;
+
+            Payment payment = new Payment();
+            payment.UserId = Global.Userid;
+            payment.Fiscalyear = txtFiscalYear.Text;
+            //payment.SaleId = saleId;
+            payment.PartyId = workOrder.PartyId;
+            payment.PaymentType = Convert.ToInt32((PaymentStatus)Enum.Parse(typeof(PaymentStatus), cmoPayment.Text));
+            payment.TransactionDate = dETransactionDate.DateTime;
+            payment.Discount = workOrder.Discount;
+            payment.DiscountPercent = workOrder.DiscountPercent;
+            if (nupVatPercent2.Value > 0)
+            {
+                payment.VatPercent = Convert.ToDouble(nupVatPercent2.Value);
+            }
+            payment.TotalIncvat = Convert.ToDouble(nupTotalIncVat2.Value);
+            payment.TransactionType = Convert.ToInt32((TransactionStatus)Enum.Parse(typeof(TransactionStatus), cmoTransaction.Text));
+            payment.BankName = txtBankName.Text;
+            payment.CheckNo = txtBankName.Text;
+            payment.BkashTransactionNo = txtBkashNo.Text;
+            payment.Note = txtNote.Text;
+
+            List<SaleDetail> saleDetails1 = saleDetails.ToList();
+            SaleBLL saleBLL = new SaleBLL();
+            saleBLL.Save(sale, saleDetails1, payment);
+            
+            return true;
         }
         private void wizardControl1_FinishClick(object sender, CancelEventArgs e)
         {
-            SaveSale();
-            SavePayment();
-            this.Close();
+            //SaveSale();
+            //SavePayment();
+
+          bool isSaved = Save();
+            if (isSaved)
+            {
+                this.Close();
+            }
+            
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -278,28 +350,23 @@ namespace SPDM.UI
             eP.Clear();
             Boolean iv = true;
 
-            //if (string.IsNullOrEmpty(txtUserId.Text))
-            //{
-            //    txtUserId.Focus();
-            //    eP.SetError(txtUserId, "Can't empty");
-            //    iv = false;
+            if (string.IsNullOrEmpty(cmoPayment.Text))
+            {
+                cmoPayment.Focus();
+                eP.SetError(cmoPayment, "Can't empty");
+                iv = false;
 
-            //}
+            }
 
 
-            //if (string.IsNullOrEmpty(txtPartyId.Text))
-            //{
+            if (string.IsNullOrEmpty(cmoTransaction.Text))
+            {
 
-            //    eP.SetError(txtPartyId, "Can't empty");
-            //    iv = false;
+                eP.SetError(cmoTransaction, "Can't empty");
+                iv = false;
 
-            //}
+            }
 
-            //if (string.IsNullOrEmpty(txtSaleId.Text))
-            //{
-            //    eP.SetError(txtSaleId, "Can't empty");
-            //    iv = false;
-            //}
             return iv;
         }
 

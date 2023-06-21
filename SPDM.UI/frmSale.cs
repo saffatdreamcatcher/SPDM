@@ -84,7 +84,7 @@ namespace SPDM.UI
 
                 List<SaleDetail> saleDetails1 = saleDetails.ToList();
                 SaleBLL saleBLL = new SaleBLL();
-                saleBLL.Save(sale, saleDetails1);
+                //saleBLL.Save(sale, saleDetails1);
 
 
             }

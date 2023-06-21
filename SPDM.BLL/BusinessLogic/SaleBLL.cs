@@ -10,7 +10,7 @@ namespace SPDM.BLL.BusinessLogic
 {
     public class SaleBLL
     {
-        public int Save(Sale sale, List<SaleDetail> saleDetails)
+        public int Save(Sale sale, List<SaleDetail> saleDetails, Payment payment)
         {
             try
             {
@@ -22,6 +22,7 @@ namespace SPDM.BLL.BusinessLogic
                 SaleDLL saleDLL = new SaleDLL();
                 SaleDetailDLL saleDetailDLL = new SaleDetailDLL();
                 WorkOrderDLL workOrderDLL = new WorkOrderDLL();
+                PaymentDLL paymentDLL = new PaymentDLL();
 
                 foreach (SaleDetail sd in saleDetails)
                 {
@@ -68,13 +69,14 @@ namespace SPDM.BLL.BusinessLogic
 
                 saleDLL.Save(sale);
                 
-
-
                 foreach (SaleDetail saleDetail in saleDetails)
                 {
                     saleDetail.SaleId = sale.Id;
                     saleDetailDLL.Save(saleDetail);
                 }
+                payment.SaleId = sale.Id;
+                paymentDLL.Save(payment);
+
                 return sale.Id;
 
             }
