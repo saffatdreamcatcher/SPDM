@@ -494,20 +494,19 @@ namespace SPDM.UI
                 //{
                 //    //wizardControl1.SetNextPage();
                 //}
-                
             }
         }
 
         private void wizardControl1_SelectedPageChanging(object sender, DevExpress.XtraWizard.WizardPageChangingEventArgs e)
         {
-            if (e.Page == wizardPage2 && !isSaleValid)
-            {
-                e.Page = wizardPage1;
-            }
-            else if (e.Page == wizardPage2 && !isPaymentValid)
-            {
-                e.Page = wizardPage2;
-            }
+            //if (e.PrevPage == wizardPage1 && !IsSaleValid())
+            //{
+            //    e.Cancel = true;
+            //}
+            //else if (e.PrevPage == wizardPage2 && !IsPaymentValid())
+            //{
+            //    e.Cancel = true;
+            //}
 
         }
     }
