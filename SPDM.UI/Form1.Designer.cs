@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.wizardControl1 = new DevExpress.XtraWizard.WizardControl();
             this.wizardPage1 = new DevExpress.XtraWizard.WizardPage();
+            this.dEDeliveryDate = new DevExpress.XtraEditors.DateEdit();
+            this.dESaleDate = new DevExpress.XtraEditors.DateEdit();
             this.gvSaleDetail = new System.Windows.Forms.DataGridView();
             this.updateTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.saleIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -117,11 +119,14 @@
             this.dETransactionDate = new DevExpress.XtraEditors.DateEdit();
             this.label28 = new System.Windows.Forms.Label();
             this.eP = new System.Windows.Forms.ErrorProvider(this.components);
-            this.dESaleDate = new DevExpress.XtraEditors.DateEdit();
-            this.dEDeliveryDate = new DevExpress.XtraEditors.DateEdit();
+            this.wizardPage3 = new DevExpress.XtraWizard.WizardPage();
             ((System.ComponentModel.ISupportInitialize)(this.wizardControl1)).BeginInit();
             this.wizardControl1.SuspendLayout();
             this.wizardPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dEDeliveryDate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dEDeliveryDate.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dESaleDate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dESaleDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvSaleDetail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saleDetailBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupTotalIncVat1)).BeginInit();
@@ -137,16 +142,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.dETransactionDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dETransactionDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eP)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dESaleDate.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dESaleDate.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dEDeliveryDate.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dEDeliveryDate.Properties.CalendarTimeProperties)).BeginInit();
             this.SuspendLayout();
             // 
             // wizardControl1
             // 
             this.wizardControl1.Controls.Add(this.wizardPage1);
             this.wizardControl1.Controls.Add(this.wizardPage2);
+            this.wizardControl1.Controls.Add(this.wizardPage3);
             this.wizardControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.wizardControl1.ImageOptions.ImageWidth = 231;
             this.wizardControl1.Margin = new System.Windows.Forms.Padding(4);
@@ -154,10 +156,12 @@
             this.wizardControl1.Name = "wizardControl1";
             this.wizardControl1.Pages.AddRange(new DevExpress.XtraWizard.BaseWizardPage[] {
             this.wizardPage1,
-            this.wizardPage2});
+            this.wizardPage2,
+            this.wizardPage3});
             this.wizardControl1.Size = new System.Drawing.Size(1455, 910);
             this.wizardControl1.Text = "";
             this.wizardControl1.FinishClick += new System.ComponentModel.CancelEventHandler(this.wizardControl1_FinishClick);
+            this.wizardControl1.NextClick += new DevExpress.XtraWizard.WizardCommandButtonClickEventHandler(this.wizardControl1_NextClick);
             this.wizardControl1.Click += new System.EventHandler(this.wizardControl1_Click);
             // 
             // wizardPage1
@@ -217,6 +221,40 @@
             this.wizardPage1.Name = "wizardPage1";
             this.wizardPage1.Size = new System.Drawing.Size(1415, 732);
             this.wizardPage1.Text = "Sale";
+            // 
+            // dEDeliveryDate
+            // 
+            this.dEDeliveryDate.EditValue = null;
+            this.dEDeliveryDate.Location = new System.Drawing.Point(825, 308);
+            this.dEDeliveryDate.Name = "dEDeliveryDate";
+            this.dEDeliveryDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dEDeliveryDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dEDeliveryDate.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.dEDeliveryDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dEDeliveryDate.Properties.EditFormat.FormatString = "dd/MM/yyyy";
+            this.dEDeliveryDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dEDeliveryDate.Properties.MaskSettings.Set("mask", "dd/MM/yyyy");
+            this.dEDeliveryDate.Size = new System.Drawing.Size(196, 22);
+            this.dEDeliveryDate.TabIndex = 118;
+            // 
+            // dESaleDate
+            // 
+            this.dESaleDate.EditValue = null;
+            this.dESaleDate.Location = new System.Drawing.Point(480, 312);
+            this.dESaleDate.Name = "dESaleDate";
+            this.dESaleDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dESaleDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dESaleDate.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.dESaleDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dESaleDate.Properties.EditFormat.FormatString = "dd/MM/yyyy";
+            this.dESaleDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dESaleDate.Properties.MaskSettings.Set("mask", "dd/MM/yyyy");
+            this.dESaleDate.Size = new System.Drawing.Size(195, 22);
+            this.dESaleDate.TabIndex = 117;
             // 
             // gvSaleDetail
             // 
@@ -1047,39 +1085,13 @@
             // 
             this.eP.ContainerControl = this;
             // 
-            // dESaleDate
+            // wizardPage3
             // 
-            this.dESaleDate.EditValue = null;
-            this.dESaleDate.Location = new System.Drawing.Point(480, 312);
-            this.dESaleDate.Name = "dESaleDate";
-            this.dESaleDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dESaleDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dESaleDate.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
-            this.dESaleDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dESaleDate.Properties.EditFormat.FormatString = "dd/MM/yyyy";
-            this.dESaleDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dESaleDate.Properties.MaskSettings.Set("mask", "dd/MM/yyyy");
-            this.dESaleDate.Size = new System.Drawing.Size(195, 22);
-            this.dESaleDate.TabIndex = 117;
-            // 
-            // dEDeliveryDate
-            // 
-            this.dEDeliveryDate.EditValue = null;
-            this.dEDeliveryDate.Location = new System.Drawing.Point(825, 308);
-            this.dEDeliveryDate.Name = "dEDeliveryDate";
-            this.dEDeliveryDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dEDeliveryDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dEDeliveryDate.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
-            this.dEDeliveryDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dEDeliveryDate.Properties.EditFormat.FormatString = "dd/MM/yyyy";
-            this.dEDeliveryDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dEDeliveryDate.Properties.MaskSettings.Set("mask", "dd/MM/yyyy");
-            this.dEDeliveryDate.Size = new System.Drawing.Size(196, 22);
-            this.dEDeliveryDate.TabIndex = 118;
+            this.wizardPage3.AllowBack = false;
+            this.wizardPage3.DescriptionText = "Sale and Payment done sucessfully!";
+            this.wizardPage3.Name = "wizardPage3";
+            this.wizardPage3.Size = new System.Drawing.Size(1415, 732);
+            this.wizardPage3.Text = "Information Saved";
             // 
             // Form1
             // 
@@ -1094,6 +1106,10 @@
             this.wizardControl1.ResumeLayout(false);
             this.wizardPage1.ResumeLayout(false);
             this.wizardPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dEDeliveryDate.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dEDeliveryDate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dESaleDate.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dESaleDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvSaleDetail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.saleDetailBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupTotalIncVat1)).EndInit();
@@ -1110,10 +1126,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dETransactionDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dETransactionDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eP)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dESaleDate.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dESaleDate.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dEDeliveryDate.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dEDeliveryDate.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1210,5 +1222,6 @@
         private System.Windows.Forms.NumericUpDown nupTotalIncVat2;
         private DevExpress.XtraEditors.DateEdit dEDeliveryDate;
         private DevExpress.XtraEditors.DateEdit dESaleDate;
+        private DevExpress.XtraWizard.WizardPage wizardPage3;
     }
 }
