@@ -17,6 +17,9 @@ namespace SPDM.UI
         private List<WorkOrderDetail> workOrderDetails;
         private BindingList<SaleDetail> saleDetails = new BindingList<SaleDetail>();
         //private int saleId;
+        private bool isSaved = false;
+        private bool isSaleValid = false;
+        private bool isPaymentValid = false;
 
         WorkOrder workOrder;
         public Form1()
@@ -120,15 +123,15 @@ namespace SPDM.UI
 
         private bool Save()
         {
-            bool isValid = IsSaleValid();
-            if (!isValid)
+             isSaleValid = IsSaleValid();
+            if (!isSaleValid)
             {
-                wizardControl1.SetPreviousPage();
+                //wizardControl1.SetPreviousPage();
                 return false;
             }
 
-            bool isValid1 = IsPaymentValid();
-            if (!isValid1)
+            isPaymentValid = IsPaymentValid();
+            if (!isPaymentValid)
             {
                 return false;
             }
@@ -486,12 +489,26 @@ namespace SPDM.UI
         {
             if (wizardControl1.SelectedPage.Name == "wizardPage2")
             {
-                bool isSaved = Save();
-                if (isSaved)
-                {
-                    //wizardControl1.SetNextPage();
-                }
+                isSaved = Save();
+                //if (isSaved)
+                //{
+                //    //wizardControl1.SetNextPage();
+                //}
+                
             }
+        }
+
+        private void wizardControl1_SelectedPageChanging(object sender, DevExpress.XtraWizard.WizardPageChangingEventArgs e)
+        {
+            if (e.Page == wizardPage2 && !isSaleValid)
+            {
+                e.Page = wizardPage1;
+            }
+            else if (e.Page == wizardPage2 && !isPaymentValid)
+            {
+                e.Page = wizardPage2;
+            }
+
         }
     }
 }

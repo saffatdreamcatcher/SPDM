@@ -118,8 +118,8 @@
             this.label29 = new System.Windows.Forms.Label();
             this.dETransactionDate = new DevExpress.XtraEditors.DateEdit();
             this.label28 = new System.Windows.Forms.Label();
-            this.eP = new System.Windows.Forms.ErrorProvider(this.components);
             this.wizardPage3 = new DevExpress.XtraWizard.WizardPage();
+            this.eP = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.wizardControl1)).BeginInit();
             this.wizardControl1.SuspendLayout();
             this.wizardPage1.SuspendLayout();
@@ -160,6 +160,7 @@
             this.wizardPage3});
             this.wizardControl1.Size = new System.Drawing.Size(1455, 910);
             this.wizardControl1.Text = "";
+            this.wizardControl1.SelectedPageChanging += new DevExpress.XtraWizard.WizardPageChangingEventHandler(this.wizardControl1_SelectedPageChanging);
             this.wizardControl1.FinishClick += new System.ComponentModel.CancelEventHandler(this.wizardControl1_FinishClick);
             this.wizardControl1.NextClick += new DevExpress.XtraWizard.WizardCommandButtonClickEventHandler(this.wizardControl1_NextClick);
             this.wizardControl1.Click += new System.EventHandler(this.wizardControl1_Click);
@@ -1081,10 +1082,6 @@
             this.label28.TabIndex = 11;
             this.label28.Text = "PaymentType";
             // 
-            // eP
-            // 
-            this.eP.ContainerControl = this;
-            // 
             // wizardPage3
             // 
             this.wizardPage3.AllowBack = false;
@@ -1092,6 +1089,10 @@
             this.wizardPage3.Name = "wizardPage3";
             this.wizardPage3.Size = new System.Drawing.Size(1415, 732);
             this.wizardPage3.Text = "Information Saved";
+            // 
+            // eP
+            // 
+            this.eP.ContainerControl = this;
             // 
             // Form1
             // 
