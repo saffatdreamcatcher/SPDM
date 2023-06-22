@@ -179,7 +179,7 @@ namespace SPDM.UI
             List<SaleDetail> saleDetails1 = saleDetails.ToList();
             SaleBLL saleBLL = new SaleBLL();
             saleBLL.Save(sale, saleDetails1, payment);
-            
+
             return true;
         }
         private void wizardControl1_FinishClick(object sender, CancelEventArgs e)
@@ -187,12 +187,13 @@ namespace SPDM.UI
             //SaveSale();
             //SavePayment();
 
-          bool isSaved = Save();
-            if (isSaved)
-            {
-                this.Close();
-            }
-            
+            //bool isSaved = Save();
+            //  if (isSaved)
+            //  {
+            //      this.Close();
+            //  }
+            this.Close();
+
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -372,7 +373,7 @@ namespace SPDM.UI
 
 
 
-            private void cmoItem_SelectedIndexChanged(object sender, EventArgs e)
+        private void cmoItem_SelectedIndexChanged(object sender, EventArgs e)
         {
             ClearSaleDetail();
             if (cmoItem.SelectedIndex > 0)
@@ -467,18 +468,30 @@ namespace SPDM.UI
 
         private void wizardPage2_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void wizardControl1_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             LoadPaymentType();
             LoadTransactionType();
+        }
+
+        private void wizardControl1_NextClick(object sender, DevExpress.XtraWizard.WizardCommandButtonClickEventArgs e)
+        {
+            if (wizardControl1.SelectedPage.Name == "wizardPage2")
+            {
+                bool isSaved = Save();
+                if (isSaved)
+                {
+                    //wizardControl1.SetNextPage();
+                }
+            }
         }
     }
 }
