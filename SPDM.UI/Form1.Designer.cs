@@ -106,20 +106,16 @@
             this.label36 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
-            this.nupTotalIncVat2 = new System.Windows.Forms.NumericUpDown();
-            this.nupVatPercent2 = new System.Windows.Forms.NumericUpDown();
-            this.label31 = new System.Windows.Forms.Label();
-            this.nupDiscountPercent2 = new System.Windows.Forms.NumericUpDown();
-            this.label32 = new System.Windows.Forms.Label();
-            this.cmoTransaction = new System.Windows.Forms.ComboBox();
-            this.label30 = new System.Windows.Forms.Label();
             this.cmoPayment = new System.Windows.Forms.ComboBox();
             this.label29 = new System.Windows.Forms.Label();
             this.dETransactionDate = new DevExpress.XtraEditors.DateEdit();
             this.label28 = new System.Windows.Forms.Label();
             this.wizardPage3 = new DevExpress.XtraWizard.WizardPage();
             this.eP = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label33 = new System.Windows.Forms.Label();
+            this.nupTotal = new System.Windows.Forms.NumericUpDown();
+            this.cmoTransaction = new System.Windows.Forms.ComboBox();
+            this.label30 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.wizardControl1)).BeginInit();
             this.wizardControl1.SuspendLayout();
             this.wizardPage1.SuspendLayout();
@@ -136,12 +132,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.nupDiscountPercent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupTotalIncVat)).BeginInit();
             this.wizardPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nupTotalIncVat2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nupVatPercent2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nupDiscountPercent2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dETransactionDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dETransactionDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupTotal)).BeginInit();
             this.SuspendLayout();
             // 
             // wizardControl1
@@ -872,6 +866,10 @@
             // 
             // wizardPage2
             // 
+            this.wizardPage2.Controls.Add(this.label33);
+            this.wizardPage2.Controls.Add(this.nupTotal);
+            this.wizardPage2.Controls.Add(this.cmoTransaction);
+            this.wizardPage2.Controls.Add(this.label30);
             this.wizardPage2.Controls.Add(this.txtNote2);
             this.wizardPage2.Controls.Add(this.txtBkashNo);
             this.wizardPage2.Controls.Add(this.txtCheckNo);
@@ -880,14 +878,6 @@
             this.wizardPage2.Controls.Add(this.label36);
             this.wizardPage2.Controls.Add(this.label35);
             this.wizardPage2.Controls.Add(this.label34);
-            this.wizardPage2.Controls.Add(this.label33);
-            this.wizardPage2.Controls.Add(this.nupTotalIncVat2);
-            this.wizardPage2.Controls.Add(this.nupVatPercent2);
-            this.wizardPage2.Controls.Add(this.label31);
-            this.wizardPage2.Controls.Add(this.nupDiscountPercent2);
-            this.wizardPage2.Controls.Add(this.label32);
-            this.wizardPage2.Controls.Add(this.cmoTransaction);
-            this.wizardPage2.Controls.Add(this.label30);
             this.wizardPage2.Controls.Add(this.cmoPayment);
             this.wizardPage2.Controls.Add(this.label29);
             this.wizardPage2.Controls.Add(this.dETransactionDate);
@@ -901,28 +891,28 @@
             // 
             // txtNote2
             // 
-            this.txtNote2.Location = new System.Drawing.Point(510, 284);
+            this.txtNote2.Location = new System.Drawing.Point(1152, 184);
             this.txtNote2.Name = "txtNote2";
             this.txtNote2.Size = new System.Drawing.Size(182, 22);
             this.txtNote2.TabIndex = 115;
             // 
             // txtBkashNo
             // 
-            this.txtBkashNo.Location = new System.Drawing.Point(126, 287);
+            this.txtBkashNo.Location = new System.Drawing.Point(804, 187);
             this.txtBkashNo.Name = "txtBkashNo";
             this.txtBkashNo.Size = new System.Drawing.Size(193, 22);
             this.txtBkashNo.TabIndex = 114;
             // 
             // txtCheckNo
             // 
-            this.txtCheckNo.Location = new System.Drawing.Point(1152, 193);
+            this.txtCheckNo.Location = new System.Drawing.Point(500, 187);
             this.txtCheckNo.Name = "txtCheckNo";
             this.txtCheckNo.Size = new System.Drawing.Size(182, 22);
             this.txtCheckNo.TabIndex = 113;
             // 
             // txtBankName
             // 
-            this.txtBankName.Location = new System.Drawing.Point(826, 198);
+            this.txtBankName.Location = new System.Drawing.Point(137, 190);
             this.txtBankName.Name = "txtBankName";
             this.txtBankName.Size = new System.Drawing.Size(182, 22);
             this.txtBankName.TabIndex = 112;
@@ -930,7 +920,7 @@
             // label37
             // 
             this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(441, 290);
+            this.label37.Location = new System.Drawing.Point(1090, 196);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(36, 16);
             this.label37.TabIndex = 111;
@@ -939,7 +929,7 @@
             // label36
             // 
             this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(47, 290);
+            this.label36.Location = new System.Drawing.Point(724, 190);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(63, 16);
             this.label36.TabIndex = 110;
@@ -948,7 +938,7 @@
             // label35
             // 
             this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(1063, 196);
+            this.label35.Location = new System.Drawing.Point(414, 193);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(63, 16);
             this.label35.TabIndex = 109;
@@ -957,87 +947,11 @@
             // label34
             // 
             this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(721, 204);
+            this.label34.Location = new System.Drawing.Point(46, 196);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(75, 16);
             this.label34.TabIndex = 108;
             this.label34.Text = "BankName";
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(29, 211);
-            this.label33.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(81, 16);
-            this.label33.TabIndex = 106;
-            this.label33.Text = "Total Inc Vat";
-            // 
-            // nupTotalIncVat2
-            // 
-            this.nupTotalIncVat2.Location = new System.Drawing.Point(126, 205);
-            this.nupTotalIncVat2.Margin = new System.Windows.Forms.Padding(4);
-            this.nupTotalIncVat2.Maximum = new decimal(new int[] {
-            -1981284352,
-            -1966660860,
-            0,
-            0});
-            this.nupTotalIncVat2.Name = "nupTotalIncVat2";
-            this.nupTotalIncVat2.Size = new System.Drawing.Size(193, 22);
-            this.nupTotalIncVat2.TabIndex = 107;
-            // 
-            // nupVatPercent2
-            // 
-            this.nupVatPercent2.Location = new System.Drawing.Point(1152, 108);
-            this.nupVatPercent2.Margin = new System.Windows.Forms.Padding(4);
-            this.nupVatPercent2.Name = "nupVatPercent2";
-            this.nupVatPercent2.Size = new System.Drawing.Size(184, 22);
-            this.nupVatPercent2.TabIndex = 105;
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(1072, 115);
-            this.label31.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(42, 16);
-            this.label31.TabIndex = 104;
-            this.label31.Text = "Vat %";
-            // 
-            // nupDiscountPercent2
-            // 
-            this.nupDiscountPercent2.Location = new System.Drawing.Point(826, 109);
-            this.nupDiscountPercent2.Margin = new System.Windows.Forms.Padding(4);
-            this.nupDiscountPercent2.Name = "nupDiscountPercent2";
-            this.nupDiscountPercent2.Size = new System.Drawing.Size(182, 22);
-            this.nupDiscountPercent2.TabIndex = 103;
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(718, 110);
-            this.label32.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(74, 16);
-            this.label32.TabIndex = 102;
-            this.label32.Text = "Discount %";
-            // 
-            // cmoTransaction
-            // 
-            this.cmoTransaction.FormattingEnabled = true;
-            this.cmoTransaction.Location = new System.Drawing.Point(510, 196);
-            this.cmoTransaction.Name = "cmoTransaction";
-            this.cmoTransaction.Size = new System.Drawing.Size(181, 24);
-            this.cmoTransaction.TabIndex = 17;
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(367, 205);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(110, 16);
-            this.label30.TabIndex = 16;
-            this.label30.Text = "TransactionType";
             // 
             // cmoPayment
             // 
@@ -1050,7 +964,7 @@
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(370, 111);
+            this.label29.Location = new System.Drawing.Point(1019, 104);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(107, 16);
             this.label29.TabIndex = 14;
@@ -1059,7 +973,7 @@
             // dETransactionDate
             // 
             this.dETransactionDate.EditValue = null;
-            this.dETransactionDate.Location = new System.Drawing.Point(510, 108);
+            this.dETransactionDate.Location = new System.Drawing.Point(1152, 98);
             this.dETransactionDate.Name = "dETransactionDate";
             this.dETransactionDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -1094,6 +1008,46 @@
             // 
             this.eP.ContainerControl = this;
             // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(735, 103);
+            this.label33.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(41, 16);
+            this.label33.TabIndex = 118;
+            this.label33.Text = "Total ";
+            // 
+            // nupTotal
+            // 
+            this.nupTotal.Location = new System.Drawing.Point(804, 98);
+            this.nupTotal.Margin = new System.Windows.Forms.Padding(4);
+            this.nupTotal.Maximum = new decimal(new int[] {
+            -1981284352,
+            -1966660860,
+            0,
+            0});
+            this.nupTotal.Name = "nupTotal";
+            this.nupTotal.Size = new System.Drawing.Size(193, 22);
+            this.nupTotal.TabIndex = 119;
+            // 
+            // cmoTransaction
+            // 
+            this.cmoTransaction.FormattingEnabled = true;
+            this.cmoTransaction.Location = new System.Drawing.Point(500, 101);
+            this.cmoTransaction.Name = "cmoTransaction";
+            this.cmoTransaction.Size = new System.Drawing.Size(181, 24);
+            this.cmoTransaction.TabIndex = 117;
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(367, 105);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(110, 16);
+            this.label30.TabIndex = 116;
+            this.label30.Text = "TransactionType";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1121,12 +1075,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.nupTotalIncVat)).EndInit();
             this.wizardPage2.ResumeLayout(false);
             this.wizardPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nupTotalIncVat2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nupVatPercent2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nupDiscountPercent2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dETransactionDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dETransactionDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupTotal)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1204,13 +1156,7 @@
         private System.Windows.Forms.Label label29;
         private DevExpress.XtraEditors.DateEdit dETransactionDate;
         private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.ComboBox cmoTransaction;
-        private System.Windows.Forms.Label label30;
         private System.Windows.Forms.ComboBox cmoPayment;
-        private System.Windows.Forms.NumericUpDown nupVatPercent2;
-        private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.NumericUpDown nupDiscountPercent2;
-        private System.Windows.Forms.Label label32;
         private System.Windows.Forms.TextBox txtNote2;
         private System.Windows.Forms.TextBox txtBkashNo;
         private System.Windows.Forms.TextBox txtCheckNo;
@@ -1219,10 +1165,12 @@
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.NumericUpDown nupTotalIncVat2;
         private DevExpress.XtraEditors.DateEdit dEDeliveryDate;
         private DevExpress.XtraEditors.DateEdit dESaleDate;
         private DevExpress.XtraWizard.WizardPage wizardPage3;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.NumericUpDown nupTotal;
+        private System.Windows.Forms.ComboBox cmoTransaction;
+        private System.Windows.Forms.Label label30;
     }
 }

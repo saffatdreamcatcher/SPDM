@@ -10,7 +10,7 @@ namespace SPDM.DLL.Entities
     {
         Advance = 1,
         PartiallyPaid,
-        Paid
+        FullPaid
 
     }
 }

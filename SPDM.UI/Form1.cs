@@ -163,17 +163,10 @@ namespace SPDM.UI
             Payment payment = new Payment();
             payment.UserId = Global.Userid;
             payment.Fiscalyear = txtFiscalYear.Text;
-            //payment.SaleId = saleId;
             payment.PartyId = workOrder.PartyId;
             payment.PaymentType = Convert.ToInt32((PaymentStatus)Enum.Parse(typeof(PaymentStatus), cmoPayment.Text));
             payment.TransactionDate = dETransactionDate.DateTime;
-            payment.Discount = workOrder.Discount;
-            payment.DiscountPercent = workOrder.DiscountPercent;
-            if (nupVatPercent2.Value > 0)
-            {
-                payment.VatPercent = Convert.ToDouble(nupVatPercent2.Value);
-            }
-            payment.TotalIncvat = Convert.ToDouble(nupTotalIncVat2.Value);
+            payment.Total = Convert.ToDouble(nupTotal.Value);
             payment.TransactionType = Convert.ToInt32((TransactionStatus)Enum.Parse(typeof(TransactionStatus), cmoTransaction.Text));
             payment.BankName = txtBankName.Text;
             payment.CheckNo = txtBankName.Text;
@@ -362,7 +355,6 @@ namespace SPDM.UI
 
             }
 
-
             if (cmoTransaction.SelectedIndex == 0)
             {
 
@@ -371,7 +363,41 @@ namespace SPDM.UI
 
             }
 
-            return iv;
+            if (nupTotal.Value == 0)
+            {
+                eP.SetError(nupTotal, "Can't be zero");
+                iv = false;
+            }
+
+            if (dETransactionDate.EditValue == null)
+            {
+                eP.SetError(dETransactionDate, "Provide Transaction Date");
+                iv = false;
+            }
+
+            if (cmoTransaction.SelectedIndex == 3 && txtBkashNo.Text == string.Empty)
+            {
+                eP.SetError(txtBkashNo, "Please Enter Bkash Number");
+                iv = false;
+            }
+
+            if (cmoTransaction.SelectedIndex == 2 && txtBankName.Text == string.Empty)
+            {
+                eP.SetError(txtBankName, "Please Enter Bank Name");
+                iv = false;
+                //if (txtCheckNo.Text == string.Empty)
+                //{
+                //    eP.SetError(txtCheckNo, "Please Enter Check Number");
+                //        iv = false;
+                //}
+            }
+
+            if (cmoTransaction.SelectedIndex == 2 && txtCheckNo.Text == string.Empty)
+            {
+                eP.SetError(txtCheckNo, "Please Enter Check Number");
+                iv = false;
+            }
+                return iv;
         }
 
 
@@ -441,7 +467,7 @@ namespace SPDM.UI
                 {
                     sum += saleDetail1.TotalIncvat;
                 }
-                nupTotalIncVat2.Value = Convert.ToDecimal(sum);
+                nupTotal.Value = Convert.ToDecimal(sum);
             }
         }
 
@@ -455,7 +481,10 @@ namespace SPDM.UI
 
             foreach (var item in enumElements)
             {
-                cmoPayment.Items.Add(item);
+                if (cmoPayment.SelectedIndex != 1)
+                {
+                    cmoPayment.Items.Add(item);
+                }
             }
             cmoPayment.SelectedIndex = 0;
 
@@ -501,8 +530,8 @@ namespace SPDM.UI
             else if (wizardControl1.SelectedPage.Name == "wizardPage2")
             {
                 isPaymentValid = IsPaymentValid();
-                if (isPaymentValid)
-                    Save();
+                //if (isPaymentValid)
+                //    Save();
             }
         }
 
