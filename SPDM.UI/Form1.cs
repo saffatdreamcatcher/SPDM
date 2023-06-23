@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DevExpress.XtraWizard;
 
 namespace SPDM.UI
 {
@@ -121,20 +122,20 @@ namespace SPDM.UI
 
         //}
 
-        private bool Save()
+        private void Save()
         {
-             isSaleValid = IsSaleValid();
-            if (!isSaleValid)
-            {
-                //wizardControl1.SetPreviousPage();
-                return false;
-            }
+            // isSaleValid = IsSaleValid();
+            //if (!isSaleValid)
+            //{
+            //    //wizardControl1.SetPreviousPage();
+            //    return false;
+            //}
 
-            isPaymentValid = IsPaymentValid();
-            if (!isPaymentValid)
-            {
-                return false;
-            }
+            //isPaymentValid = IsPaymentValid();
+            //if (!isPaymentValid)
+            //{
+            //    return false;
+            //}
 
             Sale sale = new Sale();
             sale.UserId = Global.Userid;
@@ -183,7 +184,6 @@ namespace SPDM.UI
             SaleBLL saleBLL = new SaleBLL();
             saleBLL.Save(sale, saleDetails1, payment);
 
-            return true;
         }
         private void wizardControl1_FinishClick(object sender, CancelEventArgs e)
         {
@@ -354,7 +354,7 @@ namespace SPDM.UI
             eP.Clear();
             Boolean iv = true;
 
-            if (string.IsNullOrEmpty(cmoPayment.Text))
+            if (cmoPayment.SelectedIndex == 0)
             {
                 cmoPayment.Focus();
                 eP.SetError(cmoPayment, "Can't empty");
@@ -363,7 +363,7 @@ namespace SPDM.UI
             }
 
 
-            if (string.IsNullOrEmpty(cmoTransaction.Text))
+            if (cmoTransaction.SelectedIndex == 0)
             {
 
                 eP.SetError(cmoTransaction, "Can't empty");
@@ -422,7 +422,7 @@ namespace SPDM.UI
                 saleDetail.DiscountPercent = Convert.ToDouble(nupDiscountPercent1.Value);
                 saleDetail.VatPercent = Convert.ToDouble(nupVatPercent1.Value);
                 saleDetail.TotalIncvat = Convert.ToDouble(nupTotalIncVat1.Value);
-
+                
                 foreach (WorkOrderDetail workOrderDetail in workOrderDetails)
                 {
                     if (workOrderDetail.ItemId == saleDetail.ItemId)
@@ -435,6 +435,13 @@ namespace SPDM.UI
                 saleDetails.Add(saleDetail);
                 gvSaleDetail.DataSource = saleDetails;
                 gvSaleDetail.Refresh();
+
+                double sum = 0;
+                foreach (SaleDetail saleDetail1 in saleDetails)
+                {
+                    sum += saleDetail1.TotalIncvat;
+                }
+                nupTotalIncVat2.Value = Convert.ToDecimal(sum);
             }
         }
 
@@ -487,27 +494,31 @@ namespace SPDM.UI
 
         private void wizardControl1_NextClick(object sender, DevExpress.XtraWizard.WizardCommandButtonClickEventArgs e)
         {
-            if (wizardControl1.SelectedPage.Name == "wizardPage2")
+            if (wizardControl1.SelectedPage.Name == "wizardPage1")
             {
-                isSaved = Save();
-                //if (isSaved)
-                //{
-                //    //wizardControl1.SetNextPage();
-                //}
+               isSaleValid = IsSaleValid();
+            }
+            else if (wizardControl1.SelectedPage.Name == "wizardPage2")
+            {
+                isPaymentValid = IsPaymentValid();
+                if (isPaymentValid)
+                    Save();
             }
         }
 
         private void wizardControl1_SelectedPageChanging(object sender, DevExpress.XtraWizard.WizardPageChangingEventArgs e)
         {
-            //if (e.PrevPage == wizardPage1 && !IsSaleValid())
-            //{
-            //    e.Cancel = true;
-            //}
-            //else if (e.PrevPage == wizardPage2 && !IsPaymentValid())
-            //{
-            //    e.Cancel = true;
-            //}
-
+            if (e.Direction == Direction.Forward)
+            {
+                if (e.PrevPage == wizardPage1 && !isSaleValid)
+                {
+                    e.Cancel = true;
+                }
+                else if (e.PrevPage == wizardPage2 && !isPaymentValid)
+                {
+                    e.Cancel = true;
+                }
+            }
         }
     }
 }
