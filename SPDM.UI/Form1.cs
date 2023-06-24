@@ -17,8 +17,7 @@ namespace SPDM.UI
     {
         private List<WorkOrderDetail> workOrderDetails;
         private BindingList<SaleDetail> saleDetails = new BindingList<SaleDetail>();
-        //private int saleId;
-        private bool isSaved = false;
+        private BindingList<Payment> payments = new BindingList<Payment>();
         private bool isSaleValid = false;
         private bool isPaymentValid = false;
 
@@ -160,22 +159,23 @@ namespace SPDM.UI
             sale.DeliveryAddress = txtDeliveryAddress.Text;
             sale.Note = txtNote.Text;
 
-            Payment payment = new Payment();
-            payment.UserId = Global.Userid;
-            payment.Fiscalyear = txtFiscalYear.Text;
-            payment.PartyId = workOrder.PartyId;
-            payment.PaymentType = Convert.ToInt32((PaymentStatus)Enum.Parse(typeof(PaymentStatus), cmoPayment.Text));
-            payment.TransactionDate = dETransactionDate.DateTime;
-            payment.Total = Convert.ToDouble(nupTotal.Value);
-            payment.TransactionType = Convert.ToInt32((TransactionStatus)Enum.Parse(typeof(TransactionStatus), cmoTransaction.Text));
-            payment.BankName = txtBankName.Text;
-            payment.CheckNo = txtBankName.Text;
-            payment.BkashTransactionNo = txtBkashNo.Text;
-            payment.Note = txtNote.Text;
+            //Payment payment = new Payment();
+            //payment.UserId = Global.Userid;
+            //payment.Fiscalyear = txtFiscalYear.Text;
+            //payment.PartyId = workOrder.PartyId;
+            //payment.PaymentType = Convert.ToInt32((PaymentStatus)Enum.Parse(typeof(PaymentStatus), cmoPayment.Text));
+            //payment.TransactionDate = dETransactionDate.DateTime;
+            //payment.Total = Convert.ToDouble(nupTotal.Value);
+            //payment.TransactionType = Convert.ToInt32((TransactionStatus)Enum.Parse(typeof(TransactionStatus), cmoTransaction.Text));
+            //payment.BankName = txtBankName.Text;
+            //payment.CheckNo = txtCheckNo.Text;
+            //payment.BkashTransactionNo = txtBkashNo.Text;
+            //payment.Note = txtNote.Text;
 
             List<SaleDetail> saleDetails1 = saleDetails.ToList();
+            List<Payment> payments1 = payments.ToList();
             SaleBLL saleBLL = new SaleBLL();
-            saleBLL.Save(sale, saleDetails1, payment);
+            saleBLL.Save(sale, saleDetails1, payments1);
 
         }
         private void wizardControl1_FinishClick(object sender, CancelEventArgs e)
@@ -342,7 +342,7 @@ namespace SPDM.UI
 
         }
 
-        private bool IsPaymentValid()
+        private bool IsPaymentGridValid()
         {
             eP.Clear();
             Boolean iv = true;
@@ -385,11 +385,6 @@ namespace SPDM.UI
             {
                 eP.SetError(txtBankName, "Please Enter Bank Name");
                 iv = false;
-                //if (txtCheckNo.Text == string.Empty)
-                //{
-                //    eP.SetError(txtCheckNo, "Please Enter Check Number");
-                //        iv = false;
-                //}
             }
 
             if (cmoTransaction.SelectedIndex == 2 && txtCheckNo.Text == string.Empty)
@@ -397,7 +392,7 @@ namespace SPDM.UI
                 eP.SetError(txtCheckNo, "Please Enter Check Number");
                 iv = false;
             }
-                return iv;
+            return iv;
         }
 
 
@@ -448,7 +443,7 @@ namespace SPDM.UI
                 saleDetail.DiscountPercent = Convert.ToDouble(nupDiscountPercent1.Value);
                 saleDetail.VatPercent = Convert.ToDouble(nupVatPercent1.Value);
                 saleDetail.TotalIncvat = Convert.ToDouble(nupTotalIncVat1.Value);
-                
+
                 foreach (WorkOrderDetail workOrderDetail in workOrderDetails)
                 {
                     if (workOrderDetail.ItemId == saleDetail.ItemId)
@@ -462,16 +457,33 @@ namespace SPDM.UI
                 gvSaleDetail.DataSource = saleDetails;
                 gvSaleDetail.Refresh();
 
-                double sum = 0;
-                foreach (SaleDetail saleDetail1 in saleDetails)
-                {
-                    sum += saleDetail1.TotalIncvat;
-                }
-                nupTotal.Value = Convert.ToDecimal(sum);
+                //double sum = 0;
+                //foreach (SaleDetail saleDetail1 in saleDetails)
+                //{
+                //    sum += saleDetail1.TotalIncvat;
+                //}
+                //nupTotal.Value = Convert.ToDecimal(sum);
+
+
             }
         }
 
+        private bool IsPaymentValid()
+        {
 
+            double sum = 0;
+            foreach (Payment payment1 in payments)
+            {
+                sum += payment1.Total;
+            }
+            Boolean iv = true;
+            if (nupTotalIncVat.Value != Convert.ToDecimal(sum))
+            {
+                eP.SetError(nupTotalIncVat, "Value of the sum must be equal to TotalIncVat");
+                iv = false;
+            }
+            return iv;
+        }
         public void LoadPaymentType()
         {
 
@@ -479,12 +491,13 @@ namespace SPDM.UI
 
             cmoPayment.Items.Add("Please Select-");
 
-            foreach (var item in enumElements)
+            foreach (string item in enumElements)
             {
-                if (cmoPayment.SelectedIndex != 1)
+                if (item == "Advance")
                 {
-                    cmoPayment.Items.Add(item);
+                    continue;
                 }
+                cmoPayment.Items.Add(item);
             }
             cmoPayment.SelectedIndex = 0;
 
@@ -525,13 +538,15 @@ namespace SPDM.UI
         {
             if (wizardControl1.SelectedPage.Name == "wizardPage1")
             {
-               isSaleValid = IsSaleValid();
+                isSaleValid = IsSaleValid();
             }
             else if (wizardControl1.SelectedPage.Name == "wizardPage2")
             {
                 isPaymentValid = IsPaymentValid();
-                //if (isPaymentValid)
-                //    Save();
+
+                if (isPaymentValid)
+                    Save();
+
             }
         }
 
@@ -549,5 +564,50 @@ namespace SPDM.UI
                 }
             }
         }
+
+        private void btnAddPayment_Click(object sender, EventArgs e)
+        {
+            bool isGridValid = IsPaymentGridValid();
+            if (isGridValid)
+            {
+                Payment payment = new Payment();
+                payment.UserId = Global.Userid;
+                payment.Fiscalyear = txtFiscalYear.Text;
+                payment.PartyId = workOrder.PartyId;
+                payment.PaymentType = Convert.ToInt32((PaymentStatus)Enum.Parse(typeof(PaymentStatus), cmoPayment.Text));
+                payment.TransactionDate = dETransactionDate.DateTime;
+                payment.Total = Convert.ToDouble(nupTotal.Value);
+                payment.TransactionType = Convert.ToInt32((TransactionStatus)Enum.Parse(typeof(TransactionStatus), cmoTransaction.Text));
+                payment.BankName = txtBankName.Text;
+                payment.CheckNo = txtCheckNo.Text;
+                payment.BkashTransactionNo = txtBkashNo.Text;
+                payment.Note = txtNote.Text;
+
+                payments.Add(payment);
+                gvPayment.DataSource = payments;
+                gvPayment.Refresh();
+
+                double sum = 0;
+                foreach (Payment payment1 in payments)
+                {
+                    sum += payment1.Total;
+                }
+                nupTotal.Value = nupTotalIncVat.Value - Convert.ToDecimal(sum);
+                ClearPayment();
+            }
+
+        }
+        private void ClearPayment()
+        {
+            cmoPayment.SelectedIndex = 0;
+            cmoTransaction.SelectedIndex = 0;
+            dETransactionDate.EditValue = null;
+            txtBankName.Text = "";
+            txtCheckNo.Text = "";
+            txtBkashNo.Text = "";
+            txtNote.Text = "";
+
+        }
     }
+
 }

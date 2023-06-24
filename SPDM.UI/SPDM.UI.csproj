@@ -265,6 +265,7 @@
     <None Include="Properties\DataSources\SPDM.DLL.Entities.Category.datasource" />
     <None Include="Properties\DataSources\SPDM.DLL.Entities.Item.datasource" />
     <None Include="Properties\DataSources\SPDM.DLL.Entities.Party.datasource" />
+    <None Include="Properties\DataSources\SPDM.DLL.Entities.Payment.datasource" />
     <None Include="Properties\DataSources\SPDM.DLL.Entities.Production.datasource" />
     <None Include="Properties\DataSources\SPDM.DLL.Entities.Role.datasource" />
     <None Include="Properties\DataSources\SPDM.DLL.Entities.Sale.datasource" />
