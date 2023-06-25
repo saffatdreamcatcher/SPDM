@@ -135,6 +135,7 @@
             this.checkNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bkashTransactionNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.noteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewLinkColumn();
             ((System.ComponentModel.ISupportInitialize)(this.wizardControl1)).BeginInit();
             this.wizardControl1.SuspendLayout();
             this.wizardPage1.SuspendLayout();
@@ -942,7 +943,8 @@
             this.isNewDataGridViewCheckBoxColumn1,
             this.checkNoDataGridViewTextBoxColumn,
             this.bkashTransactionNoDataGridViewTextBoxColumn,
-            this.noteDataGridViewTextBoxColumn});
+            this.noteDataGridViewTextBoxColumn,
+            this.Delete});
             this.gvPayment.DataSource = this.paymentBindingSource;
             this.gvPayment.Location = new System.Drawing.Point(32, 332);
             this.gvPayment.Name = "gvPayment";
@@ -950,6 +952,7 @@
             this.gvPayment.RowTemplate.Height = 24;
             this.gvPayment.Size = new System.Drawing.Size(1302, 324);
             this.gvPayment.TabIndex = 120;
+            this.gvPayment.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvPayment_CellClick);
             // 
             // paymentBindingSource
             // 
@@ -1254,6 +1257,15 @@
             this.noteDataGridViewTextBoxColumn.Name = "noteDataGridViewTextBoxColumn";
             this.noteDataGridViewTextBoxColumn.Width = 125;
             // 
+            // Delete
+            // 
+            this.Delete.HeaderText = "Delete";
+            this.Delete.MinimumWidth = 6;
+            this.Delete.Name = "Delete";
+            this.Delete.Text = "Delete";
+            this.Delete.UseColumnTextForLinkValue = true;
+            this.Delete.Width = 125;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1399,5 +1411,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn checkNoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn bkashTransactionNoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn noteDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewLinkColumn Delete;
     }
 }

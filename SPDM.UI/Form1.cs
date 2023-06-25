@@ -479,7 +479,7 @@ namespace SPDM.UI
             Boolean iv = true;
             if (nupTotalIncVat.Value != Convert.ToDecimal(sum))
             {
-                eP.SetError(nupTotalIncVat, "Value of the sum must be equal to TotalIncVat");
+                eP.SetError(nupTotal, "Value of the sum must be equal to TotalIncVat");
                 iv = false;
             }
             return iv;
@@ -587,26 +587,51 @@ namespace SPDM.UI
                 gvPayment.DataSource = payments;
                 gvPayment.Refresh();
 
-                double sum = 0;
-                foreach (Payment payment1 in payments)
-                {
-                    sum += payment1.Total;
-                }
-                nupTotal.Value = nupTotalIncVat.Value - Convert.ToDecimal(sum);
                 ClearPayment();
+
+                TotalRemainingCalculation();
+                
             }
 
+        }
+
+        private void TotalRemainingCalculation()
+        {
+            double sum = 0;
+            foreach (Payment payment1 in payments)
+            {
+                sum += payment1.Total;
+            }
+            nupTotal.Value = nupTotalIncVat.Value - Convert.ToDecimal(sum);
+           
         }
         private void ClearPayment()
         {
             cmoPayment.SelectedIndex = 0;
             cmoTransaction.SelectedIndex = 0;
             dETransactionDate.EditValue = null;
+            nupTotal.Value = 0;
             txtBankName.Text = "";
             txtCheckNo.Text = "";
             txtBkashNo.Text = "";
             txtNote.Text = "";
 
+        }
+
+        private void gvPayment_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            ManageEdit(e);
+        }
+
+        private void ManageEdit(DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 16)
+            {
+                int rowindex = e.RowIndex;
+                payments.RemoveAt(rowindex);
+                gvPayment.DataSource = payments;
+                TotalRemainingCalculation();
+            }
         }
     }
 
