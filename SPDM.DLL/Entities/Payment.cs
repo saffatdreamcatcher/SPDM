@@ -58,9 +58,13 @@ namespace SPDM.DLL.Entities
         public string BkashTransactionNo { get => bkashtransactionno; set => bkashtransactionno = value; }
 
         private string note;
-        public string Note { get => note; set => note = value; } 
+        public string Note { get => note; set => note = value; }
 
-        
+        private string paymenttypename;
+        public string PaymentTypeName { get => paymenttypename; set => paymenttypename = value; }
+
+        private string transactiontypename;
+        public string TransactionTypeName { get => transactiontypename; set => transactiontypename = value; }
 
     }
 }

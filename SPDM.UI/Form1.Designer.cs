@@ -100,6 +100,25 @@
             this.wizardPage2 = new DevExpress.XtraWizard.WizardPage();
             this.btnAddPayment = new System.Windows.Forms.Button();
             this.gvPayment = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.createTimeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.userIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.updateTimeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fiscalyearDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.saleIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.partyIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.paymentTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.transactionTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PaymentTypeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TransactionTypeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.transactionDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bankNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.isNewDataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.checkNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bkashTransactionNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.noteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewLinkColumn();
             this.paymentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label33 = new System.Windows.Forms.Label();
             this.nupTotal = new System.Windows.Forms.NumericUpDown();
@@ -119,23 +138,6 @@
             this.label28 = new System.Windows.Forms.Label();
             this.wizardPage3 = new DevExpress.XtraWizard.WizardPage();
             this.eP = new System.Windows.Forms.ErrorProvider(this.components);
-            this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.createTimeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.userIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.updateTimeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fiscalyearDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.saleIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.partyIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.paymentTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.transactionTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.transactionDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bankNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.isNewDataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.checkNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bkashTransactionNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.noteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewLinkColumn();
             ((System.ComponentModel.ISupportInitialize)(this.wizardControl1)).BeginInit();
             this.wizardControl1.SuspendLayout();
             this.wizardPage1.SuspendLayout();
@@ -294,12 +296,12 @@
             this.isNewDataGridViewCheckBoxColumn,
             this.createTimeDataGridViewTextBoxColumn});
             this.gvSaleDetail.DataSource = this.saleDetailBindingSource;
-            this.gvSaleDetail.Location = new System.Drawing.Point(70, 658);
+            this.gvSaleDetail.Location = new System.Drawing.Point(51, 641);
             this.gvSaleDetail.Margin = new System.Windows.Forms.Padding(4);
             this.gvSaleDetail.Name = "gvSaleDetail";
             this.gvSaleDetail.RowHeadersWidth = 51;
             this.gvSaleDetail.RowTemplate.Height = 24;
-            this.gvSaleDetail.Size = new System.Drawing.Size(1629, 210);
+            this.gvSaleDetail.Size = new System.Drawing.Size(1338, 87);
             this.gvSaleDetail.TabIndex = 115;
             // 
             // updateTimeDataGridViewTextBoxColumn
@@ -937,6 +939,8 @@
             this.partyIdDataGridViewTextBoxColumn,
             this.paymentTypeDataGridViewTextBoxColumn,
             this.transactionTypeDataGridViewTextBoxColumn,
+            this.PaymentTypeName,
+            this.TransactionTypeName,
             this.totalDataGridViewTextBoxColumn,
             this.transactionDateDataGridViewTextBoxColumn,
             this.bankNameDataGridViewTextBoxColumn,
@@ -950,9 +954,174 @@
             this.gvPayment.Name = "gvPayment";
             this.gvPayment.RowHeadersWidth = 51;
             this.gvPayment.RowTemplate.Height = 24;
-            this.gvPayment.Size = new System.Drawing.Size(1302, 324);
+            this.gvPayment.Size = new System.Drawing.Size(1360, 373);
             this.gvPayment.TabIndex = 120;
             this.gvPayment.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvPayment_CellClick);
+            // 
+            // idDataGridViewTextBoxColumn1
+            // 
+            this.idDataGridViewTextBoxColumn1.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn1.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
+            this.idDataGridViewTextBoxColumn1.Visible = false;
+            this.idDataGridViewTextBoxColumn1.Width = 125;
+            // 
+            // createTimeDataGridViewTextBoxColumn1
+            // 
+            this.createTimeDataGridViewTextBoxColumn1.DataPropertyName = "CreateTime";
+            this.createTimeDataGridViewTextBoxColumn1.HeaderText = "CreateTime";
+            this.createTimeDataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.createTimeDataGridViewTextBoxColumn1.Name = "createTimeDataGridViewTextBoxColumn1";
+            this.createTimeDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.createTimeDataGridViewTextBoxColumn1.Visible = false;
+            this.createTimeDataGridViewTextBoxColumn1.Width = 125;
+            // 
+            // userIdDataGridViewTextBoxColumn
+            // 
+            this.userIdDataGridViewTextBoxColumn.DataPropertyName = "UserId";
+            this.userIdDataGridViewTextBoxColumn.HeaderText = "UserId";
+            this.userIdDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.userIdDataGridViewTextBoxColumn.Name = "userIdDataGridViewTextBoxColumn";
+            this.userIdDataGridViewTextBoxColumn.Visible = false;
+            this.userIdDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // updateTimeDataGridViewTextBoxColumn1
+            // 
+            this.updateTimeDataGridViewTextBoxColumn1.DataPropertyName = "UpdateTime";
+            this.updateTimeDataGridViewTextBoxColumn1.HeaderText = "UpdateTime";
+            this.updateTimeDataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.updateTimeDataGridViewTextBoxColumn1.Name = "updateTimeDataGridViewTextBoxColumn1";
+            this.updateTimeDataGridViewTextBoxColumn1.Visible = false;
+            this.updateTimeDataGridViewTextBoxColumn1.Width = 125;
+            // 
+            // fiscalyearDataGridViewTextBoxColumn
+            // 
+            this.fiscalyearDataGridViewTextBoxColumn.DataPropertyName = "Fiscalyear";
+            this.fiscalyearDataGridViewTextBoxColumn.HeaderText = "Fiscalyear";
+            this.fiscalyearDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.fiscalyearDataGridViewTextBoxColumn.Name = "fiscalyearDataGridViewTextBoxColumn";
+            this.fiscalyearDataGridViewTextBoxColumn.Visible = false;
+            this.fiscalyearDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // saleIdDataGridViewTextBoxColumn1
+            // 
+            this.saleIdDataGridViewTextBoxColumn1.DataPropertyName = "SaleId";
+            this.saleIdDataGridViewTextBoxColumn1.HeaderText = "SaleId";
+            this.saleIdDataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.saleIdDataGridViewTextBoxColumn1.Name = "saleIdDataGridViewTextBoxColumn1";
+            this.saleIdDataGridViewTextBoxColumn1.Visible = false;
+            this.saleIdDataGridViewTextBoxColumn1.Width = 125;
+            // 
+            // partyIdDataGridViewTextBoxColumn
+            // 
+            this.partyIdDataGridViewTextBoxColumn.DataPropertyName = "PartyId";
+            this.partyIdDataGridViewTextBoxColumn.HeaderText = "PartyId";
+            this.partyIdDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.partyIdDataGridViewTextBoxColumn.Name = "partyIdDataGridViewTextBoxColumn";
+            this.partyIdDataGridViewTextBoxColumn.Visible = false;
+            this.partyIdDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // paymentTypeDataGridViewTextBoxColumn
+            // 
+            this.paymentTypeDataGridViewTextBoxColumn.DataPropertyName = "PaymentType";
+            this.paymentTypeDataGridViewTextBoxColumn.HeaderText = "PaymentType";
+            this.paymentTypeDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.paymentTypeDataGridViewTextBoxColumn.Name = "paymentTypeDataGridViewTextBoxColumn";
+            this.paymentTypeDataGridViewTextBoxColumn.Visible = false;
+            this.paymentTypeDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // transactionTypeDataGridViewTextBoxColumn
+            // 
+            this.transactionTypeDataGridViewTextBoxColumn.DataPropertyName = "TransactionType";
+            this.transactionTypeDataGridViewTextBoxColumn.HeaderText = "TransactionType";
+            this.transactionTypeDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.transactionTypeDataGridViewTextBoxColumn.Name = "transactionTypeDataGridViewTextBoxColumn";
+            this.transactionTypeDataGridViewTextBoxColumn.Visible = false;
+            this.transactionTypeDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // PaymentTypeName
+            // 
+            this.PaymentTypeName.DataPropertyName = "PaymentTypeName";
+            this.PaymentTypeName.HeaderText = "PaymentTypeName";
+            this.PaymentTypeName.MinimumWidth = 6;
+            this.PaymentTypeName.Name = "PaymentTypeName";
+            this.PaymentTypeName.Width = 150;
+            // 
+            // TransactionTypeName
+            // 
+            this.TransactionTypeName.DataPropertyName = "TransactionTypeName";
+            this.TransactionTypeName.HeaderText = "TransactionTypeName";
+            this.TransactionTypeName.MinimumWidth = 6;
+            this.TransactionTypeName.Name = "TransactionTypeName";
+            this.TransactionTypeName.Width = 150;
+            // 
+            // totalDataGridViewTextBoxColumn
+            // 
+            this.totalDataGridViewTextBoxColumn.DataPropertyName = "Total";
+            this.totalDataGridViewTextBoxColumn.HeaderText = "Total";
+            this.totalDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.totalDataGridViewTextBoxColumn.Name = "totalDataGridViewTextBoxColumn";
+            this.totalDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // transactionDateDataGridViewTextBoxColumn
+            // 
+            this.transactionDateDataGridViewTextBoxColumn.DataPropertyName = "TransactionDate";
+            this.transactionDateDataGridViewTextBoxColumn.HeaderText = "TransactionDate";
+            this.transactionDateDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.transactionDateDataGridViewTextBoxColumn.Name = "transactionDateDataGridViewTextBoxColumn";
+            this.transactionDateDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // bankNameDataGridViewTextBoxColumn
+            // 
+            this.bankNameDataGridViewTextBoxColumn.DataPropertyName = "BankName";
+            this.bankNameDataGridViewTextBoxColumn.HeaderText = "BankName";
+            this.bankNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.bankNameDataGridViewTextBoxColumn.Name = "bankNameDataGridViewTextBoxColumn";
+            this.bankNameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // isNewDataGridViewCheckBoxColumn1
+            // 
+            this.isNewDataGridViewCheckBoxColumn1.DataPropertyName = "IsNew";
+            this.isNewDataGridViewCheckBoxColumn1.HeaderText = "IsNew";
+            this.isNewDataGridViewCheckBoxColumn1.MinimumWidth = 6;
+            this.isNewDataGridViewCheckBoxColumn1.Name = "isNewDataGridViewCheckBoxColumn1";
+            this.isNewDataGridViewCheckBoxColumn1.ReadOnly = true;
+            this.isNewDataGridViewCheckBoxColumn1.Visible = false;
+            this.isNewDataGridViewCheckBoxColumn1.Width = 125;
+            // 
+            // checkNoDataGridViewTextBoxColumn
+            // 
+            this.checkNoDataGridViewTextBoxColumn.DataPropertyName = "CheckNo";
+            this.checkNoDataGridViewTextBoxColumn.HeaderText = "CheckNo";
+            this.checkNoDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.checkNoDataGridViewTextBoxColumn.Name = "checkNoDataGridViewTextBoxColumn";
+            this.checkNoDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // bkashTransactionNoDataGridViewTextBoxColumn
+            // 
+            this.bkashTransactionNoDataGridViewTextBoxColumn.DataPropertyName = "BkashTransactionNo";
+            this.bkashTransactionNoDataGridViewTextBoxColumn.HeaderText = "BkashTransactionNo";
+            this.bkashTransactionNoDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.bkashTransactionNoDataGridViewTextBoxColumn.Name = "bkashTransactionNoDataGridViewTextBoxColumn";
+            this.bkashTransactionNoDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // noteDataGridViewTextBoxColumn
+            // 
+            this.noteDataGridViewTextBoxColumn.DataPropertyName = "Note";
+            this.noteDataGridViewTextBoxColumn.HeaderText = "Note";
+            this.noteDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.noteDataGridViewTextBoxColumn.Name = "noteDataGridViewTextBoxColumn";
+            this.noteDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // Delete
+            // 
+            this.Delete.HeaderText = "Delete";
+            this.Delete.MinimumWidth = 6;
+            this.Delete.Name = "Delete";
+            this.Delete.Text = "Delete";
+            this.Delete.UseColumnTextForLinkValue = true;
+            this.Delete.Width = 125;
             // 
             // paymentBindingSource
             // 
@@ -1117,155 +1286,6 @@
             // 
             this.eP.ContainerControl = this;
             // 
-            // idDataGridViewTextBoxColumn1
-            // 
-            this.idDataGridViewTextBoxColumn1.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn1.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
-            this.idDataGridViewTextBoxColumn1.Visible = false;
-            this.idDataGridViewTextBoxColumn1.Width = 125;
-            // 
-            // createTimeDataGridViewTextBoxColumn1
-            // 
-            this.createTimeDataGridViewTextBoxColumn1.DataPropertyName = "CreateTime";
-            this.createTimeDataGridViewTextBoxColumn1.HeaderText = "CreateTime";
-            this.createTimeDataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.createTimeDataGridViewTextBoxColumn1.Name = "createTimeDataGridViewTextBoxColumn1";
-            this.createTimeDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.createTimeDataGridViewTextBoxColumn1.Visible = false;
-            this.createTimeDataGridViewTextBoxColumn1.Width = 125;
-            // 
-            // userIdDataGridViewTextBoxColumn
-            // 
-            this.userIdDataGridViewTextBoxColumn.DataPropertyName = "UserId";
-            this.userIdDataGridViewTextBoxColumn.HeaderText = "UserId";
-            this.userIdDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.userIdDataGridViewTextBoxColumn.Name = "userIdDataGridViewTextBoxColumn";
-            this.userIdDataGridViewTextBoxColumn.Visible = false;
-            this.userIdDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // updateTimeDataGridViewTextBoxColumn1
-            // 
-            this.updateTimeDataGridViewTextBoxColumn1.DataPropertyName = "UpdateTime";
-            this.updateTimeDataGridViewTextBoxColumn1.HeaderText = "UpdateTime";
-            this.updateTimeDataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.updateTimeDataGridViewTextBoxColumn1.Name = "updateTimeDataGridViewTextBoxColumn1";
-            this.updateTimeDataGridViewTextBoxColumn1.Visible = false;
-            this.updateTimeDataGridViewTextBoxColumn1.Width = 125;
-            // 
-            // fiscalyearDataGridViewTextBoxColumn
-            // 
-            this.fiscalyearDataGridViewTextBoxColumn.DataPropertyName = "Fiscalyear";
-            this.fiscalyearDataGridViewTextBoxColumn.HeaderText = "Fiscalyear";
-            this.fiscalyearDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.fiscalyearDataGridViewTextBoxColumn.Name = "fiscalyearDataGridViewTextBoxColumn";
-            this.fiscalyearDataGridViewTextBoxColumn.Visible = false;
-            this.fiscalyearDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // saleIdDataGridViewTextBoxColumn1
-            // 
-            this.saleIdDataGridViewTextBoxColumn1.DataPropertyName = "SaleId";
-            this.saleIdDataGridViewTextBoxColumn1.HeaderText = "SaleId";
-            this.saleIdDataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.saleIdDataGridViewTextBoxColumn1.Name = "saleIdDataGridViewTextBoxColumn1";
-            this.saleIdDataGridViewTextBoxColumn1.Visible = false;
-            this.saleIdDataGridViewTextBoxColumn1.Width = 125;
-            // 
-            // partyIdDataGridViewTextBoxColumn
-            // 
-            this.partyIdDataGridViewTextBoxColumn.DataPropertyName = "PartyId";
-            this.partyIdDataGridViewTextBoxColumn.HeaderText = "PartyId";
-            this.partyIdDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.partyIdDataGridViewTextBoxColumn.Name = "partyIdDataGridViewTextBoxColumn";
-            this.partyIdDataGridViewTextBoxColumn.Visible = false;
-            this.partyIdDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // paymentTypeDataGridViewTextBoxColumn
-            // 
-            this.paymentTypeDataGridViewTextBoxColumn.DataPropertyName = "PaymentType";
-            this.paymentTypeDataGridViewTextBoxColumn.HeaderText = "PaymentType";
-            this.paymentTypeDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.paymentTypeDataGridViewTextBoxColumn.Name = "paymentTypeDataGridViewTextBoxColumn";
-            this.paymentTypeDataGridViewTextBoxColumn.Visible = false;
-            this.paymentTypeDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // transactionTypeDataGridViewTextBoxColumn
-            // 
-            this.transactionTypeDataGridViewTextBoxColumn.DataPropertyName = "TransactionType";
-            this.transactionTypeDataGridViewTextBoxColumn.HeaderText = "TransactionType";
-            this.transactionTypeDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.transactionTypeDataGridViewTextBoxColumn.Name = "transactionTypeDataGridViewTextBoxColumn";
-            this.transactionTypeDataGridViewTextBoxColumn.Visible = false;
-            this.transactionTypeDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // totalDataGridViewTextBoxColumn
-            // 
-            this.totalDataGridViewTextBoxColumn.DataPropertyName = "Total";
-            this.totalDataGridViewTextBoxColumn.HeaderText = "Total";
-            this.totalDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.totalDataGridViewTextBoxColumn.Name = "totalDataGridViewTextBoxColumn";
-            this.totalDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // transactionDateDataGridViewTextBoxColumn
-            // 
-            this.transactionDateDataGridViewTextBoxColumn.DataPropertyName = "TransactionDate";
-            this.transactionDateDataGridViewTextBoxColumn.HeaderText = "TransactionDate";
-            this.transactionDateDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.transactionDateDataGridViewTextBoxColumn.Name = "transactionDateDataGridViewTextBoxColumn";
-            this.transactionDateDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // bankNameDataGridViewTextBoxColumn
-            // 
-            this.bankNameDataGridViewTextBoxColumn.DataPropertyName = "BankName";
-            this.bankNameDataGridViewTextBoxColumn.HeaderText = "BankName";
-            this.bankNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.bankNameDataGridViewTextBoxColumn.Name = "bankNameDataGridViewTextBoxColumn";
-            this.bankNameDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // isNewDataGridViewCheckBoxColumn1
-            // 
-            this.isNewDataGridViewCheckBoxColumn1.DataPropertyName = "IsNew";
-            this.isNewDataGridViewCheckBoxColumn1.HeaderText = "IsNew";
-            this.isNewDataGridViewCheckBoxColumn1.MinimumWidth = 6;
-            this.isNewDataGridViewCheckBoxColumn1.Name = "isNewDataGridViewCheckBoxColumn1";
-            this.isNewDataGridViewCheckBoxColumn1.ReadOnly = true;
-            this.isNewDataGridViewCheckBoxColumn1.Visible = false;
-            this.isNewDataGridViewCheckBoxColumn1.Width = 125;
-            // 
-            // checkNoDataGridViewTextBoxColumn
-            // 
-            this.checkNoDataGridViewTextBoxColumn.DataPropertyName = "CheckNo";
-            this.checkNoDataGridViewTextBoxColumn.HeaderText = "CheckNo";
-            this.checkNoDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.checkNoDataGridViewTextBoxColumn.Name = "checkNoDataGridViewTextBoxColumn";
-            this.checkNoDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // bkashTransactionNoDataGridViewTextBoxColumn
-            // 
-            this.bkashTransactionNoDataGridViewTextBoxColumn.DataPropertyName = "BkashTransactionNo";
-            this.bkashTransactionNoDataGridViewTextBoxColumn.HeaderText = "BkashTransactionNo";
-            this.bkashTransactionNoDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.bkashTransactionNoDataGridViewTextBoxColumn.Name = "bkashTransactionNoDataGridViewTextBoxColumn";
-            this.bkashTransactionNoDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // noteDataGridViewTextBoxColumn
-            // 
-            this.noteDataGridViewTextBoxColumn.DataPropertyName = "Note";
-            this.noteDataGridViewTextBoxColumn.HeaderText = "Note";
-            this.noteDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.noteDataGridViewTextBoxColumn.Name = "noteDataGridViewTextBoxColumn";
-            this.noteDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // Delete
-            // 
-            this.Delete.HeaderText = "Delete";
-            this.Delete.MinimumWidth = 6;
-            this.Delete.Name = "Delete";
-            this.Delete.Text = "Delete";
-            this.Delete.UseColumnTextForLinkValue = true;
-            this.Delete.Width = 125;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1393,8 +1413,8 @@
         private System.Windows.Forms.ComboBox cmoTransaction;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.DataGridView gvPayment;
-        private System.Windows.Forms.BindingSource paymentBindingSource;
         private System.Windows.Forms.Button btnAddPayment;
+        private System.Windows.Forms.BindingSource paymentBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn createTimeDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn userIdDataGridViewTextBoxColumn;
@@ -1404,6 +1424,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn partyIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn paymentTypeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn transactionTypeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PaymentTypeName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TransactionTypeName;
         private System.Windows.Forms.DataGridViewTextBoxColumn totalDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn transactionDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn bankNameDataGridViewTextBoxColumn;

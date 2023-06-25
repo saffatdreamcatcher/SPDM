@@ -582,6 +582,8 @@ namespace SPDM.UI
                 payment.CheckNo = txtCheckNo.Text;
                 payment.BkashTransactionNo = txtBkashNo.Text;
                 payment.Note = txtNote.Text;
+                payment.PaymentTypeName = cmoPayment.Text;
+                payment.TransactionTypeName = cmoTransaction.Text;
 
                 payments.Add(payment);
                 gvPayment.DataSource = payments;
@@ -625,7 +627,7 @@ namespace SPDM.UI
 
         private void ManageEdit(DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 16)
+            if (e.ColumnIndex == 18)
             {
                 int rowindex = e.RowIndex;
                 payments.RemoveAt(rowindex);
