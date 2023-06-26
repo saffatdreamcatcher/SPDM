@@ -588,6 +588,7 @@ namespace SPDM.UI
                 payment.PaymentType = Convert.ToInt32((PaymentStatus)Enum.Parse(typeof(PaymentStatus), cmoPayment.Text));
                 payment.TransactionDate = dETransactionDate.DateTime;
                 payment.Total = Convert.ToDouble(nupTotal.Value);
+                payment.TransactionDate = (DateTime)dETransactionDate.EditValue;
                 payment.TransactionType = Convert.ToInt32((TransactionStatus)Enum.Parse(typeof(TransactionStatus), cmoTransaction.Text));
                 payment.BankName = txtBankName.Text;
                 payment.CheckNo = txtCheckNo.Text;
