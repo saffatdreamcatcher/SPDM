@@ -392,6 +392,17 @@ namespace SPDM.UI
                 eP.SetError(txtCheckNo, "Please Enter Check Number");
                 iv = false;
             }
+
+            double sum = 0;
+            foreach (Payment payment1 in payments)
+            {
+                sum += payment1.Total;
+            }
+            if (Convert.ToDecimal(sum) + nupTotal.Value > nupTotalIncVat.Value)
+            {
+                eP.SetError(gvPayment, "Paymnet value is greater than Sale value");
+                iv = false;
+            }
             return iv;
         }
 
@@ -479,7 +490,7 @@ namespace SPDM.UI
             Boolean iv = true;
             if (nupTotalIncVat.Value != Convert.ToDecimal(sum))
             {
-                eP.SetError(nupTotal, "Value of the sum must be equal to TotalIncVat");
+                eP.SetError(nupTotal, "Payment Value must be equal to the SaleValue");
                 iv = false;
             }
             return iv;
