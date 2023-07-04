@@ -21,6 +21,14 @@ namespace SPDM.DLL
             }
         }
 
+        public SqlTransaction Transaction
+        {
+            get
+            {
+                return _transaction;
+            }
+        }
+
         public DbManager(string connectionString)
         {
             _connection = new SqlConnection(connectionString);
