@@ -1,10 +1,8 @@
 ﻿using SPDM.DLL.Entities;
+using SPDM.DLL.Enums;
 using SPDM.DLL.Repositories;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SPDM.BLL.BusinessLogic
 {

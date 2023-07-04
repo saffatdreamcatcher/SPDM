@@ -43,7 +43,7 @@ namespace SPDM.DLL.Repositories
 
         public List<Category> GetAll(string whereClause = "")
         {
-            List<Category> category = new List<Category>();
+            List<Category> categories = new List<Category>();
             var myConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
             SqlConnection conn = new SqlConnection();
             if (!string.IsNullOrEmpty(whereClause))
@@ -63,11 +63,11 @@ namespace SPDM.DLL.Repositories
                     {
                         int id = Convert.ToInt32(reader["id"]);
                         DateTime createTime = Convert.ToDateTime(reader["CreateTime"]);
-                        Category categories = new Category(id, createTime);
-                        categories.Name = reader["Name"].ToString();
-                        categories.Description = reader["Description"] is DBNull ? null : reader["Description"].ToString();
-                        categories.Photo = reader["Photo"] is DBNull ? null : (byte[])reader["Photo"];
-                        category.Add(categories);
+                        Category category = new Category(id, createTime); 
+                        category.Name = reader["Name"].ToString();
+                        category.Description = reader["Description"] is DBNull ? null : reader["Description"].ToString();
+                        category.Photo = reader["Photo"] is DBNull ? null : (byte[])reader["Photo"];
+                        categories.Add(category);
                     }
                 }
 
@@ -80,7 +80,7 @@ namespace SPDM.DLL.Repositories
             {
                 conn.Close();
             }
-            return category;
+            return categories;
         }
 
         public Category GetById(int id)

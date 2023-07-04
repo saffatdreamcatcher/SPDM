@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SPDM.DLL.Entities
+namespace SPDM.DLL.Enums
 {
     public enum PaymentStatus
     {
