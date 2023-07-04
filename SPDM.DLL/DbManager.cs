@@ -1,26 +1,29 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.SqlClient;
 
 namespace SPDM.DLL
 {
-    
     /// <summary>
     /// 
     /// </summary>
-    public class DbManager
+    public class DbManager : IDisposable    
     {
         private bool _disposed;
         private SqlConnection _connection;
         private SqlTransaction _transaction = null;
 
-        public DbManager(SqlConnection connection)
+        public SqlConnection Connection
         {
-            _connection = connection;
+            get 
+            {
+                return _connection; 
+            }
+        }
+
+        public DbManager(string connectionString)
+        {
+            _connection = new SqlConnection(connectionString);
         }
 
         public void OpenTransaction()
