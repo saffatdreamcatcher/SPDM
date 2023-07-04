@@ -157,6 +157,11 @@ namespace SPDM.DLL.Repositories
             return count;
         }
 
+        /// <summary>
+        /// Save The Category 
+        /// </summary>
+        /// <param name="categories"> Category To Save </param>
+        /// <returns> Generated Primary key in Insert </returns>
         public int Save(Category categories)
         {
             int primaryKey = 0;
