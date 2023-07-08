@@ -12,6 +12,31 @@ namespace SPDM.DLL.Repositories
 {
     public class StockHistoryDLL
     {
+        private SqlConnection sqlConnection;
+        private SqlTransaction sqlTransaction;
+        private bool isEnableTransaction = false;
+        public StockHistoryDLL()
+        {
+            string myConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
+            sqlConnection = new SqlConnection(myConnectionString);
+        }
+
+        public StockHistoryDLL(SqlTransaction sqlTrans)
+        {
+
+            if (sqlTrans == null)
+            {
+                throw new ArgumentNullException("SqlTransaction is required");
+            }
+            if (sqlTrans.Connection == null)
+            {
+                throw new ArgumentNullException("SqlConnection is required in Transaction");
+            }
+            this.sqlConnection = sqlTrans.Connection;
+            this.sqlTransaction = sqlTrans;
+            isEnableTransaction = true;
+
+        }
         public int Delete(int id)
         {
             int noOfRowAffected = 0;
@@ -200,14 +225,20 @@ namespace SPDM.DLL.Repositories
         public int Save(StockHistory stockhistory)
         {
             int primaryKey = 0;
-            var myConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
-            SqlConnection conn = new SqlConnection();
+            //var myConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
+            //SqlConnection conn = new SqlConnection();
             try
             {
-                conn.ConnectionString = myConnectionString;
-                conn.Open();
+                //conn.ConnectionString = myConnectionString;
+                //conn.Open();
 
-                SqlCommand comm = conn.CreateCommand();
+                if (sqlConnection.State == ConnectionState.Closed)
+                {
+                    sqlConnection.Open();
+                }
+
+                SqlCommand comm = sqlConnection.CreateCommand();
+                comm.Transaction = sqlTransaction;
 
                 if (stockhistory.IsNew)
                 {
@@ -258,11 +289,13 @@ namespace SPDM.DLL.Repositories
             }
             finally
             {
-                conn.Close();
+                if (!isEnableTransaction)
+                {
+                    sqlConnection.Close();
+                }
             }
             return primaryKey;
         }
-
 
 
     }
