@@ -26,6 +26,7 @@ namespace SPDM.DLL.Entities
         private byte[] photo;
         public byte[] Photo { get => photo; set => photo = value; }
 
+        
 
     }
 }
