@@ -94,6 +94,10 @@ namespace SPDM.BLL.BusinessLogic
                 dbManager.RollbackTransaction();
                 throw ex;
             }
+            finally
+            {
+                dbManager.Dispose();
+            }
         }
 
         public List<Sale> GetAll(string whereclause = "")
