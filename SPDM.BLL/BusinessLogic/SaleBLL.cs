@@ -1,29 +1,33 @@
-﻿using SPDM.DLL.Entities;
+﻿using SPDM.DLL;
+using SPDM.DLL.Entities;
+using SPDM.DLL.Enums;
 using SPDM.DLL.Repositories;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using SPDM.DLL.Enums;
+using System.Configuration;
 
 namespace SPDM.BLL.BusinessLogic
 {
     public class SaleBLL
     {
+       
         public int Save(Sale sale, List<SaleDetail> saleDetails, List<Payment> payments)
         {
+            string myConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
+            DbManager dbManager = new DbManager(myConnectionString);
             try
             {
+                dbManager.OpenTransaction();
+
                 WorkOrderDetailDLL workOrderDetailDLL = new WorkOrderDetailDLL();
                 string where = "WorkOrderId = " + sale.WorkOrderId;
                 List<WorkOrderDetail> workOrderDetails = workOrderDetailDLL.GetAll(where);
-                StockDLL stockDLL = new StockDLL();
-                StockHistoryDLL stockHistoryDLL = new StockHistoryDLL();
-                SaleDLL saleDLL = new SaleDLL();
-                SaleDetailDLL saleDetailDLL = new SaleDetailDLL();
-                WorkOrderDLL workOrderDLL = new WorkOrderDLL();
-                PaymentDLL paymentDLL = new PaymentDLL();
+                StockDLL stockDLL = new StockDLL(dbManager.Transaction);
+                StockHistoryDLL stockHistoryDLL = new StockHistoryDLL(dbManager.Transaction);
+                SaleDLL saleDLL = new SaleDLL(dbManager.Transaction);
+                SaleDetailDLL saleDetailDLL = new SaleDetailDLL(dbManager.Transaction);
+                WorkOrderDLL workOrderDLL = new WorkOrderDLL(dbManager.Transaction);
+                PaymentDLL paymentDLL = new PaymentDLL(dbManager.Transaction);
 
                 foreach (SaleDetail sd in saleDetails)
                 {
@@ -80,11 +84,14 @@ namespace SPDM.BLL.BusinessLogic
                     payment.SaleId = sale.Id;
                     paymentDLL.Save(payment);
                 }
+                dbManager.CommitTransaction();
+
                 return sale.Id;
 
             }
             catch (Exception ex)
             {
+                dbManager.RollbackTransaction();
                 throw ex;
             }
         }
