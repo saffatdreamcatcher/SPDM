@@ -41,14 +41,21 @@ namespace SPDM.DLL.Repositories
         public int Delete(int id)
         {
             int noOfRowAffected = 0;
-            var myConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
-            SqlConnection conn = new SqlConnection();
+            //var myConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
+            //SqlConnection conn = new SqlConnection();
             try
             {
-                conn.ConnectionString = myConnectionString;
-                conn.Open();
+                //conn.ConnectionString = myConnectionString;
+                //conn.Open();
 
-                SqlCommand comm = conn.CreateCommand();
+                if (sqlConnection.State == ConnectionState.Closed)
+                {
+                    sqlConnection.Open();
+                }
+
+                SqlCommand comm = sqlConnection.CreateCommand();
+                comm.Transaction = sqlTransaction;
+
                 comm.CommandText = "Delete from Party where Id = " + id.ToString();
                 noOfRowAffected = comm.ExecuteNonQuery();
 
@@ -59,7 +66,10 @@ namespace SPDM.DLL.Repositories
             }
             finally
             {
-                conn.Close();
+                if (!isEnableTransaction)
+                {
+                    sqlConnection.Close();
+                }
             }
             return noOfRowAffected;
 

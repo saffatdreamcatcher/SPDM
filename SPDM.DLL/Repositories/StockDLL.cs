@@ -43,14 +43,20 @@ namespace SPDM.DLL.Repositories
         public int Delete(int id)
         {
             int noOfRowAffected = 0;
-            var myConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
-            SqlConnection conn = new SqlConnection();
+            //var myConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
+            //SqlConnection conn = new SqlConnection();
             try
             {
-                conn.ConnectionString = myConnectionString;
-                conn.Open();
+                //conn.ConnectionString = myConnectionString;
+                //conn.Open();
+                if (sqlConnection.State == ConnectionState.Closed)
+                {
+                    sqlConnection.Open();
+                }
 
-                SqlCommand comm = conn.CreateCommand();
+                SqlCommand comm = sqlConnection.CreateCommand();
+                comm.Transaction = sqlTransaction;
+
                 comm.CommandText = "Delete from Stock where Id = " + id.ToString();
                 noOfRowAffected = comm.ExecuteNonQuery();
 
@@ -61,7 +67,10 @@ namespace SPDM.DLL.Repositories
             }
             finally
             {
-                conn.Close();
+                if (!isEnableTransaction)
+                {
+                    sqlConnection.Close();
+                }
             }
             return noOfRowAffected;
 
@@ -82,6 +91,7 @@ namespace SPDM.DLL.Repositories
                 conn.Open();
 
                 SqlCommand comm = conn.CreateCommand();
+
                 comm.CommandText = "Select Stock.*, Category.Name AS CategoryName, Item.Name AS ItemName from Stock " +
                                     "inner join Category on Stock.CategoryId = Category.Id " +
                                     "inner join Item on Stock.ItemId = Item.Id" + whereClause;
