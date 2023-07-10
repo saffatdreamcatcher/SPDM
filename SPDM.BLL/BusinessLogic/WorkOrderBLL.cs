@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SPDM.DLL.Enums;
+using System.Configuration;
+using SPDM.DLL;
 
 namespace SPDM.BLL.BusinessLogic
 {
@@ -13,8 +15,12 @@ namespace SPDM.BLL.BusinessLogic
     {
         public int Save(WorkOrder workorder, List<WorkOrderDetail> newWorkOrderDetails)
         {
+            string myConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
+            DbManager dbManager = new DbManager(myConnectionString);
             try
             {
+                dbManager.OpenTransaction();
+
                 bool isFound = false;
                 WorkOrderDLL workorderDLL = new WorkOrderDLL();
                 WorkOrderDetailDLL workorderDetailDLL = new WorkOrderDetailDLL();
@@ -51,12 +57,19 @@ namespace SPDM.BLL.BusinessLogic
                     detail.WorkOrderId = workorder.Id;
                     workorderDetailDLL.Save(detail);
                 }
+                dbManager.CommitTransaction();
+
                 return workorder.Id;
 
             }
             catch (Exception ex)
             {
+                dbManager.RollbackTransaction();
                 throw ex;
+            }
+            finally
+            {
+                dbManager.Dispose();
             }
         }
 

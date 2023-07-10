@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SPDM.DLL.Enums;
+using System.Configuration;
+using SPDM.DLL;
 
 namespace SPDM.BLL.BusinessLogic
 {
@@ -14,8 +16,12 @@ namespace SPDM.BLL.BusinessLogic
        
         public void Save(int productionId, List<Stock> stocks)
         {
+            string myConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
+            DbManager dbManager = new DbManager(myConnectionString);
             try
             {
+                dbManager.OpenTransaction();
+
                 StockDLL stockDLL = new StockDLL();
                 StockHistoryDLL stockHistoryDLL = new StockHistoryDLL();
                 ProductionDLL productionDLL = new ProductionDLL();
@@ -75,11 +81,18 @@ namespace SPDM.BLL.BusinessLogic
 
                 // Delete Production
                 productionDLL.Delete(productionId);
-                
+
+                dbManager.CommitTransaction();
+
             }
             catch (Exception ex)
             {
+                dbManager.RollbackTransaction();
                 throw ex;
+            }
+            finally
+            {
+                dbManager.Dispose();
             }
         }
 
