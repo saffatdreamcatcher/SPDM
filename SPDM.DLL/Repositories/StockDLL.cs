@@ -43,12 +43,10 @@ namespace SPDM.DLL.Repositories
         public int Delete(int id)
         {
             int noOfRowAffected = 0;
-            //var myConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
-            //SqlConnection conn = new SqlConnection();
+            
             try
             {
-                //conn.ConnectionString = myConnectionString;
-                //conn.Open();
+                
                 if (sqlConnection.State == ConnectionState.Closed)
                 {
                     sqlConnection.Open();
@@ -79,18 +77,19 @@ namespace SPDM.DLL.Repositories
         public List<Stock> GetAll(string whereClause = "")
         {
             var stocks = new List<Stock>();
-            var myConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
-            SqlConnection conn = new SqlConnection();
+            
             if (!string.IsNullOrEmpty(whereClause))
             {
                 whereClause = " Where " + whereClause;
             }
             try
             {
-                conn.ConnectionString = myConnectionString;
-                conn.Open();
+                if (sqlConnection.State == ConnectionState.Closed)
+                {
+                    sqlConnection.Open();
+                }
 
-                SqlCommand comm = conn.CreateCommand();
+                SqlCommand comm = sqlConnection.CreateCommand();
 
                 comm.CommandText = "Select Stock.*, Category.Name AS CategoryName, Item.Name AS ItemName from Stock " +
                                     "inner join Category on Stock.CategoryId = Category.Id " +
@@ -149,7 +148,10 @@ namespace SPDM.DLL.Repositories
             }
             finally
             {
-                conn.Close();
+                if (!isEnableTransaction)
+                {
+                    sqlConnection.Close();
+                }
             }
             return stocks;
         }
@@ -158,15 +160,17 @@ namespace SPDM.DLL.Repositories
         public Stock GetById(int id)
         {
             Stock stock = new Stock();
-            var myConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
-            SqlConnection conn = new SqlConnection();
+            
 
             try
             {
-                conn.ConnectionString = myConnectionString;
-                conn.Open();
+                if (sqlConnection.State == ConnectionState.Closed)
+                {
+                    sqlConnection.Open();
+                }
 
-                SqlCommand comm = conn.CreateCommand();
+                SqlCommand comm = sqlConnection.CreateCommand();
+
                 comm.CommandText = "Select * from Stock where id = " + id;
                 using (SqlDataReader reader = comm.ExecuteReader())
                 {
@@ -220,7 +224,10 @@ namespace SPDM.DLL.Repositories
             }
             finally
             {
-                conn.Close();
+                if (!isEnableTransaction)
+                {
+                    sqlConnection.Close();
+                }
             }
             return stock;
 
@@ -234,8 +241,7 @@ namespace SPDM.DLL.Repositories
 
             int count = 0;
             Stock stock = new Stock();
-            var myConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
-            SqlConnection conn = new SqlConnection();
+            
 
             try
             {
@@ -244,10 +250,12 @@ namespace SPDM.DLL.Repositories
                     whereClause = " Where " + whereClause;
                 }
 
-                conn.ConnectionString = myConnectionString;
-                conn.Open();
+                if (sqlConnection.State == ConnectionState.Closed)
+                {
+                    sqlConnection.Open();
+                }
 
-                SqlCommand comm = conn.CreateCommand();
+                SqlCommand comm = sqlConnection.CreateCommand();
                 comm.CommandText = "Select count(*) from Stock " + whereClause;
                 count = Convert.ToInt32(comm.ExecuteScalar());
             }
@@ -257,7 +265,10 @@ namespace SPDM.DLL.Repositories
             }
             finally
             {
-                conn.Close();
+                if (!isEnableTransaction)
+                {
+                    sqlConnection.Close();
+                }
             }
             return count;
         }
@@ -266,14 +277,15 @@ namespace SPDM.DLL.Repositories
         public bool IsExist(string whereClause = "")
         {
             bool isExist = false;
-            var myConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
-            SqlConnection conn = new SqlConnection();
+            
             try
             {
-                conn.ConnectionString = myConnectionString;
-                conn.Open();
+                if (sqlConnection.State == ConnectionState.Closed)
+                {
+                    sqlConnection.Open();
+                }
 
-                SqlCommand comm = conn.CreateCommand();
+                SqlCommand comm = sqlConnection.CreateCommand();
 
                 comm.CommandText = "SELECT " +
                         "CASE WHEN COUNT( Id ) >= 1 THEN " +
@@ -291,7 +303,10 @@ namespace SPDM.DLL.Repositories
             }
             finally
             {
-                conn.Close();
+                if (!isEnableTransaction)
+                {
+                    sqlConnection.Close();
+                }
             }
 
             return isExist;

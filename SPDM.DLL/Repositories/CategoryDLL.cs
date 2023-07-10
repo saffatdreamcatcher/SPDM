@@ -45,12 +45,9 @@ namespace SPDM.DLL.Repositories
         public int Delete(int id)
         {
             int noOfRowAffected = 0;
-            //var myConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
-            //SqlConnection conn = new SqlConnection();
+           
             try
             {
-                //conn.ConnectionString = myConnectionString;
-                //conn.Open();
 
                 if (sqlConnection.State == ConnectionState.Closed)
                 {
@@ -80,18 +77,19 @@ namespace SPDM.DLL.Repositories
         public List<Category> GetAll(string whereClause = "")
         {
             List<Category> categories = new List<Category>();
-            var myConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
-            SqlConnection conn = new SqlConnection();
+           
             if (!string.IsNullOrEmpty(whereClause))
             {
                 whereClause = " Where " + whereClause;
             }
             try
             {
-                conn.ConnectionString = myConnectionString;
-                conn.Open();
+                if (sqlConnection.State == ConnectionState.Closed)
+                {
+                    sqlConnection.Open();
+                }
 
-                SqlCommand comm = conn.CreateCommand();
+                SqlCommand comm = sqlConnection.CreateCommand();
                 comm.CommandText = "Select * from Category " + whereClause;
                 using (SqlDataReader reader = comm.ExecuteReader())
                 {
@@ -114,7 +112,10 @@ namespace SPDM.DLL.Repositories
             }
             finally
             {
-                conn.Close();
+                if (!isEnableTransaction)
+                {
+                    sqlConnection.Close();
+                }
             }
             return categories;
         }
@@ -122,15 +123,15 @@ namespace SPDM.DLL.Repositories
         public Category GetById(int id)
         {
             Category categories = new Category();
-            var myConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
-            SqlConnection conn = new SqlConnection();
-
+            
             try
             {
-                conn.ConnectionString = myConnectionString;
-                conn.Open();
+                if (sqlConnection.State == ConnectionState.Closed)
+                {
+                    sqlConnection.Open();
+                }
 
-                SqlCommand comm = conn.CreateCommand();
+                SqlCommand comm = sqlConnection.CreateCommand();
                 comm.CommandText = "Select * from Category where id = " + id;
                 using (SqlDataReader reader = comm.ExecuteReader())
                 {
@@ -154,7 +155,10 @@ namespace SPDM.DLL.Repositories
             }
             finally
             {
-                conn.Close();
+                if (!isEnableTransaction)
+                {
+                    sqlConnection.Close();
+                }
             }
             return categories;
 
@@ -165,9 +169,7 @@ namespace SPDM.DLL.Repositories
 
             int count = 0;
             Category categories = new Category();
-            var myConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
-            SqlConnection conn = new SqlConnection();
-
+            
             try
             {
                 if (!string.IsNullOrEmpty(whereClause))
@@ -175,10 +177,12 @@ namespace SPDM.DLL.Repositories
                     whereClause = " Where " + whereClause;
                 }
 
-                conn.ConnectionString = myConnectionString;
-                conn.Open();
+                if (sqlConnection.State == ConnectionState.Closed)
+                {
+                    sqlConnection.Open();
+                }
 
-                SqlCommand comm = conn.CreateCommand();
+                SqlCommand comm = sqlConnection.CreateCommand();
                 comm.CommandText = "Select count(*) from Category " + whereClause;
                 count = Convert.ToInt32(comm.ExecuteScalar());
             }
@@ -188,7 +192,10 @@ namespace SPDM.DLL.Repositories
             }
             finally
             {
-                conn.Close();
+                if (!isEnableTransaction)
+                {
+                    sqlConnection.Close();
+                }
             }
             return count;
         }

@@ -38,13 +38,9 @@ namespace SPDM.DLL.Repositories
         public int Delete(int id)
         {
             int noOfRowAffected = 0;
-            //var myConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
-            //SqlConnection conn = new SqlConnection();
+            
             try
             {
-                //conn.ConnectionString = myConnectionString;
-                //conn.Open();
-
 
                 if (sqlConnection.State == ConnectionState.Closed)
                 {
@@ -77,18 +73,20 @@ namespace SPDM.DLL.Repositories
         public List<WorkOrder> GetAll(string whereClause = "")
         {
             var workorders = new List<WorkOrder>();
-            var myConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
-            SqlConnection conn = new SqlConnection();
+            
             if (!string.IsNullOrEmpty(whereClause))
             {
                 whereClause = " Where " + whereClause;
             }
             try
             {
-                conn.ConnectionString = myConnectionString;
-                conn.Open();
+                if (sqlConnection.State == ConnectionState.Closed)
+                {
+                    sqlConnection.Open();
+                }
 
-                SqlCommand comm = conn.CreateCommand();
+                SqlCommand comm = sqlConnection.CreateCommand();
+
                 comm.CommandText = "Select * from  WorkOrder " + whereClause;
                 using (SqlDataReader reader = comm.ExecuteReader())
                 {
@@ -138,7 +136,10 @@ namespace SPDM.DLL.Repositories
             }
             finally
             {
-                conn.Close();
+                if (!isEnableTransaction)
+                {
+                    sqlConnection.Close();
+                }
             }
             return workorders;
         }
@@ -147,15 +148,17 @@ namespace SPDM.DLL.Repositories
         public WorkOrder GetById(int id)
         {
             WorkOrder workorder = new WorkOrder();
-            var myConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
-            SqlConnection conn = new SqlConnection();
+            
 
             try
             {
-                conn.ConnectionString = myConnectionString;
-                conn.Open();
+                if (sqlConnection.State == ConnectionState.Closed)
+                {
+                    sqlConnection.Open();
+                }
 
-                SqlCommand comm = conn.CreateCommand();
+                SqlCommand comm = sqlConnection.CreateCommand();
+
                 comm.CommandText = "Select * from WorkOrder where id = " + id;
                 using (SqlDataReader reader = comm.ExecuteReader())
                 {
@@ -205,7 +208,10 @@ namespace SPDM.DLL.Repositories
             }
             finally
             {
-                conn.Close();
+                if (!isEnableTransaction)
+                {
+                    sqlConnection.Close();
+                }
             }
             return workorder;
 
@@ -218,8 +224,7 @@ namespace SPDM.DLL.Repositories
 
             int count = 0;
             WorkOrder workorder = new WorkOrder();
-            var myConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
-            SqlConnection conn = new SqlConnection();
+            
 
             try
             {
@@ -228,10 +233,13 @@ namespace SPDM.DLL.Repositories
                     whereClause = " Where " + whereClause;
                 }
 
-                conn.ConnectionString = myConnectionString;
-                conn.Open();
+                if (sqlConnection.State == ConnectionState.Closed)
+                {
+                    sqlConnection.Open();
+                }
 
-                SqlCommand comm = conn.CreateCommand();
+                SqlCommand comm = sqlConnection.CreateCommand();
+
                 comm.CommandText = "Select count(*) from WorkOrder " + whereClause;
                 count = Convert.ToInt32(comm.ExecuteScalar());
             }
@@ -241,7 +249,10 @@ namespace SPDM.DLL.Repositories
             }
             finally
             {
-                conn.Close();
+                if (!isEnableTransaction)
+                {
+                    sqlConnection.Close();
+                }
             }
             return count;
         }
@@ -249,14 +260,15 @@ namespace SPDM.DLL.Repositories
         public bool IsExist(string whereClause = "")
         {
             bool isExist = false;
-            var myConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
-            SqlConnection conn = new SqlConnection();
+            
             try
             {
-                conn.ConnectionString = myConnectionString;
-                conn.Open();
+                if (sqlConnection.State == ConnectionState.Closed)
+                {
+                    sqlConnection.Open();
+                }
 
-                SqlCommand comm = conn.CreateCommand();
+                SqlCommand comm = sqlConnection.CreateCommand();
 
                 comm.CommandText = "SELECT " +
                         "CASE WHEN COUNT( Id ) >= 1 THEN " +
@@ -274,7 +286,10 @@ namespace SPDM.DLL.Repositories
             }
             finally
             {
-                conn.Close();
+                if (!isEnableTransaction)
+                {
+                    sqlConnection.Close();
+                }
             }
 
             return isExist;

@@ -41,12 +41,9 @@ namespace SPDM.DLL.Repositories
         public int Delete(int id)
         {
             int noOfRowAffected = 0;
-            //var myConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
-            //SqlConnection conn = new SqlConnection();
+           
             try
             {
-                //conn.ConnectionString = myConnectionString;
-                //conn.Open();
 
                 if (sqlConnection.State == ConnectionState.Closed)
                 {
@@ -78,18 +75,21 @@ namespace SPDM.DLL.Repositories
         public List<Production> GetAll(string whereClause = "")
         {
             var productions = new List<Production>();
-            var myConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
-            SqlConnection conn = new SqlConnection();
+            
             if (!string.IsNullOrEmpty(whereClause))
             {
                 whereClause = " Where " + whereClause;
             }
             try
             {
-                conn.ConnectionString = myConnectionString;
-                conn.Open();
 
-                SqlCommand comm = conn.CreateCommand();
+                if (sqlConnection.State == ConnectionState.Closed)
+                {
+                    sqlConnection.Open();
+                }
+
+                SqlCommand comm = sqlConnection.CreateCommand();
+
                 comm.CommandText = "Select * from Production" + whereClause;
                 using (SqlDataReader reader = comm.ExecuteReader())
                 {
@@ -151,7 +151,10 @@ namespace SPDM.DLL.Repositories
             }
             finally
             {
-                conn.Close();
+                if (!isEnableTransaction)
+                {
+                    sqlConnection.Close();
+                }
             }
             return productions;
         }
@@ -159,15 +162,18 @@ namespace SPDM.DLL.Repositories
         public Production GetById(int id)
         {
             Production production = new Production();
-            var myConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
-            SqlConnection conn = new SqlConnection();
+            
 
             try
             {
-                conn.ConnectionString = myConnectionString;
-                conn.Open();
 
-                SqlCommand comm = conn.CreateCommand();
+                if (sqlConnection.State == ConnectionState.Closed)
+                {
+                    sqlConnection.Open();
+                }
+
+                SqlCommand comm = sqlConnection.CreateCommand();
+
                 comm.CommandText = "Select * from Production where id = " + id;
                 using (SqlDataReader reader = comm.ExecuteReader())
                 {
@@ -231,7 +237,10 @@ namespace SPDM.DLL.Repositories
             }
             finally
             {
-                conn.Close();
+                if (!isEnableTransaction)
+                {
+                    sqlConnection.Close();
+                }
             }
             return production;
 
@@ -243,8 +252,6 @@ namespace SPDM.DLL.Repositories
 
             int count = 0;
             Production production = new Production();
-            var myConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
-            SqlConnection conn = new SqlConnection();
 
             try
             {
@@ -253,10 +260,14 @@ namespace SPDM.DLL.Repositories
                     whereClause = " Where " + whereClause;
                 }
 
-                conn.ConnectionString = myConnectionString;
-                conn.Open();
 
-                SqlCommand comm = conn.CreateCommand();
+                if (sqlConnection.State == ConnectionState.Closed)
+                {
+                    sqlConnection.Open();
+                }
+
+                SqlCommand comm = sqlConnection.CreateCommand();
+
                 comm.CommandText = "Select count(*) from Production " + whereClause;
                 count = Convert.ToInt32(comm.ExecuteScalar());
             }
@@ -266,7 +277,10 @@ namespace SPDM.DLL.Repositories
             }
             finally
             {
-                conn.Close();
+                if (!isEnableTransaction)
+                {
+                    sqlConnection.Close();
+                }
             }
             return count;
         }

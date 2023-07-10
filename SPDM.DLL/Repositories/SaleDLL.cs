@@ -10,17 +10,19 @@ using System.Threading.Tasks;
 
 namespace SPDM.DLL.Repositories
 {
-    public class SaleDLL
+    public class SaleDLL : IDisposable
     {
+        private bool _disposed;
+
         private SqlConnection sqlConnection;
         private SqlTransaction sqlTransaction;
         private bool isEnableTransaction = false;
+
         public SaleDLL()
         {
             string myConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
             sqlConnection = new SqlConnection(myConnectionString);
         }
-
 
         public SaleDLL(SqlTransaction sqlTrans)
         {
@@ -38,6 +40,7 @@ namespace SPDM.DLL.Repositories
             isEnableTransaction = true;
 
         }
+
         public int Delete(int id)
         {
             int noOfRowAffected = 0;
@@ -80,6 +83,7 @@ namespace SPDM.DLL.Repositories
             {
                 whereClause = " Where " + whereClause;
             }
+
             try
             {
 
@@ -167,15 +171,16 @@ namespace SPDM.DLL.Repositories
         public Sale GetById(int id)
         {
             Sale sale = new Sale();
-            var myConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
-            SqlConnection conn = new SqlConnection();
+           
 
             try
             {
-                conn.ConnectionString = myConnectionString;
-                conn.Open();
+                if (sqlConnection.State == ConnectionState.Closed)
+                {
+                    sqlConnection.Open();
+                }
 
-                SqlCommand comm = conn.CreateCommand();
+                SqlCommand comm = sqlConnection.CreateCommand();
                 comm.CommandText = "Select * from Sale where id = " + id;
                 using (SqlDataReader reader = comm.ExecuteReader())
                 {
@@ -242,7 +247,11 @@ namespace SPDM.DLL.Repositories
             }
             finally
             {
-                conn.Close();
+
+                if (!isEnableTransaction)
+                {
+                    sqlConnection.Close();
+                }
             }
             return sale;
 
@@ -254,8 +263,7 @@ namespace SPDM.DLL.Repositories
 
             int count = 0;
             Sale sale = new Sale();
-            var myConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
-            SqlConnection conn = new SqlConnection();
+            
 
             try
             {
@@ -264,10 +272,13 @@ namespace SPDM.DLL.Repositories
                     whereClause = " Where " + whereClause;
                 }
 
-                conn.ConnectionString = myConnectionString;
-                conn.Open();
 
-                SqlCommand comm = conn.CreateCommand();
+                if (sqlConnection.State == ConnectionState.Closed)
+                {
+                    sqlConnection.Open();
+                }
+
+                SqlCommand comm = sqlConnection.CreateCommand();
                 comm.CommandText = "Select count(*) from Sale " + whereClause;
                 count = Convert.ToInt32(comm.ExecuteScalar());
             }
@@ -277,7 +288,10 @@ namespace SPDM.DLL.Repositories
             }
             finally
             {
-                conn.Close();
+                if (!isEnableTransaction)
+                {
+                    sqlConnection.Close();
+                }
             }
             return count;
         }
@@ -387,6 +401,28 @@ namespace SPDM.DLL.Repositories
             return primaryKey;
         }
 
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
 
+        protected virtual void Dispose(bool disposing)
+        {
+            if (_disposed)
+            {
+                return;
+            }
+
+            if (disposing)
+            {
+                if (!isEnableTransaction && sqlConnection != null) 
+                {
+                    sqlConnection.Dispose();
+                    sqlConnection = null;
+                }
+
+            }
+        }
     }
 }

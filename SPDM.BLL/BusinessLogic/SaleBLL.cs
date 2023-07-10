@@ -10,16 +10,16 @@ namespace SPDM.BLL.BusinessLogic
 {
     public class SaleBLL
     {
-       
+        
         public int Save(Sale sale, List<SaleDetail> saleDetails, List<Payment> payments)
         {
             string myConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
             DbManager dbManager = new DbManager(myConnectionString);
+            WorkOrderDetailDLL workOrderDetailDLL = new WorkOrderDetailDLL();
             try
             {
                 dbManager.OpenTransaction();
 
-                WorkOrderDetailDLL workOrderDetailDLL = new WorkOrderDetailDLL();
                 string where = "WorkOrderId = " + sale.WorkOrderId;
                 List<WorkOrderDetail> workOrderDetails = workOrderDetailDLL.GetAll(where);
                 StockDLL stockDLL = new StockDLL(dbManager.Transaction);
@@ -97,6 +97,7 @@ namespace SPDM.BLL.BusinessLogic
             finally
             {
                 dbManager.Dispose();
+                
             }
         }
 
@@ -225,5 +226,6 @@ namespace SPDM.BLL.BusinessLogic
             }
         }
 
+        
     }
 }

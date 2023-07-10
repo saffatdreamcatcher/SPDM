@@ -45,12 +45,9 @@ namespace SPDM.DLL.Repositories
         public int Delete(int id) 
         {
             int noOfRowAffected = 0;
-            //var myConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
-            //SqlConnection conn = new SqlConnection();
+            
             try 
             {
-                //conn.ConnectionString = myConnectionString;
-                //conn.Open();
                 if (sqlConnection.State == ConnectionState.Closed)
                 {
                     sqlConnection.Open();
@@ -82,18 +79,19 @@ namespace SPDM.DLL.Repositories
         public List<Item> GetAll(string whereClause = "")
         {
             var items = new List<Item>();
-            var myConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
-            SqlConnection conn = new SqlConnection();
+            
             if (!string.IsNullOrEmpty(whereClause))
             {
                 whereClause = " Where " + whereClause;
             }
             try
             {
-                conn.ConnectionString = myConnectionString;
-                conn.Open();
+                if (sqlConnection.State == ConnectionState.Closed)
+                {
+                    sqlConnection.Open();
+                }
 
-                SqlCommand comm = conn.CreateCommand();
+                SqlCommand comm = sqlConnection.CreateCommand();
                 comm.CommandText = "Select Item.*, Category.Name AS CategoryName from Item " +
                                    "inner join Category on Item.CategoryId = Category.Id " + whereClause;
                 //comm.CommandText = "Select * from Item" + whereClause;
@@ -142,7 +140,10 @@ namespace SPDM.DLL.Repositories
             }
             finally
             {
-                conn.Close();
+                if (!isEnableTransaction)
+                {
+                    sqlConnection.Close();
+                }
             }
             return items;
         }
@@ -150,15 +151,17 @@ namespace SPDM.DLL.Repositories
         public Item GetById(int id)
         {
             Item item = new Item();
-            var myConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
-            SqlConnection conn = new SqlConnection();
+            
 
             try
             {
-                conn.ConnectionString = myConnectionString;
-                conn.Open();
+                if (sqlConnection.State == ConnectionState.Closed)
+                {
+                    sqlConnection.Open();
+                }
 
-                SqlCommand comm = conn.CreateCommand();
+                SqlCommand comm = sqlConnection.CreateCommand();
+
                 comm.CommandText = "Select Item.*, Category.Name AS CategoryName from Item " +
                                    "inner join Category on Item.CategoryId = Category.Id and Item.Id = " + id;
                 //comm.CommandText = "Select * from Item where id = " + id;
@@ -206,7 +209,10 @@ namespace SPDM.DLL.Repositories
             }
             finally
             {
-                conn.Close();
+                if (!isEnableTransaction)
+                {
+                    sqlConnection.Close();
+                }
             }
             return item;
 
@@ -217,8 +223,7 @@ namespace SPDM.DLL.Repositories
 
             int count = 0;
             Item item = new Item();
-            var myConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
-            SqlConnection conn = new SqlConnection();
+            
 
             try
             {
@@ -227,10 +232,13 @@ namespace SPDM.DLL.Repositories
                     whereClause = " Where " + whereClause;
                 }
 
-                conn.ConnectionString = myConnectionString;
-                conn.Open();
+                if (sqlConnection.State == ConnectionState.Closed)
+                {
+                    sqlConnection.Open();
+                }
 
-                SqlCommand comm = conn.CreateCommand();
+                SqlCommand comm = sqlConnection.CreateCommand();
+
                 comm.CommandText = "Select count(*) from Item " + whereClause;
                 count = Convert.ToInt32(comm.ExecuteScalar());
             }
@@ -240,7 +248,10 @@ namespace SPDM.DLL.Repositories
             }
             finally
             {
-                conn.Close();
+                if (!isEnableTransaction)
+                {
+                    sqlConnection.Close();
+                }
             }
             return count;
         }

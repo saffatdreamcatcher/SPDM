@@ -41,12 +41,9 @@ namespace SPDM.DLL.Repositories
         public int Delete(int id)
         {
             int noOfRowAffected = 0;
-            //var myConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
-            //SqlConnection conn = new SqlConnection();
+            
             try
             {
-                //conn.ConnectionString = myConnectionString;
-                //conn.Open();
 
                 if (sqlConnection.State == ConnectionState.Closed)
                 {
@@ -78,18 +75,21 @@ namespace SPDM.DLL.Repositories
         public List<Role> GetAll(string whereClause = "")
         {
             var roles = new List<Role>();
-            var myConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
-            SqlConnection conn = new SqlConnection();
+            
             if (!string.IsNullOrEmpty(whereClause))
             {
                 whereClause = " Where " + whereClause;
             }
             try
             {
-                conn.ConnectionString = myConnectionString;
-                conn.Open();
 
-                SqlCommand comm = conn.CreateCommand();
+                if (sqlConnection.State == ConnectionState.Closed)
+                {
+                    sqlConnection.Open();
+                }
+
+                SqlCommand comm = sqlConnection.CreateCommand();
+
                 comm.CommandText = "Select * from Role " + whereClause;
                 using (SqlDataReader reader = comm.ExecuteReader())
                 {
@@ -110,7 +110,10 @@ namespace SPDM.DLL.Repositories
             }
             finally
             {
-                conn.Close();
+                if (!isEnableTransaction)
+                {
+                    sqlConnection.Close();
+                }
             }
             return roles;
         }
@@ -118,15 +121,18 @@ namespace SPDM.DLL.Repositories
         public Role GetById(int id)
         {
             var role = new Role();
-            var myConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
-            SqlConnection conn = new SqlConnection();
+            
 
             try
             {
-                conn.ConnectionString = myConnectionString;
-                conn.Open();
 
-                SqlCommand comm = conn.CreateCommand();
+                if (sqlConnection.State == ConnectionState.Closed)
+                {
+                    sqlConnection.Open();
+                }
+
+                SqlCommand comm = sqlConnection.CreateCommand();
+
                 comm.CommandText = "Select * from Role where id = " + id;
                 using (SqlDataReader reader = comm.ExecuteReader())
                 {
@@ -150,7 +156,10 @@ namespace SPDM.DLL.Repositories
             }
             finally
             {
-                conn.Close();
+                if (!isEnableTransaction)
+                {
+                    sqlConnection.Close();
+                }
             }
             return role;
 
@@ -161,8 +170,7 @@ namespace SPDM.DLL.Repositories
 
             int count = 0;
             var role = new Role();
-            var myConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
-            SqlConnection conn = new SqlConnection();
+           
 
             try
             {
@@ -171,10 +179,14 @@ namespace SPDM.DLL.Repositories
                     whereClause = " Where " + whereClause;
                 }
 
-                conn.ConnectionString = myConnectionString;
-                conn.Open();
 
-                SqlCommand comm = conn.CreateCommand();
+                if (sqlConnection.State == ConnectionState.Closed)
+                {
+                    sqlConnection.Open();
+                }
+
+                SqlCommand comm = sqlConnection.CreateCommand();
+
                 comm.CommandText = "Select count(*) from Role " + whereClause;
                 count = Convert.ToInt32(comm.ExecuteScalar());
             }
@@ -184,7 +196,10 @@ namespace SPDM.DLL.Repositories
             }
             finally
             {
-                conn.Close();
+                if (!isEnableTransaction)
+                {
+                    sqlConnection.Close();
+                }
             }
             return count;
         }
