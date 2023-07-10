@@ -22,18 +22,18 @@ namespace SPDM.BLL.BusinessLogic
             {
                 dbManager.OpenTransaction();
 
-                StockDLL stockDLL = new StockDLL();
-                StockHistoryDLL stockHistoryDLL = new StockHistoryDLL();
-                ProductionDLL productionDLL = new ProductionDLL();
-                WorkOrderDLL workOrderDLL = new WorkOrderDLL();
-                ProductionDetailDLL productionDetailDLL = new ProductionDetailDLL();
+                StockDLL stockDLL = new StockDLL(dbManager.Transaction);
+                StockHistoryDLL stockHistoryDLL = new StockHistoryDLL(dbManager.Transaction);
+                ProductionDLL productionDLL = new ProductionDLL(dbManager.Transaction);
+                WorkOrderDLL workOrderDLL = new WorkOrderDLL(dbManager.Transaction);
+                ProductionDetailDLL productionDetailDLL = new ProductionDetailDLL(dbManager.Transaction);
                 Production production = productionDLL.GetById(productionId);
 
                 if (production.Id == 0)
                 {
                     throw new Exception("Production doesnt exist!");       
                 }
-                WorkOrderDetailDLL workOrderDetailDLL = new WorkOrderDetailDLL();
+                WorkOrderDetailDLL workOrderDetailDLL = new WorkOrderDetailDLL(dbManager.Transaction);
                
                 foreach (Stock stock in stocks)
                 {

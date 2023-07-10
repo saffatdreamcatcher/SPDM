@@ -22,8 +22,8 @@ namespace SPDM.BLL.BusinessLogic
                 dbManager.OpenTransaction();
 
                 bool isFound = false;
-                WorkOrderDLL workorderDLL = new WorkOrderDLL();
-                WorkOrderDetailDLL workorderDetailDLL = new WorkOrderDetailDLL();
+                WorkOrderDLL workorderDLL = new WorkOrderDLL(dbManager.Transaction);
+                WorkOrderDetailDLL workorderDetailDLL = new WorkOrderDetailDLL(dbManager.Transaction);
                 List<WorkOrderDetail> oldWorkOrderDetailList = new List<WorkOrderDetail>();
                 if(!workorder.IsNew)
                 {
