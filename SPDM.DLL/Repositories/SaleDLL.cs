@@ -41,12 +41,9 @@ namespace SPDM.DLL.Repositories
         public int Delete(int id)
         {
             int noOfRowAffected = 0;
-            //var myConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
-            //SqlConnection conn = new SqlConnection();
+            
             try
             {
-                //conn.ConnectionString = myConnectionString;
-                //conn.Open();
 
                 if (sqlConnection.State == ConnectionState.Closed)
                 {
@@ -78,18 +75,20 @@ namespace SPDM.DLL.Repositories
         public List<Sale> GetAll(string whereClause = "")
         {
             var sales = new List<Sale>();
-            var myConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
-            SqlConnection conn = new SqlConnection();
+           
             if (!string.IsNullOrEmpty(whereClause))
             {
                 whereClause = " Where " + whereClause;
             }
             try
             {
-                conn.ConnectionString = myConnectionString;
-                conn.Open();
 
-                SqlCommand comm = conn.CreateCommand();
+                if (sqlConnection.State == ConnectionState.Closed)
+                {
+                    sqlConnection.Open();
+                }
+
+                SqlCommand comm = sqlConnection.CreateCommand();
                 comm.CommandText = "Select * from Sale" + whereClause;
                 using (SqlDataReader reader = comm.ExecuteReader())
                 {
@@ -156,7 +155,10 @@ namespace SPDM.DLL.Repositories
             }
             finally
             {
-                conn.Close();
+                if (!isEnableTransaction)
+                {
+                    sqlConnection.Close();
+                }
             }
             return sales;
         }

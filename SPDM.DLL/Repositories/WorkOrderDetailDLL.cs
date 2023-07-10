@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace SPDM.DLL.Repositories
 {
-    public class WorkOrderDetailDLL
+    public class WorkOrderDetailDLL 
     {
         private SqlConnection sqlConnection;
         private SqlTransaction sqlTransaction;
@@ -76,24 +76,28 @@ namespace SPDM.DLL.Repositories
 
         }
 
+        
 
         public List<WorkOrderDetail> GetAll(string whereClause = "")
         {
             var workorders = new List<WorkOrderDetail>();
-            var myConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
-            SqlConnection conn = new SqlConnection();
+            
             if (!string.IsNullOrEmpty(whereClause))
             {
                 whereClause = " Where " + whereClause;
             }
             try
             {
-                conn.ConnectionString = myConnectionString;
-                conn.Open();
+                if (sqlConnection.State == ConnectionState.Closed)
+                {
+                    sqlConnection.Open();
+                }
 
-                SqlCommand comm = conn.CreateCommand();
+                SqlCommand comm = sqlConnection.CreateCommand();
+
                 comm.CommandText = "Select WorkOrderDetail.*, Item.Name AS ItemName from WorkOrderDetail " +
                                      "inner join Item on WorkOrderDetail.ItemId = Item.Id " + whereClause;
+
                 using (SqlDataReader reader = comm.ExecuteReader())
                 {
                     while (reader != null && reader.Read())
@@ -168,7 +172,10 @@ namespace SPDM.DLL.Repositories
             }
             finally
             {
-                conn.Close();
+                if (!isEnableTransaction)
+                {
+                    sqlConnection.Close();
+                }
             }
             return workorders;
         }
