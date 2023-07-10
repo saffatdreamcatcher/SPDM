@@ -143,20 +143,24 @@ namespace SPDM.BLL.BusinessLogic
 
         public int Delete(int id)
         {
+            string myConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
+            DbManager dbManager = new DbManager(myConnectionString);
             try
             {
-                SaleDLL saleDLL = new SaleDLL();
+                dbManager.OpenTransaction();
+
+                SaleDLL saleDLL = new SaleDLL(dbManager.Transaction);
                 Sale sale = saleDLL.GetById(id);
-                SaleDetailDLL saleDetailDLL = new SaleDetailDLL();
+                SaleDetailDLL saleDetailDLL = new SaleDetailDLL(dbManager.Transaction);
                 string whereSale = "SaleId = " + id;
                 List<SaleDetail> saleDetails = saleDetailDLL.GetAll(whereSale);
 
-                WorkOrderDetailDLL workOrderDetailDLL = new WorkOrderDetailDLL();
+                WorkOrderDetailDLL workOrderDetailDLL = new WorkOrderDetailDLL(dbManager.Transaction);
                 string whereWorkOrder = "WorkOrderId = " + sale.WorkOrderId;
                 List<WorkOrderDetail> workOrderDetails = workOrderDetailDLL.GetAll(whereWorkOrder);
-                StockDLL stockDLL = new StockDLL();
-                StockHistoryDLL stockHistoryDLL = new StockHistoryDLL();
-                WorkOrderDLL workOrderDLL = new WorkOrderDLL();
+                StockDLL stockDLL = new StockDLL(dbManager.Transaction);
+                StockHistoryDLL stockHistoryDLL = new StockHistoryDLL(dbManager.Transaction);
+                WorkOrderDLL workOrderDLL = new WorkOrderDLL(dbManager.Transaction);
 
                 foreach (SaleDetail sd in saleDetails)
                 {
@@ -205,12 +209,19 @@ namespace SPDM.BLL.BusinessLogic
                     saleDetailDLL.Delete(saleDetail.Id); 
                 }
                 saleDLL.Delete(id);
+                dbManager.CommitTransaction();
+
                 return 0;
             }
            
             catch (Exception ex)
             {
+                dbManager.RollbackTransaction();
                 throw ex;
+            }
+            finally
+            {
+                dbManager.Dispose();
             }
         }
 

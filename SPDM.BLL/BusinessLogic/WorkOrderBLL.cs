@@ -132,10 +132,14 @@ namespace SPDM.BLL.BusinessLogic
 
         public int Delete(int id)
         {
+            string myConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
+            DbManager dbManager = new DbManager(myConnectionString);
             try
             {
+                dbManager.OpenTransaction();
+
                 string where = "workorderId= " + id;
-                WorkOrderDetailDLL workOrderDetailDLL = new WorkOrderDetailDLL();
+                WorkOrderDetailDLL workOrderDetailDLL = new WorkOrderDetailDLL(dbManager.Transaction);
                 List<WorkOrderDetail> workOrderDetails = workOrderDetailDLL.GetAll(where);
 
                 foreach (WorkOrderDetail workOrderDetail in workOrderDetails)
@@ -143,12 +147,19 @@ namespace SPDM.BLL.BusinessLogic
                     workOrderDetailDLL.Delete(workOrderDetail.Id);
                 }
 
-                WorkOrderDLL workorderDLL = new WorkOrderDLL();
+                WorkOrderDLL workorderDLL = new WorkOrderDLL(dbManager.Transaction);
+                dbManager.CommitTransaction();
+
                 return workorderDLL.Delete(id);
             }
             catch (Exception ex)
             {
+                dbManager.RollbackTransaction();
                 throw ex;
+            }
+            finally
+            {
+                dbManager.Dispose();
             }
         }
 
