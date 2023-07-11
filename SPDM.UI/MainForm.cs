@@ -1,4 +1,5 @@
 ﻿using SPDM.BLL.BusinessLogic;
+using SPDM.UI.Reports;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -200,6 +201,17 @@ namespace SPDM.UI
         {
             CloseAllForms();
             frmPayment myForm = new frmPayment();
+            myForm.TopLevel = false;
+            myForm.AutoScroll = true;
+            pForm.Controls.Add(myForm);
+            myForm.WindowState = FormWindowState.Maximized;
+            myForm.Show();
+        }
+
+        private void report1ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CloseAllForms();
+            frmReportItem myForm = new frmReportItem();
             myForm.TopLevel = false;
             myForm.AutoScroll = true;
             pForm.Controls.Add(myForm);
