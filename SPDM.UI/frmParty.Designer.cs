@@ -522,6 +522,7 @@
             this.Controls.Add(this.label1);
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Name = "frmParty";
+            this.Load += new System.EventHandler(this.frmParty_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gvParty)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.partyBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.epParty)).EndInit();

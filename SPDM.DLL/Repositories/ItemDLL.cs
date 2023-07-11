@@ -112,7 +112,7 @@ namespace SPDM.DLL.Repositories
                             item.UpdateTime = Convert.ToDateTime(reader["UpdateTime"]);
                         }
                         item.CategoryId = Convert.ToInt32(reader["CategoryId"]);
-                        item.Number = Convert.ToInt32(reader["Number"]);
+                        item.Number = reader["Number"].ToString();
                         item.Name = reader["Name"].ToString();
                         item.Description = reader["Description"] is DBNull ? null : reader["Description"].ToString();
                         item.Unit = Convert.ToInt32(reader["Unit"]);
@@ -180,7 +180,7 @@ namespace SPDM.DLL.Repositories
                             item.UpdateTime = Convert.ToDateTime(reader["VatRate"]);
                         }
                         item  = new Item(id, createTime);
-                        item.Number = Convert.ToInt32(reader["Number"].ToString());
+                        item.Number = reader["Number"].ToString();
                         item.CategoryId = Convert.ToInt32(reader["CategoryId"]);
                         item.Name = reader["Name"].ToString();
                         item.Description = reader["Description"] is DBNull ? null : reader["Description"].ToString();

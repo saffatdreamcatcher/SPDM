@@ -142,7 +142,7 @@ namespace SPDM.UI
             item.Name = txtName.Text;
             item.CategoryId = Convert.ToInt32(cboCategory.SelectedValue);
             item.Description = txtDescription.Text;
-            item.Number = Convert.ToInt32(txtNumber.Text);
+            item.Number = txtNumber.Text;
             item.Unit = Convert.ToInt32(nUpUnit.Value);
             item.Price = Convert.ToDouble(nUpPrice.Value);
 

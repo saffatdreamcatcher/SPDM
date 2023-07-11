@@ -78,12 +78,14 @@ namespace SPDM.DLL.Repositories
         {
             List<Category> categories = new List<Category>();
            
-            if (!string.IsNullOrEmpty(whereClause))
-            {
-                whereClause = " Where " + whereClause;
-            }
+            
             try
             {
+                if (!string.IsNullOrEmpty(whereClause))
+                {
+                    whereClause = " Where " + whereClause;
+                }
+
                 if (sqlConnection.State == ConnectionState.Closed)
                 {
                     sqlConnection.Open();
@@ -208,12 +210,9 @@ namespace SPDM.DLL.Repositories
         public int Save(Category categories)
         {
             int primaryKey = 0;
-            //string myConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
-            //SqlConnection conn = new SqlConnection();
+           
             try
             {
-                //conn.ConnectionString = myConnectionString;
-                //conn.Open();
 
                 if (sqlConnection.State == ConnectionState.Closed)
                 {

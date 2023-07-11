@@ -143,5 +143,10 @@ namespace SPDM.UI
         {
             this.Close();
         }
+
+        private void frmParty_Load(object sender, EventArgs e)
+        {
+            LoadParty();
+        }
     }
 }

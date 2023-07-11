@@ -25,8 +25,8 @@ namespace SPDM.DLL.Entities
         public int CategoryId { get => categoryid; set => categoryid = value; }
 
 
-        private int number;
-        public int Number { get => number; set => number = value; }
+        private string number;
+        public string Number { get => number; set => number = value; }
 
         private string name;
         public string Name { get => name; set => name = value; }
