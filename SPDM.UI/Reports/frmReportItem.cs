@@ -23,7 +23,9 @@ namespace SPDM.UI.Reports
             ItemBLL itemBLL = new ItemBLL();
             RptItem rptItem = new RptItem();
             rptItem.DataSource = itemBLL.GetAll();
+
             rptItem.CreateDocument();
+
             documentViewer1.DocumentSource= rptItem;
            
 
