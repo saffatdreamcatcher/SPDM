@@ -1,4 +1,5 @@
-﻿using SPDM.BLL.BusinessLogic;
+﻿using DevExpress.XtraReports;
+using SPDM.BLL.BusinessLogic;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,13 +23,19 @@ namespace SPDM.UI.Reports
         {
             ItemBLL itemBLL = new ItemBLL();
             RptItem rptItem = new RptItem();
+
             rptItem.DataSource = itemBLL.GetAll();
+            rptItem.Parameters["CategoryName"].Value = "Sabbir";
+
 
             rptItem.CreateDocument();
 
             documentViewer1.DocumentSource= rptItem;
-           
 
+        }
+
+        private void frmReportItem_Load(object sender, EventArgs e)
+        {
 
         }
     }

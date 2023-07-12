@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
+            this.xrLabel6 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrTable2 = new DevExpress.XtraReports.UI.XRTable();
             this.xrTableRow2 = new DevExpress.XtraReports.UI.XRTableRow();
             this.xrTableCell6 = new DevExpress.XtraReports.UI.XRTableCell();
@@ -53,7 +54,7 @@
             this.xrTableCell4 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrLabel5 = new DevExpress.XtraReports.UI.XRLabel();
             this.objectDataSource1 = new DevExpress.DataAccess.ObjectBinding.ObjectDataSource(this.components);
-            this.Name1 = new DevExpress.XtraReports.Parameters.Parameter();
+            this.CategoryName = new DevExpress.XtraReports.Parameters.Parameter();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.objectDataSource1)).BeginInit();
@@ -62,10 +63,22 @@
             // TopMargin
             // 
             this.TopMargin.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrLabel6,
             this.xrTable2,
             this.xrLabel7});
             this.TopMargin.HeightF = 145.17F;
             this.TopMargin.Name = "TopMargin";
+            // 
+            // xrLabel6
+            // 
+            this.xrLabel6.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "?CategoryName")});
+            this.xrLabel6.LocationFloat = new DevExpress.Utils.PointFloat(0F, 73.50001F);
+            this.xrLabel6.Multiline = true;
+            this.xrLabel6.Name = "xrLabel6";
+            this.xrLabel6.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel6.SizeF = new System.Drawing.SizeF(100F, 23F);
+            this.xrLabel6.Text = "xrLabel6";
             // 
             // xrTable2
             // 
@@ -139,7 +152,7 @@
             // xrLabel7
             // 
             this.xrLabel7.Font = new DevExpress.Drawing.DXFont("Arial", 15F);
-            this.xrLabel7.LocationFloat = new DevExpress.Utils.PointFloat(10F, 43.66666F);
+            this.xrLabel7.LocationFloat = new DevExpress.Utils.PointFloat(0F, 35.33333F);
             this.xrLabel7.Multiline = true;
             this.xrLabel7.Name = "xrLabel7";
             this.xrLabel7.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -298,12 +311,11 @@
             this.objectDataSource1.DataSource = typeof(SPDM.DLL.Entities.Item);
             this.objectDataSource1.Name = "objectDataSource1";
             // 
-            // Name1
+            // CategoryName
             // 
-            this.Name1.Description = "Parameter1";
-            this.Name1.Name = "Name1";
-            this.Name1.Type = typeof(int);
-            this.Name1.ValueInfo = "0";
+            this.CategoryName.AllowNull = true;
+            this.CategoryName.Name = "CategoryName";
+            this.CategoryName.ValueInfo = "  ";
             // 
             // RptItem
             // 
@@ -315,8 +327,10 @@
             this.objectDataSource1});
             this.Font = new DevExpress.Drawing.DXFont("Arial", 9.75F);
             this.Margins = new DevExpress.Drawing.DXMargins(98F, 100F, 145.17F, 100F);
+            this.ParameterPanelLayoutItems.AddRange(new DevExpress.XtraReports.Parameters.ParameterPanelLayoutItem[] {
+            new DevExpress.XtraReports.Parameters.ParameterLayoutItem(this.CategoryName, DevExpress.XtraReports.Parameters.Orientation.Horizontal)});
             this.Parameters.AddRange(new DevExpress.XtraReports.Parameters.Parameter[] {
-            this.Name1});
+            this.CategoryName});
             this.Version = "22.2";
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).EndInit();
@@ -351,6 +365,7 @@
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell9;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell10;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell8;
-        private DevExpress.XtraReports.Parameters.Parameter Name1;
+        private DevExpress.XtraReports.Parameters.Parameter CategoryName;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel6;
     }
 }
