@@ -209,11 +209,23 @@
     <Compile Include="Reports\frmReportItem.Designer.cs">
       <DependentUpon>frmReportItem.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\frmReportParty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmReportParty.Designer.cs">
+      <DependentUpon>frmReportParty.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\RptItem.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reports\RptItem.Designer.cs">
       <DependentUpon>RptItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\RptParty.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\RptParty.Designer.cs">
+      <DependentUpon>RptParty.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -292,8 +304,14 @@
     <EmbeddedResource Include="Reports\frmReportItem.resx">
       <DependentUpon>frmReportItem.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmReportParty.resx">
+      <DependentUpon>frmReportParty.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\RptItem.resx">
       <DependentUpon>RptItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RptParty.resx">
+      <DependentUpon>RptParty.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\DataSources\frmCategory.datasource" />
     <None Include="Properties\DataSources\frmRole.datasource" />

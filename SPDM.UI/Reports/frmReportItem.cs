@@ -72,6 +72,6 @@ namespace SPDM.UI.Reports
             cmoCategory.ValueMember = "Id";
             cmoCategory.DisplayMember = "Name";
         }
-
+       
     }
 }
