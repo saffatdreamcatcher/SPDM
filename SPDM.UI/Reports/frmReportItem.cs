@@ -25,31 +25,21 @@ namespace SPDM.UI.Reports
             ItemBLL itemBLL = new ItemBLL();
             RptItem rptItem = new RptItem();
 
-            Item item = new Item();
             List<Item> items = new List<Item>();
             
             string where = "CategoryId = " + cmoCategory.SelectedValue;
-
             if (cmoCategory.Text == "All")
             {
-                items = itemBLL.GetAll();
-                
+                items = itemBLL.GetAll();   
             }
             else
             {
                 items = itemBLL.GetAll(where);
-                
             }
 
             rptItem.DataSource = items;
-
-
-            rptItem.Parameters["CategoryName"].Value = "All";
-
-
+            rptItem.Parameters["CategoryName"].Value = cmoCategory.Text;
             rptItem.CreateDocument();
-
-
             documentViewer1.DocumentSource = rptItem;
 
         }
