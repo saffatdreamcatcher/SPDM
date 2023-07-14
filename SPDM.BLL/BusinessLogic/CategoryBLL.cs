@@ -64,6 +64,20 @@ namespace SPDM.BLL.BusinessLogic
 
         }
 
+        public bool IsExist(string whereClause = "")
+        {
+            try
+            {
+                CategoryDLL categoryDLL = new CategoryDLL();
+                return categoryDLL.IsExist(whereClause);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
         public int Delete(int id)
         {
             try

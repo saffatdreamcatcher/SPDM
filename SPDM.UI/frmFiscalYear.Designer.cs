@@ -31,11 +31,12 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.lblFiscalYear = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(198, 175);
+            this.btnSave.Location = new System.Drawing.Point(198, 162);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(81, 32);
             this.btnSave.TabIndex = 0;
@@ -49,17 +50,27 @@
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(198, 101);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(260, 24);
+            this.comboBox1.Size = new System.Drawing.Size(248, 24);
             this.comboBox1.TabIndex = 1;
             // 
             // lblFiscalYear
             // 
             this.lblFiscalYear.AutoSize = true;
-            this.lblFiscalYear.Location = new System.Drawing.Point(103, 109);
+            this.lblFiscalYear.Location = new System.Drawing.Point(96, 108);
             this.lblFiscalYear.Name = "lblFiscalYear";
             this.lblFiscalYear.Size = new System.Drawing.Size(72, 16);
             this.lblFiscalYear.TabIndex = 2;
             this.lblFiscalYear.Text = "FiscalYear";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(174, 105);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(15, 20);
+            this.label5.TabIndex = 35;
+            this.label5.Text = ":";
             // 
             // frmFiscalYear
             // 
@@ -67,6 +78,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.lblFiscalYear);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.btnSave);
@@ -83,5 +95,6 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label lblFiscalYear;
+        private System.Windows.Forms.Label label5;
     }
 }

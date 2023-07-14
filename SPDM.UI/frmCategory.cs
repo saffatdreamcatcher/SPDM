@@ -2,13 +2,8 @@
 using SPDM.DLL.Entities;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SPDM.UI
@@ -45,7 +40,7 @@ namespace SPDM.UI
 
         }
 
-        private Boolean IsFormValid()
+        private Boolean IsCategoryValid()
         {
             epCategory.Clear();
             Boolean iv = true;
@@ -56,12 +51,30 @@ namespace SPDM.UI
                 epCategory.SetError(txtName, "Can't empty");
                 iv = false;
             }
+
+            if (!string.IsNullOrEmpty(txtName.Text))
+            {
+                CategoryBLL categoryBLL = new CategoryBLL();
+                string whereClause = "Name= '" + txtName.Text + "'";
+
+                if (categoryId > 0)
+                {
+                    whereClause += " and Id !=" + categoryId;
+                }
+              bool categoryExist =  categoryBLL.IsExist(whereClause);
+                if (categoryExist)
+                {
+                    txtName.Focus();
+                    epCategory.SetError(txtName, "Name already exists!");
+                    iv = false;
+                }
+            }
             return iv;
         }
 
         private void SaveCategory()
         {
-            if (IsFormValid())
+            if (IsCategoryValid())
             {
                 Category category = new Category();
                 category.Id = categoryId;

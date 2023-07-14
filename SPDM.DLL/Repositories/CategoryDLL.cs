@@ -202,6 +202,44 @@ namespace SPDM.DLL.Repositories
             return count;
         }
 
+        public bool IsExist(string whereClause = "")
+        {
+            bool isExist = false;
+
+            try
+            {
+                if (sqlConnection.State == ConnectionState.Closed)
+                {
+                    sqlConnection.Open();
+                }
+
+                SqlCommand comm = sqlConnection.CreateCommand();
+
+                comm.CommandText = "SELECT " +
+                        "CASE WHEN COUNT( Id ) >= 1 THEN " +
+                        "CAST( 1 as BIT ) " +
+                        "ELSE " +
+                        " CAST( 0 as BIT ) " +
+                        "END As IsPresent " +
+                        "FROM [dbo].[Category] " +
+                        "WHERE " + whereClause;
+                isExist = Convert.ToBoolean(comm.ExecuteScalar());
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (!isEnableTransaction)
+                {
+                    sqlConnection.Close();
+                }
+            }
+
+            return isExist;
+        }
+
         /// <summary>
         /// Save The Category 
         /// </summary>
