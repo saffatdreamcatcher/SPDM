@@ -53,8 +53,8 @@
             this.xrLabel4 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrTableCell4 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrLabel5 = new DevExpress.XtraReports.UI.XRLabel();
-            this.objectDataSource1 = new DevExpress.DataAccess.ObjectBinding.ObjectDataSource(this.components);
             this.CategoryName = new DevExpress.XtraReports.Parameters.Parameter();
+            this.objectDataSource1 = new DevExpress.DataAccess.ObjectBinding.ObjectDataSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.objectDataSource1)).BeginInit();
@@ -306,16 +306,16 @@
             this.xrLabel5.StylePriority.UseBorders = false;
             this.xrLabel5.Text = "xrLabel5";
             // 
-            // objectDataSource1
-            // 
-            this.objectDataSource1.DataSource = typeof(SPDM.DLL.Entities.Item);
-            this.objectDataSource1.Name = "objectDataSource1";
-            // 
             // CategoryName
             // 
             this.CategoryName.AllowNull = true;
             this.CategoryName.Name = "CategoryName";
             this.CategoryName.ValueInfo = "  ";
+            // 
+            // objectDataSource1
+            // 
+            this.objectDataSource1.DataSource = typeof(SPDM.DLL.Entities.Item);
+            this.objectDataSource1.Name = "objectDataSource1";
             // 
             // RptItem
             // 

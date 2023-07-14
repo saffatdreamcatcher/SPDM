@@ -29,7 +29,7 @@ namespace SPDM.UI.Reports
             parties = partyBLL.GetAll();
             rptParty.DataSource = parties;
 
-            
+            rptParty.Parameters["PartyName"].Value = "Ocean";
 
             rptParty.CreateDocument();
 
