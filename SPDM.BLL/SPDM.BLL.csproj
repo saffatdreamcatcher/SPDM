@@ -50,6 +50,7 @@
     <Compile Include="BusinessLogic\ProductionBLL.cs" />
     <Compile Include="BusinessLogic\ProductionDetailBLL.cs" />
     <Compile Include="BusinessLogic\ProfileBLL.cs" />
+    <Compile Include="BusinessLogic\ReportBLL.cs" />
     <Compile Include="BusinessLogic\RoleBLL.cs" />
     <Compile Include="BusinessLogic\SaleBLL.cs" />
     <Compile Include="BusinessLogic\SaleDetailBLL.cs" />

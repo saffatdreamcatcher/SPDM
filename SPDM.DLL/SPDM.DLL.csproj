@@ -75,6 +75,7 @@
     <Compile Include="Repositories\ProductionDetailDLL.cs" />
     <Compile Include="Repositories\ProductionDLL.cs" />
     <Compile Include="Repositories\ProfileDLL.cs" />
+    <Compile Include="Repositories\ReportDLL.cs" />
     <Compile Include="Repositories\RoleDLL.cs" />
     <Compile Include="Repositories\SaleDetailDLL.cs" />
     <Compile Include="Repositories\SaleDLL.cs" />

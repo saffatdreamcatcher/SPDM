@@ -445,14 +445,14 @@
             // 
             // nupTotalIncVat1
             // 
-            this.nupTotalIncVat1.Location = new System.Drawing.Point(817, 427);
+            this.nupTotalIncVat1.Location = new System.Drawing.Point(811, 427);
             this.nupTotalIncVat1.Maximum = new decimal(new int[] {
             -1981284352,
             -1966660860,
             0,
             0});
             this.nupTotalIncVat1.Name = "nupTotalIncVat1";
-            this.nupTotalIncVat1.Size = new System.Drawing.Size(200, 22);
+            this.nupTotalIncVat1.Size = new System.Drawing.Size(206, 22);
             this.nupTotalIncVat1.TabIndex = 50;
             // 
             // label19
