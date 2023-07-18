@@ -245,6 +245,12 @@
     <Compile Include="Reports\RptParty.Designer.cs">
       <DependentUpon>RptParty.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\RptWorkOrder.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\RptWorkOrder.Designer.cs">
+      <DependentUpon>RptWorkOrder.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -333,6 +339,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\RptParty.resx">
       <DependentUpon>RptParty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RptWorkOrder.resx">
+      <DependentUpon>RptWorkOrder.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\DataSources\frmCategory.datasource" />
     <None Include="Properties\DataSources\frmRole.datasource" />
