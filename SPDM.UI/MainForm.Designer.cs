@@ -53,6 +53,7 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pForm = new System.Windows.Forms.Panel();
+            this.workOrderListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -217,7 +218,8 @@
             // 
             this.reportToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.report1ToolStripMenuItem,
-            this.report2ToolStripMenuItem});
+            this.report2ToolStripMenuItem,
+            this.workOrderListToolStripMenuItem});
             this.reportToolStripMenuItem.Name = "reportToolStripMenuItem";
             this.reportToolStripMenuItem.Size = new System.Drawing.Size(68, 24);
             this.reportToolStripMenuItem.Text = "Report";
@@ -258,6 +260,13 @@
             this.pForm.Size = new System.Drawing.Size(800, 422);
             this.pForm.TabIndex = 1;
             this.pForm.Paint += new System.Windows.Forms.PaintEventHandler(this.pForm_Paint);
+            // 
+            // workOrderListToolStripMenuItem
+            // 
+            this.workOrderListToolStripMenuItem.Name = "workOrderListToolStripMenuItem";
+            this.workOrderListToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.workOrderListToolStripMenuItem.Text = "WorkOrder List";
+            this.workOrderListToolStripMenuItem.Click += new System.EventHandler(this.workOrderListToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -305,6 +314,7 @@
         private System.Windows.Forms.ToolStripMenuItem itemToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem partyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fiscalYearToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem workOrderListToolStripMenuItem;
     }
 }
 
