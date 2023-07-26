@@ -15,7 +15,7 @@ namespace SPDM.DLL.Repositories
 
         public ReportDLL()
         {
-            string myConnectionString = ConfigurationManager.ConnectionStrings["Connection2"].ConnectionString;
+            string myConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
             sqlConnection = new SqlConnection(myConnectionString);
         }
 
@@ -42,6 +42,8 @@ namespace SPDM.DLL.Repositories
                
                 da = new SqlDataAdapter(comm);
                 da.Fill(ds);
+                ds.Tables[0].TableName = "Result1";
+                ds.Tables[1].TableName = "Result2";
 
             }
             catch (SqlException ex)
