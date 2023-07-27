@@ -121,7 +121,6 @@ namespace SPDM.UI
                 if (sB.ToString() != string.Empty)
                 {
                     sB.Append(" AND");
-
                 }
 
                 sB.Append(" PartyId =");

@@ -24,10 +24,10 @@ namespace SPDM.DLL.Repositories
             DataSet ds = new DataSet();
             try
             {
-                if (!string.IsNullOrEmpty(whereClause))
-                {
-                    whereClause = " Where " + whereClause;
-                }
+                //if (!string.IsNullOrEmpty(whereClause))
+                //{
+                //    whereClause = " Where " + whereClause;
+                //}
 
                 if (sqlConnection.State == ConnectionState.Closed)
                 {
@@ -36,14 +36,16 @@ namespace SPDM.DLL.Repositories
 
                 SqlCommand comm = sqlConnection.CreateCommand();
                 comm.CommandType = CommandType.StoredProcedure;
-                comm.CommandText = "WorkOrderSP";
-
+                comm.CommandText = "WorkOrderSPTest";
+                comm.Parameters.Add("@whereClause", SqlDbType.VarChar).Value = whereClause;
                 SqlDataAdapter da = new SqlDataAdapter();
                
                 da = new SqlDataAdapter(comm);
                 da.Fill(ds);
                 ds.Tables[0].TableName = "Result1";
                 ds.Tables[1].TableName = "Result2";
+
+                ds.Relations.Add("hhh", ds.Tables["Result1"].Columns["Id"], ds.Tables["Result2"].Columns["WorkOrderId"]);
 
             }
             catch (SqlException ex)

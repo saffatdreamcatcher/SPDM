@@ -54,6 +54,7 @@
             this.xrTableCell4 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell5 = new DevExpress.XtraReports.UI.XRTableCell();
             this.WorkOrderNo = new DevExpress.XtraReports.Parameters.Parameter();
+            this.Party = new DevExpress.XtraReports.Parameters.Parameter();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
@@ -269,6 +270,10 @@
             this.WorkOrderNo.AllowNull = true;
             this.WorkOrderNo.Name = "WorkOrderNo";
             // 
+            // Party
+            // 
+            this.Party.Name = "Party";
+            // 
             // RptWorkOrder
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -283,7 +288,8 @@
             this.Font = new DevExpress.Drawing.DXFont("Arial", 9.75F);
             this.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 5, 5, 100F);
             this.Parameters.AddRange(new DevExpress.XtraReports.Parameters.Parameter[] {
-            this.WorkOrderNo});
+            this.WorkOrderNo,
+            this.Party});
             this.Version = "22.2";
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).EndInit();
@@ -316,5 +322,6 @@
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell7;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell8;
         private DevExpress.XtraReports.Parameters.Parameter WorkOrderNo;
+        private DevExpress.XtraReports.Parameters.Parameter Party;
     }
 }
