@@ -59,5 +59,43 @@ namespace SPDM.DLL.Repositories
             }
             return ds;
         }
+
+        public DataSet GetWOWithDetailTest(string whereClause = "")
+        {
+            DataSet ds = new DataSet();
+            try
+            {
+               
+
+                if (sqlConnection.State == ConnectionState.Closed)
+                {
+                    sqlConnection.Open();
+                }
+
+                SqlCommand comm = sqlConnection.CreateCommand();
+                comm.CommandType = CommandType.StoredProcedure;
+                comm.CommandText = "WorkOrederWDetailSP";
+                
+                SqlDataAdapter da = new SqlDataAdapter();
+
+                da = new SqlDataAdapter(comm);
+                da.Fill(ds);
+                
+
+            }
+
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+
+            finally
+            {
+
+                sqlConnection.Close();
+            }
+            return ds;
+        }
+
     }
 }

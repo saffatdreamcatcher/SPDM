@@ -22,5 +22,18 @@ namespace SPDM.BLL.BusinessLogic
                 throw ex;
             }
         }
+
+        public DataSet GetWOWithDetailTest(string whereClause = "")
+        {
+            try
+            {
+                ReportDLL reportDLL = new ReportDLL();
+                return reportDLL.GetWOWithDetailTest(whereClause);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
