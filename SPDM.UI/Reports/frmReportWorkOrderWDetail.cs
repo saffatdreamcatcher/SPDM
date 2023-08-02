@@ -37,7 +37,7 @@ namespace SPDM.UI.Reports
             ds.Tables["Table"].TableName= "WorkOrder";
             ds.Tables["Table1"].TableName = "WorkOrderDetail";
 
-            //RelationShip should be the same name what we added in design time 
+            //RelationShip should be the same name what we added in design time which is WorkOrderWorkOrderDetail
             ds.Relations.Add("WorkOrderWorkOrderDetail", ds.Tables["WorkOrder"].Columns["Id"], ds.Tables["WorkOrderDetail"].Columns["WorkOrderId"]);
 
             rptWOrderWDetail.DataSource = ds;
