@@ -74,7 +74,8 @@ namespace SPDM.DLL.Repositories
 
                 SqlCommand comm = sqlConnection.CreateCommand();
                 comm.CommandType = CommandType.StoredProcedure;
-                comm.CommandText = "WorkOrederWDetailSP";
+                comm.CommandText = "WorkOrderSPTest2";
+                
                 
                 SqlDataAdapter da = new SqlDataAdapter();
 
