@@ -261,7 +261,6 @@ namespace SPDM.UI
 
         private void stockListToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
             CloseAllForms();
             frmReportStock myForm = new frmReportStock();
             myForm.TopLevel = false;
@@ -269,16 +268,6 @@ namespace SPDM.UI
             pForm.Controls.Add(myForm);
             myForm.WindowState = FormWindowState.Maximized;
             myForm.Show();
-
-            //CloseAllForms();
-            //frmReportStockTest myForm = new frmReportStockTest();
-            //myForm.TopLevel = false;
-            //myForm.AutoScroll = true;
-            //pForm.Controls.Add(myForm);
-            //myForm.WindowState = FormWindowState.Maximized;
-            //myForm.Show();
-
-
         }
 
 
