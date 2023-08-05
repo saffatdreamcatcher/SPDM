@@ -233,6 +233,12 @@
     <Compile Include="Reports\frmReportStock.Designer.cs">
       <DependentUpon>frmReportStock.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\frmReportStockTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmReportStockTest.Designer.cs">
+      <DependentUpon>frmReportStockTest.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\frmReportWorkOrder.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -286,6 +292,12 @@
     </Compile>
     <Compile Include="Reports\XtraReport1.Designer.cs">
       <DependentUpon>XtraReport1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\RptStockTest.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\RptStockTest.Designer.cs">
+      <DependentUpon>RptStockTest.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -370,6 +382,9 @@
     <EmbeddedResource Include="Reports\frmReportStock.resx">
       <DependentUpon>frmReportStock.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmReportStockTest.resx">
+      <DependentUpon>frmReportStockTest.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\frmReportWorkOrder.resx">
       <DependentUpon>frmReportWorkOrder.cs</DependentUpon>
     </EmbeddedResource>
@@ -396,6 +411,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\XtraReport1.resx">
       <DependentUpon>XtraReport1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RptStockTest.resx">
+      <DependentUpon>RptStockTest.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\DataSources\frmCategory.datasource" />
     <None Include="Properties\DataSources\frmRole.datasource" />
