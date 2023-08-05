@@ -250,6 +250,7 @@ namespace SPDM.UI
             //pForm.Controls.Add(myForm);
             //myForm.WindowState = FormWindowState.Maximized;
             //myForm.Show();
+
             CloseAllForms();
             frmReportWorkOrder2 myForm = new frmReportWorkOrder2();
             myForm.TopLevel = false;
