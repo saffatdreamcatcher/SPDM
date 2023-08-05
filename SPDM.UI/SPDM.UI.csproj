@@ -287,12 +287,6 @@
     <Compile Include="Reports\RptWorkOrder.Designer.cs">
       <DependentUpon>RptWorkOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reports\XtraReport1.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Reports\XtraReport1.Designer.cs">
-      <DependentUpon>XtraReport1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Reports\RptStockTest.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -408,9 +402,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\RptWorkOrder.resx">
       <DependentUpon>RptWorkOrder.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reports\XtraReport1.resx">
-      <DependentUpon>XtraReport1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\RptStockTest.resx">
       <DependentUpon>RptStockTest.cs</DependentUpon>
