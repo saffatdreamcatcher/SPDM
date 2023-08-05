@@ -281,20 +281,6 @@
     <Compile Include="Reports\RptWorkOrder.Designer.cs">
       <DependentUpon>RptWorkOrder.cs</DependentUpon>
     </Compile>
-<<<<<<< HEAD
-    <Compile Include="Reports\RptStockTest.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Reports\RptStockTest.Designer.cs">
-      <DependentUpon>RptStockTest.cs</DependentUpon>
-=======
-    <Compile Include="Reports\XtraReport1.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Reports\XtraReport1.Designer.cs">
-      <DependentUpon>XtraReport1.cs</DependentUpon>
->>>>>>> parent of 89e26e5 (RptStockTest designed, report for Stock not showing!)
-    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -401,14 +387,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\RptWorkOrder.resx">
       <DependentUpon>RptWorkOrder.cs</DependentUpon>
-    </EmbeddedResource>
-<<<<<<< HEAD
-    <EmbeddedResource Include="Reports\RptStockTest.resx">
-      <DependentUpon>RptStockTest.cs</DependentUpon>
-=======
-    <EmbeddedResource Include="Reports\XtraReport1.resx">
-      <DependentUpon>XtraReport1.cs</DependentUpon>
->>>>>>> parent of 89e26e5 (RptStockTest designed, report for Stock not showing!)
     </EmbeddedResource>
     <None Include="Properties\DataSources\frmCategory.datasource" />
     <None Include="Properties\DataSources\frmRole.datasource" />
