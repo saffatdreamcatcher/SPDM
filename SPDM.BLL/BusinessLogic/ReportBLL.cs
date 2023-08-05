@@ -35,5 +35,18 @@ namespace SPDM.BLL.BusinessLogic
                 throw ex;
             }
         }
+
+        public DataTable GetStock(string whereClause = "")
+        {
+            try
+            {
+                ReportDLL reportDLL = new ReportDLL();
+                return reportDLL.GetStock(whereClause);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

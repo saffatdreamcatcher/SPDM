@@ -74,7 +74,8 @@ namespace SPDM.DLL.Repositories
 
                 SqlCommand comm = sqlConnection.CreateCommand();
                 comm.CommandType = CommandType.StoredProcedure;
-                comm.CommandText = "WorkOrederWDetailSP";
+                comm.CommandText = "WorkOrderSPTest2";
+                
                 
                 SqlDataAdapter da = new SqlDataAdapter();
 
@@ -97,5 +98,43 @@ namespace SPDM.DLL.Repositories
             return ds;
         }
 
+        public DataTable GetStock(string whereClause = "" )
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+
+
+                if (sqlConnection.State == ConnectionState.Closed)
+                {
+                    sqlConnection.Open();
+                }
+
+                SqlCommand comm = sqlConnection.CreateCommand();
+                comm.CommandType = CommandType.StoredProcedure;
+                comm.CommandText = "StockSPTest";
+
+
+                SqlDataAdapter da = new SqlDataAdapter();
+
+                da = new SqlDataAdapter(comm);
+                da.Fill(dt);
+
+
+            }
+
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+
+            finally
+            {
+
+                sqlConnection.Close();
+            }
+            return dt;
+        }
     }
-}
+
+    }

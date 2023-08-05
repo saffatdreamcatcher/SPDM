@@ -46,15 +46,15 @@
             this.productionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.paymentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.report1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.report2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.workOrderListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.workOrderWDetailListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pForm = new System.Windows.Forms.Panel();
-            this.workOrderWDetailListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.stockListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -174,8 +174,7 @@
             this.workOrderToolStripMenuItem,
             this.productionToolStripMenuItem,
             this.stockToolStripMenuItem,
-            this.saleToolStripMenuItem,
-            this.paymentToolStripMenuItem});
+            this.saleToolStripMenuItem});
             this.transactionToolStripMenuItem.Name = "transactionToolStripMenuItem";
             this.transactionToolStripMenuItem.Size = new System.Drawing.Size(98, 24);
             this.transactionToolStripMenuItem.Text = "Transaction";
@@ -208,20 +207,14 @@
             this.saleToolStripMenuItem.Text = "Sale";
             this.saleToolStripMenuItem.Click += new System.EventHandler(this.saleToolStripMenuItem_Click);
             // 
-            // paymentToolStripMenuItem
-            // 
-            this.paymentToolStripMenuItem.Name = "paymentToolStripMenuItem";
-            this.paymentToolStripMenuItem.Size = new System.Drawing.Size(168, 26);
-            this.paymentToolStripMenuItem.Text = "Payment";
-            this.paymentToolStripMenuItem.Click += new System.EventHandler(this.paymentToolStripMenuItem_Click);
-            // 
             // reportToolStripMenuItem
             // 
             this.reportToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.report1ToolStripMenuItem,
             this.report2ToolStripMenuItem,
             this.workOrderListToolStripMenuItem,
-            this.workOrderWDetailListToolStripMenuItem});
+            this.workOrderWDetailListToolStripMenuItem,
+            this.stockListToolStripMenuItem});
             this.reportToolStripMenuItem.Name = "reportToolStripMenuItem";
             this.reportToolStripMenuItem.Size = new System.Drawing.Size(68, 24);
             this.reportToolStripMenuItem.Text = "Report";
@@ -247,6 +240,13 @@
             this.workOrderListToolStripMenuItem.Text = "WorkOrder List";
             this.workOrderListToolStripMenuItem.Click += new System.EventHandler(this.workOrderListToolStripMenuItem_Click);
             // 
+            // workOrderWDetailListToolStripMenuItem
+            // 
+            this.workOrderWDetailListToolStripMenuItem.Name = "workOrderWDetailListToolStripMenuItem";
+            this.workOrderWDetailListToolStripMenuItem.Size = new System.Drawing.Size(244, 26);
+            this.workOrderWDetailListToolStripMenuItem.Text = "WorkOrderWDetail List";
+            this.workOrderWDetailListToolStripMenuItem.Click += new System.EventHandler(this.workOrderWDetailListToolStripMenuItem_Click);
+            // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -270,12 +270,12 @@
             this.pForm.TabIndex = 1;
             this.pForm.Paint += new System.Windows.Forms.PaintEventHandler(this.pForm_Paint);
             // 
-            // workOrderWDetailListToolStripMenuItem
+            // stockListToolStripMenuItem
             // 
-            this.workOrderWDetailListToolStripMenuItem.Name = "workOrderWDetailListToolStripMenuItem";
-            this.workOrderWDetailListToolStripMenuItem.Size = new System.Drawing.Size(244, 26);
-            this.workOrderWDetailListToolStripMenuItem.Text = "WorkOrderWDetail List";
-            this.workOrderWDetailListToolStripMenuItem.Click += new System.EventHandler(this.workOrderWDetailListToolStripMenuItem_Click);
+            this.stockListToolStripMenuItem.Name = "stockListToolStripMenuItem";
+            this.stockListToolStripMenuItem.Size = new System.Drawing.Size(244, 26);
+            this.stockListToolStripMenuItem.Text = "Stock List";
+            this.stockListToolStripMenuItem.Click += new System.EventHandler(this.stockListToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -311,7 +311,6 @@
         private System.Windows.Forms.ToolStripMenuItem productionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem stockToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saleToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem paymentToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.Panel pForm;
@@ -325,6 +324,7 @@
         private System.Windows.Forms.ToolStripMenuItem fiscalYearToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem workOrderListToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem workOrderWDetailListToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem stockListToolStripMenuItem;
     }
 }
 

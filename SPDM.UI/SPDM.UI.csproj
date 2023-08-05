@@ -227,11 +227,29 @@
     <Compile Include="Reports\frmReportParty.Designer.cs">
       <DependentUpon>frmReportParty.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\frmReportStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmReportStock.Designer.cs">
+      <DependentUpon>frmReportStock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\frmReportStockTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmReportStockTest.Designer.cs">
+      <DependentUpon>frmReportStockTest.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\frmReportWorkOrder.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Reports\frmReportWorkOrder.Designer.cs">
       <DependentUpon>frmReportWorkOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\frmReportWorkOrder2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmReportWorkOrder2.Designer.cs">
+      <DependentUpon>frmReportWorkOrder2.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\frmReportWorkOrderWDetail.cs">
       <SubType>Form</SubType>
@@ -251,6 +269,12 @@
     <Compile Include="Reports\RptParty.Designer.cs">
       <DependentUpon>RptParty.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\RptStock.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\RptStock.Designer.cs">
+      <DependentUpon>RptStock.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\RptWOrderWDetail.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -262,6 +286,18 @@
     </Compile>
     <Compile Include="Reports\RptWorkOrder.Designer.cs">
       <DependentUpon>RptWorkOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\XtraReport1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\XtraReport1.Designer.cs">
+      <DependentUpon>XtraReport1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\RptStockTest.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\RptStockTest.Designer.cs">
+      <DependentUpon>RptStockTest.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -343,8 +379,17 @@
     <EmbeddedResource Include="Reports\frmReportParty.resx">
       <DependentUpon>frmReportParty.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmReportStock.resx">
+      <DependentUpon>frmReportStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmReportStockTest.resx">
+      <DependentUpon>frmReportStockTest.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\frmReportWorkOrder.resx">
       <DependentUpon>frmReportWorkOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmReportWorkOrder2.resx">
+      <DependentUpon>frmReportWorkOrder2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\frmReportWorkOrderWDetail.resx">
       <DependentUpon>frmReportWorkOrderWDetail.cs</DependentUpon>
@@ -355,11 +400,20 @@
     <EmbeddedResource Include="Reports\RptParty.resx">
       <DependentUpon>RptParty.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RptStock.resx">
+      <DependentUpon>RptStock.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\RptWOrderWDetail.resx">
       <DependentUpon>RptWOrderWDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\RptWorkOrder.resx">
       <DependentUpon>RptWorkOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\XtraReport1.resx">
+      <DependentUpon>XtraReport1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RptStockTest.resx">
+      <DependentUpon>RptStockTest.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\DataSources\frmCategory.datasource" />
     <None Include="Properties\DataSources\frmRole.datasource" />

@@ -243,13 +243,42 @@ namespace SPDM.UI
 
         private void workOrderWDetailListToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //CloseAllForms();
+            //frmReportWorkOrderWDetail myForm = new frmReportWorkOrderWDetail();
+            //myForm.TopLevel = false;
+            //myForm.AutoScroll = true;
+            //pForm.Controls.Add(myForm);
+            //myForm.WindowState = FormWindowState.Maximized;
+            //myForm.Show();
             CloseAllForms();
-            frmReportWorkOrderWDetail myForm = new frmReportWorkOrderWDetail();
+            frmReportWorkOrder2 myForm = new frmReportWorkOrder2();
             myForm.TopLevel = false;
             myForm.AutoScroll = true;
             pForm.Controls.Add(myForm);
             myForm.WindowState = FormWindowState.Maximized;
             myForm.Show();
+        }
+
+        private void stockListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            CloseAllForms();
+            frmReportStock myForm = new frmReportStock();
+            myForm.TopLevel = false;
+            myForm.AutoScroll = true;
+            pForm.Controls.Add(myForm);
+            myForm.WindowState = FormWindowState.Maximized;
+            myForm.Show();
+
+            //CloseAllForms();
+            //frmReportStockTest myForm = new frmReportStockTest();
+            //myForm.TopLevel = false;
+            //myForm.AutoScroll = true;
+            //pForm.Controls.Add(myForm);
+            //myForm.WindowState = FormWindowState.Maximized;
+            //myForm.Show();
+
+
         }
 
 
