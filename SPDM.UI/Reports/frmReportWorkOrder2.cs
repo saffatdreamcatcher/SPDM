@@ -21,7 +21,7 @@ namespace SPDM.UI.Reports
 
         private void frmReportWorkOrder2_Load(object sender, EventArgs e)
         {
-            RptWorkOrder2 rptWorkOrder2 = new RptWorkOrder2();
+            RptWorkOrder4 rptWorkOrder4 = new RptWorkOrder4();
             ReportBLL reportBLL = new ReportBLL();
 
             string where = "";
@@ -31,14 +31,15 @@ namespace SPDM.UI.Reports
             ds.Tables["Table1"].TableName = "WorkOrderDetail_1";
 
             ds.Relations.Add("WorkOrder_1WorkOrderDetail_1", ds.Tables["WorkOrder_1"].Columns["Id"], ds.Tables["WorkOrderDetail_1"].Columns["WorkOrderId"]);
-            rptWorkOrder2.DataSource = ds;
-            rptWorkOrder2.DataMember = ds.Tables["WorkOrder_1"].TableName;
+            rptWorkOrder4.DataSource = ds;
+            rptWorkOrder4.DataMember = ds.Tables["WorkOrder_1"].TableName;
 
-            DetailReportBand detailReport = rptWorkOrder2.FindControl("DetailReport", true) as DetailReportBand;
+            DetailReportBand detailReport = rptWorkOrder4.FindControl("DetailReport", true) as DetailReportBand;
             detailReport.DataMember = String.Format("{0}.{1}", "WorkOrder_1", "WorkOrder_1WorkOrderDetail_1");
 
-            rptWorkOrder2.CreateDocument();
-            documentViewer1.DocumentSource = rptWorkOrder2;
+            rptWorkOrder4.CreateDocument();
+            documentViewer1.DocumentSource = rptWorkOrder4;
+           // documentViewer1.InitiateDocumentCreation();
         }
     }
 }
