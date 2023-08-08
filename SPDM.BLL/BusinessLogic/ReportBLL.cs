@@ -36,6 +36,19 @@ namespace SPDM.BLL.BusinessLogic
             }
         }
 
+        public DataSet SearchWorkOrder(string workOrderNo, int? partyId, int? status)
+        {
+            try
+            {
+                ReportDLL reportDLL= new ReportDLL();
+                return reportDLL.SearchWorkOrder(workOrderNo, partyId, status);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public DataTable GetStock(string whereClause = "")
         {
             try

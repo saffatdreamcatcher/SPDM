@@ -287,12 +287,6 @@
     <Compile Include="Reports\RptWorkOrder2.Designer.cs">
       <DependentUpon>RptWorkOrder2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reports\RptWorkOrder3.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Reports\RptWorkOrder3.Designer.cs">
-      <DependentUpon>RptWorkOrder3.cs</DependentUpon>
-    </Compile>
     <Compile Include="Reports\RptWorkOrder4.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -408,9 +402,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\RptWorkOrder2.resx">
       <DependentUpon>RptWorkOrder2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reports\RptWorkOrder3.resx">
-      <DependentUpon>RptWorkOrder3.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\RptWorkOrder4.resx">
       <DependentUpon>RptWorkOrder4.cs</DependentUpon>

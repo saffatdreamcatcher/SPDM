@@ -98,6 +98,60 @@ namespace SPDM.DLL.Repositories
             return ds;
         }
 
+
+        public DataSet SearchWorkOrder(string workOrderNo, int? partyId, int? status)
+        {
+            DataSet ds = new DataSet();
+            try
+            {
+
+
+                if (sqlConnection.State == ConnectionState.Closed)
+                {
+                    sqlConnection.Open();
+                }
+
+                SqlCommand comm = sqlConnection.CreateCommand();
+                comm.CommandType = CommandType.StoredProcedure;
+                comm.CommandText = "SearchWorkOrder";
+                comm.Parameters.Add("WorkOrderNo", SqlDbType.VarChar).Value = workOrderNo;
+                if (partyId.HasValue && partyId.Value > 0)
+                {
+                    comm.Parameters.Add("PartyId", SqlDbType.Int).Value = partyId;
+                }
+                else
+                {
+                    comm.Parameters.Add("PartyId", SqlDbType.Int).Value = DBNull.Value;
+                }
+                if (status.HasValue)
+                {
+                    comm.Parameters.Add("@Status", SqlDbType.TinyInt).Value = status;
+                }
+                else
+                {
+                    comm.Parameters.Add("@Status", SqlDbType.TinyInt).Value = DBNull.Value;
+                }
+                SqlDataAdapter da = new SqlDataAdapter();
+
+                da = new SqlDataAdapter(comm);
+                da.Fill(ds);
+
+
+            }
+
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+
+            finally
+            {
+
+                sqlConnection.Close();
+            }
+            return ds;
+        }
+
         public DataTable GetStock(string whereClause = "" )
         {
             DataTable dt = new DataTable();
