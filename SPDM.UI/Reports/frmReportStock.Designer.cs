@@ -285,6 +285,7 @@
             // documentViewer2
             // 
             this.documentViewer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.documentViewer2.DocumentSource = typeof(SPDM.UI.Reports.RptStock);
             this.documentViewer2.IsMetric = false;
             this.documentViewer2.Location = new System.Drawing.Point(269, 183);
             this.documentViewer2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);

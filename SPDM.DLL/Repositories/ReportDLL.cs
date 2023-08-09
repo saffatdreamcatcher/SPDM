@@ -114,7 +114,15 @@ namespace SPDM.DLL.Repositories
                 SqlCommand comm = sqlConnection.CreateCommand();
                 comm.CommandType = CommandType.StoredProcedure;
                 comm.CommandText = "SearchWorkOrder";
-                comm.Parameters.Add("WorkOrderNo", SqlDbType.VarChar).Value = workOrderNo;
+                if(String.IsNullOrEmpty(workOrderNo))
+                {
+                    comm.Parameters.Add("WorkOrderNo", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    comm.Parameters.Add("WorkOrderNo", SqlDbType.VarChar).Value = workOrderNo;
+                }
+                //comm.Parameters.Add("WorkOrderNo", SqlDbType.VarChar).Value = workOrderNo;
                 if (partyId.HasValue && partyId.Value > 0)
                 {
                     comm.Parameters.Add("PartyId", SqlDbType.Int).Value = partyId;

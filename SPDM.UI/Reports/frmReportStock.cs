@@ -31,7 +31,7 @@ namespace SPDM.UI.Reports
             DataTable dt = reportBLL.GetStock(where);
             dt.TableName = "Stock_1";
             rptStock.DataSource = dt;
-            //rptStock.DataMember = "Stock_1";
+            rptStock.DataMember = "Stock_1";
 
             rptStock.CreateDocument();
             documentViewer1.DocumentSource = rptStock;
