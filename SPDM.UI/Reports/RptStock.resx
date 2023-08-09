@@ -117,7 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="customSqlQuery1.Sql" xml:space="preserve">
+    <value>select "Item"."Name", "Stock"."Drum",
+       "Stock"."CoilNo", "Stock"."Din",
+       "Stock"."Unit", "Stock"."FiscalYear",
+       "Stock"."OpeningQuantityInKM",
+       "Stock"."OpeningQuantityInFKM",
+       "Stock"."CurrentQuantityInKM",
+       "Stock"."CurrentQuantityInFKM",
+       "Category"."Name" as "CategoryName"
+  from (("dbo"."Stock" "Stock"
+  inner join "dbo"."Item" "Item"
+       on ("Item"."Id" = "Stock"."ItemId"))
+  inner join "dbo"."Category" "Category"
+       on ("Category"."Id" = "Stock"."CategoryId"))</value>
+  </data>
   <data name="sqlDataSource1.ResultSchemaSerializable" xml:space="preserve">
-    <value>PERhdGFTZXQgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxWaWV3IE5hbWU9IlN0b2NrXzEiPjxGaWVsZCBOYW1lPSJOYW1lIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IkRydW0iIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iQ29pbE5vIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IkRpbiIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJVbml0IiBUeXBlPSJJbnQxNiIgLz48RmllbGQgTmFtZT0iRmlzY2FsWWVhciIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJPcGVuaW5nUXVhbnRpdHlJbktNIiBUeXBlPSJEZWNpbWFsIiAvPjxGaWVsZCBOYW1lPSJPcGVuaW5nUXVhbnRpdHlJbkZLTSIgVHlwZT0iRGVjaW1hbCIgLz48RmllbGQgTmFtZT0iQ3VycmVudFF1YW50aXR5SW5LTSIgVHlwZT0iRGVjaW1hbCIgLz48RmllbGQgTmFtZT0iQ3VycmVudFF1YW50aXR5SW5GS00iIFR5cGU9IkRlY2ltYWwiIC8+PC9WaWV3PjwvRGF0YVNldD4=</value>
+    <value>PERhdGFTZXQgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxWaWV3IE5hbWU9IlN0b2NrXzEiPjxGaWVsZCBOYW1lPSJOYW1lIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IkRydW0iIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iQ29pbE5vIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IkRpbiIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJVbml0IiBUeXBlPSJJbnQxNiIgLz48RmllbGQgTmFtZT0iRmlzY2FsWWVhciIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJPcGVuaW5nUXVhbnRpdHlJbktNIiBUeXBlPSJEZWNpbWFsIiAvPjxGaWVsZCBOYW1lPSJPcGVuaW5nUXVhbnRpdHlJbkZLTSIgVHlwZT0iRGVjaW1hbCIgLz48RmllbGQgTmFtZT0iQ3VycmVudFF1YW50aXR5SW5LTSIgVHlwZT0iRGVjaW1hbCIgLz48RmllbGQgTmFtZT0iQ3VycmVudFF1YW50aXR5SW5GS00iIFR5cGU9IkRlY2ltYWwiIC8+PEZpZWxkIE5hbWU9IkNhdGVnb3J5TmFtZSIgVHlwZT0iU3RyaW5nIiAvPjwvVmlldz48L0RhdGFTZXQ+</value>
   </data>
 </root>

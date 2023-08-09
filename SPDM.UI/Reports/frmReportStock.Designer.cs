@@ -258,6 +258,15 @@
             this.printPreviewRibbonPageGroup7 = new DevExpress.XtraPrinting.Preview.PrintPreviewRibbonPageGroup();
             this.printPreviewRibbonPageGroup8 = new DevExpress.XtraPrinting.Preview.PrintPreviewRibbonPageGroup();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
+            this.cmoCategory = new System.Windows.Forms.ComboBox();
+            this.cmoItem = new System.Windows.Forms.ComboBox();
+            this.txtDrum = new System.Windows.Forms.TextBox();
+            this.txtCoil = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.documentViewerRibbonController1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar1)).BeginInit();
@@ -268,7 +277,7 @@
             // 
             this.splitter1.Location = new System.Drawing.Point(0, 0);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(269, 450);
+            this.splitter1.Size = new System.Drawing.Size(334, 450);
             this.splitter1.TabIndex = 0;
             this.splitter1.TabStop = false;
             // 
@@ -276,10 +285,10 @@
             // 
             this.documentViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.documentViewer1.IsMetric = false;
-            this.documentViewer1.Location = new System.Drawing.Point(269, 0);
+            this.documentViewer1.Location = new System.Drawing.Point(334, 0);
             this.documentViewer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.documentViewer1.Name = "documentViewer1";
-            this.documentViewer1.Size = new System.Drawing.Size(531, 450);
+            this.documentViewer1.Size = new System.Drawing.Size(466, 450);
             this.documentViewer1.TabIndex = 1;
             // 
             // documentViewer2
@@ -287,10 +296,10 @@
             this.documentViewer2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.documentViewer2.DocumentSource = typeof(SPDM.UI.Reports.RptStock);
             this.documentViewer2.IsMetric = false;
-            this.documentViewer2.Location = new System.Drawing.Point(269, 183);
+            this.documentViewer2.Location = new System.Drawing.Point(334, 183);
             this.documentViewer2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.documentViewer2.Name = "documentViewer2";
-            this.documentViewer2.Size = new System.Drawing.Size(531, 234);
+            this.documentViewer2.Size = new System.Drawing.Size(466, 234);
             this.documentViewer2.TabIndex = 2;
             // 
             // documentViewerRibbonController1
@@ -362,7 +371,7 @@
             this.printPreviewBarItem52,
             this.printPreviewStaticItem2,
             this.zoomTrackBarEditItem1});
-            this.ribbonControl1.Location = new System.Drawing.Point(269, 0);
+            this.ribbonControl1.Location = new System.Drawing.Point(334, 0);
             this.ribbonControl1.MaxItemId = 52;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -370,7 +379,7 @@
             this.ribbonControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemProgressBar1,
             this.repositoryItemZoomTrackBar1});
-            this.ribbonControl1.Size = new System.Drawing.Size(531, 183);
+            this.ribbonControl1.Size = new System.Drawing.Size(466, 183);
             this.ribbonControl1.StatusBar = this.ribbonStatusBar1;
             this.ribbonControl1.TransparentEditorsMode = DevExpress.Utils.DefaultBoolean.True;
             // 
@@ -1469,16 +1478,102 @@
             this.ribbonStatusBar1.ItemLinks.Add(this.printPreviewBarItem52);
             this.ribbonStatusBar1.ItemLinks.Add(this.printPreviewStaticItem2);
             this.ribbonStatusBar1.ItemLinks.Add(this.zoomTrackBarEditItem1);
-            this.ribbonStatusBar1.Location = new System.Drawing.Point(269, 417);
+            this.ribbonStatusBar1.Location = new System.Drawing.Point(334, 417);
             this.ribbonStatusBar1.Name = "ribbonStatusBar1";
             this.ribbonStatusBar1.Ribbon = this.ribbonControl1;
-            this.ribbonStatusBar1.Size = new System.Drawing.Size(531, 33);
+            this.ribbonStatusBar1.Size = new System.Drawing.Size(466, 33);
+            // 
+            // cmoCategory
+            // 
+            this.cmoCategory.FormattingEnabled = true;
+            this.cmoCategory.Location = new System.Drawing.Point(138, 52);
+            this.cmoCategory.Name = "cmoCategory";
+            this.cmoCategory.Size = new System.Drawing.Size(172, 24);
+            this.cmoCategory.TabIndex = 5;
+            this.cmoCategory.SelectedIndexChanged += new System.EventHandler(this.cmoCategory_SelectedIndexChanged);
+            // 
+            // cmoItem
+            // 
+            this.cmoItem.FormattingEnabled = true;
+            this.cmoItem.Location = new System.Drawing.Point(138, 113);
+            this.cmoItem.Name = "cmoItem";
+            this.cmoItem.Size = new System.Drawing.Size(172, 24);
+            this.cmoItem.TabIndex = 6;
+            // 
+            // txtDrum
+            // 
+            this.txtDrum.Location = new System.Drawing.Point(138, 171);
+            this.txtDrum.Name = "txtDrum";
+            this.txtDrum.Size = new System.Drawing.Size(172, 22);
+            this.txtDrum.TabIndex = 7;
+            // 
+            // txtCoil
+            // 
+            this.txtCoil.Location = new System.Drawing.Point(138, 226);
+            this.txtCoil.Name = "txtCoil";
+            this.txtCoil.Size = new System.Drawing.Size(172, 22);
+            this.txtCoil.TabIndex = 8;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(13, 55);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(99, 16);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "CategoryName";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 116);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(69, 16);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "ItemName";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(13, 177);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(39, 16);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Drum";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(13, 232);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(30, 16);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Coil";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(138, 282);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(92, 29);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "Search";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // frmReportStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtCoil);
+            this.Controls.Add(this.txtDrum);
+            this.Controls.Add(this.cmoItem);
+            this.Controls.Add(this.cmoCategory);
             this.Controls.Add(this.documentViewer2);
             this.Controls.Add(this.ribbonStatusBar1);
             this.Controls.Add(this.ribbonControl1);
@@ -1571,5 +1666,14 @@
         private DevExpress.XtraPrinting.Preview.PrintPreviewRibbonPageGroup printPreviewRibbonPageGroup7;
         private DevExpress.XtraPrinting.Preview.PrintPreviewRibbonPageGroup printPreviewRibbonPageGroup8;
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar1;
+        private System.Windows.Forms.ComboBox cmoCategory;
+        private System.Windows.Forms.ComboBox cmoItem;
+        private System.Windows.Forms.TextBox txtDrum;
+        private System.Windows.Forms.TextBox txtCoil;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button button1;
     }
 }

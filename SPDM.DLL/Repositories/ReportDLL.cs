@@ -160,6 +160,77 @@ namespace SPDM.DLL.Repositories
             return ds;
         }
 
+        public DataTable SearchStock(int? categoryId, int? itemId, string drum, string coil)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+
+                if (sqlConnection.State == ConnectionState.Closed)
+                {
+                    sqlConnection.Open();
+                }
+
+                SqlCommand comm = sqlConnection.CreateCommand();
+                comm.CommandType = CommandType.StoredProcedure;
+                comm.CommandText = "SerachStock";
+
+                if (categoryId.HasValue && categoryId.Value > 0)
+                {
+                    comm.Parameters.Add("CategoryId", SqlDbType.Int).Value = categoryId;
+                }
+                else
+                {
+                    comm.Parameters.Add("CategoryId", SqlDbType.Int).Value = DBNull.Value;
+                }
+
+                if (itemId.HasValue && itemId.Value > 0)
+                {
+                    comm.Parameters.Add("ItemId", SqlDbType.Int).Value = itemId;
+                }
+                else
+                {
+                    comm.Parameters.Add("ItemId", SqlDbType.Int).Value = DBNull.Value;
+                }
+
+
+                if (String.IsNullOrEmpty(drum))
+                {
+                    comm.Parameters.Add("Drum", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    comm.Parameters.Add("Drum", SqlDbType.VarChar).Value = drum;
+                }
+                if (String.IsNullOrEmpty(coil))
+                {
+                    comm.Parameters.Add("Coil", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    comm.Parameters.Add("Coil", SqlDbType.VarChar).Value = coil;
+                }
+
+
+                SqlDataAdapter da = new SqlDataAdapter();
+                da = new SqlDataAdapter(comm);
+                da.Fill(dt);
+
+
+            }
+
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+
+            finally
+            {
+
+                sqlConnection.Close();
+            }
+            return dt;
+        }
         public DataTable GetStock(string whereClause = "" )
         {
             DataTable dt = new DataTable();

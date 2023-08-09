@@ -28,6 +28,7 @@ namespace SPDM.UI.Reports
             List<Item> items = new List<Item>();
             
             string where = "CategoryId = " + cmoCategory.SelectedValue;
+
             if (cmoCategory.Text == "All")
             {
                 items = itemBLL.GetAll();   

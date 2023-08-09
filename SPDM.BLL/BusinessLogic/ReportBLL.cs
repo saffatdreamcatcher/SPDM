@@ -49,6 +49,19 @@ namespace SPDM.BLL.BusinessLogic
             }
         }
 
+        public DataTable SearchStock(int? categoryId, int? itemId, string drum, string coil)
+        {
+            try
+            {
+                ReportDLL reportDLL = new ReportDLL();
+                return reportDLL.SearchStock(categoryId, itemId, drum, coil);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public DataTable GetStock(string whereClause = "")
         {
             try

@@ -477,6 +477,7 @@
             // 
             this.WorkOrderNo.AllowNull = true;
             this.WorkOrderNo.Name = "WorkOrderNo";
+            this.WorkOrderNo.Visible = false;
             // 
             // Party
             // 
@@ -484,11 +485,13 @@
             this.Party.Name = "Party";
             this.Party.Type = typeof(int);
             this.Party.ValueInfo = "0";
+            this.Party.Visible = false;
             // 
             // Status
             // 
             this.Status.AllowNull = true;
             this.Status.Name = "Status";
+            this.Status.Visible = false;
             // 
             // RptWorkOrder2
             // 
