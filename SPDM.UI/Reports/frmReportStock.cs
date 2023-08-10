@@ -15,7 +15,7 @@ namespace SPDM.UI.Reports
 {
     public partial class frmReportStock : Form
     {
-        
+       
         public frmReportStock()
         {
             InitializeComponent();
@@ -23,7 +23,7 @@ namespace SPDM.UI.Reports
 
         private void frmReportStock_Load(object sender, EventArgs e)
         {
-            LoadStockReport();
+            //LoadStockReport();
             LoadCategory();
             LoadItem();
         }
@@ -98,12 +98,16 @@ namespace SPDM.UI.Reports
 
         private void button1_Click(object sender, EventArgs e)
         {
-           
+            int? cName = (int)cmoCategory.SelectedValue;
+            int? iName = (int)cmoItem.SelectedValue;
+            cName = null;
+            iName = null;
+            
 
             RptStock rptStock = new RptStock();
             ReportBLL reportBLL = new ReportBLL();
 
-            DataTable dt = reportBLL.SearchStock((int)cmoCategory.SelectedValue, (int)cmoItem.SelectedValue, txtDrum.Text, txtCoil.Text);
+            DataTable dt = reportBLL.SearchStock(cName, iName, txtDrum.Text, txtCoil.Text);
             dt.TableName = "Stock_1";
             rptStock.DataSource = dt;
             rptStock.DataMember = "Stock_1";

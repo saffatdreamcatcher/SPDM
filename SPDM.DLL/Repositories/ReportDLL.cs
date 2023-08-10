@@ -175,7 +175,7 @@ namespace SPDM.DLL.Repositories
                 comm.CommandType = CommandType.StoredProcedure;
                 comm.CommandText = "SerachStock";
 
-                if (categoryId.HasValue && categoryId.Value > 0)
+                if (categoryId.HasValue)
                 {
                     comm.Parameters.Add("CategoryId", SqlDbType.Int).Value = categoryId;
                 }
@@ -184,7 +184,7 @@ namespace SPDM.DLL.Repositories
                     comm.Parameters.Add("CategoryId", SqlDbType.Int).Value = DBNull.Value;
                 }
 
-                if (itemId.HasValue && itemId.Value > 0)
+                if (itemId.HasValue)
                 {
                     comm.Parameters.Add("ItemId", SqlDbType.Int).Value = itemId;
                 }
