@@ -15,6 +15,7 @@ namespace SPDM.UI.Reports
 {
     public partial class frmReportStock : Form
     {
+        
         public frmReportStock()
         {
             InitializeComponent();
@@ -97,6 +98,8 @@ namespace SPDM.UI.Reports
 
         private void button1_Click(object sender, EventArgs e)
         {
+           
+
             RptStock rptStock = new RptStock();
             ReportBLL reportBLL = new ReportBLL();
 
@@ -105,14 +108,14 @@ namespace SPDM.UI.Reports
             rptStock.DataSource = dt;
             rptStock.DataMember = "Stock_1";
 
-            rptStock.Parameters["CategoryName"].Value = cmoCategory.SelectedValue.ToString();
-            rptStock.Parameters["ItemName"].Value = cmoItem.SelectedValue.ToString();
+            rptStock.Parameters["CategoryName"].Value = cmoCategory.SelectedValue;
+            rptStock.Parameters["ItemName"].Value = cmoItem.SelectedValue;
             rptStock.Parameters["Drum"].Value = txtDrum.Text;
             rptStock.Parameters["Coil"].Value = txtCoil.Text;
 
             rptStock.CreateDocument();
             documentViewer1.DocumentSource = rptStock;
-            
+            documentViewer1.InitiateDocumentCreation();
             
         }
 
