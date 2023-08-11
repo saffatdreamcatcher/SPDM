@@ -227,6 +227,12 @@
     <Compile Include="Reports\frmReportParty.Designer.cs">
       <DependentUpon>frmReportParty.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\frmReportSale.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmReportSale.Designer.cs">
+      <DependentUpon>frmReportSale.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\frmReportStock.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -262,6 +268,12 @@
     </Compile>
     <Compile Include="Reports\RptParty.Designer.cs">
       <DependentUpon>RptParty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\RptSale.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\RptSale.Designer.cs">
+      <DependentUpon>RptSale.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\RptStock.cs">
       <SubType>Component</SubType>
@@ -373,6 +385,9 @@
     <EmbeddedResource Include="Reports\frmReportParty.resx">
       <DependentUpon>frmReportParty.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmReportSale.resx">
+      <DependentUpon>frmReportSale.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\frmReportStock.resx">
       <DependentUpon>frmReportStock.cs</DependentUpon>
     </EmbeddedResource>
@@ -390,6 +405,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\RptParty.resx">
       <DependentUpon>RptParty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RptSale.resx">
+      <DependentUpon>RptSale.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\RptStock.resx">
       <DependentUpon>RptStock.cs</DependentUpon>

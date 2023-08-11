@@ -74,5 +74,18 @@ namespace SPDM.BLL.BusinessLogic
                 throw ex;
             }
         }
+
+        public DataSet SearchSale(string challanNo)
+        {
+            try
+            {
+                ReportDLL reportDLL = new ReportDLL();
+                return reportDLL.SearchSale(challanNo);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

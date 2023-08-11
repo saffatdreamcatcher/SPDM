@@ -51,10 +51,11 @@
             this.report2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.workOrderListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.workOrderWDetailListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.stockListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pForm = new System.Windows.Forms.Panel();
-            this.stockListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saleListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -214,7 +215,8 @@
             this.report2ToolStripMenuItem,
             this.workOrderListToolStripMenuItem,
             this.workOrderWDetailListToolStripMenuItem,
-            this.stockListToolStripMenuItem});
+            this.stockListToolStripMenuItem,
+            this.saleListToolStripMenuItem});
             this.reportToolStripMenuItem.Name = "reportToolStripMenuItem";
             this.reportToolStripMenuItem.Size = new System.Drawing.Size(68, 24);
             this.reportToolStripMenuItem.Text = "Report";
@@ -247,6 +249,13 @@
             this.workOrderWDetailListToolStripMenuItem.Text = "WorkOrderWDetail List";
             this.workOrderWDetailListToolStripMenuItem.Click += new System.EventHandler(this.workOrderWDetailListToolStripMenuItem_Click);
             // 
+            // stockListToolStripMenuItem
+            // 
+            this.stockListToolStripMenuItem.Name = "stockListToolStripMenuItem";
+            this.stockListToolStripMenuItem.Size = new System.Drawing.Size(244, 26);
+            this.stockListToolStripMenuItem.Text = "Stock List";
+            this.stockListToolStripMenuItem.Click += new System.EventHandler(this.stockListToolStripMenuItem_Click);
+            // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -270,12 +279,12 @@
             this.pForm.TabIndex = 1;
             this.pForm.Paint += new System.Windows.Forms.PaintEventHandler(this.pForm_Paint);
             // 
-            // stockListToolStripMenuItem
+            // saleListToolStripMenuItem
             // 
-            this.stockListToolStripMenuItem.Name = "stockListToolStripMenuItem";
-            this.stockListToolStripMenuItem.Size = new System.Drawing.Size(244, 26);
-            this.stockListToolStripMenuItem.Text = "Stock List";
-            this.stockListToolStripMenuItem.Click += new System.EventHandler(this.stockListToolStripMenuItem_Click);
+            this.saleListToolStripMenuItem.Name = "saleListToolStripMenuItem";
+            this.saleListToolStripMenuItem.Size = new System.Drawing.Size(244, 26);
+            this.saleListToolStripMenuItem.Text = "Sale List";
+            this.saleListToolStripMenuItem.Click += new System.EventHandler(this.saleListToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -325,6 +334,7 @@
         private System.Windows.Forms.ToolStripMenuItem workOrderListToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem workOrderWDetailListToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem stockListToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saleListToolStripMenuItem;
     }
 }
 

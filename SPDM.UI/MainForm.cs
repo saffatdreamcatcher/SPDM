@@ -271,6 +271,17 @@ namespace SPDM.UI
             myForm.Show();
         }
 
+        private void saleListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CloseAllForms();
+            frmReportSale myForm = new frmReportSale();
+            myForm.TopLevel = false;
+            myForm.AutoScroll = true;
+            pForm.Controls.Add(myForm);
+            myForm.WindowState = FormWindowState.Maximized;
+            myForm.Show();
+        }
+
 
 
 

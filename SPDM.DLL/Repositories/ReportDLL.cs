@@ -268,6 +268,51 @@ namespace SPDM.DLL.Repositories
             }
             return dt;
         }
+
+        public DataSet SearchSale(String challanNo)
+        {
+            DataSet ds = new DataSet();
+            try
+            {
+
+
+                if (sqlConnection.State == ConnectionState.Closed)
+                {
+                    sqlConnection.Open();
+                }
+
+                SqlCommand comm = sqlConnection.CreateCommand();
+                comm.CommandType = CommandType.StoredProcedure;
+                comm.CommandText = "SearchSale";
+                if (String.IsNullOrEmpty(challanNo))
+                {
+                    comm.Parameters.Add("ChallanNo", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    comm.Parameters.Add("ChallanNo", SqlDbType.VarChar).Value = challanNo;
+                }
+                
+                SqlDataAdapter da = new SqlDataAdapter();
+
+                da = new SqlDataAdapter(comm);
+                da.Fill(ds);
+
+
+            }
+
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+
+            finally
+            {
+
+                sqlConnection.Close();
+            }
+            return ds;
+        }
     }
 
     }
