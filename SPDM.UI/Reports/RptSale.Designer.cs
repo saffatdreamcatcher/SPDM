@@ -69,6 +69,8 @@
             DevExpress.DataAccess.Sql.ColumnExpression columnExpression12 = new DevExpress.DataAccess.Sql.ColumnExpression();
             DevExpress.DataAccess.Sql.Column column13 = new DevExpress.DataAccess.Sql.Column();
             DevExpress.DataAccess.Sql.ColumnExpression columnExpression13 = new DevExpress.DataAccess.Sql.ColumnExpression();
+            DevExpress.DataAccess.Sql.Column column14 = new DevExpress.DataAccess.Sql.Column();
+            DevExpress.DataAccess.Sql.ColumnExpression columnExpression14 = new DevExpress.DataAccess.Sql.ColumnExpression();
             DevExpress.DataAccess.Sql.Join join4 = new DevExpress.DataAccess.Sql.Join();
             DevExpress.DataAccess.Sql.RelationColumnInfo relationColumnInfo4 = new DevExpress.DataAccess.Sql.RelationColumnInfo();
             DevExpress.DataAccess.Sql.MasterDetailInfo masterDetailInfo1 = new DevExpress.DataAccess.Sql.MasterDetailInfo();
@@ -102,6 +104,7 @@
             this.xrTableCell13 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell14 = new DevExpress.XtraReports.UI.XRTableCell();
             this.ChallanNo = new DevExpress.XtraReports.Parameters.Parameter();
+            this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).BeginInit();
@@ -109,6 +112,8 @@
             // 
             // TopMargin
             // 
+            this.TopMargin.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrLabel1});
             this.TopMargin.Name = "TopMargin";
             // 
             // BottomMargin
@@ -271,12 +276,16 @@
             columnExpression13.ColumnName = "TotalIncVat";
             columnExpression13.Table = table5;
             column13.Expression = columnExpression13;
+            columnExpression14.ColumnName = "Id";
+            columnExpression14.Table = table5;
+            column14.Expression = columnExpression14;
             selectQuery2.Columns.Add(column8);
             selectQuery2.Columns.Add(column9);
             selectQuery2.Columns.Add(column10);
             selectQuery2.Columns.Add(column11);
             selectQuery2.Columns.Add(column12);
             selectQuery2.Columns.Add(column13);
+            selectQuery2.Columns.Add(column14);
             selectQuery2.MetaSerializable = "<Meta X=\"170\" Y=\"20\" Width=\"103\" Height=\"164\" />";
             selectQuery2.Name = "SaleDetail_1";
             relationColumnInfo4.NestedKeyColumn = "Id";
@@ -459,6 +468,17 @@
             this.ChallanNo.Name = "ChallanNo";
             this.ChallanNo.Visible = false;
             // 
+            // xrLabel1
+            // 
+            this.xrLabel1.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "?ChallanNo")});
+            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(10F, 66.99999F);
+            this.xrLabel1.Multiline = true;
+            this.xrLabel1.Name = "xrLabel1";
+            this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
+            this.xrLabel1.SizeF = new System.Drawing.SizeF(100F, 23F);
+            this.xrLabel1.Text = "xrLabel1";
+            // 
             // RptSale
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -511,5 +531,6 @@
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell13;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell14;
         private DevExpress.XtraReports.Parameters.Parameter ChallanNo;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel1;
     }
 }
