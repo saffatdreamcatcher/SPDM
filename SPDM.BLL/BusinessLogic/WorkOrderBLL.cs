@@ -148,9 +148,8 @@ namespace SPDM.BLL.BusinessLogic
                 }
 
                 WorkOrderDLL workorderDLL = new WorkOrderDLL(dbManager.Transaction);
-                dbManager.CommitTransaction();
-
                 return workorderDLL.Delete(id);
+                dbManager.CommitTransaction();
             }
             catch (Exception ex)
             {

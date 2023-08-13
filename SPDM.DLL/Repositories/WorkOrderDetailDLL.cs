@@ -90,6 +90,7 @@ namespace SPDM.DLL.Repositories
                 }
 
                 SqlCommand comm = sqlConnection.CreateCommand();
+                comm.Transaction = sqlTransaction;
 
                 comm.CommandText = "Select WorkOrderDetail.*, Item.Name AS ItemName from WorkOrderDetail " +
                                      "inner join Item on WorkOrderDetail.ItemId = Item.Id " + whereClause;
@@ -162,7 +163,7 @@ namespace SPDM.DLL.Repositories
                 }
 
             }
-            catch (SqlException ex)
+            catch (Exception ex)
             {
                 throw ex;
             }

@@ -86,6 +86,7 @@ namespace SPDM.DLL.Repositories
                 }
 
                 SqlCommand comm = sqlConnection.CreateCommand();
+                comm.Transaction = sqlTransaction;
 
                 comm.CommandText = "Select * from  WorkOrder " + whereClause;
                 using (SqlDataReader reader = comm.ExecuteReader())
@@ -130,7 +131,7 @@ namespace SPDM.DLL.Repositories
                 }
 
             }
-            catch (SqlException ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -295,8 +296,6 @@ namespace SPDM.DLL.Repositories
             return isExist;
         }
 
-
-
         public int Save(WorkOrder workorder)
         {
             int primaryKey = 0;
@@ -400,7 +399,6 @@ namespace SPDM.DLL.Repositories
             }
             return primaryKey;
         }
-
 
 
     }

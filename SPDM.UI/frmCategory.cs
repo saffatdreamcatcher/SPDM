@@ -119,6 +119,8 @@ namespace SPDM.UI
             if (dialogResult == DialogResult.OK)
             {
                 txtPhotoFilePath.Text = oFDPhoto.FileName;
+                Image file = Image.FromFile(oFDPhoto.FileName);
+                pictureBox1.Image = file;
 
             }
         }
@@ -162,11 +164,8 @@ namespace SPDM.UI
             }
         }
 
-        
-
         private void frmCategory_Load(object sender, EventArgs e)
         {
-            
             LoadCategory();
         }
 
@@ -179,5 +178,7 @@ namespace SPDM.UI
         {
             this.Close();
         }
+
+      
     }
 }
