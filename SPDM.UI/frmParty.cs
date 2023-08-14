@@ -43,13 +43,12 @@ namespace SPDM.UI
             ClearField();
         }
 
+
         private void LoadParty()
         {
-            gvParty.AutoGenerateColumns = false;
             PartyBLL partyBLL = new PartyBLL();
             List<Party> party = partyBLL.GetAll();
-            gvParty.DataSource = party;
-
+            gridControl1.DataSource = party;
         }
 
         private Boolean IsFormValid()
@@ -66,30 +65,37 @@ namespace SPDM.UI
             return iv;
         }
 
+
         private void SaveParty()
         {
-
-            if (IsFormValid())
+            try
             {
+                if (IsFormValid())
+                {
 
-                Party party = new Party();
-                party.Id = partyId;
-                party.Name = txtName.Text;
-                party.Account = txtAccount.Text;
-                party.Address = txtAddress.Text;
-                party.City = txtCity.Text;
-                party.PostalCode = txtPostalCode.Text;
-                party.Country = txtCountry.Text;
-                party.PhoneNo = txtPhoneNo.Text;
-                party.MobileNo = txtMobileNo.Text;  
-                party.Fax = txtFax.Text;
-                party.Email = txtEmail.Text;
-                party.Note = txtNote.Text;
+                    Party party = new Party();
+                    party.Id = partyId;
+                    party.Name = txtName.Text;
+                    party.Account = txtAccount.Text;
+                    party.Address = txtAddress.Text;
+                    party.City = txtCity.Text;
+                    party.PostalCode = txtPostalCode.Text;
+                    party.Country = txtCountry.Text;
+                    party.PhoneNo = txtPhoneNo.Text;
+                    party.MobileNo = txtMobileNo.Text;
+                    party.Fax = txtFax.Text;
+                    party.Email = txtEmail.Text;
+                    party.Note = txtNote.Text;
 
-                PartyBLL partyBLL = new PartyBLL();
-                partyBLL.Save(party);
-                LoadParty();
-                ClearField();
+                    PartyBLL partyBLL = new PartyBLL();
+                    partyBLL.Save(party);
+                    LoadParty();
+                    ClearField();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
 
         }
@@ -97,46 +103,6 @@ namespace SPDM.UI
         private void btnSave_Click(object sender, EventArgs e)
         {
             SaveParty();
-        }
-
-        private void ManageEdit(DataGridViewCellEventArgs e)
-        {
-            if (e.ColumnIndex == 15)
-            {
-                partyId = Convert.ToInt32(gvParty.Rows[e.RowIndex].Cells[0].Value);
-                txtName.Text = Convert.ToString(gvParty.Rows[e.RowIndex].Cells[1].Value);
-                txtAccount.Text = Convert.ToString(gvParty.Rows[e.RowIndex].Cells[4].Value);
-                txtAddress.Text = Convert.ToString(gvParty.Rows[e.RowIndex].Cells[5].Value);
-                txtCity.Text = Convert.ToString(gvParty.Rows[e.RowIndex].Cells[6].Value);
-                txtPostalCode.Text = Convert.ToString(gvParty.Rows[e.RowIndex].Cells[7].Value);
-                txtCountry.Text = Convert.ToString(gvParty.Rows[e.RowIndex].Cells[8].Value);
-                txtPhoneNo.Text = Convert.ToString(gvParty.Rows[e.RowIndex].Cells[9].Value);
-                txtMobileNo.Text = Convert.ToString(gvParty.Rows[e.RowIndex].Cells[10].Value);
-                txtFax.Text = Convert.ToString(gvParty.Rows[e.RowIndex].Cells[11].Value);
-                txtEmail.Text = Convert.ToString(gvParty.Rows[e.RowIndex].Cells[12].Value);
-                txtNote.Text = Convert.ToString(gvParty.Rows[e.RowIndex].Cells[13].Value);
-            }
-            else if (e.ColumnIndex == 16)
-            {
-                var id = Convert.ToInt32(gvParty.Rows[e.RowIndex].Cells[0].Value);
-                DeleteParty(id);
-            }
-        }
-
-        private void DeleteParty(int id)
-        {
-            if (MessageBox.Show("Are you sure you want to delete this Party?", "Delete Party", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.Yes)
-            {
-                PartyBLL partyBLL = new PartyBLL();
-                partyBLL.Delete(id);
-                LoadParty();
-            }
-
-        }
-
-        private void gvParty_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            ManageEdit(e);
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -147,6 +113,40 @@ namespace SPDM.UI
         private void frmParty_Load(object sender, EventArgs e)
         {
             LoadParty();
+        }
+
+        private void EditParty()
+        {
+            int itemId = Convert.ToInt32(gridView1.GetFocusedRowCellValue("Id"));
+            txtName.Text = Convert.ToString(gridView1.GetFocusedRowCellValue("Name"));
+            txtAccount.Text = Convert.ToString(gridView1.GetFocusedRowCellValue("Account"));
+            txtAddress.Text = Convert.ToString(gridView1.GetFocusedRowCellValue("Address"));
+            txtCity.Text = Convert.ToString(gridView1.GetFocusedRowCellValue("City"));
+            txtPostalCode.Text = Convert.ToString(gridView1.GetFocusedRowCellValue("PostalCode"));
+            txtCountry.Text = Convert.ToString(gridView1.GetFocusedRowCellValue("Country"));
+            txtMobileNo.Text = Convert.ToString(gridView1.GetFocusedRowCellValue("MobileNo"));
+
+            PartyBLL partyBLL = new PartyBLL();
+            Party party = partyBLL.GetById(partyId);
+        }
+        private void repositoryItemHyperLinkEdit1_ButtonPressed(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            EditParty();
+        }
+
+        private void DeleteParty()
+        {
+            if (MessageBox.Show("Are you sure you want to delete?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+            {
+                int partyId = Convert.ToInt32(gridView1.GetFocusedRowCellValue("Id"));
+                PartyBLL partyBLL = new PartyBLL();
+                partyBLL.Delete(partyId);
+                LoadParty();
+            }
+        }
+        private void repositoryItemHyperLinkEdit2_ButtonPressed(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            DeleteParty();
         }
     }
 }

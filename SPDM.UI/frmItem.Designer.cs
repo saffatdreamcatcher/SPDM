@@ -59,23 +59,6 @@
             this.btnBrowse = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.gvItem = new System.Windows.Forms.DataGridView();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.createTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.updateTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoryIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CategoryName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.numberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vatRateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.photoDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
-            this.isBlockedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.isNewDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Edit = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewLinkColumn();
             this.itemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.txtPhotoFilePath = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -116,7 +99,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.nUpPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nUpVatRate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource1)).BeginInit();
@@ -274,7 +256,7 @@
             // 
             this.pictureBox1.Location = new System.Drawing.Point(1024, 90);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(116, 118);
+            this.pictureBox1.Size = new System.Drawing.Size(140, 118);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 45;
             this.pictureBox1.TabStop = false;
@@ -309,174 +291,6 @@
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // gvItem
-            // 
-            this.gvItem.AutoGenerateColumns = false;
-            this.gvItem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gvItem.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
-            this.nameDataGridViewTextBoxColumn,
-            this.createTimeDataGridViewTextBoxColumn,
-            this.updateTimeDataGridViewTextBoxColumn,
-            this.categoryIdDataGridViewTextBoxColumn,
-            this.CategoryName,
-            this.numberDataGridViewTextBoxColumn,
-            this.descriptionDataGridViewTextBoxColumn,
-            this.unitDataGridViewTextBoxColumn,
-            this.priceDataGridViewTextBoxColumn,
-            this.vatRateDataGridViewTextBoxColumn,
-            this.photoDataGridViewImageColumn,
-            this.isBlockedDataGridViewCheckBoxColumn,
-            this.isNewDataGridViewCheckBoxColumn,
-            this.Edit,
-            this.Delete});
-            this.gvItem.DataSource = this.itemBindingSource;
-            this.gvItem.Location = new System.Drawing.Point(112, 333);
-            this.gvItem.Name = "gvItem";
-            this.gvItem.RowHeadersWidth = 51;
-            this.gvItem.RowTemplate.Height = 24;
-            this.gvItem.Size = new System.Drawing.Size(1229, 94);
-            this.gvItem.TabIndex = 48;
-            this.gvItem.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvItem_CellClick);
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.Visible = false;
-            this.idDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // createTimeDataGridViewTextBoxColumn
-            // 
-            this.createTimeDataGridViewTextBoxColumn.DataPropertyName = "CreateTime";
-            this.createTimeDataGridViewTextBoxColumn.HeaderText = "CreateTime";
-            this.createTimeDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.createTimeDataGridViewTextBoxColumn.Name = "createTimeDataGridViewTextBoxColumn";
-            this.createTimeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.createTimeDataGridViewTextBoxColumn.Visible = false;
-            this.createTimeDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // updateTimeDataGridViewTextBoxColumn
-            // 
-            this.updateTimeDataGridViewTextBoxColumn.DataPropertyName = "UpdateTime";
-            this.updateTimeDataGridViewTextBoxColumn.HeaderText = "UpdateTime";
-            this.updateTimeDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.updateTimeDataGridViewTextBoxColumn.Name = "updateTimeDataGridViewTextBoxColumn";
-            this.updateTimeDataGridViewTextBoxColumn.Visible = false;
-            this.updateTimeDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // categoryIdDataGridViewTextBoxColumn
-            // 
-            this.categoryIdDataGridViewTextBoxColumn.DataPropertyName = "CategoryId";
-            this.categoryIdDataGridViewTextBoxColumn.HeaderText = "CategoryId";
-            this.categoryIdDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.categoryIdDataGridViewTextBoxColumn.Name = "categoryIdDataGridViewTextBoxColumn";
-            this.categoryIdDataGridViewTextBoxColumn.Visible = false;
-            this.categoryIdDataGridViewTextBoxColumn.Width = 80;
-            // 
-            // CategoryName
-            // 
-            this.CategoryName.DataPropertyName = "CategoryName";
-            this.CategoryName.HeaderText = "Category Name";
-            this.CategoryName.MinimumWidth = 6;
-            this.CategoryName.Name = "CategoryName";
-            this.CategoryName.Width = 125;
-            // 
-            // numberDataGridViewTextBoxColumn
-            // 
-            this.numberDataGridViewTextBoxColumn.DataPropertyName = "Number";
-            this.numberDataGridViewTextBoxColumn.HeaderText = "Number";
-            this.numberDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.numberDataGridViewTextBoxColumn.Name = "numberDataGridViewTextBoxColumn";
-            this.numberDataGridViewTextBoxColumn.Width = 80;
-            // 
-            // descriptionDataGridViewTextBoxColumn
-            // 
-            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
-            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
-            this.descriptionDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
-            this.descriptionDataGridViewTextBoxColumn.Width = 80;
-            // 
-            // unitDataGridViewTextBoxColumn
-            // 
-            this.unitDataGridViewTextBoxColumn.DataPropertyName = "Unit";
-            this.unitDataGridViewTextBoxColumn.HeaderText = "Unit";
-            this.unitDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.unitDataGridViewTextBoxColumn.Name = "unitDataGridViewTextBoxColumn";
-            this.unitDataGridViewTextBoxColumn.Width = 80;
-            // 
-            // priceDataGridViewTextBoxColumn
-            // 
-            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
-            this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
-            this.priceDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
-            this.priceDataGridViewTextBoxColumn.Width = 80;
-            // 
-            // vatRateDataGridViewTextBoxColumn
-            // 
-            this.vatRateDataGridViewTextBoxColumn.DataPropertyName = "VatRate";
-            this.vatRateDataGridViewTextBoxColumn.HeaderText = "VatRate";
-            this.vatRateDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.vatRateDataGridViewTextBoxColumn.Name = "vatRateDataGridViewTextBoxColumn";
-            this.vatRateDataGridViewTextBoxColumn.Width = 80;
-            // 
-            // photoDataGridViewImageColumn
-            // 
-            this.photoDataGridViewImageColumn.DataPropertyName = "Photo";
-            this.photoDataGridViewImageColumn.HeaderText = "Photo";
-            this.photoDataGridViewImageColumn.MinimumWidth = 6;
-            this.photoDataGridViewImageColumn.Name = "photoDataGridViewImageColumn";
-            this.photoDataGridViewImageColumn.Width = 80;
-            // 
-            // isBlockedDataGridViewCheckBoxColumn
-            // 
-            this.isBlockedDataGridViewCheckBoxColumn.DataPropertyName = "IsBlocked";
-            this.isBlockedDataGridViewCheckBoxColumn.HeaderText = "IsBlocked";
-            this.isBlockedDataGridViewCheckBoxColumn.MinimumWidth = 6;
-            this.isBlockedDataGridViewCheckBoxColumn.Name = "isBlockedDataGridViewCheckBoxColumn";
-            this.isBlockedDataGridViewCheckBoxColumn.Visible = false;
-            this.isBlockedDataGridViewCheckBoxColumn.Width = 125;
-            // 
-            // isNewDataGridViewCheckBoxColumn
-            // 
-            this.isNewDataGridViewCheckBoxColumn.DataPropertyName = "IsNew";
-            this.isNewDataGridViewCheckBoxColumn.HeaderText = "IsNew";
-            this.isNewDataGridViewCheckBoxColumn.MinimumWidth = 6;
-            this.isNewDataGridViewCheckBoxColumn.Name = "isNewDataGridViewCheckBoxColumn";
-            this.isNewDataGridViewCheckBoxColumn.ReadOnly = true;
-            this.isNewDataGridViewCheckBoxColumn.Visible = false;
-            this.isNewDataGridViewCheckBoxColumn.Width = 125;
-            // 
-            // Edit
-            // 
-            this.Edit.HeaderText = "Edit";
-            this.Edit.MinimumWidth = 6;
-            this.Edit.Name = "Edit";
-            this.Edit.Text = "Edit";
-            this.Edit.UseColumnTextForLinkValue = true;
-            this.Edit.Width = 80;
-            // 
-            // Delete
-            // 
-            this.Delete.HeaderText = "Delete";
-            this.Delete.MinimumWidth = 6;
-            this.Delete.Name = "Delete";
-            this.Delete.Text = "Delete";
-            this.Delete.UseColumnTextForLinkValue = true;
-            this.Delete.Width = 80;
             // 
             // itemBindingSource
             // 
@@ -617,16 +431,16 @@
             // gridControl1
             // 
             this.gridControl1.DataSource = this.itemBindingSource1;
-            this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(12, 12, 12, 12);
-            this.gridControl1.Location = new System.Drawing.Point(112, 442);
+            this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(12);
+            this.gridControl1.Location = new System.Drawing.Point(112, 340);
             this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Margin = new System.Windows.Forms.Padding(12, 12, 12, 12);
-            this.gridControl1.MaximumSize = new System.Drawing.Size(1545, 266);
+            this.gridControl1.Margin = new System.Windows.Forms.Padding(12);
+            this.gridControl1.MaximumSize = new System.Drawing.Size(1545, 300);
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemHyperLinkEdit1,
             this.repositoryItemHyperLinkEdit2});
-            this.gridControl1.Size = new System.Drawing.Size(1229, 210);
+            this.gridControl1.Size = new System.Drawing.Size(1229, 300);
             this.gridControl1.TabIndex = 62;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -722,7 +536,7 @@
             // colVatRate
             // 
             this.colVatRate.FieldName = "VatRate";
-            this.colVatRate.MinWidth = 61;
+            this.colVatRate.MinWidth = 31;
             this.colVatRate.Name = "colVatRate";
             this.colVatRate.Visible = true;
             this.colVatRate.VisibleIndex = 6;
@@ -792,12 +606,13 @@
             this.repositoryItemHyperLinkEdit1.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.repositoryItemHyperLinkEdit1.Name = "repositoryItemHyperLinkEdit1";
             this.repositoryItemHyperLinkEdit1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.repositoryItemHyperLinkEdit1.ButtonPressed += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repositoryItemHyperLinkEdit1_ButtonPressed);
             // 
             // gcDelete
             // 
             this.gcDelete.Caption = "Delete";
             this.gcDelete.ColumnEdit = this.repositoryItemHyperLinkEdit2;
-            this.gcDelete.MinWidth = 31;
+            this.gcDelete.MinWidth = 61;
             this.gcDelete.Name = "gcDelete";
             this.gcDelete.Visible = true;
             this.gcDelete.VisibleIndex = 9;
@@ -811,6 +626,7 @@
             this.repositoryItemHyperLinkEdit2.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.repositoryItemHyperLinkEdit2.Name = "repositoryItemHyperLinkEdit2";
             this.repositoryItemHyperLinkEdit2.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.repositoryItemHyperLinkEdit2.ButtonPressed += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repositoryItemHyperLinkEdit2_ButtonPressed);
             // 
             // frmItem
             // 
@@ -833,7 +649,6 @@
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.txtPhotoFilePath);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.gvItem);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.pictureBox1);
@@ -860,7 +675,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.nUpPrice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nUpVatRate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource1)).EndInit();
@@ -894,29 +708,12 @@
         private System.Windows.Forms.Button btnBrowse;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.DataGridView gvItem;
         private System.Windows.Forms.BindingSource itemBindingSource;
         private System.Windows.Forms.TextBox txtPhotoFilePath;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.OpenFileDialog oFDPhoto;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn createTimeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn updateTimeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn categoryIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CategoryName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn numberDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn unitDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn vatRateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewImageColumn photoDataGridViewImageColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn isBlockedDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn isNewDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewLinkColumn Edit;
-        private System.Windows.Forms.DataGridViewLinkColumn Delete;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;

@@ -37,15 +37,8 @@ namespace SPDM.UI
             cboCategory.DisplayMember = "Name";
         }
 
-        private void LoadItem()
-        {
-            ItemBLL itemBLL = new ItemBLL();
-            List<Item> item = itemBLL.GetAll();     
-                                                                   
-            gvItem.DataSource = item;                    
-        }
 
-        private void LoadItem1()
+        private void LoadItem()
         {
             ItemBLL itemBLL = new ItemBLL();
             List<Item> item = itemBLL.GetAll();
@@ -57,54 +50,22 @@ namespace SPDM.UI
             
             LoadCategory();
             LoadItem();
-            LoadItem1();
         }
 
-        private void ManageEdit(DataGridViewCellEventArgs e)
-        {
-            if (e.ColumnIndex == 14)
-            {
-                itemId = Convert.ToInt32(gvItem.Rows[e.RowIndex].Cells[0].Value);  
-                txtDescription.Text = Convert.ToString(gvItem.Rows[e.RowIndex].Cells[6].Value);
-                cboCategory.SelectedValue = Convert.ToInt32(gvItem.Rows[e.RowIndex].Cells[4].Value);
-                txtName.Text = Convert.ToString(gvItem.Rows[e.RowIndex].Cells[1].Value);
-                txtNumber.Text = Convert.ToString(gvItem.Rows[e.RowIndex].Cells[5].Value);
-                nUpUnit.Value = Convert.ToInt32(gvItem.Rows[e.RowIndex].Cells[8].Value);
-                nUpPrice.Value = Convert.ToInt32(gvItem.Rows[e.RowIndex].Cells[9].Value);
-                nUpVatRate.Value = Convert.ToInt32(gvItem.Rows[e.RowIndex].Cells[10].Value);
-                chkIsBlocked.Checked = Convert.ToBoolean(gvItem.Rows[e.RowIndex].Cells[11].Value);
+        
 
-                ItemBLL itemBLL = new ItemBLL();
-                Item item = itemBLL.GetById(itemId);
-                if (item.Photo != null)
-                {
-                    MemoryStream ms = new MemoryStream(item.Photo);
-                    Image image = Image.FromStream(ms);
-                    pictureBox1.Image = image;
-                }
-            }
-            else if (e.ColumnIndex == 15)
-            {
-                var id = Convert.ToInt32(gvItem.Rows[e.RowIndex].Cells[0].Value);
-                DeleteItem(id);
-            }
-        }
+        //private void DeleteItem(int id)
+        //{
+        //    if (MessageBox.Show("Are you sure you want to delete the item?", "Delete Item", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.Yes)
+        //    {
+        //        ItemBLL itemBLL = new ItemBLL();
+        //        itemBLL.Delete(id);
+        //        LoadItem();
+        //    }
 
-        private void DeleteItem(int id)
-        {
-            if (MessageBox.Show("Are you sure you want to delete the item?", "Delete Item", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.Yes)
-            {
-                ItemBLL itemBLL = new ItemBLL();
-                itemBLL.Delete(id);
-                LoadItem();
-            }
+        //}
 
-        }
-
-        private void gvItem_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            ManageEdit(e);
-        }
+        
 
         private void ClearField()
         {
@@ -126,43 +87,52 @@ namespace SPDM.UI
             ClearField();
         }
 
-        private void SaveItem()
+        
+        private void SaveItem1()
         {
-            Item item = new Item();
-            item.Id = itemId;
-            item.Name = txtName.Text;
-            item.CategoryId = Convert.ToInt32(cboCategory.SelectedValue);
-            item.Description = txtDescription.Text;
-            item.Number = txtNumber.Text;
-            item.Unit = Convert.ToInt32(nUpUnit.Value);
-            item.Price = Convert.ToDouble(nUpPrice.Value);
-
-            if (Convert.ToInt32(nUpVatRate.Value) > -1)
+            try
             {
-                item.VatRate = Convert.ToDouble(nUpVatRate.Value);
-            }
-            else
-            {
-                item.VatRate = null;
-            }
-           
-            item.IsBlocked = chkIsBlocked.Checked;
-            if (txtPhotoFilePath.Text != string.Empty)
-            {
-                byte[] picture = GetPhoto(txtPhotoFilePath.Text);
+                Item item = new Item();
+                item.Id = itemId;
+                item.Name = txtName.Text;
+                item.CategoryId = Convert.ToInt32(cboCategory.SelectedValue);
+                item.Description = txtDescription.Text;
+                item.Number = txtNumber.Text;
+                item.Unit = Convert.ToInt32(nUpUnit.Value);
+                item.Price = Convert.ToDouble(nUpPrice.Value);
 
-                item.Photo = picture;
-            }
+                if (Convert.ToInt32(nUpVatRate.Value) > -1)
+                {
+                    item.VatRate = Convert.ToDouble(nUpVatRate.Value);
+                }
+                else
+                {
+                    item.VatRate = null;
+                }
 
-            ItemBLL itemBLL = new ItemBLL();
-            itemBLL.Save(item);
-            LoadItem();
-            ClearField();
+                item.IsBlocked = chkIsBlocked.Checked;
+                if (txtPhotoFilePath.Text != string.Empty)
+                {
+                    byte[] picture = GetPhoto(txtPhotoFilePath.Text);
+
+                    item.Photo = picture;
+                }
+
+                ItemBLL itemBLL = new ItemBLL();
+                itemBLL.Save(item);
+                LoadItem();
+                ClearField();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+            }
         }
+
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            SaveItem();
+            SaveItem1();
         }
 
 
@@ -194,6 +164,47 @@ namespace SPDM.UI
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void EditItem()
+        {
+            int itemId = Convert.ToInt32(gridView1.GetFocusedRowCellValue("Id"));
+            txtName.Text = Convert.ToString(gridView1.GetFocusedRowCellValue("Name"));
+            cboCategory.SelectedValue = Convert.ToInt32(gridView1.GetFocusedRowCellValue("CategoryId"));
+            txtNumber.Text = Convert.ToString(gridView1.GetFocusedRowCellValue("Number"));
+            txtDescription.Text = Convert.ToString(gridView1.GetFocusedRowCellValue("Description"));
+            nUpUnit.Value = Convert.ToInt32(gridView1.GetFocusedRowCellValue("Unit"));
+            nUpPrice.Value = Convert.ToInt32(gridView1.GetFocusedRowCellValue("Price"));
+            nUpVatRate.Value = Convert.ToInt32(gridView1.GetFocusedRowCellValue("VatRate"));
+            chkIsBlocked.Checked = Convert.ToBoolean(gridView1.GetFocusedRowCellValue("IsBlocked"));
+
+            ItemBLL itemBLL = new ItemBLL();
+            Item item = itemBLL.GetById(itemId);
+            if (item.Photo != null)
+            {
+                MemoryStream ms = new MemoryStream(item.Photo);
+                Image image = Image.FromStream(ms);
+                pictureBox1.Image = image;
+            }
+        }
+        private void repositoryItemHyperLinkEdit1_ButtonPressed(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            EditItem();
+        }
+
+        private void DeleteItem()
+        {
+            if (MessageBox.Show("Are you sure you want to delete?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+            {
+                int itemId = Convert.ToInt32(gridView1.GetFocusedRowCellValue("Id"));
+                ItemBLL itemBLL = new ItemBLL();
+                itemBLL.Delete(itemId);
+                LoadItem();
+            }
+        }
+        private void repositoryItemHyperLinkEdit2_ButtonPressed(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            DeleteItem();
         }
     }
 }

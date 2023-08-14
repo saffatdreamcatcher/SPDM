@@ -29,6 +29,16 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.label1 = new System.Windows.Forms.Label();
             this.txtAccount = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
@@ -53,24 +63,6 @@
             this.label12 = new System.Windows.Forms.Label();
             this.resetbtn = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.gvParty = new System.Windows.Forms.DataGridView();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.createTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.updateTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.accountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.postalCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.countryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PhoneNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mobileNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.faxDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.noteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.isNewDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Edit = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewLinkColumn();
             this.partyBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.epParty = new System.Windows.Forms.ErrorProvider(this.components);
             this.label9 = new System.Windows.Forms.Label();
@@ -86,9 +78,35 @@
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.gvParty)).BeginInit();
+            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.partyBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colUpdateTime = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemHyperLinkEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit();
+            this.colAccount = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colAddress = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colCity = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colPostalCode = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colCountry = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colPhoneNo = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colMobileNo = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colFax = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colEmail = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNote = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colId = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colIsNew = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colCreateTime = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gcEdit = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemHyperLinkEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit();
+            this.gcDelete = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.partyBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.epParty)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.partyBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -288,185 +306,6 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // gvParty
-            // 
-            this.gvParty.AutoGenerateColumns = false;
-            this.gvParty.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gvParty.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
-            this.nameDataGridViewTextBoxColumn,
-            this.createTimeDataGridViewTextBoxColumn,
-            this.updateTimeDataGridViewTextBoxColumn,
-            this.accountDataGridViewTextBoxColumn,
-            this.addressDataGridViewTextBoxColumn,
-            this.cityDataGridViewTextBoxColumn,
-            this.postalCodeDataGridViewTextBoxColumn,
-            this.countryDataGridViewTextBoxColumn,
-            this.PhoneNo,
-            this.mobileNoDataGridViewTextBoxColumn,
-            this.faxDataGridViewTextBoxColumn,
-            this.emailDataGridViewTextBoxColumn,
-            this.noteDataGridViewTextBoxColumn,
-            this.isNewDataGridViewCheckBoxColumn,
-            this.Edit,
-            this.Delete});
-            this.gvParty.DataSource = this.partyBindingSource;
-            this.gvParty.Location = new System.Drawing.Point(12, 291);
-            this.gvParty.Name = "gvParty";
-            this.gvParty.RowHeadersWidth = 51;
-            this.gvParty.RowTemplate.Height = 24;
-            this.gvParty.Size = new System.Drawing.Size(1194, 152);
-            this.gvParty.TabIndex = 28;
-            this.gvParty.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvParty_CellClick);
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.Visible = false;
-            this.idDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // createTimeDataGridViewTextBoxColumn
-            // 
-            this.createTimeDataGridViewTextBoxColumn.DataPropertyName = "CreateTime";
-            this.createTimeDataGridViewTextBoxColumn.HeaderText = "CreateTime";
-            this.createTimeDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.createTimeDataGridViewTextBoxColumn.Name = "createTimeDataGridViewTextBoxColumn";
-            this.createTimeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.createTimeDataGridViewTextBoxColumn.Visible = false;
-            this.createTimeDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // updateTimeDataGridViewTextBoxColumn
-            // 
-            this.updateTimeDataGridViewTextBoxColumn.DataPropertyName = "UpdateTime";
-            this.updateTimeDataGridViewTextBoxColumn.HeaderText = "UpdateTime";
-            this.updateTimeDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.updateTimeDataGridViewTextBoxColumn.Name = "updateTimeDataGridViewTextBoxColumn";
-            this.updateTimeDataGridViewTextBoxColumn.Visible = false;
-            this.updateTimeDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // accountDataGridViewTextBoxColumn
-            // 
-            this.accountDataGridViewTextBoxColumn.DataPropertyName = "Account";
-            this.accountDataGridViewTextBoxColumn.HeaderText = "Account";
-            this.accountDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.accountDataGridViewTextBoxColumn.Name = "accountDataGridViewTextBoxColumn";
-            this.accountDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // addressDataGridViewTextBoxColumn
-            // 
-            this.addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
-            this.addressDataGridViewTextBoxColumn.HeaderText = "Address";
-            this.addressDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
-            this.addressDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // cityDataGridViewTextBoxColumn
-            // 
-            this.cityDataGridViewTextBoxColumn.DataPropertyName = "City";
-            this.cityDataGridViewTextBoxColumn.HeaderText = "City";
-            this.cityDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.cityDataGridViewTextBoxColumn.Name = "cityDataGridViewTextBoxColumn";
-            this.cityDataGridViewTextBoxColumn.Width = 80;
-            // 
-            // postalCodeDataGridViewTextBoxColumn
-            // 
-            this.postalCodeDataGridViewTextBoxColumn.DataPropertyName = "PostalCode";
-            this.postalCodeDataGridViewTextBoxColumn.HeaderText = "PostalCode";
-            this.postalCodeDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.postalCodeDataGridViewTextBoxColumn.Name = "postalCodeDataGridViewTextBoxColumn";
-            this.postalCodeDataGridViewTextBoxColumn.Width = 80;
-            // 
-            // countryDataGridViewTextBoxColumn
-            // 
-            this.countryDataGridViewTextBoxColumn.DataPropertyName = "Country";
-            this.countryDataGridViewTextBoxColumn.HeaderText = "Country";
-            this.countryDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.countryDataGridViewTextBoxColumn.Name = "countryDataGridViewTextBoxColumn";
-            this.countryDataGridViewTextBoxColumn.Width = 80;
-            // 
-            // PhoneNo
-            // 
-            this.PhoneNo.DataPropertyName = "PhoneNo";
-            this.PhoneNo.HeaderText = "PhoneNo";
-            this.PhoneNo.MinimumWidth = 6;
-            this.PhoneNo.Name = "PhoneNo";
-            this.PhoneNo.Visible = false;
-            this.PhoneNo.Width = 80;
-            // 
-            // mobileNoDataGridViewTextBoxColumn
-            // 
-            this.mobileNoDataGridViewTextBoxColumn.DataPropertyName = "MobileNo";
-            this.mobileNoDataGridViewTextBoxColumn.HeaderText = "MobileNo";
-            this.mobileNoDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.mobileNoDataGridViewTextBoxColumn.Name = "mobileNoDataGridViewTextBoxColumn";
-            this.mobileNoDataGridViewTextBoxColumn.Width = 80;
-            // 
-            // faxDataGridViewTextBoxColumn
-            // 
-            this.faxDataGridViewTextBoxColumn.DataPropertyName = "Fax";
-            this.faxDataGridViewTextBoxColumn.HeaderText = "Fax";
-            this.faxDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.faxDataGridViewTextBoxColumn.Name = "faxDataGridViewTextBoxColumn";
-            this.faxDataGridViewTextBoxColumn.Visible = false;
-            this.faxDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // emailDataGridViewTextBoxColumn
-            // 
-            this.emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
-            this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
-            this.emailDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
-            this.emailDataGridViewTextBoxColumn.Visible = false;
-            this.emailDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // noteDataGridViewTextBoxColumn
-            // 
-            this.noteDataGridViewTextBoxColumn.DataPropertyName = "Note";
-            this.noteDataGridViewTextBoxColumn.HeaderText = "Note";
-            this.noteDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.noteDataGridViewTextBoxColumn.Name = "noteDataGridViewTextBoxColumn";
-            this.noteDataGridViewTextBoxColumn.Visible = false;
-            this.noteDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // isNewDataGridViewCheckBoxColumn
-            // 
-            this.isNewDataGridViewCheckBoxColumn.DataPropertyName = "IsNew";
-            this.isNewDataGridViewCheckBoxColumn.HeaderText = "IsNew";
-            this.isNewDataGridViewCheckBoxColumn.MinimumWidth = 6;
-            this.isNewDataGridViewCheckBoxColumn.Name = "isNewDataGridViewCheckBoxColumn";
-            this.isNewDataGridViewCheckBoxColumn.ReadOnly = true;
-            this.isNewDataGridViewCheckBoxColumn.Visible = false;
-            this.isNewDataGridViewCheckBoxColumn.Width = 125;
-            // 
-            // Edit
-            // 
-            this.Edit.HeaderText = "Edit";
-            this.Edit.MinimumWidth = 6;
-            this.Edit.Name = "Edit";
-            this.Edit.Text = "Edit";
-            this.Edit.UseColumnTextForLinkValue = true;
-            this.Edit.Width = 80;
-            // 
-            // Delete
-            // 
-            this.Delete.HeaderText = "Delete";
-            this.Delete.MinimumWidth = 6;
-            this.Delete.Name = "Delete";
-            this.Delete.Text = "Delete";
-            this.Delete.UseColumnTextForLinkValue = true;
-            this.Delete.Width = 80;
-            // 
             // partyBindingSource
             // 
             this.partyBindingSource.DataSource = typeof(SPDM.DLL.Entities.Party);
@@ -607,13 +446,219 @@
             this.label24.TabIndex = 65;
             this.label24.Text = ":";
             // 
+            // gridControl1
+            // 
+            this.gridControl1.DataSource = this.partyBindingSource1;
+            this.gridControl1.Location = new System.Drawing.Point(168, 320);
+            this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.MaximumSize = new System.Drawing.Size(1019, 300);
+            this.gridControl1.Name = "gridControl1";
+            this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemHyperLinkEdit1,
+            this.repositoryItemHyperLinkEdit2});
+            this.gridControl1.Size = new System.Drawing.Size(1019, 300);
+            this.gridControl1.TabIndex = 68;
+            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            // 
+            // partyBindingSource1
+            // 
+            this.partyBindingSource1.DataSource = typeof(SPDM.DLL.Entities.Party);
+            // 
+            // gridView1
+            // 
+            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colUpdateTime,
+            this.colAccount,
+            this.colName,
+            this.colAddress,
+            this.colCity,
+            this.colPostalCode,
+            this.colCountry,
+            this.colPhoneNo,
+            this.colMobileNo,
+            this.colFax,
+            this.colEmail,
+            this.colNote,
+            this.colId,
+            this.colIsNew,
+            this.colCreateTime,
+            this.gcEdit,
+            this.gcDelete});
+            this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.Name = "gridView1";
+            // 
+            // colUpdateTime
+            // 
+            this.colUpdateTime.ColumnEdit = this.repositoryItemHyperLinkEdit2;
+            this.colUpdateTime.FieldName = "UpdateTime";
+            this.colUpdateTime.MinWidth = 25;
+            this.colUpdateTime.Name = "colUpdateTime";
+            this.colUpdateTime.Width = 94;
+            // 
+            // repositoryItemHyperLinkEdit2
+            // 
+            this.repositoryItemHyperLinkEdit2.AutoHeight = false;
+            this.repositoryItemHyperLinkEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Delete", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.repositoryItemHyperLinkEdit2.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.repositoryItemHyperLinkEdit2.Caption = "Delete";
+            this.repositoryItemHyperLinkEdit2.Name = "repositoryItemHyperLinkEdit2";
+            this.repositoryItemHyperLinkEdit2.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.repositoryItemHyperLinkEdit2.ButtonPressed += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repositoryItemHyperLinkEdit2_ButtonPressed);
+            // 
+            // colAccount
+            // 
+            this.colAccount.FieldName = "Account";
+            this.colAccount.MinWidth = 25;
+            this.colAccount.Name = "colAccount";
+            this.colAccount.Visible = true;
+            this.colAccount.VisibleIndex = 0;
+            this.colAccount.Width = 94;
+            // 
+            // colName
+            // 
+            this.colName.FieldName = "Name";
+            this.colName.MinWidth = 25;
+            this.colName.Name = "colName";
+            this.colName.Visible = true;
+            this.colName.VisibleIndex = 1;
+            this.colName.Width = 94;
+            // 
+            // colAddress
+            // 
+            this.colAddress.FieldName = "Address";
+            this.colAddress.MinWidth = 25;
+            this.colAddress.Name = "colAddress";
+            this.colAddress.Visible = true;
+            this.colAddress.VisibleIndex = 2;
+            this.colAddress.Width = 94;
+            // 
+            // colCity
+            // 
+            this.colCity.FieldName = "City";
+            this.colCity.MinWidth = 25;
+            this.colCity.Name = "colCity";
+            this.colCity.Visible = true;
+            this.colCity.VisibleIndex = 3;
+            this.colCity.Width = 94;
+            // 
+            // colPostalCode
+            // 
+            this.colPostalCode.FieldName = "PostalCode";
+            this.colPostalCode.MinWidth = 25;
+            this.colPostalCode.Name = "colPostalCode";
+            this.colPostalCode.Visible = true;
+            this.colPostalCode.VisibleIndex = 4;
+            this.colPostalCode.Width = 94;
+            // 
+            // colCountry
+            // 
+            this.colCountry.FieldName = "Country";
+            this.colCountry.MinWidth = 25;
+            this.colCountry.Name = "colCountry";
+            this.colCountry.Visible = true;
+            this.colCountry.VisibleIndex = 5;
+            this.colCountry.Width = 94;
+            // 
+            // colPhoneNo
+            // 
+            this.colPhoneNo.FieldName = "PhoneNo";
+            this.colPhoneNo.MinWidth = 25;
+            this.colPhoneNo.Name = "colPhoneNo";
+            this.colPhoneNo.Width = 94;
+            // 
+            // colMobileNo
+            // 
+            this.colMobileNo.FieldName = "MobileNo";
+            this.colMobileNo.MinWidth = 25;
+            this.colMobileNo.Name = "colMobileNo";
+            this.colMobileNo.Visible = true;
+            this.colMobileNo.VisibleIndex = 6;
+            this.colMobileNo.Width = 94;
+            // 
+            // colFax
+            // 
+            this.colFax.FieldName = "Fax";
+            this.colFax.MinWidth = 25;
+            this.colFax.Name = "colFax";
+            this.colFax.Width = 94;
+            // 
+            // colEmail
+            // 
+            this.colEmail.FieldName = "Email";
+            this.colEmail.MinWidth = 25;
+            this.colEmail.Name = "colEmail";
+            this.colEmail.Width = 94;
+            // 
+            // colNote
+            // 
+            this.colNote.FieldName = "Note";
+            this.colNote.MinWidth = 25;
+            this.colNote.Name = "colNote";
+            this.colNote.Width = 94;
+            // 
+            // colId
+            // 
+            this.colId.FieldName = "Id";
+            this.colId.MinWidth = 25;
+            this.colId.Name = "colId";
+            this.colId.Width = 94;
+            // 
+            // colIsNew
+            // 
+            this.colIsNew.FieldName = "IsNew";
+            this.colIsNew.MinWidth = 25;
+            this.colIsNew.Name = "colIsNew";
+            this.colIsNew.OptionsColumn.ReadOnly = true;
+            this.colIsNew.Width = 94;
+            // 
+            // colCreateTime
+            // 
+            this.colCreateTime.FieldName = "CreateTime";
+            this.colCreateTime.MinWidth = 25;
+            this.colCreateTime.Name = "colCreateTime";
+            this.colCreateTime.OptionsColumn.ReadOnly = true;
+            this.colCreateTime.Width = 94;
+            // 
+            // gcEdit
+            // 
+            this.gcEdit.Caption = "Edit";
+            this.gcEdit.ColumnEdit = this.repositoryItemHyperLinkEdit1;
+            this.gcEdit.MinWidth = 25;
+            this.gcEdit.Name = "gcEdit";
+            this.gcEdit.Visible = true;
+            this.gcEdit.VisibleIndex = 7;
+            this.gcEdit.Width = 94;
+            // 
+            // repositoryItemHyperLinkEdit1
+            // 
+            this.repositoryItemHyperLinkEdit1.AutoHeight = false;
+            this.repositoryItemHyperLinkEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Edit", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.repositoryItemHyperLinkEdit1.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.repositoryItemHyperLinkEdit1.Name = "repositoryItemHyperLinkEdit1";
+            this.repositoryItemHyperLinkEdit1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.repositoryItemHyperLinkEdit1.ButtonPressed += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repositoryItemHyperLinkEdit1_ButtonPressed);
+            // 
+            // gcDelete
+            // 
+            this.gcDelete.Caption = "Delete";
+            this.gcDelete.ColumnEdit = this.repositoryItemHyperLinkEdit2;
+            this.gcDelete.MinWidth = 25;
+            this.gcDelete.Name = "gcDelete";
+            this.gcDelete.Visible = true;
+            this.gcDelete.VisibleIndex = 8;
+            this.gcDelete.Width = 94;
+            // 
             // frmParty
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1212, 489);
+            this.ClientSize = new System.Drawing.Size(1212, 682);
             this.ControlBox = false;
+            this.Controls.Add(this.gridControl1);
             this.Controls.Add(this.label22);
             this.Controls.Add(this.label23);
             this.Controls.Add(this.label24);
@@ -627,7 +672,6 @@
             this.Controls.Add(this.label16);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.gvParty);
             this.Controls.Add(this.resetbtn);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtNote);
@@ -655,9 +699,13 @@
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Name = "frmParty";
             this.Load += new System.EventHandler(this.frmParty_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.gvParty)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.partyBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.epParty)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.partyBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -689,27 +737,9 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button resetbtn;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.DataGridView gvParty;
         private System.Windows.Forms.DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource partyBindingSource;
         private System.Windows.Forms.ErrorProvider epParty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn createTimeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn updateTimeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn accountDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cityDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn postalCodeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn countryDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PhoneNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mobileNoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn faxDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn noteDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn isNewDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewLinkColumn Edit;
-        private System.Windows.Forms.DataGridViewLinkColumn Delete;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Label label13;
@@ -723,5 +753,27 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label24;
+        private DevExpress.XtraGrid.GridControl gridControl1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private System.Windows.Forms.BindingSource partyBindingSource1;
+        private DevExpress.XtraGrid.Columns.GridColumn colUpdateTime;
+        private DevExpress.XtraGrid.Columns.GridColumn colAccount;
+        private DevExpress.XtraGrid.Columns.GridColumn colName;
+        private DevExpress.XtraGrid.Columns.GridColumn colAddress;
+        private DevExpress.XtraGrid.Columns.GridColumn colCity;
+        private DevExpress.XtraGrid.Columns.GridColumn colPostalCode;
+        private DevExpress.XtraGrid.Columns.GridColumn colCountry;
+        private DevExpress.XtraGrid.Columns.GridColumn colPhoneNo;
+        private DevExpress.XtraGrid.Columns.GridColumn colMobileNo;
+        private DevExpress.XtraGrid.Columns.GridColumn colFax;
+        private DevExpress.XtraGrid.Columns.GridColumn colEmail;
+        private DevExpress.XtraGrid.Columns.GridColumn colNote;
+        private DevExpress.XtraGrid.Columns.GridColumn colId;
+        private DevExpress.XtraGrid.Columns.GridColumn colIsNew;
+        private DevExpress.XtraGrid.Columns.GridColumn colCreateTime;
+        private DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit repositoryItemHyperLinkEdit2;
+        private DevExpress.XtraGrid.Columns.GridColumn gcEdit;
+        private DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit repositoryItemHyperLinkEdit1;
+        private DevExpress.XtraGrid.Columns.GridColumn gcDelete;
     }
 }
