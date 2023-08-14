@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions4 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions7 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject25 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject26 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject27 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject28 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions8 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject29 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject30 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject31 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject32 = new DevExpress.Utils.SerializableAppearanceObject();
             this.btnBrowse = new System.Windows.Forms.Button();
             this.txtPhotoFilePath = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -48,15 +48,6 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
-            this.gvCategory = new System.Windows.Forms.DataGridView();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.createTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Photo = new System.Windows.Forms.DataGridViewImageColumn();
-            this.isNewDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Edit = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewLinkColumn();
             this.categoryBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.epCategory = new System.Windows.Forms.ErrorProvider(this.components);
             this.oFDPhoto = new System.Windows.Forms.OpenFileDialog();
@@ -79,7 +70,6 @@
             this.repositoryItemHyperLinkEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit();
             this.gcDelete = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemHyperLinkEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvCategory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.epCategory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -92,7 +82,7 @@
             // 
             // btnBrowse
             // 
-            this.btnBrowse.Location = new System.Drawing.Point(389, 138);
+            this.btnBrowse.Location = new System.Drawing.Point(387, 141);
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Size = new System.Drawing.Size(75, 28);
             this.btnBrowse.TabIndex = 26;
@@ -102,6 +92,7 @@
             // 
             // txtPhotoFilePath
             // 
+            this.txtPhotoFilePath.Enabled = false;
             this.txtPhotoFilePath.Location = new System.Drawing.Point(106, 144);
             this.txtPhotoFilePath.Name = "txtPhotoFilePath";
             this.txtPhotoFilePath.Size = new System.Drawing.Size(262, 22);
@@ -172,98 +163,6 @@
             this.txtName.Size = new System.Drawing.Size(262, 22);
             this.txtName.TabIndex = 21;
             // 
-            // gvCategory
-            // 
-            this.gvCategory.AutoGenerateColumns = false;
-            this.gvCategory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gvCategory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
-            this.createTimeDataGridViewTextBoxColumn,
-            this.nameDataGridViewTextBoxColumn,
-            this.descriptionDataGridViewTextBoxColumn,
-            this.Photo,
-            this.isNewDataGridViewCheckBoxColumn,
-            this.Edit,
-            this.Delete});
-            this.gvCategory.DataSource = this.categoryBindingSource1;
-            this.gvCategory.Location = new System.Drawing.Point(106, 241);
-            this.gvCategory.Name = "gvCategory";
-            this.gvCategory.RowHeadersWidth = 51;
-            this.gvCategory.RowTemplate.Height = 24;
-            this.gvCategory.Size = new System.Drawing.Size(1104, 168);
-            this.gvCategory.TabIndex = 30;
-            this.gvCategory.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvCategory_CellClick);
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.Visible = false;
-            this.idDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // createTimeDataGridViewTextBoxColumn
-            // 
-            this.createTimeDataGridViewTextBoxColumn.DataPropertyName = "CreateTime";
-            this.createTimeDataGridViewTextBoxColumn.HeaderText = "CreateTime";
-            this.createTimeDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.createTimeDataGridViewTextBoxColumn.Name = "createTimeDataGridViewTextBoxColumn";
-            this.createTimeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.createTimeDataGridViewTextBoxColumn.Visible = false;
-            this.createTimeDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // descriptionDataGridViewTextBoxColumn
-            // 
-            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
-            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
-            this.descriptionDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
-            this.descriptionDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // Photo
-            // 
-            this.Photo.HeaderText = "Photo";
-            this.Photo.MinimumWidth = 6;
-            this.Photo.Name = "Photo";
-            this.Photo.Width = 125;
-            // 
-            // isNewDataGridViewCheckBoxColumn
-            // 
-            this.isNewDataGridViewCheckBoxColumn.DataPropertyName = "IsNew";
-            this.isNewDataGridViewCheckBoxColumn.HeaderText = "IsNew";
-            this.isNewDataGridViewCheckBoxColumn.MinimumWidth = 6;
-            this.isNewDataGridViewCheckBoxColumn.Name = "isNewDataGridViewCheckBoxColumn";
-            this.isNewDataGridViewCheckBoxColumn.ReadOnly = true;
-            this.isNewDataGridViewCheckBoxColumn.Visible = false;
-            this.isNewDataGridViewCheckBoxColumn.Width = 125;
-            // 
-            // Edit
-            // 
-            this.Edit.HeaderText = "Edit";
-            this.Edit.MinimumWidth = 6;
-            this.Edit.Name = "Edit";
-            this.Edit.Text = "Edit";
-            this.Edit.UseColumnTextForLinkValue = true;
-            this.Edit.Width = 125;
-            // 
-            // Delete
-            // 
-            this.Delete.HeaderText = "Delete";
-            this.Delete.MinimumWidth = 6;
-            this.Delete.Name = "Delete";
-            this.Delete.Text = "Delete";
-            this.Delete.UseColumnTextForLinkValue = true;
-            this.Delete.Width = 125;
-            // 
             // categoryBindingSource1
             // 
             this.categoryBindingSource1.DataSource = typeof(SPDM.DLL.Entities.Category);
@@ -300,9 +199,9 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(479, 48);
+            this.pictureBox1.Location = new System.Drawing.Point(534, 72);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(116, 118);
+            this.pictureBox1.Size = new System.Drawing.Size(165, 144);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 33;
             this.pictureBox1.TabStop = false;
@@ -340,16 +239,16 @@
             // gridControl1
             // 
             this.gridControl1.DataSource = this.categoryBindingSource;
-            this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
-            this.gridControl1.Location = new System.Drawing.Point(106, 420);
+            this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(8);
+            this.gridControl1.Location = new System.Drawing.Point(106, 258);
             this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
-            this.gridControl1.MaximumSize = new System.Drawing.Size(1104, 263);
+            this.gridControl1.Margin = new System.Windows.Forms.Padding(8);
+            this.gridControl1.MaximumSize = new System.Drawing.Size(1104, 400);
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemHyperLinkEdit1,
             this.repositoryItemHyperLinkEdit2});
-            this.gridControl1.Size = new System.Drawing.Size(1104, 263);
+            this.gridControl1.Size = new System.Drawing.Size(1104, 400);
             this.gridControl1.TabIndex = 39;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -380,7 +279,7 @@
             this.colName.Name = "colName";
             this.colName.Visible = true;
             this.colName.VisibleIndex = 0;
-            this.colName.Width = 182;
+            this.colName.Width = 233;
             // 
             // colDescription
             // 
@@ -389,7 +288,7 @@
             this.colDescription.Name = "colDescription";
             this.colDescription.Visible = true;
             this.colDescription.VisibleIndex = 1;
-            this.colDescription.Width = 182;
+            this.colDescription.Width = 233;
             // 
             // colPhoto
             // 
@@ -398,7 +297,7 @@
             this.colPhoto.Name = "colPhoto";
             this.colPhoto.Visible = true;
             this.colPhoto.VisibleIndex = 2;
-            this.colPhoto.Width = 182;
+            this.colPhoto.Width = 233;
             // 
             // colId
             // 
@@ -431,13 +330,13 @@
             this.gcEdit.Name = "gcEdit";
             this.gcEdit.Visible = true;
             this.gcEdit.VisibleIndex = 3;
-            this.gcEdit.Width = 146;
+            this.gcEdit.Width = 100;
             // 
             // repositoryItemHyperLinkEdit1
             // 
             this.repositoryItemHyperLinkEdit1.AutoHeight = false;
             this.repositoryItemHyperLinkEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Edit", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Edit", -1, true, true, false, editorButtonImageOptions7, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject25, serializableAppearanceObject26, serializableAppearanceObject27, serializableAppearanceObject28, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.repositoryItemHyperLinkEdit1.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.repositoryItemHyperLinkEdit1.Caption = "Edit";
             this.repositoryItemHyperLinkEdit1.Name = "repositoryItemHyperLinkEdit1";
@@ -452,13 +351,13 @@
             this.gcDelete.Name = "gcDelete";
             this.gcDelete.Visible = true;
             this.gcDelete.VisibleIndex = 4;
-            this.gcDelete.Width = 146;
+            this.gcDelete.Width = 100;
             // 
             // repositoryItemHyperLinkEdit2
             // 
             this.repositoryItemHyperLinkEdit2.AutoHeight = false;
             this.repositoryItemHyperLinkEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Delete", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Delete", -1, true, true, false, editorButtonImageOptions8, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject29, serializableAppearanceObject30, serializableAppearanceObject31, serializableAppearanceObject32, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.repositoryItemHyperLinkEdit2.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.repositoryItemHyperLinkEdit2.Caption = "Delete";
             this.repositoryItemHyperLinkEdit2.Name = "repositoryItemHyperLinkEdit2";
@@ -479,7 +378,6 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.gvCategory);
             this.Controls.Add(this.btnBrowse);
             this.Controls.Add(this.txtPhotoFilePath);
             this.Controls.Add(this.label3);
@@ -492,7 +390,6 @@
             this.MaximizeBox = false;
             this.Name = "frmCategory";
             this.Load += new System.EventHandler(this.frmCategory_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.gvCategory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.epCategory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -517,21 +414,12 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtName;
-        private System.Windows.Forms.DataGridView gvCategory;
         private System.Windows.Forms.BindingSource categoryBindingSource1;
         private System.Windows.Forms.ErrorProvider epCategory;
         private System.Windows.Forms.OpenFileDialog oFDPhoto;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn createTimeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewImageColumn Photo;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn isNewDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewLinkColumn Edit;
-        private System.Windows.Forms.DataGridViewLinkColumn Delete;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label5;

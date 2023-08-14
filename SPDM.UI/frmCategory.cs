@@ -31,14 +31,14 @@ namespace SPDM.UI
             txtName.Focus();
         }
 
-        private void LoadCategory()
-        {
-            gvCategory.AutoGenerateColumns = false;
-            CategoryBLL categoryBLL = new CategoryBLL();
-            List<Category> category = categoryBLL.GetAll();
-            gvCategory.DataSource = category;
+        //private void LoadCategory()
+        //{
+        //    gvCategory.AutoGenerateColumns = false;
+        //    CategoryBLL categoryBLL = new CategoryBLL();
+        //    List<Category> category = categoryBLL.GetAll();
+        //    gvCategory.DataSource = category;
 
-        }
+        //}
 
         private void LoadCategory1()
         {
@@ -79,29 +79,29 @@ namespace SPDM.UI
             return iv;
         }
 
-        private void SaveCategory()
-        {
-            if (IsCategoryValid())
-            {
-                Category category = new Category();
-                category.Id = categoryId;
-                category.Name = txtName.Text;
-                category.Description = txtDescription.Text;
-                if (txtPhotoFilePath.Text != string.Empty)
-                {
-                    byte[] picture = GetPhoto(txtPhotoFilePath.Text);
+        //private void SaveCategory()
+        //{
+        //    if (IsCategoryValid())
+        //    {
+        //        Category category = new Category();
+        //        category.Id = categoryId;
+        //        category.Name = txtName.Text;
+        //        category.Description = txtDescription.Text;
+        //        if (txtPhotoFilePath.Text != string.Empty)
+        //        {
+        //            byte[] picture = GetPhoto(txtPhotoFilePath.Text);
 
-                    category.Photo = picture;
-                }
+        //            category.Photo = picture;
+        //        }
 
 
-                CategoryBLL categoryBLL = new CategoryBLL();
-                categoryBLL.Save(category);
+        //        CategoryBLL categoryBLL = new CategoryBLL();
+        //        categoryBLL.Save(category);
 
-                LoadCategory();
-                ClearField();
-            }
-        }
+        //        //LoadCategory();
+        //        ClearField();
+        //    }
+        //}
 
         private void SaveCategory1()
         {
@@ -131,6 +131,7 @@ namespace SPDM.UI
                     ClearField();
                 }
             }
+            
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
@@ -174,50 +175,50 @@ namespace SPDM.UI
             {
                 CategoryBLL categoryBLL = new CategoryBLL();
                 categoryBLL.Delete(id);
-                LoadCategory();
+                //LoadCategory();
             }
 
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            SaveCategory();
+            //SaveCategory();
             SaveCategory1();
         }
 
-        private void ManageEdit(DataGridViewCellEventArgs e)
-        {
-            if (e.ColumnIndex == 6)
-            {
-                categoryId = Convert.ToInt32(gvCategory.Rows[e.RowIndex].Cells[0].Value);
-                txtName.Text = Convert.ToString(gvCategory.Rows[e.RowIndex].Cells[2].Value);
-                txtDescription.Text = Convert.ToString(gvCategory.Rows[e.RowIndex].Cells[3].Value);
-                CategoryBLL categoryBLL = new CategoryBLL();
-                Category category = categoryBLL.GetById(categoryId);
-                if (category.Photo != null)
-                {
-                    MemoryStream ms = new MemoryStream(category.Photo);
-                    Image image = Image.FromStream(ms);
-                    pictureBox1.Image = image;
-                }
-            }
-            else if (e.ColumnIndex == 7)
-            {
-                var id = Convert.ToInt32(gvCategory.Rows[e.RowIndex].Cells[0].Value);
-                DeleteCategory(id);
-            }
-        }
+        //private void ManageEdit(DataGridViewCellEventArgs e)
+        //{
+        //    if (e.ColumnIndex == 6)
+        //    {
+        //        categoryId = Convert.ToInt32(gvCategory.Rows[e.RowIndex].Cells[0].Value);
+        //        txtName.Text = Convert.ToString(gvCategory.Rows[e.RowIndex].Cells[2].Value);
+        //        txtDescription.Text = Convert.ToString(gvCategory.Rows[e.RowIndex].Cells[3].Value);
+        //        CategoryBLL categoryBLL = new CategoryBLL();
+        //        Category category = categoryBLL.GetById(categoryId);
+        //        if (category.Photo != null)
+        //        {
+        //            MemoryStream ms = new MemoryStream(category.Photo);
+        //            Image image = Image.FromStream(ms);
+        //            pictureBox1.Image = image;
+        //        }
+        //    }
+        //    else if (e.ColumnIndex == 7)
+        //    {
+        //        var id = Convert.ToInt32(gvCategory.Rows[e.RowIndex].Cells[0].Value);
+        //        DeleteCategory(id);
+        //    }
+        //}
 
         private void frmCategory_Load(object sender, EventArgs e)
         {
-            LoadCategory();
+           // LoadCategory();
             LoadCategory1();
         }
 
-        private void gvCategory_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            ManageEdit(e);
-        }
+        //private void gvCategory_CellClick(object sender, DataGridViewCellEventArgs e)
+        //{
+        //    ManageEdit(e);
+        //}
 
         private void btnClose_Click(object sender, EventArgs e)
         {
