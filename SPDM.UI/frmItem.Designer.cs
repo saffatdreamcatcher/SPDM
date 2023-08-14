@@ -29,6 +29,16 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.label1 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.lblCategoryId = new System.Windows.Forms.Label();
@@ -81,12 +91,38 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.itemBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colCategoryName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNumber = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDescription = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colUnit = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colId = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colPrice = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colVatRate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colPhoto = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colCreateTime = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colUpdateTime = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colIsNew = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colCategoryId = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colIsBlocked = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gcEdit = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemHyperLinkEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit();
+            this.gcDelete = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemHyperLinkEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit();
             ((System.ComponentModel.ISupportInitialize)(this.nUpUnit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nUpPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nUpVatRate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit2)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -197,7 +233,6 @@
             this.lblPrice.Size = new System.Drawing.Size(38, 16);
             this.lblPrice.TabIndex = 39;
             this.lblPrice.Text = "Price";
-            this.lblPrice.Click += new System.EventHandler(this.lblPrice_Click);
             // 
             // nUpVatRate
             // 
@@ -297,11 +332,11 @@
             this.Edit,
             this.Delete});
             this.gvItem.DataSource = this.itemBindingSource;
-            this.gvItem.Location = new System.Drawing.Point(28, 333);
+            this.gvItem.Location = new System.Drawing.Point(112, 333);
             this.gvItem.Name = "gvItem";
             this.gvItem.RowHeadersWidth = 51;
             this.gvItem.RowTemplate.Height = 24;
-            this.gvItem.Size = new System.Drawing.Size(1327, 283);
+            this.gvItem.Size = new System.Drawing.Size(1229, 94);
             this.gvItem.TabIndex = 48;
             this.gvItem.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvItem_CellClick);
             // 
@@ -579,6 +614,204 @@
             this.label14.TabIndex = 61;
             this.label14.Text = ":";
             // 
+            // gridControl1
+            // 
+            this.gridControl1.DataSource = this.itemBindingSource1;
+            this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(12, 12, 12, 12);
+            this.gridControl1.Location = new System.Drawing.Point(112, 442);
+            this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.Margin = new System.Windows.Forms.Padding(12, 12, 12, 12);
+            this.gridControl1.MaximumSize = new System.Drawing.Size(1545, 266);
+            this.gridControl1.Name = "gridControl1";
+            this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemHyperLinkEdit1,
+            this.repositoryItemHyperLinkEdit2});
+            this.gridControl1.Size = new System.Drawing.Size(1229, 210);
+            this.gridControl1.TabIndex = 62;
+            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            // 
+            // itemBindingSource1
+            // 
+            this.itemBindingSource1.DataSource = typeof(SPDM.DLL.Entities.Item);
+            // 
+            // gridView1
+            // 
+            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colName,
+            this.colCategoryName,
+            this.colNumber,
+            this.colDescription,
+            this.colUnit,
+            this.colId,
+            this.colPrice,
+            this.colVatRate,
+            this.colPhoto,
+            this.colCreateTime,
+            this.colUpdateTime,
+            this.colIsNew,
+            this.colCategoryId,
+            this.colIsBlocked,
+            this.gcEdit,
+            this.gcDelete});
+            this.gridView1.DetailHeight = 1065;
+            this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.Name = "gridView1";
+            // 
+            // colName
+            // 
+            this.colName.FieldName = "Name";
+            this.colName.MinWidth = 61;
+            this.colName.Name = "colName";
+            this.colName.Visible = true;
+            this.colName.VisibleIndex = 0;
+            this.colName.Width = 227;
+            // 
+            // colCategoryName
+            // 
+            this.colCategoryName.FieldName = "CategoryName";
+            this.colCategoryName.MinWidth = 61;
+            this.colCategoryName.Name = "colCategoryName";
+            this.colCategoryName.Visible = true;
+            this.colCategoryName.VisibleIndex = 1;
+            this.colCategoryName.Width = 227;
+            // 
+            // colNumber
+            // 
+            this.colNumber.FieldName = "Number";
+            this.colNumber.MinWidth = 61;
+            this.colNumber.Name = "colNumber";
+            this.colNumber.Visible = true;
+            this.colNumber.VisibleIndex = 2;
+            this.colNumber.Width = 227;
+            // 
+            // colDescription
+            // 
+            this.colDescription.FieldName = "Description";
+            this.colDescription.MinWidth = 61;
+            this.colDescription.Name = "colDescription";
+            this.colDescription.Visible = true;
+            this.colDescription.VisibleIndex = 3;
+            this.colDescription.Width = 227;
+            // 
+            // colUnit
+            // 
+            this.colUnit.FieldName = "Unit";
+            this.colUnit.MinWidth = 61;
+            this.colUnit.Name = "colUnit";
+            this.colUnit.Visible = true;
+            this.colUnit.VisibleIndex = 4;
+            this.colUnit.Width = 227;
+            // 
+            // colId
+            // 
+            this.colId.FieldName = "Id";
+            this.colId.MinWidth = 61;
+            this.colId.Name = "colId";
+            this.colId.Width = 227;
+            // 
+            // colPrice
+            // 
+            this.colPrice.FieldName = "Price";
+            this.colPrice.MinWidth = 61;
+            this.colPrice.Name = "colPrice";
+            this.colPrice.Visible = true;
+            this.colPrice.VisibleIndex = 5;
+            this.colPrice.Width = 227;
+            // 
+            // colVatRate
+            // 
+            this.colVatRate.FieldName = "VatRate";
+            this.colVatRate.MinWidth = 61;
+            this.colVatRate.Name = "colVatRate";
+            this.colVatRate.Visible = true;
+            this.colVatRate.VisibleIndex = 6;
+            this.colVatRate.Width = 227;
+            // 
+            // colPhoto
+            // 
+            this.colPhoto.FieldName = "Photo";
+            this.colPhoto.MinWidth = 61;
+            this.colPhoto.Name = "colPhoto";
+            this.colPhoto.Visible = true;
+            this.colPhoto.VisibleIndex = 7;
+            this.colPhoto.Width = 227;
+            // 
+            // colCreateTime
+            // 
+            this.colCreateTime.FieldName = "CreateTime";
+            this.colCreateTime.MinWidth = 61;
+            this.colCreateTime.Name = "colCreateTime";
+            this.colCreateTime.OptionsColumn.ReadOnly = true;
+            this.colCreateTime.Width = 227;
+            // 
+            // colUpdateTime
+            // 
+            this.colUpdateTime.FieldName = "UpdateTime";
+            this.colUpdateTime.MinWidth = 61;
+            this.colUpdateTime.Name = "colUpdateTime";
+            this.colUpdateTime.Width = 227;
+            // 
+            // colIsNew
+            // 
+            this.colIsNew.FieldName = "IsNew";
+            this.colIsNew.MinWidth = 61;
+            this.colIsNew.Name = "colIsNew";
+            this.colIsNew.OptionsColumn.ReadOnly = true;
+            this.colIsNew.Width = 227;
+            // 
+            // colCategoryId
+            // 
+            this.colCategoryId.FieldName = "CategoryId";
+            this.colCategoryId.MinWidth = 61;
+            this.colCategoryId.Name = "colCategoryId";
+            this.colCategoryId.Width = 227;
+            // 
+            // colIsBlocked
+            // 
+            this.colIsBlocked.FieldName = "IsBlocked";
+            this.colIsBlocked.MinWidth = 61;
+            this.colIsBlocked.Name = "colIsBlocked";
+            this.colIsBlocked.Width = 227;
+            // 
+            // gcEdit
+            // 
+            this.gcEdit.Caption = "Edit";
+            this.gcEdit.ColumnEdit = this.repositoryItemHyperLinkEdit1;
+            this.gcEdit.MinWidth = 61;
+            this.gcEdit.Name = "gcEdit";
+            this.gcEdit.Visible = true;
+            this.gcEdit.VisibleIndex = 8;
+            this.gcEdit.Width = 227;
+            // 
+            // repositoryItemHyperLinkEdit1
+            // 
+            this.repositoryItemHyperLinkEdit1.AutoHeight = false;
+            this.repositoryItemHyperLinkEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Edit", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.repositoryItemHyperLinkEdit1.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.repositoryItemHyperLinkEdit1.Name = "repositoryItemHyperLinkEdit1";
+            this.repositoryItemHyperLinkEdit1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            // 
+            // gcDelete
+            // 
+            this.gcDelete.Caption = "Delete";
+            this.gcDelete.ColumnEdit = this.repositoryItemHyperLinkEdit2;
+            this.gcDelete.MinWidth = 31;
+            this.gcDelete.Name = "gcDelete";
+            this.gcDelete.Visible = true;
+            this.gcDelete.VisibleIndex = 9;
+            this.gcDelete.Width = 117;
+            // 
+            // repositoryItemHyperLinkEdit2
+            // 
+            this.repositoryItemHyperLinkEdit2.AutoHeight = false;
+            this.repositoryItemHyperLinkEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Delete", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.repositoryItemHyperLinkEdit2.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.repositoryItemHyperLinkEdit2.Name = "repositoryItemHyperLinkEdit2";
+            this.repositoryItemHyperLinkEdit2.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            // 
             // frmItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -586,6 +819,7 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1394, 660);
             this.ControlBox = false;
+            this.Controls.Add(this.gridControl1);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
@@ -628,6 +862,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -687,5 +926,26 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
+        private DevExpress.XtraGrid.GridControl gridControl1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private System.Windows.Forms.BindingSource itemBindingSource1;
+        private DevExpress.XtraGrid.Columns.GridColumn colName;
+        private DevExpress.XtraGrid.Columns.GridColumn colCategoryName;
+        private DevExpress.XtraGrid.Columns.GridColumn colNumber;
+        private DevExpress.XtraGrid.Columns.GridColumn colDescription;
+        private DevExpress.XtraGrid.Columns.GridColumn colUnit;
+        private DevExpress.XtraGrid.Columns.GridColumn colId;
+        private DevExpress.XtraGrid.Columns.GridColumn colPrice;
+        private DevExpress.XtraGrid.Columns.GridColumn colVatRate;
+        private DevExpress.XtraGrid.Columns.GridColumn colPhoto;
+        private DevExpress.XtraGrid.Columns.GridColumn colCreateTime;
+        private DevExpress.XtraGrid.Columns.GridColumn colUpdateTime;
+        private DevExpress.XtraGrid.Columns.GridColumn colIsNew;
+        private DevExpress.XtraGrid.Columns.GridColumn colCategoryId;
+        private DevExpress.XtraGrid.Columns.GridColumn colIsBlocked;
+        private DevExpress.XtraGrid.Columns.GridColumn gcEdit;
+        private DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit repositoryItemHyperLinkEdit1;
+        private DevExpress.XtraGrid.Columns.GridColumn gcDelete;
+        private DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit repositoryItemHyperLinkEdit2;
     }
 }

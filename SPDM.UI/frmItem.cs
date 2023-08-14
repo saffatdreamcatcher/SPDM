@@ -23,21 +23,6 @@ namespace SPDM.UI
             InitializeComponent();
         }
 
-        private void lblPrice_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        //private void LoadCategory()
-        //{
-
-        //    CategoryBLL categoryBLL = new CategoryBLL();        
-        //    List<Category> categories = categoryBLL.GetAll();   
-        //    cboCategory.DataSource = categories;               
-        //    cboCategory.ValueMember = "Id";                 
-        //    cboCategory.DisplayMember = "Description";       
-
-        //}
         private void LoadCategory()
         {
             Category category1 = new Category();
@@ -50,8 +35,6 @@ namespace SPDM.UI
             cboCategory.DataSource = categories;
             cboCategory.ValueMember = "Id";
             cboCategory.DisplayMember = "Name";
-
-           
         }
 
         private void LoadItem()
@@ -62,11 +45,19 @@ namespace SPDM.UI
             gvItem.DataSource = item;                    
         }
 
+        private void LoadItem1()
+        {
+            ItemBLL itemBLL = new ItemBLL();
+            List<Item> item = itemBLL.GetAll();
+            gridControl1.DataSource = item;
+        }
+
         private void frmItem_Load(object sender, EventArgs e)
         {
             
             LoadCategory();
             LoadItem();
+            LoadItem1();
         }
 
         private void ManageEdit(DataGridViewCellEventArgs e)

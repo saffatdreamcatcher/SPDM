@@ -40,6 +40,13 @@ namespace SPDM.UI
 
         }
 
+        private void LoadCategory1()
+        {
+            CategoryBLL categoryBLL = new CategoryBLL();
+            List<Category> category = categoryBLL.GetAll();
+            gridControl1.DataSource = category;
+        }
+
         private Boolean IsCategoryValid()
         {
             epCategory.Clear();
@@ -96,6 +103,42 @@ namespace SPDM.UI
             }
         }
 
+        private void SaveCategory1()
+        {
+            try
+            {
+
+                if (IsCategoryValid())
+                {
+
+                    Category category = new Category();
+                    category.Id = categoryId;
+                    category.Name = txtName.Text;
+                    category.Description = txtDescription.Text;
+                    if (txtPhotoFilePath.Text != string.Empty)
+                    {
+                        byte[] picture = GetPhoto(txtPhotoFilePath.Text);
+
+                        category.Photo = picture;
+                    }
+
+
+                    CategoryBLL categoryBLL = new CategoryBLL();
+                    categoryBLL.Save(category);
+
+                    LoadCategory1();
+
+                    ClearField();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+            }
+        }
+
+
+
         public byte[] GetPhoto(string filePath)
         {
             FileStream stream = new FileStream(
@@ -139,6 +182,7 @@ namespace SPDM.UI
         private void btnSave_Click(object sender, EventArgs e)
         {
             SaveCategory();
+            SaveCategory1();
         }
 
         private void ManageEdit(DataGridViewCellEventArgs e)
@@ -167,6 +211,7 @@ namespace SPDM.UI
         private void frmCategory_Load(object sender, EventArgs e)
         {
             LoadCategory();
+            LoadCategory1();
         }
 
         private void gvCategory_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -179,6 +224,31 @@ namespace SPDM.UI
             this.Close();
         }
 
-      
+        private void repositoryItemHyperLinkEdit1_ButtonPressed(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            int categoryId = Convert.ToInt32(gridView1.GetFocusedRowCellValue("Id"));
+            txtName.Text = Convert.ToString(gridView1.GetFocusedRowCellValue("Name"));
+            txtDescription.Text = Convert.ToString(gridView1.GetFocusedRowCellValue("Description"));
+
+            CategoryBLL categoryBLL = new CategoryBLL();
+            Category category = categoryBLL.GetById(categoryId);
+            if (category.Photo != null)
+            {
+                MemoryStream ms = new MemoryStream(category.Photo);
+                Image image = Image.FromStream(ms);
+                pictureBox1.Image = image;
+            }
+        }
+
+        private void repositoryItemHyperLinkEdit2_ButtonPressed(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to delete?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+            {
+                int categoryId = Convert.ToInt32(gridView1.GetFocusedRowCellValue("Id"));
+                CategoryBLL categoryBLL = new CategoryBLL();
+                categoryBLL.Delete(categoryId);
+                LoadCategory1();
+            }
+        }
     }
 }
