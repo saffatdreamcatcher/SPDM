@@ -328,7 +328,7 @@
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.Location = new System.Drawing.Point(1189, -1);
+            this.btnClose.Location = new System.Drawing.Point(1461, -1);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(26, 23);
             this.btnClose.TabIndex = 33;
@@ -451,12 +451,12 @@
             this.gridControl1.DataSource = this.partyBindingSource1;
             this.gridControl1.Location = new System.Drawing.Point(168, 320);
             this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.MaximumSize = new System.Drawing.Size(1019, 300);
+            this.gridControl1.MaximumSize = new System.Drawing.Size(1500, 400);
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemHyperLinkEdit1,
             this.repositoryItemHyperLinkEdit2});
-            this.gridControl1.Size = new System.Drawing.Size(1019, 300);
+            this.gridControl1.Size = new System.Drawing.Size(1171, 389);
             this.gridControl1.TabIndex = 68;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -656,7 +656,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1212, 682);
+            this.ClientSize = new System.Drawing.Size(1484, 748);
             this.ControlBox = false;
             this.Controls.Add(this.gridControl1);
             this.Controls.Add(this.label22);

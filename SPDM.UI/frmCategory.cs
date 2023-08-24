@@ -27,6 +27,7 @@ namespace SPDM.UI
             txtName.Text = string.Empty;
             txtDescription.Text = string.Empty;
             txtPhotoFilePath.Text = string.Empty;
+            pictureBox1.Image = null;
             categoryId = 0;
             txtName.Focus();
         }
