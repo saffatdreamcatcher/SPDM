@@ -88,6 +88,7 @@ namespace SPDM.DLL.Repositories
                 }
 
                 SqlCommand comm = sqlConnection.CreateCommand();
+                comm.Transaction = sqlTransaction;
 
                 comm.CommandText = "Select * from ProductionDetail " + whereClause;
                 using (SqlDataReader reader = comm.ExecuteReader())
@@ -176,6 +177,7 @@ namespace SPDM.DLL.Repositories
                 }
 
                 SqlCommand comm = sqlConnection.CreateCommand();
+                comm.Transaction = sqlTransaction;
 
                 comm.CommandText = "Select * from Production where id = " + id;
                 using (SqlDataReader reader = comm.ExecuteReader())
@@ -254,6 +256,7 @@ namespace SPDM.DLL.Repositories
                 }
 
                 SqlCommand comm = sqlConnection.CreateCommand();
+                comm.Transaction = sqlTransaction;
 
                 comm.CommandText = "Select count(*) from ProductionDetail " + whereClause;
                 count = Convert.ToInt32(comm.ExecuteScalar());

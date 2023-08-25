@@ -88,7 +88,7 @@ namespace SPDM.UI
         }
 
         
-        private void SaveItem1()
+        private void SaveItem()
         {
             try
             {
@@ -132,7 +132,7 @@ namespace SPDM.UI
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            SaveItem1();
+            SaveItem();
         }
 
 
@@ -168,7 +168,7 @@ namespace SPDM.UI
 
         private void EditItem()
         {
-            int itemId = Convert.ToInt32(gridView1.GetFocusedRowCellValue("Id"));
+            itemId = Convert.ToInt32(gridView1.GetFocusedRowCellValue("Id"));
             txtName.Text = Convert.ToString(gridView1.GetFocusedRowCellValue("Name"));
             cboCategory.SelectedValue = Convert.ToInt32(gridView1.GetFocusedRowCellValue("CategoryId"));
             txtNumber.Text = Convert.ToString(gridView1.GetFocusedRowCellValue("Number"));

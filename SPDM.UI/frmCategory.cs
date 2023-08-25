@@ -71,8 +71,6 @@ namespace SPDM.UI
             return iv;
         }
 
-       
-
         private void SaveCategory()
         {
             try
@@ -108,8 +106,6 @@ namespace SPDM.UI
             }
         }
 
-
-
         public byte[] GetPhoto(string filePath)
         {
             FileStream stream = new FileStream(
@@ -139,12 +135,10 @@ namespace SPDM.UI
             }
         }
 
-
         private void btnSave_Click(object sender, EventArgs e)
         {
             SaveCategory();
         }
-
 
         private void frmCategory_Load(object sender, EventArgs e)
         {
@@ -158,7 +152,7 @@ namespace SPDM.UI
 
         private void EditCategory()
         {
-            int categoryId = Convert.ToInt32(gridView1.GetFocusedRowCellValue("Id"));
+            categoryId = Convert.ToInt32(gridView1.GetFocusedRowCellValue("Id"));
             txtName.Text = Convert.ToString(gridView1.GetFocusedRowCellValue("Name"));
             txtDescription.Text = Convert.ToString(gridView1.GetFocusedRowCellValue("Description"));
 

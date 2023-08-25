@@ -190,6 +190,7 @@ namespace SPDM.DLL.Repositories
                 }
 
                 SqlCommand comm = sqlConnection.CreateCommand();
+                comm.Transaction = sqlTransaction;
 
                 comm.CommandText = "Select WorkOrderDetail.*, Item.Name AS ItemName from WorkOrderDetail " +
                                    "inner join Item on WorkOrderDetail.ItemId = Item.Id where WorkOrderDetail.Id =" + id;
@@ -287,6 +288,7 @@ namespace SPDM.DLL.Repositories
                 }
 
                 SqlCommand comm = sqlConnection.CreateCommand();
+                comm.Transaction = sqlTransaction;
 
                 comm.CommandText = "Select count(*) from WorkOrderDetail " + whereClause;
                 count = Convert.ToInt32(comm.ExecuteScalar());

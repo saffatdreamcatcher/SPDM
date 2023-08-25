@@ -21,7 +21,7 @@ namespace SPDM.BLL.BusinessLogic
             try
             {
                 dbManager.OpenTransaction();
-
+               
                 StockDLL stockDLL = new StockDLL(dbManager.Transaction);
                 StockHistoryDLL stockHistoryDLL = new StockHistoryDLL(dbManager.Transaction);
                 ProductionDLL productionDLL = new ProductionDLL(dbManager.Transaction);
@@ -45,7 +45,6 @@ namespace SPDM.BLL.BusinessLogic
                     stockHistory.UserId = stock.UserId;
                     stockHistory.CategoryId = stock.CategoryId;
                     stockHistory.ItemId = stock.ItemId;
-                    stockHistory.CategoryId = 2;
                     stockHistory.Fiscalyear = stock.Fiscalyear;
                     stockHistory.Drum = stock.Drum;
                     stockHistory.CoilNo = stock.CoilNo;

@@ -159,6 +159,7 @@ namespace SPDM.DLL.Repositories
                 }
 
                 SqlCommand comm = sqlConnection.CreateCommand();
+                comm.Transaction = sqlTransaction;
 
                 comm.CommandText = "Select * from WorkOrder where id = " + id;
                 using (SqlDataReader reader = comm.ExecuteReader())
@@ -240,6 +241,7 @@ namespace SPDM.DLL.Repositories
                 }
 
                 SqlCommand comm = sqlConnection.CreateCommand();
+                comm.Transaction = sqlTransaction;
 
                 comm.CommandText = "Select count(*) from WorkOrder " + whereClause;
                 count = Convert.ToInt32(comm.ExecuteScalar());

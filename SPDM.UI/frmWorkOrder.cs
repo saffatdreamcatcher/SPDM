@@ -404,7 +404,7 @@ namespace SPDM.UI
                 workOrder.PartyId = Convert.ToInt32(cmoPartyId.SelectedValue);
                 workOrder.WorkOrderDate = dtpWorkOrderDate.Value;
                 workOrder.DeliveryDate = dtpDeliveryDate.Value;
-                workOrder.Discount = 10;
+                workOrder.Discount = Convert.ToDouble(nupDiscountPercent.Value);
                 workOrder.TotalExvat = Convert.ToDouble(nupTotalexVat.Value);
                 workOrder.TotalIncvat = Convert.ToDouble(nupTotalIncVat.Value);
                 if (nupDiscountPercent.Value > 0)

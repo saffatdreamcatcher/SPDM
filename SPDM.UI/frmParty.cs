@@ -117,7 +117,7 @@ namespace SPDM.UI
 
         private void EditParty()
         {
-            int itemId = Convert.ToInt32(gridView1.GetFocusedRowCellValue("Id"));
+            partyId = Convert.ToInt32(gridView1.GetFocusedRowCellValue("Id"));
             txtName.Text = Convert.ToString(gridView1.GetFocusedRowCellValue("Name"));
             txtAccount.Text = Convert.ToString(gridView1.GetFocusedRowCellValue("Account"));
             txtAddress.Text = Convert.ToString(gridView1.GetFocusedRowCellValue("Address"));

@@ -90,6 +90,7 @@ namespace SPDM.DLL.Repositories
                 }
 
                 SqlCommand comm = sqlConnection.CreateCommand();
+                comm.Transaction = sqlTransaction;
 
                 comm.CommandText = "Select Stock.*, Category.Name AS CategoryName, Item.Name AS ItemName from Stock " +
                                     "inner join Category on Stock.CategoryId = Category.Id " +
@@ -170,6 +171,7 @@ namespace SPDM.DLL.Repositories
                 }
 
                 SqlCommand comm = sqlConnection.CreateCommand();
+                comm.Transaction = sqlTransaction;
 
                 comm.CommandText = "Select * from Stock where id = " + id;
                 using (SqlDataReader reader = comm.ExecuteReader())
@@ -256,6 +258,8 @@ namespace SPDM.DLL.Repositories
                 }
 
                 SqlCommand comm = sqlConnection.CreateCommand();
+                comm.Transaction = sqlTransaction;
+
                 comm.CommandText = "Select count(*) from Stock " + whereClause;
                 count = Convert.ToInt32(comm.ExecuteScalar());
             }
