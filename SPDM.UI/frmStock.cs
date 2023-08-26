@@ -31,24 +31,7 @@ namespace SPDM.UI
 
         private void SaveStock()
         {
-            //Stock stock = new Stock();
-            //stock.Id = productionId;
-            //stock.UserId = Global.Userid;
-            //stock.CategoryId = 2;
-            //stock.ItemId = Convert.ToInt32(cmoItemId.SelectedValue);
-            //stock.Fiscalyear = Global.FiscalYear;
-            //stock.Drum = txtDrum.Text;
-            //stock.CoilNo = txtCoilNo.Text;
-            //stock.Din = Convert.ToDouble(txtDin.Text);
-            //stock.Unit = Convert.ToInt32(nupUnit.Value);
-            //stock.OpeningQuantityInKM = Convert.ToInt32(nUpOQinKM.Value);
-            //stock.OpeningQuantityInFKM = Convert.ToInt32(nUpOQinFKM.Value);
-            //stock.CurrentQuantityInKM = Convert.ToInt32(nUpCQinKM.Value);
-            //stock.CurrentQuantityInFKM = Convert.ToInt32(nUpCQinFKM.Value);
-            //stock.Note = txtNote.Text;
-
-            //StockBLL stockBLL = new StockBLL();
-            //stockBLL.Save(stock);
+           
             bool isValid = IsProductionProductionDetailValid();
             if (isValid)
             {
@@ -59,16 +42,6 @@ namespace SPDM.UI
                     StockBLL stockBLL = new StockBLL();
                     stockBLL.Save(productionId, stocks1);
 
-                    //int countStock = stocks.Count;
-
-                    //int countItem = cmoItemId.Items.Count;
-
-
-                    //BindingList<Stock> stocks = (BindingList<Stock>)gVStock.DataSource;
-
-
-                    //int rC = gVStock.RowCount;
-                    //BindingList<Stock> stocks1 = gVStock.DataSource as BindingList<Stock>;
                 }
                 catch (Exception ex)
                 {
@@ -78,16 +51,9 @@ namespace SPDM.UI
                 ClearProduction();
                 ClearProductionDetail();
 
-                //StockBLL stockBLL = new StockBLL();
-                //List<Stock> stocks = stockBLL.GetAll();
-
-                //StockBLL stockBLL = new StockBLL();
-                //Stock stock = stockBLL.GetById(2);
-
-                //StockBLL stockBLL = new StockBLL();
-                //int stock = stockBLL.GetCount();
             }
         }
+        
         private bool IsProductionProductionDetailValid()
         {
             eP.Clear();
@@ -175,6 +141,7 @@ namespace SPDM.UI
         {
             AddNew();
         }
+
         private void AddNew()
         {
 
@@ -205,7 +172,7 @@ namespace SPDM.UI
                 stock.ItemName = cmoItemId.Text;
                 stock.Length = Convert.ToDouble(nupLength.Text);
 
-
+                
 
                 ItemBLL itemBLL = new ItemBLL();
                 Item item = itemBLL.GetById(stock.ItemId);
@@ -219,6 +186,7 @@ namespace SPDM.UI
                 stocks.Add(stock);
                 gVStock.DataSource = stocks;
                 gVStock.Refresh();
+                ClearProductionDetail();
             }
         }
 
@@ -227,11 +195,17 @@ namespace SPDM.UI
             eP.Clear();
             Boolean iv = true;
 
-            if (Convert.ToInt32(cmoItemId.SelectedValue) == -1)
+            for (int i = 0; i < stocks.Count; i++)
             {
-                cmoItemId.Focus();
-                eP.SetError(cmoItemId, "Can't empty");
-                iv = false;
+                // if (i == editIndex)
+                // continue;
+                if (stocks[i].ItemId == (int)cmoItemId.SelectedValue)
+                {
+                    cmoItemId.Focus();
+                    eP.SetError(cmoItemId, "Already added!");
+                    iv = false;
+                    break;
+                }
             }
 
             if (!string.IsNullOrEmpty(txtDrum.Text))
@@ -248,19 +222,6 @@ namespace SPDM.UI
                 }
             }
 
-
-            for (int i = 0; i < stocks.Count; i++)
-            {
-                if (i == editIndex)
-                    continue;
-                if (stocks[i].ItemId == (int)cmoItemId.SelectedValue)
-                {
-                    cmoItemId.Focus();
-                    eP.SetError(cmoItemId, "Already added!");
-                    iv = false;
-                    break;
-                }
-            }
 
             foreach (Stock stock in stocks)
             {
@@ -311,7 +272,7 @@ namespace SPDM.UI
 
         private void ClearProductionDetail()
         {
-            cmoItemId.SelectedValue = -1;
+            cmoItemId.SelectedIndex = 0;
             txtDrum.Text = "";
             txtCoilNo.Text = "";
             nupLength.Value = 0;

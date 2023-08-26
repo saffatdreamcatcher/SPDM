@@ -121,7 +121,6 @@ namespace SPDM.BLL.BusinessLogic
             }
         }
 
-
         public int GetCount(string whereclause = "")
         {
             try
