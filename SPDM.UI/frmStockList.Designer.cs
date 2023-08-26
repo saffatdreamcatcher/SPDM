@@ -30,24 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.gvStock = new System.Windows.Forms.DataGridView();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.isNewDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.createTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.updateTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.userIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoryIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fiscalyearDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.drumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.coilNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dinDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.openingQuantityInKMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.openingQuantityInFKMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.currentQuantityInKMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.currentQuantityInFKMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.noteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stockBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtDrum = new System.Windows.Forms.TextBox();
@@ -68,12 +50,33 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.stockBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.createTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.updateTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.userIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fiscalyearDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.drumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.coilNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dinDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.openingQuantityInKMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.openingQuantityInFKMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.currentQuantityInKMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.currentQuantityInFKMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.noteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lengthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.isNewDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gvStock)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stockBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dTPFromDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dTPFromDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dTPToDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dTPToDate.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stockBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // gvStock
@@ -85,12 +88,13 @@
             this.gvStock.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gvStock.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
-            this.isNewDataGridViewCheckBoxColumn,
             this.createTimeDataGridViewTextBoxColumn,
             this.updateTimeDataGridViewTextBoxColumn,
             this.userIdDataGridViewTextBoxColumn,
             this.categoryIdDataGridViewTextBoxColumn,
+            this.categoryNameDataGridViewTextBoxColumn,
             this.itemIdDataGridViewTextBoxColumn,
+            this.itemNameDataGridViewTextBoxColumn,
             this.fiscalyearDataGridViewTextBoxColumn,
             this.drumDataGridViewTextBoxColumn,
             this.coilNoDataGridViewTextBoxColumn,
@@ -100,161 +104,16 @@
             this.openingQuantityInFKMDataGridViewTextBoxColumn,
             this.currentQuantityInKMDataGridViewTextBoxColumn,
             this.currentQuantityInFKMDataGridViewTextBoxColumn,
-            this.noteDataGridViewTextBoxColumn});
-            this.gvStock.DataSource = this.stockBindingSource;
+            this.noteDataGridViewTextBoxColumn,
+            this.lengthDataGridViewTextBoxColumn,
+            this.isNewDataGridViewCheckBoxColumn});
+            this.gvStock.DataSource = this.stockBindingSource1;
             this.gvStock.Location = new System.Drawing.Point(12, 186);
             this.gvStock.Name = "gvStock";
             this.gvStock.RowHeadersWidth = 51;
             this.gvStock.RowTemplate.Height = 24;
             this.gvStock.Size = new System.Drawing.Size(1455, 341);
             this.gvStock.TabIndex = 0;
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.Visible = false;
-            this.idDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // isNewDataGridViewCheckBoxColumn
-            // 
-            this.isNewDataGridViewCheckBoxColumn.DataPropertyName = "IsNew";
-            this.isNewDataGridViewCheckBoxColumn.HeaderText = "IsNew";
-            this.isNewDataGridViewCheckBoxColumn.MinimumWidth = 6;
-            this.isNewDataGridViewCheckBoxColumn.Name = "isNewDataGridViewCheckBoxColumn";
-            this.isNewDataGridViewCheckBoxColumn.ReadOnly = true;
-            this.isNewDataGridViewCheckBoxColumn.Visible = false;
-            this.isNewDataGridViewCheckBoxColumn.Width = 125;
-            // 
-            // createTimeDataGridViewTextBoxColumn
-            // 
-            this.createTimeDataGridViewTextBoxColumn.DataPropertyName = "CreateTime";
-            this.createTimeDataGridViewTextBoxColumn.HeaderText = "CreateTime";
-            this.createTimeDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.createTimeDataGridViewTextBoxColumn.Name = "createTimeDataGridViewTextBoxColumn";
-            this.createTimeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.createTimeDataGridViewTextBoxColumn.Visible = false;
-            this.createTimeDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // updateTimeDataGridViewTextBoxColumn
-            // 
-            this.updateTimeDataGridViewTextBoxColumn.DataPropertyName = "UpdateTime";
-            this.updateTimeDataGridViewTextBoxColumn.HeaderText = "UpdateTime";
-            this.updateTimeDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.updateTimeDataGridViewTextBoxColumn.Name = "updateTimeDataGridViewTextBoxColumn";
-            this.updateTimeDataGridViewTextBoxColumn.Visible = false;
-            this.updateTimeDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // userIdDataGridViewTextBoxColumn
-            // 
-            this.userIdDataGridViewTextBoxColumn.DataPropertyName = "UserId";
-            this.userIdDataGridViewTextBoxColumn.HeaderText = "UserId";
-            this.userIdDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.userIdDataGridViewTextBoxColumn.Name = "userIdDataGridViewTextBoxColumn";
-            this.userIdDataGridViewTextBoxColumn.Visible = false;
-            this.userIdDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // categoryIdDataGridViewTextBoxColumn
-            // 
-            this.categoryIdDataGridViewTextBoxColumn.DataPropertyName = "CategoryId";
-            this.categoryIdDataGridViewTextBoxColumn.HeaderText = "CategoryId";
-            this.categoryIdDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.categoryIdDataGridViewTextBoxColumn.Name = "categoryIdDataGridViewTextBoxColumn";
-            this.categoryIdDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // itemIdDataGridViewTextBoxColumn
-            // 
-            this.itemIdDataGridViewTextBoxColumn.DataPropertyName = "ItemId";
-            this.itemIdDataGridViewTextBoxColumn.HeaderText = "ItemId";
-            this.itemIdDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.itemIdDataGridViewTextBoxColumn.Name = "itemIdDataGridViewTextBoxColumn";
-            this.itemIdDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // fiscalyearDataGridViewTextBoxColumn
-            // 
-            this.fiscalyearDataGridViewTextBoxColumn.DataPropertyName = "Fiscalyear";
-            this.fiscalyearDataGridViewTextBoxColumn.HeaderText = "Fiscalyear";
-            this.fiscalyearDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.fiscalyearDataGridViewTextBoxColumn.Name = "fiscalyearDataGridViewTextBoxColumn";
-            this.fiscalyearDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // drumDataGridViewTextBoxColumn
-            // 
-            this.drumDataGridViewTextBoxColumn.DataPropertyName = "Drum";
-            this.drumDataGridViewTextBoxColumn.HeaderText = "Drum";
-            this.drumDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.drumDataGridViewTextBoxColumn.Name = "drumDataGridViewTextBoxColumn";
-            this.drumDataGridViewTextBoxColumn.Width = 80;
-            // 
-            // coilNoDataGridViewTextBoxColumn
-            // 
-            this.coilNoDataGridViewTextBoxColumn.DataPropertyName = "CoilNo";
-            this.coilNoDataGridViewTextBoxColumn.HeaderText = "CoilNo";
-            this.coilNoDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.coilNoDataGridViewTextBoxColumn.Name = "coilNoDataGridViewTextBoxColumn";
-            this.coilNoDataGridViewTextBoxColumn.Width = 80;
-            // 
-            // dinDataGridViewTextBoxColumn
-            // 
-            this.dinDataGridViewTextBoxColumn.DataPropertyName = "Din";
-            this.dinDataGridViewTextBoxColumn.HeaderText = "Din";
-            this.dinDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.dinDataGridViewTextBoxColumn.Name = "dinDataGridViewTextBoxColumn";
-            this.dinDataGridViewTextBoxColumn.Width = 80;
-            // 
-            // unitDataGridViewTextBoxColumn
-            // 
-            this.unitDataGridViewTextBoxColumn.DataPropertyName = "Unit";
-            this.unitDataGridViewTextBoxColumn.HeaderText = "Unit";
-            this.unitDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.unitDataGridViewTextBoxColumn.Name = "unitDataGridViewTextBoxColumn";
-            this.unitDataGridViewTextBoxColumn.Width = 80;
-            // 
-            // openingQuantityInKMDataGridViewTextBoxColumn
-            // 
-            this.openingQuantityInKMDataGridViewTextBoxColumn.DataPropertyName = "OpeningQuantityInKM";
-            this.openingQuantityInKMDataGridViewTextBoxColumn.HeaderText = "OpeningQuantityInKM";
-            this.openingQuantityInKMDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.openingQuantityInKMDataGridViewTextBoxColumn.Name = "openingQuantityInKMDataGridViewTextBoxColumn";
-            this.openingQuantityInKMDataGridViewTextBoxColumn.Width = 140;
-            // 
-            // openingQuantityInFKMDataGridViewTextBoxColumn
-            // 
-            this.openingQuantityInFKMDataGridViewTextBoxColumn.DataPropertyName = "OpeningQuantityInFKM";
-            this.openingQuantityInFKMDataGridViewTextBoxColumn.HeaderText = "OpeningQuantityInFKM";
-            this.openingQuantityInFKMDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.openingQuantityInFKMDataGridViewTextBoxColumn.Name = "openingQuantityInFKMDataGridViewTextBoxColumn";
-            this.openingQuantityInFKMDataGridViewTextBoxColumn.Width = 145;
-            // 
-            // currentQuantityInKMDataGridViewTextBoxColumn
-            // 
-            this.currentQuantityInKMDataGridViewTextBoxColumn.DataPropertyName = "CurrentQuantityInKM";
-            this.currentQuantityInKMDataGridViewTextBoxColumn.HeaderText = "CurrentQuantityInKM";
-            this.currentQuantityInKMDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.currentQuantityInKMDataGridViewTextBoxColumn.Name = "currentQuantityInKMDataGridViewTextBoxColumn";
-            this.currentQuantityInKMDataGridViewTextBoxColumn.Width = 145;
-            // 
-            // currentQuantityInFKMDataGridViewTextBoxColumn
-            // 
-            this.currentQuantityInFKMDataGridViewTextBoxColumn.DataPropertyName = "CurrentQuantityInFKM";
-            this.currentQuantityInFKMDataGridViewTextBoxColumn.HeaderText = "CurrentQuantityInFKM";
-            this.currentQuantityInFKMDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.currentQuantityInFKMDataGridViewTextBoxColumn.Name = "currentQuantityInFKMDataGridViewTextBoxColumn";
-            this.currentQuantityInFKMDataGridViewTextBoxColumn.Width = 145;
-            // 
-            // noteDataGridViewTextBoxColumn
-            // 
-            this.noteDataGridViewTextBoxColumn.DataPropertyName = "Note";
-            this.noteDataGridViewTextBoxColumn.HeaderText = "Note";
-            this.noteDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.noteDataGridViewTextBoxColumn.Name = "noteDataGridViewTextBoxColumn";
-            this.noteDataGridViewTextBoxColumn.Width = 80;
-            // 
-            // stockBindingSource
-            // 
-            this.stockBindingSource.DataSource = typeof(SPDM.DLL.Entities.Stock);
             // 
             // label1
             // 
@@ -365,8 +224,8 @@
             // dTPFromDate
             // 
             this.dTPFromDate.EditValue = null;
-            this.dTPFromDate.Location = new System.Drawing.Point(114, 112);
-            this.dTPFromDate.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.dTPFromDate.Location = new System.Drawing.Point(142, 140);
+            this.dTPFromDate.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.dTPFromDate.Name = "dTPFromDate";
             this.dTPFromDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -375,14 +234,14 @@
             this.dTPFromDate.Properties.EditFormat.FormatString = "dd/MM/yyyy";
             this.dTPFromDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dTPFromDate.Properties.MaskSettings.Set("mask", "dd/MM/yyyy");
-            this.dTPFromDate.Size = new System.Drawing.Size(257, 22);
+            this.dTPFromDate.Size = new System.Drawing.Size(321, 22);
             this.dTPFromDate.TabIndex = 36;
             // 
             // dTPToDate
             // 
             this.dTPToDate.EditValue = null;
-            this.dTPToDate.Location = new System.Drawing.Point(460, 111);
-            this.dTPToDate.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.dTPToDate.Location = new System.Drawing.Point(575, 139);
+            this.dTPToDate.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.dTPToDate.Name = "dTPToDate";
             this.dTPToDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -391,7 +250,7 @@
             this.dTPToDate.Properties.EditFormat.FormatString = "dd/MM/yyyy";
             this.dTPToDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dTPToDate.Properties.MaskSettings.Set("mask", "dd/MM/yyyy");
-            this.dTPToDate.Size = new System.Drawing.Size(262, 22);
+            this.dTPToDate.Size = new System.Drawing.Size(328, 22);
             this.dTPToDate.TabIndex = 37;
             // 
             // label8
@@ -454,6 +313,180 @@
             this.label12.TabIndex = 42;
             this.label12.Text = ":";
             // 
+            // stockBindingSource1
+            // 
+            this.stockBindingSource1.DataSource = typeof(SPDM.DLL.Entities.Stock);
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.Visible = false;
+            this.idDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // createTimeDataGridViewTextBoxColumn
+            // 
+            this.createTimeDataGridViewTextBoxColumn.DataPropertyName = "CreateTime";
+            this.createTimeDataGridViewTextBoxColumn.HeaderText = "CreateTime";
+            this.createTimeDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.createTimeDataGridViewTextBoxColumn.Name = "createTimeDataGridViewTextBoxColumn";
+            this.createTimeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.createTimeDataGridViewTextBoxColumn.Visible = false;
+            this.createTimeDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // updateTimeDataGridViewTextBoxColumn
+            // 
+            this.updateTimeDataGridViewTextBoxColumn.DataPropertyName = "UpdateTime";
+            this.updateTimeDataGridViewTextBoxColumn.HeaderText = "UpdateTime";
+            this.updateTimeDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.updateTimeDataGridViewTextBoxColumn.Name = "updateTimeDataGridViewTextBoxColumn";
+            this.updateTimeDataGridViewTextBoxColumn.Visible = false;
+            this.updateTimeDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // userIdDataGridViewTextBoxColumn
+            // 
+            this.userIdDataGridViewTextBoxColumn.DataPropertyName = "UserId";
+            this.userIdDataGridViewTextBoxColumn.HeaderText = "UserId";
+            this.userIdDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.userIdDataGridViewTextBoxColumn.Name = "userIdDataGridViewTextBoxColumn";
+            this.userIdDataGridViewTextBoxColumn.Visible = false;
+            this.userIdDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // categoryIdDataGridViewTextBoxColumn
+            // 
+            this.categoryIdDataGridViewTextBoxColumn.DataPropertyName = "CategoryId";
+            this.categoryIdDataGridViewTextBoxColumn.HeaderText = "CategoryId";
+            this.categoryIdDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.categoryIdDataGridViewTextBoxColumn.Name = "categoryIdDataGridViewTextBoxColumn";
+            this.categoryIdDataGridViewTextBoxColumn.Visible = false;
+            this.categoryIdDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // categoryNameDataGridViewTextBoxColumn
+            // 
+            this.categoryNameDataGridViewTextBoxColumn.DataPropertyName = "CategoryName";
+            this.categoryNameDataGridViewTextBoxColumn.HeaderText = "CategoryName";
+            this.categoryNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.categoryNameDataGridViewTextBoxColumn.Name = "categoryNameDataGridViewTextBoxColumn";
+            this.categoryNameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // itemIdDataGridViewTextBoxColumn
+            // 
+            this.itemIdDataGridViewTextBoxColumn.DataPropertyName = "ItemId";
+            this.itemIdDataGridViewTextBoxColumn.HeaderText = "ItemId";
+            this.itemIdDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.itemIdDataGridViewTextBoxColumn.Name = "itemIdDataGridViewTextBoxColumn";
+            this.itemIdDataGridViewTextBoxColumn.Visible = false;
+            this.itemIdDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // itemNameDataGridViewTextBoxColumn
+            // 
+            this.itemNameDataGridViewTextBoxColumn.DataPropertyName = "ItemName";
+            this.itemNameDataGridViewTextBoxColumn.HeaderText = "ItemName";
+            this.itemNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.itemNameDataGridViewTextBoxColumn.Name = "itemNameDataGridViewTextBoxColumn";
+            this.itemNameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // fiscalyearDataGridViewTextBoxColumn
+            // 
+            this.fiscalyearDataGridViewTextBoxColumn.DataPropertyName = "Fiscalyear";
+            this.fiscalyearDataGridViewTextBoxColumn.HeaderText = "Fiscalyear";
+            this.fiscalyearDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.fiscalyearDataGridViewTextBoxColumn.Name = "fiscalyearDataGridViewTextBoxColumn";
+            this.fiscalyearDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // drumDataGridViewTextBoxColumn
+            // 
+            this.drumDataGridViewTextBoxColumn.DataPropertyName = "Drum";
+            this.drumDataGridViewTextBoxColumn.HeaderText = "Drum";
+            this.drumDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.drumDataGridViewTextBoxColumn.Name = "drumDataGridViewTextBoxColumn";
+            this.drumDataGridViewTextBoxColumn.Width = 70;
+            // 
+            // coilNoDataGridViewTextBoxColumn
+            // 
+            this.coilNoDataGridViewTextBoxColumn.DataPropertyName = "CoilNo";
+            this.coilNoDataGridViewTextBoxColumn.HeaderText = "CoilNo";
+            this.coilNoDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.coilNoDataGridViewTextBoxColumn.Name = "coilNoDataGridViewTextBoxColumn";
+            this.coilNoDataGridViewTextBoxColumn.Width = 70;
+            // 
+            // dinDataGridViewTextBoxColumn
+            // 
+            this.dinDataGridViewTextBoxColumn.DataPropertyName = "Din";
+            this.dinDataGridViewTextBoxColumn.HeaderText = "Din";
+            this.dinDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.dinDataGridViewTextBoxColumn.Name = "dinDataGridViewTextBoxColumn";
+            this.dinDataGridViewTextBoxColumn.Width = 70;
+            // 
+            // unitDataGridViewTextBoxColumn
+            // 
+            this.unitDataGridViewTextBoxColumn.DataPropertyName = "Unit";
+            this.unitDataGridViewTextBoxColumn.HeaderText = "Unit";
+            this.unitDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.unitDataGridViewTextBoxColumn.Name = "unitDataGridViewTextBoxColumn";
+            this.unitDataGridViewTextBoxColumn.Width = 70;
+            // 
+            // openingQuantityInKMDataGridViewTextBoxColumn
+            // 
+            this.openingQuantityInKMDataGridViewTextBoxColumn.DataPropertyName = "OpeningQuantityInKM";
+            this.openingQuantityInKMDataGridViewTextBoxColumn.HeaderText = "OpeningQuantityInKM";
+            this.openingQuantityInKMDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.openingQuantityInKMDataGridViewTextBoxColumn.Name = "openingQuantityInKMDataGridViewTextBoxColumn";
+            this.openingQuantityInKMDataGridViewTextBoxColumn.Width = 140;
+            // 
+            // openingQuantityInFKMDataGridViewTextBoxColumn
+            // 
+            this.openingQuantityInFKMDataGridViewTextBoxColumn.DataPropertyName = "OpeningQuantityInFKM";
+            this.openingQuantityInFKMDataGridViewTextBoxColumn.HeaderText = "OpeningQuantityInFKM";
+            this.openingQuantityInFKMDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.openingQuantityInFKMDataGridViewTextBoxColumn.Name = "openingQuantityInFKMDataGridViewTextBoxColumn";
+            this.openingQuantityInFKMDataGridViewTextBoxColumn.Width = 145;
+            // 
+            // currentQuantityInKMDataGridViewTextBoxColumn
+            // 
+            this.currentQuantityInKMDataGridViewTextBoxColumn.DataPropertyName = "CurrentQuantityInKM";
+            this.currentQuantityInKMDataGridViewTextBoxColumn.HeaderText = "CurrentQuantityInKM";
+            this.currentQuantityInKMDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.currentQuantityInKMDataGridViewTextBoxColumn.Name = "currentQuantityInKMDataGridViewTextBoxColumn";
+            this.currentQuantityInKMDataGridViewTextBoxColumn.Width = 140;
+            // 
+            // currentQuantityInFKMDataGridViewTextBoxColumn
+            // 
+            this.currentQuantityInFKMDataGridViewTextBoxColumn.DataPropertyName = "CurrentQuantityInFKM";
+            this.currentQuantityInFKMDataGridViewTextBoxColumn.HeaderText = "CurrentQuantityInFKM";
+            this.currentQuantityInFKMDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.currentQuantityInFKMDataGridViewTextBoxColumn.Name = "currentQuantityInFKMDataGridViewTextBoxColumn";
+            this.currentQuantityInFKMDataGridViewTextBoxColumn.Width = 140;
+            // 
+            // noteDataGridViewTextBoxColumn
+            // 
+            this.noteDataGridViewTextBoxColumn.DataPropertyName = "Note";
+            this.noteDataGridViewTextBoxColumn.HeaderText = "Note";
+            this.noteDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.noteDataGridViewTextBoxColumn.Name = "noteDataGridViewTextBoxColumn";
+            this.noteDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // lengthDataGridViewTextBoxColumn
+            // 
+            this.lengthDataGridViewTextBoxColumn.DataPropertyName = "Length";
+            this.lengthDataGridViewTextBoxColumn.HeaderText = "Length";
+            this.lengthDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.lengthDataGridViewTextBoxColumn.Name = "lengthDataGridViewTextBoxColumn";
+            this.lengthDataGridViewTextBoxColumn.Visible = false;
+            this.lengthDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // isNewDataGridViewCheckBoxColumn
+            // 
+            this.isNewDataGridViewCheckBoxColumn.DataPropertyName = "IsNew";
+            this.isNewDataGridViewCheckBoxColumn.HeaderText = "IsNew";
+            this.isNewDataGridViewCheckBoxColumn.MinimumWidth = 6;
+            this.isNewDataGridViewCheckBoxColumn.Name = "isNewDataGridViewCheckBoxColumn";
+            this.isNewDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.isNewDataGridViewCheckBoxColumn.Visible = false;
+            this.isNewDataGridViewCheckBoxColumn.Width = 125;
+            // 
             // frmStockList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -486,11 +519,11 @@
             this.Text = "frmStockList";
             this.Load += new System.EventHandler(this.frmStockList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gvStock)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stockBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dTPFromDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dTPFromDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dTPToDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dTPToDate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stockBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -499,7 +532,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView gvStock;
-        private System.Windows.Forms.BindingSource stockBindingSource;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtDrum;
@@ -514,13 +546,21 @@
         private System.Windows.Forms.Button btnClose;
         private DevExpress.XtraEditors.DateEdit dTPFromDate;
         private DevExpress.XtraEditors.DateEdit dTPToDate;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.BindingSource stockBindingSource1;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn isNewDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn createTimeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn updateTimeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn userIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn categoryIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn categoryNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn itemIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fiscalyearDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn drumDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn coilNoDataGridViewTextBoxColumn;
@@ -531,11 +571,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn currentQuantityInKMDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn currentQuantityInFKMDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn noteDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lengthDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn isNewDataGridViewCheckBoxColumn;
     }
 }

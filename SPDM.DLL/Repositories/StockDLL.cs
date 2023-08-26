@@ -116,6 +116,8 @@ namespace SPDM.DLL.Repositories
                         stock.CategoryId = Convert.ToInt32(reader["CategoryId"]);
                         stock.Fiscalyear = reader["FiscalYear"].ToString();
                         stock.ItemId = Convert.ToInt32(reader["ItemId"]);
+                        stock.ItemName = reader["ItemName"].ToString();
+                        stock.CategoryName = reader["CategoryName"].ToString();
                         stock.Drum = reader["Drum"].ToString();
                         stock.CoilNo = reader["CoilNo"].ToString();
                         stock.Unit = Convert.ToInt32(reader["Unit"]);
