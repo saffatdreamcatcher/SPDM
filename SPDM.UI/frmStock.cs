@@ -142,7 +142,12 @@ namespace SPDM.UI
 
             string where = "productionId= " + productionId;
             ProductionDetailBLL productionDetailBLL = new ProductionDetailBLL();
-            List<ProductionDetail> productionDetails = productionDetailBLL.GetAll(where);
+            List<ProductionDetail> productionDetails1 = productionDetailBLL.GetAll(where);
+            foreach (ProductionDetail productionDetail in productionDetails1)
+            {
+                productionDetails.Add(productionDetail);
+            }
+
 
             string search = "Item.Id in(";
 
@@ -184,7 +189,14 @@ namespace SPDM.UI
                 stock.Drum = txtDrum.Text;
                 stock.CoilNo = txtCoilNo.Text;
                 stock.Din = Convert.ToInt32(nUpDin.Value);
-                stock.Unit = 1;
+                foreach(ProductionDetail productionDetail in productionDetails)
+                {
+                    if(productionDetail.ItemId == stock.ItemId)
+                    {
+                        stock.Unit = productionDetail.Unit;
+                        break;
+                    }
+                }
                 stock.OpeningQuantityInKM = Convert.ToInt32(nUpOQinKM.Value);
                 stock.OpeningQuantityInFKM = Convert.ToInt32(nUpOQinFKM.Value);
                 stock.CurrentQuantityInKM = Convert.ToInt32(nUpOQinKM.Value);
@@ -248,6 +260,14 @@ namespace SPDM.UI
                     iv = false;
                     break;
                 }
+            }
+
+            foreach (Stock stock in stocks)
+            {
+                if (stock.Drum == txtDrum.Text)
+                    eP.SetError(txtDrum, "Drum already exists!");
+                iv = false;
+                break;
             }
 
             return iv;
