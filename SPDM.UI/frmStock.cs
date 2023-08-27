@@ -226,9 +226,12 @@ namespace SPDM.UI
             foreach (Stock stock in stocks)
             {
                 if (stock.Drum == txtDrum.Text)
+                {
                     eP.SetError(txtDrum, "Drum already exists!");
-                iv = false;
-                break;
+                    iv = false;
+                    break;
+                }
+                
             }
 
             return iv;

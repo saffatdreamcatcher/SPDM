@@ -37,12 +37,13 @@ namespace SPDM.UI
 
         private void ClearSaleDetail()
         {
+            //cmoItem.SelectedIndex = 0;
             txtLength.Text = "";
             txtUnit.Text = "";
             txtUnitPrice.Text = "";
-            nupTotalIncVat1.Value = 0;
             nupDiscountPercent1.Value = 0;
             nupVatPercent1.Value = 0;
+            nupTotalIncVat1.Value = 0;
             txtDrum.Text = "";
             txtCoilNo.Text = "";
             txtAvilableQinKM.Text = "";
@@ -50,89 +51,8 @@ namespace SPDM.UI
 
         }
 
-        //private void SaveSale()
-        //{
-        //    bool isValid = IsSaleValid();
-        //    if (isValid)
-        //    {
-        //        Sale sale = new Sale();
-        //        sale.UserId = Global.Userid;
-        //        sale.Fiscalyear = txtFiscalYear.Text;
-        //        sale.PartyId = workOrder.PartyId;
-        //        sale.WorkOrderId = workOrder.Id;
-        //        sale.ChallanNo = Convert.ToInt32(txtChallanNo.Text);
-        //        sale.SaleDate = dESaleDate.DateTime;
-        //        sale.TotalIncvat = Convert.ToDouble(nupTotalIncVat.Value);
-        //        if (nupDiscountPercent.Value > 0)
-        //        {
-        //            sale.DiscountPercent = Convert.ToDouble(nupDiscountPercent.Value);
-
-        //        }
-        //        sale.Discount = workOrder.Discount;
-        //        sale.DiscountPercent = workOrder.DiscountPercent;
-        //        if (nupVatPercent.Value > 0)
-        //        {
-        //            sale.VatPercent = Convert.ToDouble(nupVatPercent.Value);
-        //        }
-        //        sale.DeliveryDate = dEDeliveryDate.DateTime;
-        //        sale.DeliveryAddress = txtDeliveryAddress.Text;
-        //        sale.Note = txtNote.Text;
-
-        //        List<SaleDetail> saleDetails1 = saleDetails.ToList();
-        //        SaleBLL saleBLL = new SaleBLL();
-        //        saleBLL.Save(sale, saleDetails1, null);
-        //        SavePayment(sale.Id);
-        //        //saleId = sale.Id;
-
-        //    }
-        //}
-
-        //private void SavePayment(int saleId)
-        //{
-        //    bool isValid = IsPaymentValid();
-        //    if (isValid)
-        //    {
-        //        Payment payment = new Payment();
-        //        payment.UserId = Global.Userid;
-        //        payment.Fiscalyear = txtFiscalYear.Text;
-        //        payment.SaleId = saleId;
-        //        payment.PartyId = workOrder.PartyId;
-        //        payment.PaymentType = Convert.ToInt32((PaymentStatus)Enum.Parse(typeof(PaymentStatus), cmoPayment.Text));
-        //        payment.TransactionDate = dETransactionDate.DateTime;
-        //        payment.Discount = workOrder.Discount;
-        //        payment.DiscountPercent = workOrder.DiscountPercent;
-        //        if (nupVatPercent2.Value > 0)
-        //        {
-        //            payment.VatPercent = Convert.ToDouble(nupVatPercent2.Value);
-        //        }
-        //        payment.TotalIncvat = Convert.ToDouble(nupTotalIncVat2.Value);
-        //        payment.TransactionType = Convert.ToInt32((TransactionStatus)Enum.Parse(typeof(TransactionStatus), cmoTransaction.Text));
-        //        payment.BankName = txtBankName.Text;
-        //        payment.CheckNo = txtBankName.Text;
-        //        payment.BkashTransactionNo = txtBkashNo.Text;
-        //        payment.Note = txtNote.Text;
-
-        //        PaymentBLL paymentBLL = new PaymentBLL();
-        //        paymentBLL.Save(payment);
-        //    }
-
-        //}
-
         private void Save()
         {
-            // isSaleValid = IsSaleValid();
-            //if (!isSaleValid)
-            //{
-            //    //wizardControl1.SetPreviousPage();
-            //    return false;
-            //}
-
-            //isPaymentValid = IsPaymentValid();
-            //if (!isPaymentValid)
-            //{
-            //    return false;
-            //}
-
             Sale sale = new Sale();
             sale.UserId = Global.Userid;
             sale.Fiscalyear = txtFiscalYear.Text;
@@ -156,19 +76,6 @@ namespace SPDM.UI
             sale.DeliveryAddress = txtDeliveryAddress.Text;
             sale.Note = txtNote.Text;
 
-            //Payment payment = new Payment();
-            //payment.UserId = Global.Userid;
-            //payment.Fiscalyear = txtFiscalYear.Text;
-            //payment.PartyId = workOrder.PartyId;
-            //payment.PaymentType = Convert.ToInt32((PaymentStatus)Enum.Parse(typeof(PaymentStatus), cmoPayment.Text));
-            //payment.TransactionDate = dETransactionDate.DateTime;
-            //payment.Total = Convert.ToDouble(nupTotal.Value);
-            //payment.TransactionType = Convert.ToInt32((TransactionStatus)Enum.Parse(typeof(TransactionStatus), cmoTransaction.Text));
-            //payment.BankName = txtBankName.Text;
-            //payment.CheckNo = txtCheckNo.Text;
-            //payment.BkashTransactionNo = txtBkashNo.Text;
-            //payment.Note = txtNote.Text;
-
             List<SaleDetail> saleDetails1 = saleDetails.ToList();
             List<Payment> payments1 = payments.ToList();
             SaleBLL saleBLL = new SaleBLL();
@@ -177,16 +84,7 @@ namespace SPDM.UI
         }
         private void wizardControl1_FinishClick(object sender, CancelEventArgs e)
         {
-            //SaveSale();
-            //SavePayment();
-
-            //bool isSaved = Save();
-            //  if (isSaved)
-            //  {
-            //      this.Close();
-            //  }
             this.Close();
-
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -316,13 +214,22 @@ namespace SPDM.UI
             eP.Clear();
             Boolean iv = true;
 
-            if (Convert.ToInt32(cmoItem.SelectedValue) == -1)
+            if(Convert.ToInt32(cmoItem.SelectedValue) == -1)
             {
                 cmoItem.Focus();
                 eP.SetError(cmoItem, "Can't empty");
                 iv = false;
             }
 
+            foreach (SaleDetail saleDetail in saleDetails)
+            {
+                if (saleDetail.ItemId == Convert.ToInt32(cmoItem.SelectedValue))
+                {
+                    eP.SetError(cmoItem, "Item already added");
+                    iv = false;
+                    break;
+                }
+            }
 
             if (string.IsNullOrEmpty(txtLength.Text))
             {
@@ -403,8 +310,6 @@ namespace SPDM.UI
             return iv;
         }
 
-
-
         private void cmoItem_SelectedIndexChanged(object sender, EventArgs e)
         {
             ClearSaleDetail();
@@ -471,8 +376,7 @@ namespace SPDM.UI
                 //    sum += saleDetail1.TotalIncvat;
                 //}
                 //nupTotal.Value = Convert.ToDecimal(sum);
-
-
+                ClearSaleDetail();
             }
         }
 
@@ -492,6 +396,7 @@ namespace SPDM.UI
             }
             return iv;
         }
+
         public void LoadPaymentType()
         {
 
@@ -525,17 +430,7 @@ namespace SPDM.UI
             cmoTransaction.SelectedIndex = 0;
 
         }
-
-        private void wizardPage2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void wizardControl1_Click(object sender, EventArgs e)
-        {
-
-        }
-
+            
         private void Form1_Load(object sender, EventArgs e)
         {
             LoadPaymentType();
@@ -616,6 +511,7 @@ namespace SPDM.UI
             nupTotal.Value = nupTotalIncVat.Value - Convert.ToDecimal(sum);
            
         }
+
         private void ClearPayment()
         {
             cmoPayment.SelectedIndex = 0;
@@ -644,6 +540,7 @@ namespace SPDM.UI
                 TotalRemainingCalculation();
             }
         }
+
     }
 
 }
