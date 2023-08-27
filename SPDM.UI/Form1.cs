@@ -38,7 +38,7 @@ namespace SPDM.UI
         private void ClearSaleDetail()
         {
             //cmoItem.SelectedIndex = 0;
-            txtLength.Text = "";
+            nupLength.Value = 0;
             txtUnit.Text = "";
             txtUnitPrice.Text = "";
             nupDiscountPercent1.Value = 0;
@@ -46,7 +46,7 @@ namespace SPDM.UI
             nupTotalIncVat1.Value = 0;
             txtDrum.Text = "";
             txtCoilNo.Text = "";
-            txtAvilableQinKM.Text = "";
+            nupAvilableQinKM.Value = 0;
             txtAvilableQinFKM.Text = "";
 
         }
@@ -158,7 +158,7 @@ namespace SPDM.UI
                 if (workOrderDetail.ItemId == ii)
                 {
 
-                    txtLength.Text = workOrderDetail.Length.ToString();
+                    nupLength.Value = Convert.ToDecimal(workOrderDetail.Length);
                     txtUnit.Text = workOrderDetail.Unit.ToString();
                     txtUnitPrice.Text = workOrderDetail.UnitPrice.ToString();
                     nupDiscountPercent.Value = Convert.ToDecimal(workOrderDetail.DiscountPercent);
@@ -231,15 +231,15 @@ namespace SPDM.UI
                 }
             }
 
-            if (string.IsNullOrEmpty(txtLength.Text))
-            {
-                eP.SetError(txtLength, "Can't empty");
-                iv = false;
-            }
+            //if (string.IsNullOrEmpty(txtLength.Text))
+            //{
+            //    eP.SetError(txtLength, "Can't empty");
+            //    iv = false;
+            //}
 
-            if (Convert.ToDecimal(txtAvilableQinKM.Text) < Convert.ToDecimal(txtLength.Text))
+            if (Convert.ToDecimal(nupAvilableQinKM.Value) < Convert.ToDecimal(nupLength.Value))
             {
-                eP.SetError(txtAvilableQinKM, "Avilable quantity is less than length");
+                eP.SetError(nupAvilableQinKM, "Avilable quantity is less than length");
                 iv = false;
             }
             return iv;
@@ -329,7 +329,7 @@ namespace SPDM.UI
             {
                 Stock stock = stocks[0];
                 txtCoilNo.Text = stock.CoilNo;
-                txtAvilableQinKM.Text = stock.CurrentQuantityInKM.ToString();
+                nupAvilableQinKM.Text = stock.CurrentQuantityInKM.ToString();
                 txtAvilableQinFKM.Text = stock.CurrentQuantityInFKM.ToString();
             }
         }
@@ -350,7 +350,7 @@ namespace SPDM.UI
                 SaleDetail saleDetail = new SaleDetail();
                 saleDetail.ItemId = Convert.ToInt32(cmoItem.SelectedValue);
                 saleDetail.ItemName = cmoItem.Text;
-                saleDetail.Length = Convert.ToDouble(txtLength.Text);
+                saleDetail.Length = Convert.ToDouble(nupLength.Value);
                 saleDetail.Unit = Convert.ToInt32(txtUnit.Text);
                 saleDetail.UnitPrice = Convert.ToInt32(txtUnitPrice.Text);
                 saleDetail.DiscountPercent = Convert.ToDouble(nupDiscountPercent1.Value);
