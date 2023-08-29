@@ -43,6 +43,7 @@ namespace SPDM.UI
 
             txtWorkOrderNo.Text = s;
         }
+
         private void frmWorkOrder_Load(object sender, EventArgs e)
         {
            

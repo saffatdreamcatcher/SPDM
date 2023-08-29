@@ -199,7 +199,7 @@ namespace SPDM.UI
                     txtLength.Text = workOrderDetail.Length.ToString();
                     txtUnit.Text = workOrderDetail.Unit.ToString();
                     txtUnitPrice.Text = workOrderDetail.UnitPrice.ToString();
-                    nupDiscountPercent.Value = Convert.ToDecimal(workOrderDetail.DiscountPercent);
+                    nupDiscountPercent1.Value = Convert.ToDecimal(workOrderDetail.DiscountPercent);
                     nupVatPercent.Value = Convert.ToDecimal(workOrderDetail.VatPercent);
                     nupTotalIncVat1.Value = Convert.ToDecimal(workOrderDetail.TotalIncvat);
                     nupVatPercent1.Value = Convert.ToDecimal(workOrderDetail.VatPercent);

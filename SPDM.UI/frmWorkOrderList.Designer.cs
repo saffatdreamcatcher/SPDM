@@ -105,7 +105,7 @@
             // btnAddNew
             // 
             this.btnAddNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAddNew.Location = new System.Drawing.Point(1374, 138);
+            this.btnAddNew.Location = new System.Drawing.Point(1374, 130);
             this.btnAddNew.Name = "btnAddNew";
             this.btnAddNew.Size = new System.Drawing.Size(76, 42);
             this.btnAddNew.TabIndex = 1;
@@ -119,10 +119,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControl1.DataSource = this.workOrderBindingSource;
-            this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(94, 94, 94, 94);
+            this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(94);
             this.gridControl1.Location = new System.Drawing.Point(127, 210);
             this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Margin = new System.Windows.Forms.Padding(94, 94, 94, 94);
+            this.gridControl1.Margin = new System.Windows.Forms.Padding(94);
             this.gridControl1.MaximumSize = new System.Drawing.Size(1323, 344);
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
@@ -279,7 +279,7 @@
             // colStatus
             // 
             this.colStatus.FieldName = "Status";
-            this.colStatus.MinWidth = 100;
+            this.colStatus.MinWidth = 70;
             this.colStatus.Name = "colStatus";
             this.colStatus.Visible = true;
             this.colStatus.VisibleIndex = 8;
@@ -290,14 +290,12 @@
             this.colNote.FieldName = "Note";
             this.colNote.MinWidth = 80;
             this.colNote.Name = "colNote";
-            this.colNote.Visible = true;
-            this.colNote.VisibleIndex = 9;
             this.colNote.Width = 2674;
             // 
             // colId
             // 
             this.colId.FieldName = "Id";
-            this.colId.MinWidth = 70;
+            this.colId.MinWidth = 60;
             this.colId.Name = "colId";
             this.colId.Width = 2646;
             // 
@@ -312,7 +310,7 @@
             // colCreateTime
             // 
             this.colCreateTime.FieldName = "CreateTime";
-            this.colCreateTime.MinWidth = 80;
+            this.colCreateTime.MinWidth = 60;
             this.colCreateTime.Name = "colCreateTime";
             this.colCreateTime.OptionsColumn.ReadOnly = true;
             this.colCreateTime.Width = 2646;
@@ -324,7 +322,7 @@
             this.gcSendToProduction.MinWidth = 150;
             this.gcSendToProduction.Name = "gcSendToProduction";
             this.gcSendToProduction.Visible = true;
-            this.gcSendToProduction.VisibleIndex = 10;
+            this.gcSendToProduction.VisibleIndex = 9;
             this.gcSendToProduction.Width = 3177;
             // 
             // btnSendToProduction
@@ -344,7 +342,7 @@
             this.gcEdit.MinWidth = 100;
             this.gcEdit.Name = "gcEdit";
             this.gcEdit.Visible = true;
-            this.gcEdit.VisibleIndex = 11;
+            this.gcEdit.VisibleIndex = 10;
             this.gcEdit.Width = 1796;
             // 
             // repositoryItemHyperLinkEdit1
@@ -369,7 +367,7 @@
             this.gcDelete.MinWidth = 100;
             this.gcDelete.Name = "gcDelete";
             this.gcDelete.Visible = true;
-            this.gcDelete.VisibleIndex = 12;
+            this.gcDelete.VisibleIndex = 11;
             this.gcDelete.Width = 1852;
             // 
             // repositoryItemHyperLinkEdit2
@@ -480,7 +478,7 @@
             // 
             this.dEFromWorkOrderDate.EditValue = null;
             this.dEFromWorkOrderDate.Location = new System.Drawing.Point(797, 79);
-            this.dEFromWorkOrderDate.Margin = new System.Windows.Forms.Padding(30, 30, 30, 30);
+            this.dEFromWorkOrderDate.Margin = new System.Windows.Forms.Padding(30);
             this.dEFromWorkOrderDate.Name = "dEFromWorkOrderDate";
             this.dEFromWorkOrderDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -496,7 +494,7 @@
             // 
             this.dEToWorkOrderDate.EditValue = null;
             this.dEToWorkOrderDate.Location = new System.Drawing.Point(1158, 78);
-            this.dEToWorkOrderDate.Margin = new System.Windows.Forms.Padding(30, 30, 30, 30);
+            this.dEToWorkOrderDate.Margin = new System.Windows.Forms.Padding(30);
             this.dEToWorkOrderDate.Name = "dEToWorkOrderDate";
             this.dEToWorkOrderDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});

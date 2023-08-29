@@ -161,7 +161,7 @@ namespace SPDM.UI
                     nupLength.Value = Convert.ToDecimal(workOrderDetail.Length);
                     txtUnit.Text = workOrderDetail.Unit.ToString();
                     txtUnitPrice.Text = workOrderDetail.UnitPrice.ToString();
-                    nupDiscountPercent.Value = Convert.ToDecimal(workOrderDetail.DiscountPercent);
+                    nupDiscountPercent1.Value = Convert.ToDecimal(workOrderDetail.DiscountPercent);
                     nupVatPercent.Value = Convert.ToDecimal(workOrderDetail.VatPercent);
                     nupTotalIncVat1.Value = Convert.ToDecimal(workOrderDetail.TotalIncvat);
                     nupVatPercent1.Value = Convert.ToDecimal(workOrderDetail.VatPercent);
@@ -214,7 +214,36 @@ namespace SPDM.UI
             eP.Clear();
             Boolean iv = true;
 
-            if(Convert.ToInt32(cmoItem.SelectedValue) == -1)
+            if(String.IsNullOrEmpty(txtChallanNo.Text))
+            {
+                txtChallanNo.Focus();
+                eP.SetError(txtChallanNo, "Challan No cant be empty!");
+                iv = false;
+            }
+
+            if(String.IsNullOrEmpty(txtDeliveryAddress.Text))
+            {
+                txtDeliveryAddress.Focus();
+                eP.SetError(txtDeliveryAddress, "Delivery Address cant be empty!");
+                iv = false;
+            }
+
+            if(dESaleDate.EditValue == null)
+            {
+                dESaleDate.Focus();
+                eP.SetError(dESaleDate, "Sale Date cant be empty!");
+                iv = false;
+            }
+
+            if (dEDeliveryDate.EditValue == null)
+            {
+                dEDeliveryDate.Focus();
+                eP.SetError(dEDeliveryDate, "Delivery Date cant be empty!");
+                iv = false;
+            }
+
+
+            if (Convert.ToInt32(cmoItem.SelectedValue) == -1)
             {
                 cmoItem.Focus();
                 eP.SetError(cmoItem, "Can't empty");
