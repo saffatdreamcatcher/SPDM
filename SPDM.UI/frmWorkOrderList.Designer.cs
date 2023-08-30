@@ -413,7 +413,7 @@
             // 
             // txtWorkOrderNo
             // 
-            this.txtWorkOrderNo.Location = new System.Drawing.Point(127, 79);
+            this.txtWorkOrderNo.Location = new System.Drawing.Point(127, 78);
             this.txtWorkOrderNo.Name = "txtWorkOrderNo";
             this.txtWorkOrderNo.Size = new System.Drawing.Size(178, 22);
             this.txtWorkOrderNo.TabIndex = 6;
