@@ -71,6 +71,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gvStock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stockBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dTPFromDate.Properties)).BeginInit();
@@ -399,7 +400,7 @@
             // 
             this.dTPFromDate.EditValue = null;
             this.dTPFromDate.Location = new System.Drawing.Point(109, 113);
-            this.dTPFromDate.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.dTPFromDate.Margin = new System.Windows.Forms.Padding(8);
             this.dTPFromDate.Name = "dTPFromDate";
             this.dTPFromDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -415,7 +416,7 @@
             // 
             this.dTPToDate.EditValue = null;
             this.dTPToDate.Location = new System.Drawing.Point(460, 109);
-            this.dTPToDate.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.dTPToDate.Margin = new System.Windows.Forms.Padding(8);
             this.dTPToDate.Name = "dTPToDate";
             this.dTPToDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -487,6 +488,17 @@
             this.label12.TabIndex = 42;
             this.label12.Text = ":";
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.Green;
+            this.label13.Location = new System.Drawing.Point(21, 9);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(120, 22);
+            this.label13.TabIndex = 44;
+            this.label13.Text = "frmStockList";
+            // 
             // frmStockList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -494,6 +506,7 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1479, 595);
             this.ControlBox = false;
+            this.Controls.Add(this.label13);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label9);
@@ -516,7 +529,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.gvStock);
             this.Name = "frmStockList";
-            this.Text = "frmStockList";
             this.Load += new System.EventHandler(this.frmStockList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gvStock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.stockBindingSource1)).EndInit();
@@ -573,5 +585,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn noteDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lengthDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn isNewDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.Label label13;
     }
 }

@@ -115,6 +115,7 @@
             this.stockBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.eP = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnClose = new System.Windows.Forms.Button();
+            this.label38 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nupVatPercent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupDiscountPercent)).BeginInit();
@@ -132,7 +133,7 @@
             // 
             // btnSaveStock
             // 
-            this.btnSaveStock.Location = new System.Drawing.Point(27, 620);
+            this.btnSaveStock.Location = new System.Drawing.Point(26, 746);
             this.btnSaveStock.Name = "btnSaveStock";
             this.btnSaveStock.Size = new System.Drawing.Size(114, 45);
             this.btnSaveStock.TabIndex = 0;
@@ -175,7 +176,7 @@
             this.groupBox2.Controls.Add(this.txtFiscalYear);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.txtProductionNo);
-            this.groupBox2.Location = new System.Drawing.Point(26, 23);
+            this.groupBox2.Location = new System.Drawing.Point(27, 55);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(1384, 191);
             this.groupBox2.TabIndex = 8;
@@ -516,9 +517,9 @@
             this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.cmoItemId);
             this.groupBox1.Controls.Add(this.label13);
-            this.groupBox1.Location = new System.Drawing.Point(26, 233);
+            this.groupBox1.Location = new System.Drawing.Point(26, 252);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1384, 194);
+            this.groupBox1.Size = new System.Drawing.Size(1384, 197);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Production Detail";
@@ -785,11 +786,11 @@
             this.createTimeDataGridViewTextBoxColumn,
             this.Delete});
             this.gVStock.DataSource = this.stockBindingSource;
-            this.gVStock.Location = new System.Drawing.Point(26, 455);
+            this.gVStock.Location = new System.Drawing.Point(26, 467);
             this.gVStock.Name = "gVStock";
             this.gVStock.RowHeadersWidth = 51;
             this.gVStock.RowTemplate.Height = 24;
-            this.gVStock.Size = new System.Drawing.Size(1398, 150);
+            this.gVStock.Size = new System.Drawing.Size(1398, 273);
             this.gVStock.TabIndex = 10;
             this.gVStock.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gVStock_CellClick);
             // 
@@ -995,20 +996,31 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label38.ForeColor = System.Drawing.Color.Green;
+            this.label38.Location = new System.Drawing.Point(37, 13);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(84, 20);
+            this.label38.TabIndex = 38;
+            this.label38.Text = "frmStock";
+            // 
             // frmStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1473, 688);
+            this.ClientSize = new System.Drawing.Size(1473, 829);
             this.ControlBox = false;
+            this.Controls.Add(this.label38);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.gVStock);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btnSaveStock);
             this.Name = "frmStock";
-            this.Text = "frmStock";
             this.Load += new System.EventHandler(this.frmStock_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -1026,6 +1038,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.stockBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eP)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -1117,5 +1130,6 @@
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.Label label38;
     }
 }

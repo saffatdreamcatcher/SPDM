@@ -105,6 +105,7 @@
             this.eP = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnSave = new System.Windows.Forms.Button();
             this.workOrderDetailBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label35 = new System.Windows.Forms.Label();
             this.gWorkOrder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nupVatPercent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupDiscountPercent)).BeginInit();
@@ -157,7 +158,7 @@
             this.gWorkOrder.Controls.Add(this.label2);
             this.gWorkOrder.Controls.Add(this.txtWorkOrderNo);
             this.gWorkOrder.Controls.Add(this.label1);
-            this.gWorkOrder.Location = new System.Drawing.Point(24, 32);
+            this.gWorkOrder.Location = new System.Drawing.Point(24, 62);
             this.gWorkOrder.Name = "gWorkOrder";
             this.gWorkOrder.Size = new System.Drawing.Size(1347, 198);
             this.gWorkOrder.TabIndex = 0;
@@ -493,7 +494,7 @@
             this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.cmoItemId);
             this.groupBox1.Controls.Add(this.label13);
-            this.groupBox1.Location = new System.Drawing.Point(24, 254);
+            this.groupBox1.Location = new System.Drawing.Point(24, 281);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1347, 169);
             this.groupBox1.TabIndex = 1;
@@ -726,11 +727,11 @@
             this.Edit,
             this.Delete});
             this.gvWorkOrderDetail.DataSource = this.workOrderDetailBindingSource1;
-            this.gvWorkOrderDetail.Location = new System.Drawing.Point(50, 446);
+            this.gvWorkOrderDetail.Location = new System.Drawing.Point(24, 468);
             this.gvWorkOrderDetail.Name = "gvWorkOrderDetail";
             this.gvWorkOrderDetail.RowHeadersWidth = 51;
             this.gvWorkOrderDetail.RowTemplate.Height = 24;
-            this.gvWorkOrderDetail.Size = new System.Drawing.Size(1288, 260);
+            this.gvWorkOrderDetail.Size = new System.Drawing.Size(1347, 238);
             this.gvWorkOrderDetail.TabIndex = 2;
             this.gvWorkOrderDetail.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvWorkOrderDetail_CellClick);
             // 
@@ -894,19 +895,31 @@
             // 
             this.workOrderDetailBindingSource.DataSource = typeof(SPDM.DLL.Entities.WorkOrderDetail);
             // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label35.ForeColor = System.Drawing.Color.Green;
+            this.label35.Location = new System.Drawing.Point(33, 20);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(148, 20);
+            this.label35.TabIndex = 4;
+            this.label35.Text = "New Work Order";
+            // 
             // frmWorkOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1395, 817);
+            this.ControlBox = false;
+            this.Controls.Add(this.label35);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.gvWorkOrderDetail);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gWorkOrder);
             this.Name = "frmWorkOrder";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "New Work Order";
             this.Load += new System.EventHandler(this.frmWorkOrder_Load);
             this.gWorkOrder.ResumeLayout(false);
             this.gWorkOrder.PerformLayout();
@@ -926,6 +939,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.eP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.workOrderDetailBindingSource)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -1007,5 +1021,6 @@
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label label35;
     }
 }
