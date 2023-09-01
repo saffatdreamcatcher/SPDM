@@ -72,7 +72,9 @@ namespace SPDM.UI
 
             ProfileBLL profileBLL = new ProfileBLL();
             profileBLL.Save(profile);
+            MessageBox.Show("Profile saved successfully!");
             profileId = profile.Id;
+            ClearProfile();
 
         }
 
@@ -101,6 +103,17 @@ namespace SPDM.UI
                 Image file = Image.FromFile(oFDPhoto.FileName);
                 pictureBox1.Image = file;
             }
+        }
+
+        public void ClearProfile()
+        {
+            txtName.Text = string.Empty;
+            txtAddress.Text = string.Empty;
+            txtPhone.Text = string.Empty;
+            txtEmail.Text = string.Empty;
+            txtMobileNo.Text = string.Empty;
+            txtdesignation.Text = string.Empty;
+            txtPhotoPath.Text = string.Empty;
         }
 
     }

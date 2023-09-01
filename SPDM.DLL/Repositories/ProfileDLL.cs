@@ -103,7 +103,7 @@ namespace SPDM.DLL.Repositories
                         profile.UserId = Convert.ToInt32(reader["UserId"]);
                         profile.Address = reader["Address"].ToString();
                         profile.Email = reader["Email"] is DBNull ? null : reader["Email"].ToString();
-                        profile.Designation = reader["Designation"] is DBNull ? null : reader["Designation"].ToString();
+                        profile.Designation = reader["Designation"].ToString();
                         profile.Phone = reader["Phone"] is DBNull ? null : reader["Phone"].ToString();
                         profile.MobileNo = reader["MobileNo"].ToString();
                         profile.Photo = reader["Photo"] is DBNull ? null : (byte[])reader["Photo"];
@@ -153,7 +153,7 @@ namespace SPDM.DLL.Repositories
                         profile.UserId = Convert.ToInt32(reader["UserId"]);
                         profile.Address = reader["Address"].ToString();
                         profile.Email = reader["Email"] is DBNull ? null : reader["Email"].ToString();
-                        profile.Designation = reader["Designation"] is DBNull ? null : reader["Designation"].ToString();
+                        profile.Designation = reader["Designation"].ToString();
                         profile.Phone = reader["Phone"] is DBNull ? null : reader["Phone"].ToString();
                         profile.MobileNo = reader["MobileNo"].ToString();
                         profile.Photo = reader["Photo"] is DBNull ? null : (byte[])reader["Photo"];
