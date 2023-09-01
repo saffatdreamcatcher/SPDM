@@ -30,8 +30,8 @@ namespace SPDM.DLL.Entities
         private string email;
         public string Email { get => email; set => email = value; }
 
-        private int designation;
-        public int Designation { get => designation; set => designation = value; }
+        private string designation;
+        public string Designation { get => designation; set => designation = value; }
 
         private string phone;
         public string Phone { get => phone; set => phone = value; }

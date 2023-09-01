@@ -53,7 +53,7 @@ namespace SPDM.DLL.Repositories
                 SqlCommand comm = sqlConnection.CreateCommand();
                 comm.Transaction = sqlTransaction;
 
-                comm.CommandText = "Delete from User where Id = " + id.ToString();
+                comm.CommandText = "Delete from [User] where Id = " + id.ToString();
                 noOfRowAffected = comm.ExecuteNonQuery();
 
             }

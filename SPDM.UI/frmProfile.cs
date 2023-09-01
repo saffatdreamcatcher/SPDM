@@ -35,13 +35,13 @@ namespace SPDM.UI
 
         private void LoadProfile()
         {
-            ProfileBLL profileBll = new ProfileBLL();
-            Profile profile = profileBll.GetByUserId(Global.Userid);
+            ProfileBLL profileBLL = new ProfileBLL();
+            Profile profile = profileBLL.GetByUserId(Global.Userid);
             profileId = profile.Id;
             txtName.Text = profile.Name;
             txtAddress.Text = profile.Address;
             txtEmail.Text = profile.Email;
-            txtdesignation.Text = profile.Designation.ToString();
+            txtdesignation.Text = profile.Designation;
             txtPhone.Text = profile.Phone;
             txtMobileNo.Text = profile.MobileNo;
             if (profile.Photo != null)
@@ -59,7 +59,7 @@ namespace SPDM.UI
             profile.UserId = Global.Userid;
             profile.Name = txtName.Text;
             profile.Address = txtAddress.Text;
-            profile.Designation = Convert.ToInt32(txtdesignation.Text);
+            profile.Designation = txtdesignation.Text;
             profile.Email = txtEmail.Text;
             profile.Phone = txtPhone.Text;
             profile.MobileNo = txtMobileNo.Text;
@@ -73,7 +73,6 @@ namespace SPDM.UI
             ProfileBLL profileBLL = new ProfileBLL();
             profileBLL.Save(profile);
             profileId = profile.Id;
-
 
         }
 
@@ -99,8 +98,10 @@ namespace SPDM.UI
             if (dialogResult == DialogResult.OK)
             {
                 txtPhotoPath.Text = oFDPhoto.FileName;
-
+                Image file = Image.FromFile(oFDPhoto.FileName);
+                pictureBox1.Image = file;
             }
         }
+
     }
 }

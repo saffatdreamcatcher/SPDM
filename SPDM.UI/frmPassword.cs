@@ -25,9 +25,17 @@ namespace SPDM.UI
             epChangePassword.Clear();
             Boolean iv = true;
 
-            
+            UserBLL userBLL = new UserBLL();
+            bool isExist = userBLL.UserExist(Global.Username, txtOldPassword.Text);
+            if (!isExist)
+            {
+                txtOldPassword.Focus();
+                epChangePassword.SetError(txtOldPassword, "Old Password doesnt match");
+                iv = false;
+            }
+                
 
-            if (txtNewPassword.Text != txtConfirmPassword.Text)
+                if (txtNewPassword.Text != txtConfirmPassword.Text)
             {
                 txtNewPassword.Focus();
                 epChangePassword.SetError(txtNewPassword, "Password doesnt match");
@@ -43,6 +51,7 @@ namespace SPDM.UI
 
                 UserBLL userBLL = new UserBLL();
                 userBLL.ChangePassword(Global.Userid, txtNewPassword.Text);
+                txtOldPassword.Text = string.Empty;
                 txtNewPassword.Text = String.Empty;
                 txtConfirmPassword.Text = String.Empty;
 

@@ -103,7 +103,7 @@ namespace SPDM.DLL.Repositories
                         profile.UserId = Convert.ToInt32(reader["UserId"]);
                         profile.Address = reader["Address"].ToString();
                         profile.Email = reader["Email"] is DBNull ? null : reader["Email"].ToString();
-                        profile.Designation = Convert.ToInt32(reader["Designation"]);
+                        profile.Designation = reader["Designation"] is DBNull ? null : reader["Designation"].ToString();
                         profile.Phone = reader["Phone"] is DBNull ? null : reader["Phone"].ToString();
                         profile.MobileNo = reader["MobileNo"].ToString();
                         profile.Photo = reader["Photo"] is DBNull ? null : (byte[])reader["Photo"];
@@ -153,7 +153,7 @@ namespace SPDM.DLL.Repositories
                         profile.UserId = Convert.ToInt32(reader["UserId"]);
                         profile.Address = reader["Address"].ToString();
                         profile.Email = reader["Email"] is DBNull ? null : reader["Email"].ToString();
-                        profile.Designation = Convert.ToInt32(reader["Designation"]);
+                        profile.Designation = reader["Designation"] is DBNull ? null : reader["Designation"].ToString();
                         profile.Phone = reader["Phone"] is DBNull ? null : reader["Phone"].ToString();
                         profile.MobileNo = reader["MobileNo"].ToString();
                         profile.Photo = reader["Photo"] is DBNull ? null : (byte[])reader["Photo"];
@@ -254,7 +254,7 @@ namespace SPDM.DLL.Repositories
                 comm.Parameters.Add("@Name", SqlDbType.VarChar).Value = profile.Name;
                 comm.Parameters.Add("@Address", SqlDbType.VarChar).Value = profile.Address;
                 comm.Parameters.Add("@Email", SqlDbType.VarChar).Value = profile.Email;
-                comm.Parameters.Add("@Designation", SqlDbType.Int).Value = profile.Designation;
+                comm.Parameters.Add("@Designation", SqlDbType.VarChar).Value = profile.Designation;
                 comm.Parameters.Add("@Phone", SqlDbType.VarChar).Value = profile.Phone;
                 comm.Parameters.Add("@MobileNo", SqlDbType.VarChar).Value = profile.MobileNo;
                 if (profile.Photo == null)
@@ -316,7 +316,7 @@ namespace SPDM.DLL.Repositories
                         profile.UserId = Convert.ToInt32(reader["UserId"]);
                         profile.Address = reader["Address"].ToString();
                         profile.Email = reader["Email"] is DBNull ? null : reader["Email"].ToString();
-                        profile.Designation = Convert.ToInt32(reader["Designation"]);
+                        profile.Designation = reader["Designation"] is DBNull ? null : reader["Designation"].ToString();
                         profile.Phone = reader["Phone"] is DBNull ? null : reader["Phone"].ToString();
                         profile.MobileNo = reader["MobileNo"].ToString();
                         profile.Photo = reader["Photo"] is DBNull ? null : (byte[])reader["Photo"];
