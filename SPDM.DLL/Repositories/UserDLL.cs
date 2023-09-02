@@ -72,6 +72,43 @@ namespace SPDM.DLL.Repositories
 
         }
 
+        public int MarkAsInactive(int id)
+        {
+            int noOfRowAffected = 0;
+
+            try
+            {
+
+                if (sqlConnection.State == ConnectionState.Closed)
+                {
+                    sqlConnection.Open();
+                }
+
+                SqlCommand comm = sqlConnection.CreateCommand();
+                comm.Transaction = sqlTransaction;
+
+                //comm.CommandText = "Update [User] SET IsActive = 0 WHERE Id= " + id.ToString();
+                comm.CommandText = "Update [User] SET IsActive = 0 WHERE Id=@hozoborolo";
+                comm.Parameters.Add("@hozoborolo", SqlDbType.Int).Value = id;
+
+                noOfRowAffected = comm.ExecuteNonQuery();
+
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (!isEnableTransaction)
+                {
+                    sqlConnection.Close();
+                }
+            }
+            return noOfRowAffected;
+
+        }
+
         public List<User> GetAll(string whereClause = "")
         {
             var users = new List<User>();
@@ -89,7 +126,7 @@ namespace SPDM.DLL.Repositories
 
                 SqlCommand comm = sqlConnection.CreateCommand();
 
-                comm.CommandText = "Select * from [User] " + whereClause;
+                comm.CommandText = "Select * from [User] Where IsActive = 1 " + whereClause;
                 using (SqlDataReader reader = comm.ExecuteReader())
                 {
                     while (reader != null && reader.Read())
@@ -145,7 +182,7 @@ namespace SPDM.DLL.Repositories
 
                 SqlCommand comm = sqlConnection.CreateCommand();
 
-                comm.CommandText = "Select * from [User] where id = " + id;
+                comm.CommandText = "Select * from [User] where id = " + id + " and IsActive = 1";
                 using (SqlDataReader reader = comm.ExecuteReader())
                 {
                     while (reader != null && reader.Read())
@@ -209,7 +246,7 @@ namespace SPDM.DLL.Repositories
 
                 SqlCommand comm = sqlConnection.CreateCommand();
 
-                comm.CommandText = "Select count(*) from User " + whereClause;
+                comm.CommandText = "Select count(*) from [User] Where IsActive = 1" + whereClause;
                 count = Convert.ToInt32(comm.ExecuteScalar());
             }
             catch (SqlException ex)
@@ -310,7 +347,7 @@ namespace SPDM.DLL.Repositories
                         " CAST( 0 as BIT ) " +
                         "END As IsPresent " +
                         "FROM [dbo].[User] " +
-                        "WHERE  UserName = @UserName and Password = @Password";
+                        "WHERE  UserName = @UserName and Password = @Password and IsActive = 1";
 
                 comm.Parameters.Add("@UserName", SqlDbType.VarChar).Value = username;
                 comm.Parameters.Add("@Password", SqlDbType.VarChar).Value = password;

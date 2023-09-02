@@ -77,6 +77,19 @@ namespace SPDM.BLL.BusinessLogic
             }
         }
 
+        public int MarkAsInactive(int id)
+        {
+            try
+            {
+                UserDLL userDLL = new UserDLL();
+                return userDLL.MarkAsInactive(id);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public bool UserExist(string userName,string password)
         {
             try

@@ -15,6 +15,7 @@ namespace SPDM.UI
     public partial class frmUser : Form
     {
         private int userId;
+        private int id;
 
         public frmUser()
         {
@@ -96,7 +97,7 @@ namespace SPDM.UI
             if (MessageBox.Show("Are you sure you want to delete this User?", "Delete User", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.Yes)
             {
                 UserBLL userBLL = new UserBLL();
-                userBLL.Delete(id);
+                userBLL.MarkAsInactive(id);
                 LoadUser();
             }
 

@@ -122,6 +122,7 @@
             this.lblIsActive.Size = new System.Drawing.Size(54, 16);
             this.lblIsActive.TabIndex = 11;
             this.lblIsActive.Text = "IsActive";
+            this.lblIsActive.Visible = false;
             // 
             // chkIsActive
             // 
@@ -131,6 +132,7 @@
             this.chkIsActive.Size = new System.Drawing.Size(18, 17);
             this.chkIsActive.TabIndex = 12;
             this.chkIsActive.UseVisualStyleBackColor = true;
+            this.chkIsActive.Visible = false;
             // 
             // gvUser
             // 
@@ -149,11 +151,11 @@
             this.Edit,
             this.Delete});
             this.gvUser.DataSource = this.userBindingSource;
-            this.gvUser.Location = new System.Drawing.Point(12, 265);
+            this.gvUser.Location = new System.Drawing.Point(152, 265);
             this.gvUser.Name = "gvUser";
             this.gvUser.RowHeadersWidth = 51;
             this.gvUser.RowTemplate.Height = 24;
-            this.gvUser.Size = new System.Drawing.Size(1219, 150);
+            this.gvUser.Size = new System.Drawing.Size(1057, 332);
             this.gvUser.TabIndex = 13;
             this.gvUser.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvUser_CellClick);
             // 
@@ -335,6 +337,7 @@
             this.label2.Size = new System.Drawing.Size(15, 20);
             this.label2.TabIndex = 41;
             this.label2.Text = ":";
+            this.label2.Visible = false;
             // 
             // label3
             // 
@@ -351,7 +354,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1233, 455);
+            this.ClientSize = new System.Drawing.Size(1233, 620);
             this.ControlBox = false;
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
