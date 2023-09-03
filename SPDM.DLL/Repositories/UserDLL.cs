@@ -113,9 +113,10 @@ namespace SPDM.DLL.Repositories
         {
             var users = new List<User>();
             
+            
             if (!string.IsNullOrEmpty(whereClause))
             {
-                whereClause = " Where " + whereClause;
+                whereClause = " And " + whereClause;
             }
             try
             {
@@ -236,7 +237,7 @@ namespace SPDM.DLL.Repositories
             {
                 if (!string.IsNullOrEmpty(whereClause))
                 {
-                    whereClause = " Where " + whereClause;
+                    whereClause = " And " + whereClause;
                 }
 
                 if (sqlConnection.State == ConnectionState.Closed)
@@ -301,7 +302,7 @@ namespace SPDM.DLL.Repositories
                 comm.Parameters.Add("@LockoutEndDate", SqlDbType.VarChar).Value = DBNull.Value;
                 comm.Parameters.Add("@LockoutEnabled", SqlDbType.Bit).Value = user.LockoutEnabled;
                 comm.Parameters.Add("@AccessFailedCount", SqlDbType.VarChar).Value = user.AccessFailedCount;
-                comm.Parameters.Add("@IsActive", SqlDbType.Bit).Value = user.IsActive;
+                comm.Parameters.Add("@IsActive", SqlDbType.Bit).Value = true;
                 if (user.IsNew)
                 {
                     primaryKey = Convert.ToInt32(comm.ExecuteScalar());
@@ -330,7 +331,7 @@ namespace SPDM.DLL.Repositories
         public bool UserExist(string username, string password)
         {
             bool isUserExist = false;
-           
+
             var myConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
             SqlConnection conn = new SqlConnection();
             try
@@ -351,9 +352,9 @@ namespace SPDM.DLL.Repositories
 
                 comm.Parameters.Add("@UserName", SqlDbType.VarChar).Value = username;
                 comm.Parameters.Add("@Password", SqlDbType.VarChar).Value = password;
-                
+
                 isUserExist = Convert.ToBoolean(comm.ExecuteScalar());
-                
+
             }
             catch (SqlException ex)
             {
@@ -363,8 +364,46 @@ namespace SPDM.DLL.Repositories
             {
                 conn.Close();
             }
-            
+
             return isUserExist;
+        }
+
+        public bool Exist(string whereClause = "")
+        {
+            bool userExist = false;
+
+            try
+            {
+                if (sqlConnection.State == ConnectionState.Closed)
+                {
+                    sqlConnection.Open();
+                }
+
+                SqlCommand comm = sqlConnection.CreateCommand();
+
+                comm.CommandText = "SELECT " +
+                        "CASE WHEN COUNT( Id ) >= 1 THEN " +
+                        "CAST( 1 as BIT ) " +
+                        "ELSE " +
+                        " CAST( 0 as BIT ) " +
+                        "END As IsPresent " +
+                        "FROM [dbo].[User] " +
+                        "WHERE " + whereClause;
+                userExist = Convert.ToBoolean(comm.ExecuteScalar());
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (!isEnableTransaction)
+                {
+                    sqlConnection.Close();
+                }
+            }
+
+            return userExist;
         }
 
         public User GetByName(string name)

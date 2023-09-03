@@ -50,6 +50,7 @@ namespace SPDM.UI
                 Image image = Image.FromStream(ms);
                 pictureBox1.Image = image;
             }
+            
         }
 
         private void SaveProfile()
@@ -74,7 +75,7 @@ namespace SPDM.UI
             profileBLL.Save(profile);
             MessageBox.Show("Profile saved successfully!");
             profileId = profile.Id;
-            ClearProfile();
+            //ClearProfile();
 
         }
 

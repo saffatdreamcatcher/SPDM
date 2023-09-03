@@ -38,18 +38,6 @@
             this.lblIsActive = new System.Windows.Forms.Label();
             this.chkIsActive = new System.Windows.Forms.CheckBox();
             this.gvUser = new System.Windows.Forms.DataGridView();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.createTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.userNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lockoutEndDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lockoutEnabledDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.accessFailedCountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.isActiveDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.isNewDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Edit = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.resetbtn = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.epUser = new System.Windows.Forms.ErrorProvider(this.components);
@@ -59,9 +47,21 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.Edit = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.createTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.userNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lockoutEndDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lockoutEnabledDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.accessFailedCountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.isActiveDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.isNewDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.gvUser)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.epUser)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // txtUserName
@@ -104,6 +104,7 @@
             this.lblLockOutEnabled.Size = new System.Drawing.Size(107, 16);
             this.lblLockOutEnabled.TabIndex = 7;
             this.lblLockOutEnabled.Text = "LockOutEnabled";
+            this.lblLockOutEnabled.Visible = false;
             // 
             // chkLockOutEnabled
             // 
@@ -113,6 +114,7 @@
             this.chkLockOutEnabled.Size = new System.Drawing.Size(18, 17);
             this.chkLockOutEnabled.TabIndex = 8;
             this.chkLockOutEnabled.UseVisualStyleBackColor = true;
+            this.chkLockOutEnabled.Visible = false;
             // 
             // lblIsActive
             // 
@@ -151,115 +153,13 @@
             this.Edit,
             this.Delete});
             this.gvUser.DataSource = this.userBindingSource;
-            this.gvUser.Location = new System.Drawing.Point(152, 265);
+            this.gvUser.Location = new System.Drawing.Point(152, 260);
             this.gvUser.Name = "gvUser";
             this.gvUser.RowHeadersWidth = 51;
             this.gvUser.RowTemplate.Height = 24;
-            this.gvUser.Size = new System.Drawing.Size(1057, 332);
+            this.gvUser.Size = new System.Drawing.Size(1338, 404);
             this.gvUser.TabIndex = 13;
             this.gvUser.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvUser_CellClick);
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.Visible = false;
-            this.idDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // createTimeDataGridViewTextBoxColumn
-            // 
-            this.createTimeDataGridViewTextBoxColumn.DataPropertyName = "CreateTime";
-            this.createTimeDataGridViewTextBoxColumn.HeaderText = "CreateTime";
-            this.createTimeDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.createTimeDataGridViewTextBoxColumn.Name = "createTimeDataGridViewTextBoxColumn";
-            this.createTimeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.createTimeDataGridViewTextBoxColumn.Visible = false;
-            this.createTimeDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // userNameDataGridViewTextBoxColumn
-            // 
-            this.userNameDataGridViewTextBoxColumn.DataPropertyName = "UserName";
-            this.userNameDataGridViewTextBoxColumn.HeaderText = "UserName";
-            this.userNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.userNameDataGridViewTextBoxColumn.Name = "userNameDataGridViewTextBoxColumn";
-            this.userNameDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // passwordDataGridViewTextBoxColumn
-            // 
-            this.passwordDataGridViewTextBoxColumn.DataPropertyName = "Password";
-            this.passwordDataGridViewTextBoxColumn.HeaderText = "Password";
-            this.passwordDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
-            this.passwordDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // lockoutEndDateDataGridViewTextBoxColumn
-            // 
-            this.lockoutEndDateDataGridViewTextBoxColumn.DataPropertyName = "LockoutEndDate";
-            this.lockoutEndDateDataGridViewTextBoxColumn.HeaderText = "LockoutEndDate";
-            this.lockoutEndDateDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.lockoutEndDateDataGridViewTextBoxColumn.Name = "lockoutEndDateDataGridViewTextBoxColumn";
-            this.lockoutEndDateDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // lockoutEnabledDataGridViewCheckBoxColumn
-            // 
-            this.lockoutEnabledDataGridViewCheckBoxColumn.DataPropertyName = "LockoutEnabled";
-            this.lockoutEnabledDataGridViewCheckBoxColumn.HeaderText = "LockoutEnabled";
-            this.lockoutEnabledDataGridViewCheckBoxColumn.MinimumWidth = 6;
-            this.lockoutEnabledDataGridViewCheckBoxColumn.Name = "lockoutEnabledDataGridViewCheckBoxColumn";
-            this.lockoutEnabledDataGridViewCheckBoxColumn.Visible = false;
-            this.lockoutEnabledDataGridViewCheckBoxColumn.Width = 125;
-            // 
-            // accessFailedCountDataGridViewTextBoxColumn
-            // 
-            this.accessFailedCountDataGridViewTextBoxColumn.DataPropertyName = "AccessFailedCount";
-            this.accessFailedCountDataGridViewTextBoxColumn.HeaderText = "AccessFailedCount";
-            this.accessFailedCountDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.accessFailedCountDataGridViewTextBoxColumn.Name = "accessFailedCountDataGridViewTextBoxColumn";
-            this.accessFailedCountDataGridViewTextBoxColumn.Visible = false;
-            this.accessFailedCountDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // isActiveDataGridViewCheckBoxColumn
-            // 
-            this.isActiveDataGridViewCheckBoxColumn.DataPropertyName = "IsActive";
-            this.isActiveDataGridViewCheckBoxColumn.HeaderText = "IsActive";
-            this.isActiveDataGridViewCheckBoxColumn.MinimumWidth = 6;
-            this.isActiveDataGridViewCheckBoxColumn.Name = "isActiveDataGridViewCheckBoxColumn";
-            this.isActiveDataGridViewCheckBoxColumn.Visible = false;
-            this.isActiveDataGridViewCheckBoxColumn.Width = 125;
-            // 
-            // isNewDataGridViewCheckBoxColumn
-            // 
-            this.isNewDataGridViewCheckBoxColumn.DataPropertyName = "IsNew";
-            this.isNewDataGridViewCheckBoxColumn.HeaderText = "IsNew";
-            this.isNewDataGridViewCheckBoxColumn.MinimumWidth = 6;
-            this.isNewDataGridViewCheckBoxColumn.Name = "isNewDataGridViewCheckBoxColumn";
-            this.isNewDataGridViewCheckBoxColumn.ReadOnly = true;
-            this.isNewDataGridViewCheckBoxColumn.Visible = false;
-            this.isNewDataGridViewCheckBoxColumn.Width = 125;
-            // 
-            // Edit
-            // 
-            this.Edit.HeaderText = "Edit";
-            this.Edit.MinimumWidth = 6;
-            this.Edit.Name = "Edit";
-            this.Edit.Text = "Edit";
-            this.Edit.UseColumnTextForLinkValue = true;
-            this.Edit.Width = 80;
-            // 
-            // Delete
-            // 
-            this.Delete.HeaderText = "Delete";
-            this.Delete.MinimumWidth = 6;
-            this.Delete.Name = "Delete";
-            this.Delete.Text = "Delete";
-            this.Delete.UseColumnTextForLinkValue = true;
-            this.Delete.Width = 80;
-            // 
-            // userBindingSource
-            // 
-            this.userBindingSource.DataSource = typeof(SPDM.DLL.Entities.User);
             // 
             // resetbtn
             // 
@@ -289,7 +189,7 @@
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.Location = new System.Drawing.Point(1200, 1);
+            this.btnClose.Location = new System.Drawing.Point(1488, 1);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(31, 28);
             this.btnClose.TabIndex = 34;
@@ -348,13 +248,118 @@
             this.label3.Size = new System.Drawing.Size(15, 20);
             this.label3.TabIndex = 40;
             this.label3.Text = ":";
+            this.label3.Visible = false;
+            // 
+            // Edit
+            // 
+            this.Edit.HeaderText = "Edit";
+            this.Edit.MinimumWidth = 6;
+            this.Edit.Name = "Edit";
+            this.Edit.Text = "ResetPassword";
+            this.Edit.UseColumnTextForLinkValue = true;
+            this.Edit.Width = 80;
+            // 
+            // Delete
+            // 
+            this.Delete.HeaderText = "Delete";
+            this.Delete.MinimumWidth = 6;
+            this.Delete.Name = "Delete";
+            this.Delete.Text = "InActive";
+            this.Delete.UseColumnTextForLinkValue = true;
+            this.Delete.Width = 80;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.Visible = false;
+            this.idDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // createTimeDataGridViewTextBoxColumn
+            // 
+            this.createTimeDataGridViewTextBoxColumn.DataPropertyName = "CreateTime";
+            this.createTimeDataGridViewTextBoxColumn.HeaderText = "CreateTime";
+            this.createTimeDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.createTimeDataGridViewTextBoxColumn.Name = "createTimeDataGridViewTextBoxColumn";
+            this.createTimeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.createTimeDataGridViewTextBoxColumn.Visible = false;
+            this.createTimeDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // userNameDataGridViewTextBoxColumn
+            // 
+            this.userNameDataGridViewTextBoxColumn.DataPropertyName = "UserName";
+            this.userNameDataGridViewTextBoxColumn.HeaderText = "UserName";
+            this.userNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.userNameDataGridViewTextBoxColumn.Name = "userNameDataGridViewTextBoxColumn";
+            this.userNameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // passwordDataGridViewTextBoxColumn
+            // 
+            this.passwordDataGridViewTextBoxColumn.DataPropertyName = "Password";
+            this.passwordDataGridViewTextBoxColumn.HeaderText = "Password";
+            this.passwordDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
+            this.passwordDataGridViewTextBoxColumn.Visible = false;
+            this.passwordDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // lockoutEndDateDataGridViewTextBoxColumn
+            // 
+            this.lockoutEndDateDataGridViewTextBoxColumn.DataPropertyName = "LockoutEndDate";
+            this.lockoutEndDateDataGridViewTextBoxColumn.HeaderText = "LockoutEndDate";
+            this.lockoutEndDateDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.lockoutEndDateDataGridViewTextBoxColumn.Name = "lockoutEndDateDataGridViewTextBoxColumn";
+            this.lockoutEndDateDataGridViewTextBoxColumn.Visible = false;
+            this.lockoutEndDateDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // lockoutEnabledDataGridViewCheckBoxColumn
+            // 
+            this.lockoutEnabledDataGridViewCheckBoxColumn.DataPropertyName = "LockoutEnabled";
+            this.lockoutEnabledDataGridViewCheckBoxColumn.HeaderText = "LockoutEnabled";
+            this.lockoutEnabledDataGridViewCheckBoxColumn.MinimumWidth = 6;
+            this.lockoutEnabledDataGridViewCheckBoxColumn.Name = "lockoutEnabledDataGridViewCheckBoxColumn";
+            this.lockoutEnabledDataGridViewCheckBoxColumn.Visible = false;
+            this.lockoutEnabledDataGridViewCheckBoxColumn.Width = 125;
+            // 
+            // accessFailedCountDataGridViewTextBoxColumn
+            // 
+            this.accessFailedCountDataGridViewTextBoxColumn.DataPropertyName = "AccessFailedCount";
+            this.accessFailedCountDataGridViewTextBoxColumn.HeaderText = "AccessFailedCount";
+            this.accessFailedCountDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.accessFailedCountDataGridViewTextBoxColumn.Name = "accessFailedCountDataGridViewTextBoxColumn";
+            this.accessFailedCountDataGridViewTextBoxColumn.Visible = false;
+            this.accessFailedCountDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // isActiveDataGridViewCheckBoxColumn
+            // 
+            this.isActiveDataGridViewCheckBoxColumn.DataPropertyName = "IsActive";
+            this.isActiveDataGridViewCheckBoxColumn.HeaderText = "IsActive";
+            this.isActiveDataGridViewCheckBoxColumn.MinimumWidth = 6;
+            this.isActiveDataGridViewCheckBoxColumn.Name = "isActiveDataGridViewCheckBoxColumn";
+            this.isActiveDataGridViewCheckBoxColumn.Visible = false;
+            this.isActiveDataGridViewCheckBoxColumn.Width = 125;
+            // 
+            // isNewDataGridViewCheckBoxColumn
+            // 
+            this.isNewDataGridViewCheckBoxColumn.DataPropertyName = "IsNew";
+            this.isNewDataGridViewCheckBoxColumn.HeaderText = "IsNew";
+            this.isNewDataGridViewCheckBoxColumn.MinimumWidth = 6;
+            this.isNewDataGridViewCheckBoxColumn.Name = "isNewDataGridViewCheckBoxColumn";
+            this.isNewDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.isNewDataGridViewCheckBoxColumn.Visible = false;
+            this.isNewDataGridViewCheckBoxColumn.Width = 125;
+            // 
+            // userBindingSource
+            // 
+            this.userBindingSource.DataSource = typeof(SPDM.DLL.Entities.User);
             // 
             // frmUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1233, 620);
+            this.ClientSize = new System.Drawing.Size(1521, 676);
             this.ControlBox = false;
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
@@ -376,8 +381,8 @@
             this.Name = "frmUser";
             this.Load += new System.EventHandler(this.frmUser_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gvUser)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.epUser)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -399,6 +404,10 @@
         private System.Windows.Forms.ErrorProvider epUser;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn createTimeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn userNameDataGridViewTextBoxColumn;
@@ -410,9 +419,5 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn isNewDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewLinkColumn Edit;
         private System.Windows.Forms.DataGridViewLinkColumn Delete;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label5;
     }
 }

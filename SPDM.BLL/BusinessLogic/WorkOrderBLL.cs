@@ -73,13 +73,17 @@ namespace SPDM.BLL.BusinessLogic
             }
         }
 
-        public List<WorkOrder> GetAll(string whereclause = "")
+        public List<WorkOrder> GetAll(string whereClause = "")
         {
+            if (!string.IsNullOrEmpty(whereClause))
+            {
+                whereClause = " Where " + whereClause;
+            }
             try
             {
                 
                 WorkOrderDLL workorderDLL = new WorkOrderDLL();
-                return workorderDLL.GetAll(whereclause);
+                return workorderDLL.GetAll(whereClause);
 
             }
             catch (Exception ex)

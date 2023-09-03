@@ -67,7 +67,7 @@ namespace SPDM.UI
                         Global.FiscalYear = fiscalYear.Year;
 
                     }
-                    ClearField();
+                    //ClearField();
                     this.Hide();
                     MainForm mainForm = new MainForm();
                     mainForm.ShowDialog();
@@ -88,6 +88,11 @@ namespace SPDM.UI
             txtUserName.Text = String.Empty;
             txtPassword.Text = String.Empty;
             lblValidation.Text = String.Empty;
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

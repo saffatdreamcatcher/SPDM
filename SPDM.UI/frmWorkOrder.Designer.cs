@@ -106,6 +106,7 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.workOrderDetailBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label35 = new System.Windows.Forms.Label();
+            this.btnClose = new System.Windows.Forms.Button();
             this.gWorkOrder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nupVatPercent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupDiscountPercent)).BeginInit();
@@ -906,13 +907,25 @@
             this.label35.TabIndex = 4;
             this.label35.Text = "New Work Order";
             // 
+            // btnClose
+            // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.Location = new System.Drawing.Point(1360, 0);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(33, 23);
+            this.btnClose.TabIndex = 5;
+            this.btnClose.Text = "X";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
             // frmWorkOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1395, 817);
+            this.ClientSize = new System.Drawing.Size(1394, 817);
             this.ControlBox = false;
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.label35);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.gvWorkOrderDetail);
@@ -1022,5 +1035,6 @@
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Button btnClose;
     }
 }

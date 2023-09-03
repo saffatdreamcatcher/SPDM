@@ -27,11 +27,6 @@ namespace SPDM.UI
         }
 
 
-        private void resetbtn_Click(object sender, EventArgs e)
-        {
-            ClearField();
-        }
-
         private void ClearField()
         {
             txtName.Text = string.Empty;
@@ -120,6 +115,9 @@ namespace SPDM.UI
             this.Close();
         }
 
-        
+        private void resetbtn_Click_1(object sender, EventArgs e)
+        {
+            ClearField();
+        }
     }
 }

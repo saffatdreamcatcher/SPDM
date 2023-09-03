@@ -2,13 +2,8 @@
 using SPDM.DLL.Entities;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace SPDM.UI
 {
@@ -34,7 +29,6 @@ namespace SPDM.UI
            
             chkIsActive.Checked = false;
             chkLockOutEnabled.Checked = false;
-            userId = 0;
             txtUserName.Focus();
             txtPassword.Focus();
         }
@@ -43,7 +37,8 @@ namespace SPDM.UI
         {
             gvUser.AutoGenerateColumns = false;
             UserBLL userBLL = new UserBLL();
-            List<User> users = userBLL.GetAll();
+            string where = "Id!= " + Global.Userid;
+            List<User> users = userBLL.GetAll(where);
             gvUser.DataSource = users;
 
         }
@@ -59,7 +54,19 @@ namespace SPDM.UI
                 epUser.SetError(txtUserName, "Can't empty");
                 iv = false;
             }
-            return iv;
+            if (!string.IsNullOrEmpty(txtUserName.Text))
+            {
+                UserBLL userBLL = new UserBLL();
+                string whereClause = "UserName= '" + txtUserName.Text + "'";
+
+                bool userNameExist = userBLL.Exist(whereClause);
+                if (userNameExist)
+                {
+                    txtUserName.Focus();
+                    epUser.SetError(txtUserName, "UserName already exists!");
+                    iv = false;
+                }
+            }
 
             if (txtPassword.Text == string.Empty)
             {
@@ -112,18 +119,27 @@ namespace SPDM.UI
         {
             if (e.ColumnIndex == 9)
             {
+                //userId = Convert.ToInt32(gvUser.Rows[e.RowIndex].Cells[0].Value);
+                //txtUserName.Text = Convert.ToString(gvUser.Rows[e.RowIndex].Cells[2].Value);
+                //txtPassword.Text = Convert.ToString(gvUser.Rows[e.RowIndex].Cells[3].Value);
+                //chkLockOutEnabled.Checked = false;
+                //chkIsActive.Checked = false;
                 userId = Convert.ToInt32(gvUser.Rows[e.RowIndex].Cells[0].Value);
-                txtUserName.Text = Convert.ToString(gvUser.Rows[e.RowIndex].Cells[2].Value);
-                txtPassword.Text = Convert.ToString(gvUser.Rows[e.RowIndex].Cells[3].Value);
-                chkLockOutEnabled.Checked = false;
-                chkIsActive.Checked = false;
-               
+                frmResetPassword myform = new frmResetPassword();
+                myform.ShowDialog();
+
 
             }
             else if (e.ColumnIndex == 10)
             {
-                var id = Convert.ToInt32(gvUser.Rows[e.RowIndex].Cells[0].Value);
-                DeleteUser(id);
+                //var id = Convert.ToInt32(gvUser.Rows[e.RowIndex].Cells[0].Value);
+                //DeleteUser(id);
+                if (MessageBox.Show("Are you sure you want to see InActive?", "InActive User", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.Yes)
+                {
+                    UserBLL userBLL = new UserBLL();
+                    userBLL.GetAll();
+                    LoadUser();
+                }
             }
         }
 

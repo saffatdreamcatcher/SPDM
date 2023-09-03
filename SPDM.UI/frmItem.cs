@@ -70,7 +70,7 @@ namespace SPDM.UI
         private void ClearField()
         {
             txtName.Text = string.Empty;
-            itemId = 0;
+            //itemId = 0;
             cboCategory.SelectedValue = string.Empty;
             txtNumber.Text = string.Empty;
             txtDescription.Text = string.Empty;
@@ -78,6 +78,8 @@ namespace SPDM.UI
             nUpPrice.Value = 0;
             nUpVatRate.Value = 0;
             chkIsBlocked.Checked = false;
+            txtPhotoFilePath.Text = string.Empty;
+            pictureBox1.Image = null;
             txtName.Focus();
 
         }
@@ -157,7 +159,8 @@ namespace SPDM.UI
             if (dialogResult == DialogResult.OK)
             {
                 txtPhotoFilePath.Text = oFDPhoto.FileName;
-
+                Image file = Image.FromFile(oFDPhoto.FileName);
+                pictureBox1.Image = file;
             }
         }
 
@@ -177,6 +180,7 @@ namespace SPDM.UI
             nUpPrice.Value = Convert.ToInt32(gridView1.GetFocusedRowCellValue("Price"));
             nUpVatRate.Value = Convert.ToInt32(gridView1.GetFocusedRowCellValue("VatRate"));
             chkIsBlocked.Checked = Convert.ToBoolean(gridView1.GetFocusedRowCellValue("IsBlocked"));
+          
 
             ItemBLL itemBLL = new ItemBLL();
             Item item = itemBLL.GetById(itemId);

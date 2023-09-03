@@ -23,8 +23,12 @@ namespace SPDM.BLL.BusinessLogic
             }
         }
 
-        public List<User> GetAll()
+        public List<User> GetAll(string whereClause = "")
         {
+            if (!string.IsNullOrEmpty(whereClause))
+            {
+                whereClause = " Where " + whereClause;
+            }
             try
             {
                 UserDLL userDLL = new UserDLL();
@@ -62,6 +66,19 @@ namespace SPDM.BLL.BusinessLogic
                 throw ex;
             }
 
+        }
+
+        public bool Exist(string whereClause = "")
+        {
+            try
+            {
+                UserDLL userDLL = new UserDLL();
+                return userDLL.Exist(whereClause);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public int Delete(int id)
