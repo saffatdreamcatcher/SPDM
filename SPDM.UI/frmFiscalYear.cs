@@ -58,7 +58,7 @@ namespace SPDM.UI
         private bool isFiscalYearValid()
         {
             Boolean iv = true;
-            if (Convert.ToInt32(comboBox1.SelectedValue) == 0)
+            if (Convert.ToInt32(comboBox1.SelectedIndex) == -1)
             {
                 comboBox1.Focus();
                 eP.SetError(comboBox1, "Fisacl Year Can't be empty");
@@ -69,16 +69,19 @@ namespace SPDM.UI
 
         private void SaveFiscalYear()
         {
+            bool isValid = isFiscalYearValid();
+            if (isValid)
+            {
+                FiscalYear fiscalYear = new FiscalYear();
+                fiscalYear.Id = fiscalYearId;
+                fiscalYear.UserId = Global.Userid;
+                fiscalYear.Year = comboBox1.SelectedItem.ToString();
 
-            FiscalYear fiscalYear = new FiscalYear();
-            fiscalYear.Id = fiscalYearId;
-            fiscalYear.UserId = Global.Userid;
-            fiscalYear.Year = comboBox1.SelectedItem.ToString();
-
-            FiscalYearBLL fiscalYearBLL = new FiscalYearBLL();
-            fiscalYearBLL.Save(fiscalYear);
-            fiscalYearId = fiscalYear.Id;
-            Global.FiscalYear = fiscalYear.Year;
+                FiscalYearBLL fiscalYearBLL = new FiscalYearBLL();
+                fiscalYearBLL.Save(fiscalYear);
+                fiscalYearId = fiscalYear.Id;
+                Global.FiscalYear = fiscalYear.Year;
+            }
 
         }
     }
