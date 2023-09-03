@@ -75,10 +75,7 @@ namespace SPDM.BLL.BusinessLogic
 
         public List<WorkOrder> GetAll(string whereClause = "")
         {
-            if (!string.IsNullOrEmpty(whereClause))
-            {
-                whereClause = " Where " + whereClause;
-            }
+           
             try
             {
                 

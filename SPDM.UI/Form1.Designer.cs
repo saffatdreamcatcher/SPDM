@@ -32,6 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.wizardControl1 = new DevExpress.XtraWizard.WizardControl();
             this.wizardPage1 = new DevExpress.XtraWizard.WizardPage();
+            this.btnClose = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtWorkOrderNo = new System.Windows.Forms.TextBox();
@@ -140,7 +141,6 @@
             this.label28 = new System.Windows.Forms.Label();
             this.wizardPage3 = new DevExpress.XtraWizard.WizardPage();
             this.eP = new System.Windows.Forms.ErrorProvider(this.components);
-            this.btnClose = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.wizardControl1)).BeginInit();
             this.wizardControl1.SuspendLayout();
             this.wizardPage1.SuspendLayout();
@@ -244,6 +244,16 @@
             this.wizardPage1.Name = "wizardPage1";
             this.wizardPage1.Size = new System.Drawing.Size(1415, 865);
             this.wizardPage1.Text = "Sale";
+            // 
+            // btnClose
+            // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.Location = new System.Drawing.Point(1382, 12);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(30, 23);
+            this.btnClose.TabIndex = 122;
+            this.btnClose.Text = "X";
+            this.btnClose.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
@@ -1330,15 +1340,6 @@
             // eP
             // 
             this.eP.ContainerControl = this;
-            // 
-            // btnClose
-            // 
-            this.btnClose.Location = new System.Drawing.Point(1365, 12);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(30, 23);
-            this.btnClose.TabIndex = 122;
-            this.btnClose.Text = "X";
-            this.btnClose.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 

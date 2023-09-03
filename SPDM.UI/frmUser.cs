@@ -99,9 +99,9 @@ namespace SPDM.UI
             }
         }
 
-        private void DeleteUser(int id)
+        private void MarkAsInactive(int id)
         {
-            if (MessageBox.Show("Are you sure you want to delete this User?", "Delete User", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.Yes)
+            if (MessageBox.Show("Are you sure you want to inactive this User?", "Inactive User", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.Yes)
             {
                 UserBLL userBLL = new UserBLL();
                 userBLL.MarkAsInactive(id);
@@ -132,14 +132,8 @@ namespace SPDM.UI
             }
             else if (e.ColumnIndex == 10)
             {
-                //var id = Convert.ToInt32(gvUser.Rows[e.RowIndex].Cells[0].Value);
-                //DeleteUser(id);
-                if (MessageBox.Show("Are you sure you want to see InActive?", "InActive User", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.Yes)
-                {
-                    UserBLL userBLL = new UserBLL();
-                    userBLL.GetAll();
-                    LoadUser();
-                }
+                int id = Convert.ToInt32(gvUser.Rows[e.RowIndex].Cells[0].Value);
+                MarkAsInactive(id);
             }
         }
 

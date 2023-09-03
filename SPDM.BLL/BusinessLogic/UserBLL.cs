@@ -25,14 +25,11 @@ namespace SPDM.BLL.BusinessLogic
 
         public List<User> GetAll(string whereClause = "")
         {
-            if (!string.IsNullOrEmpty(whereClause))
-            {
-                whereClause = " Where " + whereClause;
-            }
+           
             try
             {
                 UserDLL userDLL = new UserDLL();
-                return userDLL.GetAll();
+                return userDLL.GetAll(whereClause);
             }
             catch (Exception ex)
             {

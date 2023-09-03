@@ -125,6 +125,10 @@ namespace SPDM.UI
             txtPostalCode.Text = Convert.ToString(gridView1.GetFocusedRowCellValue("PostalCode"));
             txtCountry.Text = Convert.ToString(gridView1.GetFocusedRowCellValue("Country"));
             txtMobileNo.Text = Convert.ToString(gridView1.GetFocusedRowCellValue("MobileNo"));
+            txtPhoneNo.Text = Convert.ToString(gridView1.GetFocusedRowCellValue("PhoneNo"));
+            txtFax.Text = Convert.ToString(gridView1.GetFocusedRowCellValue("Fax"));
+            txtEmail.Text = Convert.ToString(gridView1.GetFocusedRowCellValue("Email"));
+            txtNote.Text = Convert.ToString(gridView1.GetFocusedRowCellValue("Note"));
 
             PartyBLL partyBLL = new PartyBLL();
             Party party = partyBLL.GetById(partyId);
