@@ -28,11 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnSave = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.lblFiscalYear = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.eP = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.eP)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSave
@@ -84,6 +87,10 @@
             this.label1.TabIndex = 36;
             this.label1.Text = "Fiscal Year";
             // 
+            // eP
+            // 
+            this.eP.ContainerControl = this;
+            // 
             // frmFiscalYear
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -98,6 +105,7 @@
             this.Controls.Add(this.btnSave);
             this.Name = "frmFiscalYear";
             this.Load += new System.EventHandler(this.frmFiscalYear_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.eP)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -110,5 +118,6 @@
         private System.Windows.Forms.Label lblFiscalYear;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ErrorProvider eP;
     }
 }

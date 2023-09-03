@@ -55,6 +55,18 @@ namespace SPDM.UI
             LoadFiscalYear();
         }
 
+        private bool isFiscalYearValid()
+        {
+            Boolean iv = true;
+            if (Convert.ToInt32(comboBox1.SelectedValue) == 0)
+            {
+                comboBox1.Focus();
+                eP.SetError(comboBox1, "Fisacl Year Can't be empty");
+                iv = false;
+            }
+            return iv;
+        }
+
         private void SaveFiscalYear()
         {
 

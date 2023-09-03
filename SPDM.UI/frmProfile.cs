@@ -51,11 +51,18 @@ namespace SPDM.UI
                 pictureBox1.Image = image;
             }
             
+            
+            
         }
 
         private void SaveProfile()
         {
+            ProfileBLL profileBLL = new ProfileBLL();
             Profile profile = new Profile();
+            if(profileId > 0)
+            {
+                profile = profileBLL.GetById(profileId);
+            }
             profile.Id = profileId;
             profile.UserId = Global.Userid;
             profile.Name = txtName.Text;
@@ -70,9 +77,15 @@ namespace SPDM.UI
 
                 profile.Photo = picture;
             }
+            //else 
+            //{ 
+            //    Profile profile1 = profileBLL.GetById(profileId);
+            //    profile.Photo = profile1.Photo;
+            //}
 
-            ProfileBLL profileBLL = new ProfileBLL();
+            
             profileBLL.Save(profile);
+            txtPhotoPath.Text = String.Empty;
             MessageBox.Show("Profile saved successfully!");
             profileId = profile.Id;
             //ClearProfile();
