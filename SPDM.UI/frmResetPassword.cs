@@ -23,7 +23,7 @@ namespace SPDM.UI
         public void ShowDialog(int UserId)
         {
             userId = UserId;
-            this.ShowDialog(userId);
+            this.ShowDialog();
 
         }
         private void btnSave_Click(object sender, EventArgs e)

@@ -10,7 +10,7 @@ namespace SPDM.UI
     public partial class frmUser : Form
     {
         private int userId;
-        private int id;
+       
 
         public frmUser()
         {
@@ -124,9 +124,9 @@ namespace SPDM.UI
                 //txtPassword.Text = Convert.ToString(gvUser.Rows[e.RowIndex].Cells[3].Value);
                 //chkLockOutEnabled.Checked = false;
                 //chkIsActive.Checked = false;
-                userId = Convert.ToInt32(gvUser.Rows[e.RowIndex].Cells[0].Value);
+                int Id = Convert.ToInt32(gvUser.Rows[e.RowIndex].Cells[0].Value);
                 frmResetPassword myform = new frmResetPassword();
-                myform.ShowDialog();
+                myform.ShowDialog(Id);
 
 
             }
