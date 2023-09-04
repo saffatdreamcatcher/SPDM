@@ -27,15 +27,33 @@ namespace SPDM.UI
 
             UserBLL userBLL = new UserBLL();
             bool isExist = userBLL.UserExist(Global.Username, txtOldPassword.Text);
-            if(!isExist)
+            if (String.IsNullOrEmpty(txtOldPassword.Text))
+            {
+                txtOldPassword.Focus();
+                epChangePassword.SetError(txtOldPassword, "Old Password cant be empty!");
+                iv = false;
+            }
+            if (String.IsNullOrEmpty(txtNewPassword.Text))
+            {
+                txtNewPassword.Focus();
+                epChangePassword.SetError(txtNewPassword, "New Password cant be empty!");
+                iv = false;
+            }
+            if (String.IsNullOrEmpty(txtConfirmPassword.Text))
+            {
+                txtConfirmPassword.Focus();
+                epChangePassword.SetError(txtConfirmPassword, "Confirm Password cant be empty!");
+                iv = false;
+            }
+            if (!isExist)
             {
                 txtOldPassword.Focus();
                 epChangePassword.SetError(txtOldPassword, "Old Password doesnt match");
                 iv = false;
             }
-                
+          
 
-            if(txtNewPassword.Text != txtConfirmPassword.Text)
+            else if (txtNewPassword.Text != txtConfirmPassword.Text)
             { 
                 txtNewPassword.Focus();
                 epChangePassword.SetError(txtNewPassword, "NewPassword password and OldPassworddoesnt match");
