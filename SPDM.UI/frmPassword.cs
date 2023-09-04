@@ -51,12 +51,11 @@ namespace SPDM.UI
                 epChangePassword.SetError(txtOldPassword, "Old Password doesnt match");
                 iv = false;
             }
-          
 
             else if (txtNewPassword.Text != txtConfirmPassword.Text)
             { 
                 txtNewPassword.Focus();
-                epChangePassword.SetError(txtNewPassword, "NewPassword password and OldPassworddoesnt match");
+                epChangePassword.SetError(txtNewPassword, "NewPassword and OldPassword doesnt match");
                 iv = false;
             }
             return iv;

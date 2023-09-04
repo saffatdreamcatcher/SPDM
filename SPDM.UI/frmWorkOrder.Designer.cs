@@ -85,6 +85,12 @@
             this.cmoItemId = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.gvWorkOrderDetail = new System.Windows.Forms.DataGridView();
+            this.Edit = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.eP = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnSave = new System.Windows.Forms.Button();
+            this.label35 = new System.Windows.Forms.Label();
+            this.btnClose = new System.Windows.Forms.Button();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.createTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.updateTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -99,14 +105,8 @@
             this.totalExvatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalIncvatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isNewDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Edit = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewLinkColumn();
             this.workOrderDetailBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.eP = new System.Windows.Forms.ErrorProvider(this.components);
-            this.btnSave = new System.Windows.Forms.Button();
             this.workOrderDetailBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.label35 = new System.Windows.Forms.Label();
-            this.btnClose = new System.Windows.Forms.Button();
             this.gWorkOrder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nupVatPercent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupDiscountPercent)).BeginInit();
@@ -119,8 +119,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.nupLength)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupUnitPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvWorkOrderDetail)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.workOrderDetailBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.workOrderDetailBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.workOrderDetailBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -210,7 +210,7 @@
             // 
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(120, 41);
+            this.label26.Location = new System.Drawing.Point(120, 43);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(15, 20);
             this.label26.TabIndex = 45;
@@ -320,7 +320,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(694, 96);
+            this.label10.Location = new System.Drawing.Point(690, 99);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(42, 16);
             this.label10.TabIndex = 20;
@@ -426,7 +426,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(983, 43);
+            this.label4.Location = new System.Drawing.Point(979, 43);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(108, 16);
             this.label4.TabIndex = 6;
@@ -435,11 +435,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(684, 46);
+            this.label3.Location = new System.Drawing.Point(694, 45);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(52, 16);
+            this.label3.Size = new System.Drawing.Size(38, 16);
             this.label3.TabIndex = 4;
-            this.label3.Text = "Party Id";
+            this.label3.Text = "Party";
             // 
             // txtFiscalYear
             // 
@@ -467,7 +467,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(23, 45);
+            this.label1.Location = new System.Drawing.Point(18, 45);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(97, 16);
             this.label1.TabIndex = 0;
@@ -736,6 +736,60 @@
             this.gvWorkOrderDetail.TabIndex = 2;
             this.gvWorkOrderDetail.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvWorkOrderDetail_CellClick);
             // 
+            // Edit
+            // 
+            this.Edit.HeaderText = "Edit";
+            this.Edit.MinimumWidth = 6;
+            this.Edit.Name = "Edit";
+            this.Edit.Text = "Edit";
+            this.Edit.UseColumnTextForLinkValue = true;
+            this.Edit.Width = 80;
+            // 
+            // Delete
+            // 
+            this.Delete.HeaderText = "Delete";
+            this.Delete.MinimumWidth = 6;
+            this.Delete.Name = "Delete";
+            this.Delete.Text = "Delete";
+            this.Delete.UseColumnTextForLinkValue = true;
+            this.Delete.Width = 80;
+            // 
+            // eP
+            // 
+            this.eP.ContainerControl = this;
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(53, 738);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(83, 34);
+            this.btnSave.TabIndex = 3;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label35.ForeColor = System.Drawing.Color.Green;
+            this.label35.Location = new System.Drawing.Point(33, 20);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(100, 20);
+            this.label35.TabIndex = 4;
+            this.label35.Text = "WorkOrder";
+            // 
+            // btnClose
+            // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.Location = new System.Drawing.Point(1360, 0);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(33, 23);
+            this.btnClose.TabIndex = 5;
+            this.btnClose.Text = "X";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
             // idDataGridViewTextBoxColumn
             // 
             this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
@@ -856,67 +910,13 @@
             this.isNewDataGridViewCheckBoxColumn.Visible = false;
             this.isNewDataGridViewCheckBoxColumn.Width = 125;
             // 
-            // Edit
-            // 
-            this.Edit.HeaderText = "Edit";
-            this.Edit.MinimumWidth = 6;
-            this.Edit.Name = "Edit";
-            this.Edit.Text = "Edit";
-            this.Edit.UseColumnTextForLinkValue = true;
-            this.Edit.Width = 80;
-            // 
-            // Delete
-            // 
-            this.Delete.HeaderText = "Delete";
-            this.Delete.MinimumWidth = 6;
-            this.Delete.Name = "Delete";
-            this.Delete.Text = "Delete";
-            this.Delete.UseColumnTextForLinkValue = true;
-            this.Delete.Width = 80;
-            // 
             // workOrderDetailBindingSource1
             // 
             this.workOrderDetailBindingSource1.DataSource = typeof(SPDM.DLL.Entities.WorkOrderDetail);
             // 
-            // eP
-            // 
-            this.eP.ContainerControl = this;
-            // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(53, 738);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(83, 34);
-            this.btnSave.TabIndex = 3;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
             // workOrderDetailBindingSource
             // 
             this.workOrderDetailBindingSource.DataSource = typeof(SPDM.DLL.Entities.WorkOrderDetail);
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label35.ForeColor = System.Drawing.Color.Green;
-            this.label35.Location = new System.Drawing.Point(33, 20);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(148, 20);
-            this.label35.TabIndex = 4;
-            this.label35.Text = "New Work Order";
-            // 
-            // btnClose
-            // 
-            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.Location = new System.Drawing.Point(1360, 0);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(33, 23);
-            this.btnClose.TabIndex = 5;
-            this.btnClose.Text = "X";
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // frmWorkOrder
             // 
@@ -948,8 +948,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.nupLength)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupUnitPrice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvWorkOrderDetail)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.workOrderDetailBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.workOrderDetailBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.workOrderDetailBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

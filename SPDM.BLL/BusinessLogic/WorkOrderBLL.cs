@@ -135,6 +135,7 @@ namespace SPDM.BLL.BusinessLogic
         {
             string myConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
             DbManager dbManager = new DbManager(myConnectionString);
+            int result = 0;
             try
             {
                 dbManager.OpenTransaction();
@@ -149,7 +150,7 @@ namespace SPDM.BLL.BusinessLogic
                 }
 
                 WorkOrderDLL workorderDLL = new WorkOrderDLL(dbManager.Transaction);
-                return workorderDLL.Delete(id);
+                result = workorderDLL.Delete(id);
                 dbManager.CommitTransaction();
             }
             catch (Exception ex)
@@ -161,6 +162,7 @@ namespace SPDM.BLL.BusinessLogic
             {
                 dbManager.Dispose();
             }
+            return result;
         }
 
         public void SendToProduction(int workOrderId, int userId)

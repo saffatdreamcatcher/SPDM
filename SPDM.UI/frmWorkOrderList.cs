@@ -129,13 +129,23 @@ namespace SPDM.UI
 
         private void repositoryItemHyperLinkEdit2_ButtonPressed(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            if (MessageBox.Show("Are you sure you want to delete?", "Confirmation",MessageBoxButtons.YesNo, MessageBoxIcon.Question,MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+                
+            int workOrderId = Convert.ToInt32(gridView1.GetFocusedRowCellValue("Id"));
+            WorkOrderStatus workOrderStatus = (WorkOrderStatus)Enum.Parse(typeof(WorkOrderStatus), gridView1.GetFocusedRowCellValue("Status").ToString());
+            if (workOrderStatus == WorkOrderStatus.Placed)
             {
-                int workOrderId = Convert.ToInt32(gridView1.GetFocusedRowCellValue("Id"));
-                WorkOrderBLL workOrderBLL = new WorkOrderBLL();
-                workOrderBLL.Delete(workOrderId);
-                SearchWorkOrder();
+                if (MessageBox.Show("Are you sure you want to delete?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+                {
+                    WorkOrderBLL workOrderBLL = new WorkOrderBLL();
+                    workOrderBLL.Delete(workOrderId);
+                    SearchWorkOrder();
+                }
             }
+            else
+            {
+                MessageBox.Show("Cant delete, WorkOrder which status is only Placed can be deleted");
+            }
+            
             
         }
 
@@ -196,7 +206,7 @@ namespace SPDM.UI
                 }
 
                 sB.Append(" PartyId =");
-                sB.Append(cmoParty.SelectedIndex);
+                sB.Append(cmoParty.SelectedValue);
             }
 
             if (dEFromWorkOrderDate.EditValue != null)
