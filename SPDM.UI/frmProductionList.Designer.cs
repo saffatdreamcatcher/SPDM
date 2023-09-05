@@ -29,22 +29,23 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions4 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.productionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.productionBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colUpdateTime = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colUserId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colProductionNo = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colPartyName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colFiscalyear = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colPartyId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colWorkOrderId = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -63,6 +64,9 @@
             this.btnAddToStock = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.gcDelete = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemHyperLinkEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit();
+            this.colDiscountPercent1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colFiscalyear1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.productionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cmoParty = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -78,11 +82,13 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.btnReset = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productionBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productionBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAddToStock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dTPFromDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dTPFromDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dTPToDate.Properties)).BeginInit();
@@ -94,23 +100,23 @@
             this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gridControl1.DataSource = this.productionBindingSource;
-            this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(24);
-            this.gridControl1.Location = new System.Drawing.Point(14, 158);
+            this.gridControl1.DataSource = this.productionBindingSource1;
+            this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(75, 75, 75, 75);
+            this.gridControl1.Location = new System.Drawing.Point(54, 201);
             this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Margin = new System.Windows.Forms.Padding(24);
+            this.gridControl1.Margin = new System.Windows.Forms.Padding(75, 75, 75, 75);
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.btnAddToStock,
             this.repositoryItemHyperLinkEdit1});
-            this.gridControl1.Size = new System.Drawing.Size(1385, 408);
+            this.gridControl1.Size = new System.Drawing.Size(1695, 525);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
-            // productionBindingSource
+            // productionBindingSource1
             // 
-            this.productionBindingSource.DataSource = typeof(SPDM.DLL.Entities.Production);
+            this.productionBindingSource1.DataSource = typeof(SPDM.DLL.Entities.Production);
             // 
             // gridView1
             // 
@@ -118,6 +124,7 @@
             this.colUpdateTime,
             this.colUserId,
             this.colProductionNo,
+            this.colPartyName,
             this.colFiscalyear,
             this.colPartyId,
             this.colWorkOrderId,
@@ -133,8 +140,10 @@
             this.colIsNew,
             this.colCreateTime,
             this.gCAddToStock,
-            this.gcDelete});
-            this.gridView1.DetailHeight = 2600;
+            this.gcDelete,
+            this.colDiscountPercent1,
+            this.colFiscalyear1});
+            this.gridView1.DetailHeight = 7932;
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.MasterRowEmpty += new DevExpress.XtraGrid.Views.Grid.MasterRowEmptyEventHandler(this.gridView1_MasterRowEmpty);
@@ -145,154 +154,163 @@
             // colUpdateTime
             // 
             this.colUpdateTime.FieldName = "UpdateTime";
-            this.colUpdateTime.MinWidth = 120;
+            this.colUpdateTime.MinWidth = 365;
             this.colUpdateTime.Name = "colUpdateTime";
-            this.colUpdateTime.Width = 694;
+            this.colUpdateTime.Width = 2117;
             // 
             // colUserId
             // 
             this.colUserId.FieldName = "UserId";
-            this.colUserId.MinWidth = 120;
+            this.colUserId.MinWidth = 365;
             this.colUserId.Name = "colUserId";
-            this.colUserId.Width = 694;
+            this.colUserId.Width = 2117;
             // 
             // colProductionNo
             // 
             this.colProductionNo.FieldName = "ProductionNo";
-            this.colProductionNo.MinWidth = 186;
+            this.colProductionNo.MinWidth = 565;
             this.colProductionNo.Name = "colProductionNo";
             this.colProductionNo.Visible = true;
             this.colProductionNo.VisibleIndex = 0;
-            this.colProductionNo.Width = 694;
+            this.colProductionNo.Width = 2117;
+            // 
+            // colPartyName
+            // 
+            this.colPartyName.FieldName = "PartyName";
+            this.colPartyName.MinWidth = 39;
+            this.colPartyName.Name = "colPartyName";
+            this.colPartyName.Visible = true;
+            this.colPartyName.VisibleIndex = 1;
+            this.colPartyName.Width = 146;
             // 
             // colFiscalyear
             // 
             this.colFiscalyear.FieldName = "Fiscalyear";
-            this.colFiscalyear.MinWidth = 140;
+            this.colFiscalyear.MinWidth = 427;
             this.colFiscalyear.Name = "colFiscalyear";
             this.colFiscalyear.Visible = true;
-            this.colFiscalyear.VisibleIndex = 1;
-            this.colFiscalyear.Width = 694;
+            this.colFiscalyear.VisibleIndex = 2;
+            this.colFiscalyear.Width = 2117;
             // 
             // colPartyId
             // 
             this.colPartyId.FieldName = "PartyId";
-            this.colPartyId.MinWidth = 186;
+            this.colPartyId.MinWidth = 565;
             this.colPartyId.Name = "colPartyId";
-            this.colPartyId.Width = 694;
+            this.colPartyId.Width = 2117;
             // 
             // colWorkOrderId
             // 
             this.colWorkOrderId.FieldName = "WorkOrderId";
-            this.colWorkOrderId.MinWidth = 120;
+            this.colWorkOrderId.MinWidth = 365;
             this.colWorkOrderId.Name = "colWorkOrderId";
-            this.colWorkOrderId.Width = 694;
+            this.colWorkOrderId.Width = 2117;
             // 
             // colWorkOrderDate
             // 
             this.colWorkOrderDate.DisplayFormat.FormatString = "dd/MM/yyyy";
             this.colWorkOrderDate.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.colWorkOrderDate.FieldName = "WorkOrderDate";
-            this.colWorkOrderDate.MinWidth = 120;
+            this.colWorkOrderDate.MinWidth = 365;
             this.colWorkOrderDate.Name = "colWorkOrderDate";
             this.colWorkOrderDate.Visible = true;
-            this.colWorkOrderDate.VisibleIndex = 2;
-            this.colWorkOrderDate.Width = 694;
+            this.colWorkOrderDate.VisibleIndex = 3;
+            this.colWorkOrderDate.Width = 2117;
             // 
             // colTotalExvat
             // 
             this.colTotalExvat.FieldName = "TotalExvat";
-            this.colTotalExvat.MinWidth = 120;
+            this.colTotalExvat.MinWidth = 365;
             this.colTotalExvat.Name = "colTotalExvat";
-            this.colTotalExvat.Width = 694;
+            this.colTotalExvat.Width = 2117;
             // 
             // colTotalIncvat
             // 
             this.colTotalIncvat.FieldName = "TotalIncvat";
-            this.colTotalIncvat.MinWidth = 140;
+            this.colTotalIncvat.MinWidth = 427;
             this.colTotalIncvat.Name = "colTotalIncvat";
             this.colTotalIncvat.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count, "TotalIncvat", "{0}")});
             this.colTotalIncvat.Visible = true;
-            this.colTotalIncvat.VisibleIndex = 3;
-            this.colTotalIncvat.Width = 694;
+            this.colTotalIncvat.VisibleIndex = 4;
+            this.colTotalIncvat.Width = 2117;
             // 
             // colDiscount
             // 
             this.colDiscount.FieldName = "Discount";
-            this.colDiscount.MinWidth = 140;
+            this.colDiscount.MinWidth = 427;
             this.colDiscount.Name = "colDiscount";
-            this.colDiscount.Width = 694;
+            this.colDiscount.Width = 2117;
             // 
             // colDiscountPercent
             // 
             this.colDiscountPercent.FieldName = "DiscountPercent";
-            this.colDiscountPercent.MinWidth = 140;
+            this.colDiscountPercent.MinWidth = 427;
             this.colDiscountPercent.Name = "colDiscountPercent";
             this.colDiscountPercent.Visible = true;
-            this.colDiscountPercent.VisibleIndex = 4;
-            this.colDiscountPercent.Width = 694;
+            this.colDiscountPercent.VisibleIndex = 5;
+            this.colDiscountPercent.Width = 2117;
             // 
             // colVatPercent
             // 
             this.colVatPercent.FieldName = "VatPercent";
-            this.colVatPercent.MinWidth = 120;
+            this.colVatPercent.MinWidth = 365;
             this.colVatPercent.Name = "colVatPercent";
             this.colVatPercent.Visible = true;
-            this.colVatPercent.VisibleIndex = 5;
-            this.colVatPercent.Width = 694;
+            this.colVatPercent.VisibleIndex = 6;
+            this.colVatPercent.Width = 2117;
             // 
             // colStatus
             // 
             this.colStatus.FieldName = "Status";
-            this.colStatus.MinWidth = 120;
+            this.colStatus.MinWidth = 365;
             this.colStatus.Name = "colStatus";
-            this.colStatus.Width = 694;
+            this.colStatus.Width = 2117;
             // 
             // colNote
             // 
             this.colNote.FieldName = "Note";
-            this.colNote.MinWidth = 120;
+            this.colNote.MinWidth = 365;
             this.colNote.Name = "colNote";
-            this.colNote.Width = 694;
+            this.colNote.Width = 2117;
             // 
             // colId
             // 
             this.colId.FieldName = "Id";
-            this.colId.MinWidth = 120;
+            this.colId.MinWidth = 365;
             this.colId.Name = "colId";
-            this.colId.Width = 694;
+            this.colId.Width = 2117;
             // 
             // colIsNew
             // 
             this.colIsNew.FieldName = "IsNew";
-            this.colIsNew.MinWidth = 120;
+            this.colIsNew.MinWidth = 365;
             this.colIsNew.Name = "colIsNew";
             this.colIsNew.OptionsColumn.ReadOnly = true;
-            this.colIsNew.Width = 694;
+            this.colIsNew.Width = 2117;
             // 
             // colCreateTime
             // 
             this.colCreateTime.FieldName = "CreateTime";
-            this.colCreateTime.MinWidth = 120;
+            this.colCreateTime.MinWidth = 365;
             this.colCreateTime.Name = "colCreateTime";
             this.colCreateTime.OptionsColumn.ReadOnly = true;
-            this.colCreateTime.Width = 694;
+            this.colCreateTime.Width = 2117;
             // 
             // gCAddToStock
             // 
             this.gCAddToStock.ColumnEdit = this.btnAddToStock;
-            this.gCAddToStock.MinWidth = 140;
+            this.gCAddToStock.MinWidth = 427;
             this.gCAddToStock.Name = "gCAddToStock";
             this.gCAddToStock.Visible = true;
-            this.gCAddToStock.VisibleIndex = 6;
-            this.gCAddToStock.Width = 555;
+            this.gCAddToStock.VisibleIndex = 7;
+            this.gCAddToStock.Width = 1694;
             // 
             // btnAddToStock
             // 
             this.btnAddToStock.AutoHeight = false;
             this.btnAddToStock.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Add To Stock", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Add To Stock", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.btnAddToStock.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.btnAddToStock.Name = "btnAddToStock";
             this.btnAddToStock.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
@@ -302,17 +320,17 @@
             // 
             this.gcDelete.Caption = "Delete";
             this.gcDelete.ColumnEdit = this.repositoryItemHyperLinkEdit1;
-            this.gcDelete.MinWidth = 120;
+            this.gcDelete.MinWidth = 365;
             this.gcDelete.Name = "gcDelete";
             this.gcDelete.Visible = true;
-            this.gcDelete.VisibleIndex = 7;
-            this.gcDelete.Width = 284;
+            this.gcDelete.VisibleIndex = 8;
+            this.gcDelete.Width = 867;
             // 
             // repositoryItemHyperLinkEdit1
             // 
             this.repositoryItemHyperLinkEdit1.AutoHeight = false;
             this.repositoryItemHyperLinkEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Delete", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Delete", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.repositoryItemHyperLinkEdit1.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.repositoryItemHyperLinkEdit1.Caption = "Delete";
             this.repositoryItemHyperLinkEdit1.ExportMode = DevExpress.XtraEditors.Repository.ExportMode.Value;
@@ -321,18 +339,41 @@
             this.repositoryItemHyperLinkEdit1.NullValuePrompt = "Delete";
             this.repositoryItemHyperLinkEdit1.Click += new System.EventHandler(this.repositoryItemHyperLinkEdit1_Click);
             // 
+            // colDiscountPercent1
+            // 
+            this.colDiscountPercent1.FieldName = "DiscountPercent";
+            this.colDiscountPercent1.MinWidth = 39;
+            this.colDiscountPercent1.Name = "colDiscountPercent1";
+            this.colDiscountPercent1.Visible = true;
+            this.colDiscountPercent1.VisibleIndex = 9;
+            this.colDiscountPercent1.Width = 146;
+            // 
+            // colFiscalyear1
+            // 
+            this.colFiscalyear1.FieldName = "Fiscalyear";
+            this.colFiscalyear1.MinWidth = 39;
+            this.colFiscalyear1.Name = "colFiscalyear1";
+            this.colFiscalyear1.Visible = true;
+            this.colFiscalyear1.VisibleIndex = 10;
+            this.colFiscalyear1.Width = 146;
+            // 
+            // productionBindingSource
+            // 
+            this.productionBindingSource.DataSource = typeof(SPDM.DLL.Entities.Production);
+            // 
             // cmoParty
             // 
+            this.cmoParty.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmoParty.FormattingEnabled = true;
-            this.cmoParty.Location = new System.Drawing.Point(427, 55);
+            this.cmoParty.Location = new System.Drawing.Point(413, 55);
             this.cmoParty.Name = "cmoParty";
-            this.cmoParty.Size = new System.Drawing.Size(215, 24);
+            this.cmoParty.Size = new System.Drawing.Size(188, 24);
             this.cmoParty.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(369, 56);
+            this.label1.Location = new System.Drawing.Point(348, 58);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(38, 16);
             this.label1.TabIndex = 3;
@@ -350,20 +391,20 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(969, 56);
+            this.label6.Location = new System.Drawing.Point(946, 62);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(56, 16);
+            this.label6.Size = new System.Drawing.Size(117, 16);
             this.label6.TabIndex = 17;
-            this.label6.Text = "To Date";
+            this.label6.Text = "ToProductionDate";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(648, 58);
+            this.label5.Location = new System.Drawing.Point(631, 60);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(70, 16);
+            this.label5.Size = new System.Drawing.Size(134, 16);
             this.label5.TabIndex = 15;
-            this.label5.Text = "From Date";
+            this.label5.Text = "From ProductionDate";
             // 
             // btnSearch
             // 
@@ -379,7 +420,7 @@
             // 
             this.txtProduction.Location = new System.Drawing.Point(139, 56);
             this.txtProduction.Name = "txtProduction";
-            this.txtProduction.Size = new System.Drawing.Size(198, 22);
+            this.txtProduction.Size = new System.Drawing.Size(188, 22);
             this.txtProduction.TabIndex = 19;
             // 
             // btnClose
@@ -396,8 +437,8 @@
             // dTPFromDate
             // 
             this.dTPFromDate.EditValue = null;
-            this.dTPFromDate.Location = new System.Drawing.Point(745, 55);
-            this.dTPFromDate.Margin = new System.Windows.Forms.Padding(10);
+            this.dTPFromDate.Location = new System.Drawing.Point(1831, 135);
+            this.dTPFromDate.Margin = new System.Windows.Forms.Padding(30, 30, 30, 30);
             this.dTPFromDate.Name = "dTPFromDate";
             this.dTPFromDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -406,14 +447,14 @@
             this.dTPFromDate.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
             this.dTPFromDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dTPFromDate.Properties.MaskSettings.Set("mask", "dd/MM/yyyy");
-            this.dTPFromDate.Size = new System.Drawing.Size(211, 22);
+            this.dTPFromDate.Size = new System.Drawing.Size(578, 22);
             this.dTPFromDate.TabIndex = 37;
             // 
             // dTPToDate
             // 
             this.dTPToDate.EditValue = null;
-            this.dTPToDate.Location = new System.Drawing.Point(1057, 54);
-            this.dTPToDate.Margin = new System.Windows.Forms.Padding(10);
+            this.dTPToDate.Location = new System.Drawing.Point(2569, 132);
+            this.dTPToDate.Margin = new System.Windows.Forms.Padding(30, 30, 30, 30);
             this.dTPToDate.Name = "dTPToDate";
             this.dTPToDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -422,14 +463,14 @@
             this.dTPToDate.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
             this.dTPToDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dTPToDate.Properties.MaskSettings.Set("mask", "dd/MM/yyyy");
-            this.dTPToDate.Size = new System.Drawing.Size(226, 22);
+            this.dTPToDate.Size = new System.Drawing.Size(588, 22);
             this.dTPToDate.TabIndex = 38;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(1029, 56);
+            this.label3.Location = new System.Drawing.Point(1079, 60);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(15, 20);
             this.label3.TabIndex = 41;
@@ -439,7 +480,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(724, 56);
+            this.label8.Location = new System.Drawing.Point(771, 59);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(15, 20);
             this.label8.TabIndex = 40;
@@ -449,7 +490,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(406, 56);
+            this.label4.Location = new System.Drawing.Point(392, 55);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(15, 20);
             this.label4.TabIndex = 39;
@@ -459,7 +500,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(118, 56);
+            this.label7.Location = new System.Drawing.Point(118, 57);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(15, 20);
             this.label7.TabIndex = 42;
@@ -476,6 +517,16 @@
             this.label9.TabIndex = 43;
             this.label9.Text = "ProductionList";
             // 
+            // btnReset
+            // 
+            this.btnReset.Location = new System.Drawing.Point(1308, 116);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(91, 39);
+            this.btnReset.TabIndex = 54;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
             // frmProductionList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -483,6 +534,7 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1429, 639);
             this.ControlBox = false;
+            this.Controls.Add(this.btnReset);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label3);
@@ -500,13 +552,13 @@
             this.Controls.Add(this.cmoParty);
             this.Controls.Add(this.gridControl1);
             this.Name = "frmProductionList";
-            this.Text = "frmProductionList";
             this.Load += new System.EventHandler(this.frmProductionList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productionBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productionBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAddToStock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productionBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dTPFromDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dTPFromDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dTPToDate.Properties.CalendarTimeProperties)).EndInit();
@@ -557,5 +609,10 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.BindingSource productionBindingSource1;
+        private DevExpress.XtraGrid.Columns.GridColumn colPartyName;
+        private DevExpress.XtraGrid.Columns.GridColumn colDiscountPercent1;
+        private DevExpress.XtraGrid.Columns.GridColumn colFiscalyear1;
+        private System.Windows.Forms.Button btnReset;
     }
 }

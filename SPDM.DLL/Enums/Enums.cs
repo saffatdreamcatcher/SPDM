@@ -10,7 +10,7 @@ namespace SPDM.DLL.Enums
     {
         Placed = 1,
         InProduction,
-        ReadyForStock,
+        //ReadyForStock,
         InStock,
         Sold,
         Recevied

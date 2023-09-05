@@ -91,7 +91,9 @@ namespace SPDM.DLL.Repositories
                 SqlCommand comm = sqlConnection.CreateCommand();
                 comm.Transaction = sqlTransaction;
 
-                comm.CommandText = "Select * from Production" + whereClause;
+                //comm.CommandText = "Select * from Production" + whereClause;
+                comm.CommandText = "Select Production.*, Party.Name AS PartyName from Party " +
+                                   "inner join Production on Production.PartyId = Party.Id" + whereClause;
                 using (SqlDataReader reader = comm.ExecuteReader())
                 {
                     while (reader != null && reader.Read())
@@ -141,6 +143,7 @@ namespace SPDM.DLL.Repositories
                             production.VatPercent = Convert.ToDouble(reader["VatPercent"]);
                         }
                         production.Note = reader["Note"] is DBNull ? null : reader["Note"].ToString();
+                        production.PartyName = reader["PartyName"].ToString();
                         productions.Add(production);
                     }
                 }
@@ -176,7 +179,9 @@ namespace SPDM.DLL.Repositories
                 SqlCommand comm = sqlConnection.CreateCommand();
                 comm.Transaction = sqlTransaction;
 
-                comm.CommandText = "Select * from Production where id = " + id;
+                //comm.CommandText = "Select * from Production where id = " + id;
+                comm.CommandText = "Select Production.*, Party.Name AS PartyName from Party " +
+                                    "inner join Production on Production.PartyId = Party.Id and Production.Id= " + id;
                 using (SqlDataReader reader = comm.ExecuteReader())
                 {
                     while (reader != null && reader.Read())
@@ -228,6 +233,7 @@ namespace SPDM.DLL.Repositories
                         }
 
                         production.Note = reader["Note"] is DBNull ? null : reader["Note"].ToString();
+                        production.PartyName = reader["PartyName"].ToString();
                     }
 
 

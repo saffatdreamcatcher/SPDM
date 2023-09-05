@@ -208,10 +208,13 @@ namespace SPDM.UI
             }
             else if (e.ColumnIndex == 15)
             {
-                int rowindex = e.RowIndex;
-                workOrderDetails.RemoveAt(rowindex);
-                gvWorkOrderDetail.DataSource = workOrderDetails;
-                CalculateTotalPrice();
+                if (MessageBox.Show("Are you sure you want to delete the WorkOrder?", "Delete WorkOrder", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.Yes)
+                {
+                    int rowindex = e.RowIndex;
+                    workOrderDetails.RemoveAt(rowindex);
+                    gvWorkOrderDetail.DataSource = workOrderDetails;
+                    CalculateTotalPrice();
+                }
             }
 
 
@@ -333,7 +336,7 @@ namespace SPDM.UI
         {
             workorderdId = 0;
             txtWorkOrderNo.Text = String.Empty;
-            txtFiscalYear.Text = String.Empty;
+            //txtFiscalYear.Text = String.Empty;
             cmoPartyId.SelectedValue = -1;
             dtpWorkOrderDate.Value = DateTime.Today;
             dtpDeliveryDate.Value = DateTime.Today;
@@ -392,6 +395,7 @@ namespace SPDM.UI
         {
             Save(); 
         }
+
         private void Save()
         {
             bool isValid = IsWorkOrderValid();
@@ -424,7 +428,8 @@ namespace SPDM.UI
                 List<WorkOrderDetail> workOrderDetails1 = workOrderDetails.ToList();
                 WorkOrderBLL workOrderBLL = new WorkOrderBLL();
                 workOrderBLL.Save(workOrder, workOrderDetails1);
-
+                MessageBox.Show("WorkOrder saved successfully!");
+                gvWorkOrderDetail.Refresh();
                 ClearWorkOrderFields();
                 GenerateWorkOrderNo();
 

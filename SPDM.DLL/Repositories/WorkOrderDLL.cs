@@ -88,7 +88,9 @@ namespace SPDM.DLL.Repositories
                 SqlCommand comm = sqlConnection.CreateCommand();
                 comm.Transaction = sqlTransaction;
 
-                comm.CommandText = "Select * from  WorkOrder " + whereClause;
+                //comm.CommandText = "Select * from  WorkOrder " + whereClause;
+                comm.CommandText = "Select WorkOrder.*, Party.Name  AS PartyName from Party " +
+                                    "inner join WorkOrder on WorkOrder.PartyId = Party.Id " + whereClause;
                 using (SqlDataReader reader = comm.ExecuteReader())
                 {
                     while (reader != null && reader.Read())
@@ -126,6 +128,7 @@ namespace SPDM.DLL.Repositories
 
                         workorder.Status = (WorkOrderStatus)Convert.ToInt32(reader["Status"]);
                         workorder.Note = reader["Note"] is DBNull ? null : reader["Note"].ToString();
+                        workorder.PartyName = reader["PartyName"].ToString();
                         workorders.Add(workorder);
                     }
                 }
@@ -161,7 +164,9 @@ namespace SPDM.DLL.Repositories
                 SqlCommand comm = sqlConnection.CreateCommand();
                 comm.Transaction = sqlTransaction;
 
-                comm.CommandText = "Select * from WorkOrder where id = " + id;
+                //comm.CommandText = "Select * from WorkOrder where id = " + id;
+                comm.CommandText = "Select WorkOrder.*, Party.Name  AS PartyName from Party " +
+                                    "inner join WorkOrder on WorkOrder.PartyId = Party.Id and WorkOrder.Id= " + id;
                 using (SqlDataReader reader = comm.ExecuteReader())
                 {
                     while (reader != null && reader.Read())
@@ -198,6 +203,7 @@ namespace SPDM.DLL.Repositories
 
                         workorder.Status = (WorkOrderStatus)Convert.ToInt32(reader["Status"]);
                         workorder.Note = reader["Note"] is DBNull ? null : reader["Note"].ToString();
+                        workorder.PartyName = reader["PartyName"].ToString();
 
                     }
                 }

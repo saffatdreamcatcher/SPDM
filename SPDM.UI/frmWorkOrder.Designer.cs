@@ -312,6 +312,11 @@
             // nupVatPercent
             // 
             this.nupVatPercent.Location = new System.Drawing.Point(752, 94);
+            this.nupVatPercent.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            131072});
             this.nupVatPercent.Name = "nupVatPercent";
             this.nupVatPercent.Size = new System.Drawing.Size(211, 22);
             this.nupVatPercent.TabIndex = 21;
@@ -329,6 +334,11 @@
             // nupDiscountPercent
             // 
             this.nupDiscountPercent.Location = new System.Drawing.Point(450, 97);
+            this.nupDiscountPercent.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            131072});
             this.nupDiscountPercent.Name = "nupDiscountPercent";
             this.nupDiscountPercent.Size = new System.Drawing.Size(201, 22);
             this.nupDiscountPercent.TabIndex = 19;
@@ -348,10 +358,10 @@
             this.nupTotalIncVat.Enabled = false;
             this.nupTotalIncVat.Location = new System.Drawing.Point(141, 154);
             this.nupTotalIncVat.Maximum = new decimal(new int[] {
-            -1981284352,
-            -1966660860,
-            0,
-            0});
+            -559939485,
+            902409669,
+            54,
+            131072});
             this.nupTotalIncVat.Name = "nupTotalIncVat";
             this.nupTotalIncVat.Size = new System.Drawing.Size(199, 22);
             this.nupTotalIncVat.TabIndex = 15;
@@ -370,10 +380,10 @@
             this.nupTotalexVat.Enabled = false;
             this.nupTotalexVat.Location = new System.Drawing.Point(1113, 92);
             this.nupTotalexVat.Maximum = new decimal(new int[] {
-            -1486618624,
-            232830643,
+            -727379969,
+            232,
             0,
-            0});
+            131072});
             this.nupTotalexVat.Name = "nupTotalexVat";
             this.nupTotalexVat.Size = new System.Drawing.Size(201, 22);
             this.nupTotalexVat.TabIndex = 13;
@@ -576,10 +586,10 @@
             // 
             this.nupUnit.Location = new System.Drawing.Point(450, 37);
             this.nupUnit.Maximum = new decimal(new int[] {
-            1000000,
+            -727379869,
+            232,
             0,
-            0,
-            0});
+            131072});
             this.nupUnit.Name = "nupUnit";
             this.nupUnit.Size = new System.Drawing.Size(201, 22);
             this.nupUnit.TabIndex = 37;
@@ -598,10 +608,10 @@
             // 
             this.nupVatPercent1.Location = new System.Drawing.Point(450, 107);
             this.nupVatPercent1.Maximum = new decimal(new int[] {
-            1000000,
+            9999,
             0,
             0,
-            0});
+            131072});
             this.nupVatPercent1.Name = "nupVatPercent1";
             this.nupVatPercent1.Size = new System.Drawing.Size(201, 22);
             this.nupVatPercent1.TabIndex = 34;
@@ -619,10 +629,10 @@
             // 
             this.nupDiscountPercent1.Location = new System.Drawing.Point(141, 107);
             this.nupDiscountPercent1.Maximum = new decimal(new int[] {
-            100000,
+            9999,
             0,
             0,
-            0});
+            131072});
             this.nupDiscountPercent1.Name = "nupDiscountPercent1";
             this.nupDiscountPercent1.Size = new System.Drawing.Size(199, 22);
             this.nupDiscountPercent1.TabIndex = 32;
@@ -640,10 +650,10 @@
             // 
             this.nupLength.Location = new System.Drawing.Point(1113, 32);
             this.nupLength.Maximum = new decimal(new int[] {
-            10000,
+            -1530494877,
+            232830,
             0,
-            0,
-            0});
+            131072});
             this.nupLength.Name = "nupLength";
             this.nupLength.Size = new System.Drawing.Size(201, 22);
             this.nupLength.TabIndex = 24;
@@ -661,10 +671,10 @@
             // 
             this.nupUnitPrice.Location = new System.Drawing.Point(755, 32);
             this.nupUnitPrice.Maximum = new decimal(new int[] {
-            1000000,
+            276447331,
+            23283,
             0,
-            0,
-            0});
+            131072});
             this.nupUnitPrice.Name = "nupUnitPrice";
             this.nupUnitPrice.Size = new System.Drawing.Size(208, 22);
             this.nupUnitPrice.TabIndex = 22;

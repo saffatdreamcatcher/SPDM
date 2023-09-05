@@ -178,5 +178,18 @@ namespace SPDM.UI
                 SearchProduction();
             }
         }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            ClearSearch();
+            SearchProduction();
+        }
+
+        private void ClearSearch()
+        {
+            txtProduction.Text = string.Empty;
+            cmoParty.SelectedIndex = 0;
+            gridControl1.Refresh();
+        }
     }
 }

@@ -239,16 +239,16 @@
             // gridControl1
             // 
             this.gridControl1.DataSource = this.categoryBindingSource;
-            this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(8);
-            this.gridControl1.Location = new System.Drawing.Point(106, 303);
+            this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.gridControl1.Location = new System.Drawing.Point(106, 273);
             this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Margin = new System.Windows.Forms.Padding(8);
-            this.gridControl1.MaximumSize = new System.Drawing.Size(1104, 400);
+            this.gridControl1.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.gridControl1.MaximumSize = new System.Drawing.Size(1380, 500);
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemHyperLinkEdit1,
             this.repositoryItemHyperLinkEdit2});
-            this.gridControl1.Size = new System.Drawing.Size(1104, 355);
+            this.gridControl1.Size = new System.Drawing.Size(1117, 394);
             this.gridControl1.TabIndex = 39;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -268,69 +268,69 @@
             this.colCreateTime,
             this.gcEdit,
             this.gcDelete});
-            this.gridView1.DetailHeight = 682;
+            this.gridView1.DetailHeight = 852;
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             // 
             // colName
             // 
             this.colName.FieldName = "Name";
-            this.colName.MinWidth = 49;
+            this.colName.MinWidth = 61;
             this.colName.Name = "colName";
             this.colName.Visible = true;
             this.colName.VisibleIndex = 0;
-            this.colName.Width = 233;
+            this.colName.Width = 291;
             // 
             // colDescription
             // 
             this.colDescription.FieldName = "Description";
-            this.colDescription.MinWidth = 49;
+            this.colDescription.MinWidth = 61;
             this.colDescription.Name = "colDescription";
             this.colDescription.Visible = true;
             this.colDescription.VisibleIndex = 1;
-            this.colDescription.Width = 233;
+            this.colDescription.Width = 291;
             // 
             // colPhoto
             // 
             this.colPhoto.FieldName = "Photo";
-            this.colPhoto.MinWidth = 49;
+            this.colPhoto.MinWidth = 61;
             this.colPhoto.Name = "colPhoto";
             this.colPhoto.Visible = true;
             this.colPhoto.VisibleIndex = 2;
-            this.colPhoto.Width = 233;
+            this.colPhoto.Width = 291;
             // 
             // colId
             // 
             this.colId.FieldName = "Id";
-            this.colId.MinWidth = 49;
+            this.colId.MinWidth = 61;
             this.colId.Name = "colId";
-            this.colId.Width = 182;
+            this.colId.Width = 227;
             // 
             // colIsNew
             // 
             this.colIsNew.FieldName = "IsNew";
-            this.colIsNew.MinWidth = 49;
+            this.colIsNew.MinWidth = 61;
             this.colIsNew.Name = "colIsNew";
             this.colIsNew.OptionsColumn.ReadOnly = true;
-            this.colIsNew.Width = 182;
+            this.colIsNew.Width = 227;
             // 
             // colCreateTime
             // 
             this.colCreateTime.FieldName = "CreateTime";
-            this.colCreateTime.MinWidth = 49;
+            this.colCreateTime.MinWidth = 61;
             this.colCreateTime.Name = "colCreateTime";
             this.colCreateTime.OptionsColumn.ReadOnly = true;
-            this.colCreateTime.Width = 182;
+            this.colCreateTime.Width = 227;
             // 
             // gcEdit
             // 
             this.gcEdit.Caption = "Edit";
             this.gcEdit.ColumnEdit = this.repositoryItemHyperLinkEdit1;
-            this.gcEdit.MinWidth = 39;
+            this.gcEdit.MinWidth = 49;
             this.gcEdit.Name = "gcEdit";
             this.gcEdit.Visible = true;
             this.gcEdit.VisibleIndex = 3;
-            this.gcEdit.Width = 100;
+            this.gcEdit.Width = 125;
             // 
             // repositoryItemHyperLinkEdit1
             // 
@@ -347,11 +347,11 @@
             // 
             this.gcDelete.Caption = "Delete";
             this.gcDelete.ColumnEdit = this.repositoryItemHyperLinkEdit2;
-            this.gcDelete.MinWidth = 39;
+            this.gcDelete.MinWidth = 49;
             this.gcDelete.Name = "gcDelete";
             this.gcDelete.Visible = true;
             this.gcDelete.VisibleIndex = 4;
-            this.gcDelete.Width = 100;
+            this.gcDelete.Width = 125;
             // 
             // repositoryItemHyperLinkEdit2
             // 

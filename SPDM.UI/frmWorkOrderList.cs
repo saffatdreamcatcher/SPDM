@@ -266,6 +266,18 @@ namespace SPDM.UI
             this.Close();
         }
 
-       
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            ClearSearch();
+            SearchWorkOrder();
+        }
+
+        private void ClearSearch()
+        {
+            txtWorkOrderNo.Text = string.Empty;
+            cmoParty.SelectedIndex = 0;
+            cmoStatus.SelectedIndex = 0;
+            gridControl1.Refresh();
+        }
     }
 }

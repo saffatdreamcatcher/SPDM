@@ -56,5 +56,9 @@ namespace SPDM.DLL.Entities
 
         private string note;
         public string Note { get => note; set => note = value; }
+
+        private string partyName;
+
+        public string PartyName { get => partyName; set => partyName = value; }
     } 
 }
