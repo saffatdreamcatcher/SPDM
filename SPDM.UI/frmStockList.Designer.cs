@@ -495,9 +495,9 @@
             this.label13.ForeColor = System.Drawing.Color.Green;
             this.label13.Location = new System.Drawing.Point(21, 9);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(120, 22);
+            this.label13.Size = new System.Drawing.Size(98, 22);
             this.label13.TabIndex = 44;
-            this.label13.Text = "frmStockList";
+            this.label13.Text = "Stock List";
             // 
             // frmStockList
             // 
