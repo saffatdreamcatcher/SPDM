@@ -67,7 +67,7 @@ namespace SPDM.UI
                         Global.FiscalYear = fiscalYear.Year;
 
                     }
-                    //ClearField();
+                    ClearField();
                     this.Hide();
                     MainForm mainForm = new MainForm();
                     mainForm.ShowDialog();

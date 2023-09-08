@@ -12,6 +12,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SPDM.DLL.Enums;
+using DevExpress.Utils.Extensions;
+using DevExpress.DataProcessing.InMemoryDataProcessor;
 
 namespace SPDM.UI
 {
@@ -56,6 +58,12 @@ namespace SPDM.UI
             if (workorderdId > 0)
             {
                 LoadOldWorkOrderWithDetails();
+            }
+
+            if (txtStatus.Text != WorkOrderStatus.Placed.ToString()) ;
+            {
+                lblSave.Visible = true;
+                lblSave.Show();
             }
 
         }
@@ -424,6 +432,7 @@ namespace SPDM.UI
 
                 workOrder.Status = (WorkOrderStatus)Enum.Parse(typeof(WorkOrderStatus), txtStatus.Text);
                 workOrder.Note = txtNote.Text;
+
 
                 List<WorkOrderDetail> workOrderDetails1 = workOrderDetails.ToList();
                 WorkOrderBLL workOrderBLL = new WorkOrderBLL();

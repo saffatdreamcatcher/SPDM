@@ -62,7 +62,6 @@ namespace SPDM.UI
 
         }
 
-
         private void LoadParty()
         {
 

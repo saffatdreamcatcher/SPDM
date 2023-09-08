@@ -33,9 +33,9 @@
             this.lblPassword = new System.Windows.Forms.Label();
             this.txtUserName = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
-            this.lblValidation = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
+            this.lblValidation = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnLogIn
@@ -83,14 +83,6 @@
             this.txtPassword.Size = new System.Drawing.Size(221, 37);
             this.txtPassword.TabIndex = 4;
             // 
-            // lblValidation
-            // 
-            this.lblValidation.AutoSize = true;
-            this.lblValidation.Location = new System.Drawing.Point(278, 232);
-            this.lblValidation.Name = "lblValidation";
-            this.lblValidation.Size = new System.Drawing.Size(0, 16);
-            this.lblValidation.TabIndex = 5;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -113,6 +105,14 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // lblValidation
+            // 
+            this.lblValidation.AutoSize = true;
+            this.lblValidation.Location = new System.Drawing.Point(870, 322);
+            this.lblValidation.Name = "lblValidation";
+            this.lblValidation.Size = new System.Drawing.Size(0, 16);
+            this.lblValidation.TabIndex = 8;
+            // 
             // LogIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -120,9 +120,9 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1512, 741);
             this.ControlBox = false;
+            this.Controls.Add(this.lblValidation);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.lblValidation);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUserName);
             this.Controls.Add(this.lblPassword);
@@ -142,8 +142,8 @@
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.TextBox txtUserName;
         private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.Label lblValidation;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Label lblValidation;
     }
 }
