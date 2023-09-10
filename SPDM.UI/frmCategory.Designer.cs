@@ -126,7 +126,7 @@
             // 
             // resetbtn
             // 
-            this.resetbtn.Location = new System.Drawing.Point(211, 230);
+            this.resetbtn.Location = new System.Drawing.Point(219, 230);
             this.resetbtn.Name = "resetbtn";
             this.resetbtn.Size = new System.Drawing.Size(93, 32);
             this.resetbtn.TabIndex = 25;
@@ -136,7 +136,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(106, 230);
+            this.btnSave.Location = new System.Drawing.Point(114, 230);
             this.btnSave.Margin = new System.Windows.Forms.Padding(1);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(88, 32);
@@ -239,10 +239,10 @@
             // gridControl1
             // 
             this.gridControl1.DataSource = this.categoryBindingSource;
-            this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
-            this.gridControl1.Location = new System.Drawing.Point(106, 273);
+            this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(10);
+            this.gridControl1.Location = new System.Drawing.Point(114, 273);
             this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.gridControl1.Margin = new System.Windows.Forms.Padding(10);
             this.gridControl1.MaximumSize = new System.Drawing.Size(1380, 500);
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
