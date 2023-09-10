@@ -570,7 +570,15 @@ namespace SPDM.UI
             }
         }
 
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
+        private void wizardControl1_CancelClick(object sender, CancelEventArgs e)
+        {
+            this.Close();
+        }
     }
 
 }

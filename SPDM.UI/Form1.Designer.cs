@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.wizardControl1 = new DevExpress.XtraWizard.WizardControl();
             this.wizardPage1 = new DevExpress.XtraWizard.WizardPage();
             this.btnClose = new System.Windows.Forms.Button();
@@ -185,6 +185,7 @@
             this.wizardControl1.Size = new System.Drawing.Size(1455, 1043);
             this.wizardControl1.Text = "";
             this.wizardControl1.SelectedPageChanging += new DevExpress.XtraWizard.WizardPageChangingEventHandler(this.wizardControl1_SelectedPageChanging);
+            this.wizardControl1.CancelClick += new System.ComponentModel.CancelEventHandler(this.wizardControl1_CancelClick);
             this.wizardControl1.FinishClick += new System.ComponentModel.CancelEventHandler(this.wizardControl1_FinishClick);
             this.wizardControl1.NextClick += new DevExpress.XtraWizard.WizardCommandButtonClickEventHandler(this.wizardControl1_NextClick);
             // 
@@ -248,12 +249,13 @@
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.Location = new System.Drawing.Point(1382, 12);
+            this.btnClose.Location = new System.Drawing.Point(1382, 3);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(30, 23);
             this.btnClose.TabIndex = 122;
             this.btnClose.Text = "X";
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // groupBox1
             // 
@@ -269,10 +271,10 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(341, 16);
+            this.btnSearch.Location = new System.Drawing.Point(359, 16);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(5);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(121, 36);
+            this.btnSearch.Size = new System.Drawing.Size(100, 36);
             this.btnSearch.TabIndex = 69;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -1104,9 +1106,9 @@
             // transactionDateDataGridViewTextBoxColumn
             // 
             this.transactionDateDataGridViewTextBoxColumn.DataPropertyName = "TransactionDate";
-            dataGridViewCellStyle1.Format = "dd/MM/yyyy";
-            dataGridViewCellStyle1.NullValue = null;
-            this.transactionDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Format = "dd/MM/yyyy";
+            dataGridViewCellStyle4.NullValue = null;
+            this.transactionDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
             this.transactionDateDataGridViewTextBoxColumn.HeaderText = "TransactionDate";
             this.transactionDateDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.transactionDateDataGridViewTextBoxColumn.Name = "transactionDateDataGridViewTextBoxColumn";
