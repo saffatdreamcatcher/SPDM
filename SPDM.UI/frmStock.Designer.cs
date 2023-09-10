@@ -91,6 +91,9 @@
             this.cmoItemId = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.gVStock = new System.Windows.Forms.DataGridView();
+            this.stockBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.eP = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label38 = new System.Windows.Forms.Label();
             this.itemNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoryNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.updateTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -112,9 +115,6 @@
             this.isNewDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.createTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Delete = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.stockBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.eP = new System.Windows.Forms.ErrorProvider(this.components);
-            this.label38 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nupVatPercent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupDiscountPercent)).BeginInit();
@@ -793,6 +793,25 @@
             this.gVStock.TabIndex = 10;
             this.gVStock.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gVStock_CellClick);
             // 
+            // stockBindingSource
+            // 
+            this.stockBindingSource.DataSource = typeof(SPDM.DLL.Entities.Stock);
+            // 
+            // eP
+            // 
+            this.eP.ContainerControl = this;
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label38.ForeColor = System.Drawing.Color.Green;
+            this.label38.Location = new System.Drawing.Point(37, 13);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(56, 20);
+            this.label38.TabIndex = 38;
+            this.label38.Text = "Stock";
+            // 
             // itemNameDataGridViewTextBoxColumn
             // 
             this.itemNameDataGridViewTextBoxColumn.DataPropertyName = "ItemName";
@@ -807,6 +826,7 @@
             this.categoryNameDataGridViewTextBoxColumn.HeaderText = "CategoryName";
             this.categoryNameDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.categoryNameDataGridViewTextBoxColumn.Name = "categoryNameDataGridViewTextBoxColumn";
+            this.categoryNameDataGridViewTextBoxColumn.Visible = false;
             this.categoryNameDataGridViewTextBoxColumn.Width = 125;
             // 
             // updateTimeDataGridViewTextBoxColumn
@@ -976,25 +996,6 @@
             this.Delete.UseColumnTextForLinkValue = true;
             this.Delete.Width = 125;
             // 
-            // stockBindingSource
-            // 
-            this.stockBindingSource.DataSource = typeof(SPDM.DLL.Entities.Stock);
-            // 
-            // eP
-            // 
-            this.eP.ContainerControl = this;
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label38.ForeColor = System.Drawing.Color.Green;
-            this.label38.Location = new System.Drawing.Point(37, 13);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(56, 20);
-            this.label38.TabIndex = 38;
-            this.label38.Text = "Stock";
-            // 
             // frmStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1077,6 +1078,26 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.BindingSource stockBindingSource;
         private System.Windows.Forms.NumericUpDown nUpDin;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.Label label38;
         private System.Windows.Forms.DataGridViewTextBoxColumn itemNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn categoryNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn updateTimeDataGridViewTextBoxColumn;
@@ -1098,25 +1119,5 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn isNewDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn createTimeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewLinkColumn Delete;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.Label label40;
-        private System.Windows.Forms.Label label35;
-        private System.Windows.Forms.Label label36;
-        private System.Windows.Forms.Label label37;
-        private System.Windows.Forms.Label label38;
     }
 }
