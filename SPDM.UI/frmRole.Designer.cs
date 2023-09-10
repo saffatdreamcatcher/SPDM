@@ -104,7 +104,7 @@
             this.gvRole.Name = "gvRole";
             this.gvRole.RowHeadersWidth = 51;
             this.gvRole.RowTemplate.Height = 24;
-            this.gvRole.Size = new System.Drawing.Size(854, 191);
+            this.gvRole.Size = new System.Drawing.Size(854, 257);
             this.gvRole.TabIndex = 27;
             this.gvRole.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvRole_CellClick);
             // 

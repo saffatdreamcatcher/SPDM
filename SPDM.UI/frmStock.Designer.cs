@@ -134,9 +134,9 @@
             // 
             this.btnSaveStock.Location = new System.Drawing.Point(26, 746);
             this.btnSaveStock.Name = "btnSaveStock";
-            this.btnSaveStock.Size = new System.Drawing.Size(114, 45);
+            this.btnSaveStock.Size = new System.Drawing.Size(83, 34);
             this.btnSaveStock.TabIndex = 0;
-            this.btnSaveStock.Text = "Save Stock";
+            this.btnSaveStock.Text = "Save";
             this.btnSaveStock.UseVisualStyleBackColor = true;
             this.btnSaveStock.Click += new System.EventHandler(this.btnSaveStock_Click);
             // 

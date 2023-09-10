@@ -52,10 +52,10 @@
             this.workOrderListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.workOrderWDetailListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stockListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saleListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pForm = new System.Windows.Forms.Panel();
-            this.saleListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -256,6 +256,13 @@
             this.stockListToolStripMenuItem.Text = "Stock List";
             this.stockListToolStripMenuItem.Click += new System.EventHandler(this.stockListToolStripMenuItem_Click);
             // 
+            // saleListToolStripMenuItem
+            // 
+            this.saleListToolStripMenuItem.Name = "saleListToolStripMenuItem";
+            this.saleListToolStripMenuItem.Size = new System.Drawing.Size(244, 26);
+            this.saleListToolStripMenuItem.Text = "Sale List";
+            this.saleListToolStripMenuItem.Click += new System.EventHandler(this.saleListToolStripMenuItem_Click);
+            // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -278,13 +285,6 @@
             this.pForm.Size = new System.Drawing.Size(800, 422);
             this.pForm.TabIndex = 1;
             this.pForm.Paint += new System.Windows.Forms.PaintEventHandler(this.pForm_Paint);
-            // 
-            // saleListToolStripMenuItem
-            // 
-            this.saleListToolStripMenuItem.Name = "saleListToolStripMenuItem";
-            this.saleListToolStripMenuItem.Size = new System.Drawing.Size(244, 26);
-            this.saleListToolStripMenuItem.Text = "Sale List";
-            this.saleListToolStripMenuItem.Click += new System.EventHandler(this.saleListToolStripMenuItem_Click);
             // 
             // MainForm
             // 

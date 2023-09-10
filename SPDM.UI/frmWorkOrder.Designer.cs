@@ -894,7 +894,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(53, 738);
+            this.btnSave.Location = new System.Drawing.Point(24, 738);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(83, 34);
             this.btnSave.TabIndex = 3;
@@ -920,7 +920,7 @@
             // lblSave
             // 
             this.lblSave.AutoSize = true;
-            this.lblSave.Location = new System.Drawing.Point(198, 747);
+            this.lblSave.Location = new System.Drawing.Point(125, 747);
             this.lblSave.Name = "lblSave";
             this.lblSave.Size = new System.Drawing.Size(297, 16);
             this.lblSave.TabIndex = 6;
