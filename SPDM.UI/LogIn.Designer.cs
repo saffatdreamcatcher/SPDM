@@ -108,7 +108,7 @@
             // lblValidation
             // 
             this.lblValidation.AutoSize = true;
-            this.lblValidation.Location = new System.Drawing.Point(870, 322);
+            this.lblValidation.Location = new System.Drawing.Point(862, 315);
             this.lblValidation.Name = "lblValidation";
             this.lblValidation.Size = new System.Drawing.Size(0, 16);
             this.lblValidation.TabIndex = 8;

@@ -53,7 +53,7 @@
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(48, 102);
+            this.lblName.Location = new System.Drawing.Point(48, 69);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(44, 16);
             this.lblName.TabIndex = 26;
@@ -61,7 +61,7 @@
             // 
             // resetbtn
             // 
-            this.resetbtn.Location = new System.Drawing.Point(250, 147);
+            this.resetbtn.Location = new System.Drawing.Point(250, 114);
             this.resetbtn.Name = "resetbtn";
             this.resetbtn.Size = new System.Drawing.Size(98, 32);
             this.resetbtn.TabIndex = 25;
@@ -71,7 +71,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(127, 147);
+            this.btnSave.Location = new System.Drawing.Point(127, 114);
             this.btnSave.Margin = new System.Windows.Forms.Padding(1);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(97, 32);
@@ -82,7 +82,7 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(127, 99);
+            this.txtName.Location = new System.Drawing.Point(127, 66);
             this.txtName.Multiline = true;
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(284, 22);
@@ -100,7 +100,7 @@
             this.Edit,
             this.Delete});
             this.gvRole.DataSource = this.roleBindingSource;
-            this.gvRole.Location = new System.Drawing.Point(127, 211);
+            this.gvRole.Location = new System.Drawing.Point(127, 178);
             this.gvRole.Name = "gvRole";
             this.gvRole.RowHeadersWidth = 51;
             this.gvRole.RowTemplate.Height = 24;
@@ -197,7 +197,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(98, 101);
+            this.label5.Location = new System.Drawing.Point(98, 68);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(15, 20);
             this.label5.TabIndex = 39;

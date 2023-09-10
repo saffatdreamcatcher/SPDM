@@ -40,7 +40,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(198, 162);
+            this.btnSave.Location = new System.Drawing.Point(159, 126);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(81, 32);
             this.btnSave.TabIndex = 0;
@@ -52,7 +52,7 @@
             // 
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(198, 101);
+            this.comboBox1.Location = new System.Drawing.Point(159, 79);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(248, 24);
             this.comboBox1.TabIndex = 1;
@@ -60,7 +60,7 @@
             // lblFiscalYear
             // 
             this.lblFiscalYear.AutoSize = true;
-            this.lblFiscalYear.Location = new System.Drawing.Point(96, 108);
+            this.lblFiscalYear.Location = new System.Drawing.Point(57, 86);
             this.lblFiscalYear.Name = "lblFiscalYear";
             this.lblFiscalYear.Size = new System.Drawing.Size(72, 16);
             this.lblFiscalYear.TabIndex = 2;
@@ -70,7 +70,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(174, 105);
+            this.label5.Location = new System.Drawing.Point(135, 83);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(15, 20);
             this.label5.TabIndex = 35;

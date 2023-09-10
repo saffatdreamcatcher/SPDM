@@ -91,9 +91,9 @@ namespace SPDM.UI
 
         private void btnAddToStock_ButtonPressed(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-
             int productionId = Convert.ToInt32(gridView1.GetFocusedRowCellValue("Id"));
             frmStock frmstock = new frmStock();
+            frmstock.StartPosition = FormStartPosition.CenterParent;
             frmstock.ShowDialog(productionId);
             SearchProduction();
         }

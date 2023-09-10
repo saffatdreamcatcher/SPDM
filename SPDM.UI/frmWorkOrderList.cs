@@ -44,7 +44,7 @@ namespace SPDM.UI
         { 
             frmWorkOrder myform = new frmWorkOrder();
             myform.ShowDialog();
-
+            myform.StartPosition = FormStartPosition.CenterParent;
             SearchWorkOrder();
         }
 
@@ -122,6 +122,7 @@ namespace SPDM.UI
         {
             int workOrderId = Convert.ToInt32(gridView1.GetFocusedRowCellValue("Id"));
             frmWorkOrder frmWorkOrder = new frmWorkOrder();
+            frmWorkOrder.StartPosition = FormStartPosition.CenterParent;
             frmWorkOrder.ShowDialog(workOrderId);
                 
         }

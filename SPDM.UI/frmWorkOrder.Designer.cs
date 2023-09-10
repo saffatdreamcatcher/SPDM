@@ -105,7 +105,6 @@
             this.eP = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnSave = new System.Windows.Forms.Button();
             this.label35 = new System.Windows.Forms.Label();
-            this.btnClose = new System.Windows.Forms.Button();
             this.workOrderDetailBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblSave = new System.Windows.Forms.Label();
             this.gWorkOrder.SuspendLayout();
@@ -575,9 +574,9 @@
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(844, 100);
+            this.btnReset.Location = new System.Drawing.Point(864, 100);
             this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(119, 41);
+            this.btnReset.Size = new System.Drawing.Size(99, 41);
             this.btnReset.TabIndex = 38;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = true;
@@ -597,9 +596,9 @@
             // 
             // btnAddNew
             // 
-            this.btnAddNew.Location = new System.Drawing.Point(697, 100);
+            this.btnAddNew.Location = new System.Drawing.Point(755, 100);
             this.btnAddNew.Name = "btnAddNew";
-            this.btnAddNew.Size = new System.Drawing.Size(116, 41);
+            this.btnAddNew.Size = new System.Drawing.Size(97, 41);
             this.btnAddNew.TabIndex = 36;
             this.btnAddNew.Text = "Add ";
             this.btnAddNew.UseVisualStyleBackColor = true;
@@ -910,20 +909,9 @@
             this.label35.ForeColor = System.Drawing.Color.Green;
             this.label35.Location = new System.Drawing.Point(33, 20);
             this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(100, 20);
+            this.label35.Size = new System.Drawing.Size(106, 20);
             this.label35.TabIndex = 4;
-            this.label35.Text = "WorkOrder";
-            // 
-            // btnClose
-            // 
-            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.Location = new System.Drawing.Point(1360, 0);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(33, 23);
-            this.btnClose.TabIndex = 5;
-            this.btnClose.Text = "X";
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            this.label35.Text = "Work Order";
             // 
             // workOrderDetailBindingSource
             // 
@@ -945,14 +933,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1394, 817);
-            this.ControlBox = false;
             this.Controls.Add(this.lblSave);
-            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.label35);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.gvWorkOrderDetail);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gWorkOrder);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmWorkOrder";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.frmWorkOrder_Load);
@@ -1057,7 +1045,6 @@
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Label label35;
-        private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Label lblSave;
     }
 }

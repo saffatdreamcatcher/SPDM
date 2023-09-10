@@ -109,7 +109,7 @@
             // btnAddNew
             // 
             this.btnAddNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAddNew.Location = new System.Drawing.Point(1326, 143);
+            this.btnAddNew.Location = new System.Drawing.Point(1326, 134);
             this.btnAddNew.Name = "btnAddNew";
             this.btnAddNew.Size = new System.Drawing.Size(84, 39);
             this.btnAddNew.TabIndex = 1;
@@ -124,7 +124,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControl1.DataSource = this.workOrderBindingSource1;
             this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(231);
-            this.gridControl1.Location = new System.Drawing.Point(127, 228);
+            this.gridControl1.Location = new System.Drawing.Point(127, 198);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Margin = new System.Windows.Forms.Padding(231);
             this.gridControl1.MaximumSize = new System.Drawing.Size(3231, 840);
@@ -133,7 +133,7 @@
             this.repositoryItemHyperLinkEdit1,
             this.repositoryItemHyperLinkEdit2,
             this.btnSendToProduction});
-            this.gridControl1.Size = new System.Drawing.Size(1283, 405);
+            this.gridControl1.Size = new System.Drawing.Size(1283, 435);
             this.gridControl1.TabIndex = 2;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -576,9 +576,9 @@
             this.label8.ForeColor = System.Drawing.Color.Green;
             this.label8.Location = new System.Drawing.Point(12, 18);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(145, 22);
+            this.label8.Size = new System.Drawing.Size(151, 22);
             this.label8.TabIndex = 52;
-            this.label8.Text = "WorkOrder List";
+            this.label8.Text = "Work Order List";
             // 
             // btnReset
             // 

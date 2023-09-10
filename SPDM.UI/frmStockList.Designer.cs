@@ -109,11 +109,11 @@
             this.lengthDataGridViewTextBoxColumn,
             this.isNewDataGridViewCheckBoxColumn});
             this.gvStock.DataSource = this.stockBindingSource1;
-            this.gvStock.Location = new System.Drawing.Point(12, 186);
+            this.gvStock.Location = new System.Drawing.Point(109, 186);
             this.gvStock.Name = "gvStock";
             this.gvStock.RowHeadersWidth = 51;
             this.gvStock.RowTemplate.Height = 24;
-            this.gvStock.Size = new System.Drawing.Size(1455, 341);
+            this.gvStock.Size = new System.Drawing.Size(1358, 376);
             this.gvStock.TabIndex = 0;
             // 
             // idDataGridViewTextBoxColumn
@@ -324,7 +324,7 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(839, 114);
+            this.btnSearch.Location = new System.Drawing.Point(839, 100);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(100, 41);
             this.btnSearch.TabIndex = 5;
