@@ -62,8 +62,8 @@
             this.colCreateTime = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gCAddToStock = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnAddToStock = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.gcDelete = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryItemHyperLinkEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit();
+            this.gC1Delete = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.btnDeleteStock = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.productionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cmoParty = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -85,7 +85,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.productionBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAddToStock)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnDeleteStock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dTPFromDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dTPFromDate.Properties.CalendarTimeProperties)).BeginInit();
@@ -106,7 +106,7 @@
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.btnAddToStock,
-            this.repositoryItemHyperLinkEdit1});
+            this.btnDeleteStock});
             this.gridControl1.Size = new System.Drawing.Size(1221, 446);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -138,7 +138,7 @@
             this.colIsNew,
             this.colCreateTime,
             this.gCAddToStock,
-            this.gcDelete});
+            this.gC1Delete});
             this.gridView1.DetailHeight = 7932;
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
@@ -168,7 +168,7 @@
             this.colProductionNo.Name = "colProductionNo";
             this.colProductionNo.Visible = true;
             this.colProductionNo.VisibleIndex = 0;
-            this.colProductionNo.Width = 107;
+            this.colProductionNo.Width = 129;
             // 
             // colPartyName
             // 
@@ -177,7 +177,7 @@
             this.colPartyName.Name = "colPartyName";
             this.colPartyName.Visible = true;
             this.colPartyName.VisibleIndex = 1;
-            this.colPartyName.Width = 138;
+            this.colPartyName.Width = 167;
             // 
             // colFiscalyear
             // 
@@ -186,7 +186,7 @@
             this.colFiscalyear.Name = "colFiscalyear";
             this.colFiscalyear.Visible = true;
             this.colFiscalyear.VisibleIndex = 2;
-            this.colFiscalyear.Width = 104;
+            this.colFiscalyear.Width = 125;
             // 
             // colPartyId
             // 
@@ -211,7 +211,7 @@
             this.colWorkOrderDate.Name = "colWorkOrderDate";
             this.colWorkOrderDate.Visible = true;
             this.colWorkOrderDate.VisibleIndex = 3;
-            this.colWorkOrderDate.Width = 107;
+            this.colWorkOrderDate.Width = 129;
             // 
             // colTotalExvat
             // 
@@ -229,7 +229,7 @@
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count, "TotalIncvat", "{0}")});
             this.colTotalIncvat.Visible = true;
             this.colTotalIncvat.VisibleIndex = 4;
-            this.colTotalIncvat.Width = 47;
+            this.colTotalIncvat.Width = 56;
             // 
             // colDiscount
             // 
@@ -245,7 +245,7 @@
             this.colDiscountPercent.Name = "colDiscountPercent";
             this.colDiscountPercent.Visible = true;
             this.colDiscountPercent.VisibleIndex = 6;
-            this.colDiscountPercent.Width = 50;
+            this.colDiscountPercent.Width = 60;
             // 
             // colVatPercent
             // 
@@ -254,7 +254,7 @@
             this.colVatPercent.Name = "colVatPercent";
             this.colVatPercent.Visible = true;
             this.colVatPercent.VisibleIndex = 7;
-            this.colVatPercent.Width = 50;
+            this.colVatPercent.Width = 60;
             // 
             // colStatus
             // 
@@ -293,7 +293,7 @@
             this.colCreateTime.OptionsColumn.ReadOnly = true;
             this.colCreateTime.Visible = true;
             this.colCreateTime.VisibleIndex = 5;
-            this.colCreateTime.Width = 100;
+            this.colCreateTime.Width = 121;
             // 
             // gCAddToStock
             // 
@@ -303,7 +303,7 @@
             this.gCAddToStock.Name = "gCAddToStock";
             this.gCAddToStock.Visible = true;
             this.gCAddToStock.VisibleIndex = 8;
-            this.gCAddToStock.Width = 92;
+            this.gCAddToStock.Width = 100;
             // 
             // btnAddToStock
             // 
@@ -315,29 +315,26 @@
             this.btnAddToStock.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.btnAddToStock.ButtonPressed += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnAddToStock_ButtonPressed);
             // 
-            // gcDelete
+            // gC1Delete
             // 
-            this.gcDelete.Caption = "Delete";
-            this.gcDelete.ColumnEdit = this.repositoryItemHyperLinkEdit1;
-            this.gcDelete.MaxWidth = 100;
-            this.gcDelete.MinWidth = 10;
-            this.gcDelete.Name = "gcDelete";
-            this.gcDelete.Visible = true;
-            this.gcDelete.VisibleIndex = 9;
-            this.gcDelete.Width = 95;
+            this.gC1Delete.Caption = "Delete";
+            this.gC1Delete.ColumnEdit = this.btnDeleteStock;
+            this.gC1Delete.MaxWidth = 80;
+            this.gC1Delete.MinWidth = 25;
+            this.gC1Delete.Name = "gC1Delete";
+            this.gC1Delete.Visible = true;
+            this.gC1Delete.VisibleIndex = 9;
+            this.gC1Delete.Width = 80;
             // 
-            // repositoryItemHyperLinkEdit1
+            // btnDeleteStock
             // 
-            this.repositoryItemHyperLinkEdit1.AutoHeight = false;
-            this.repositoryItemHyperLinkEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.btnDeleteStock.AutoHeight = false;
+            this.btnDeleteStock.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Delete", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.repositoryItemHyperLinkEdit1.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.repositoryItemHyperLinkEdit1.Caption = "Delete";
-            this.repositoryItemHyperLinkEdit1.ExportMode = DevExpress.XtraEditors.Repository.ExportMode.Value;
-            this.repositoryItemHyperLinkEdit1.Name = "repositoryItemHyperLinkEdit1";
-            this.repositoryItemHyperLinkEdit1.NullText = "Delete";
-            this.repositoryItemHyperLinkEdit1.NullValuePrompt = "Delete";
-            this.repositoryItemHyperLinkEdit1.Click += new System.EventHandler(this.repositoryItemHyperLinkEdit1_Click);
+            this.btnDeleteStock.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.btnDeleteStock.Name = "btnDeleteStock";
+            this.btnDeleteStock.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.btnDeleteStock.ButtonPressed += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnDeleteStock_ButtonPressed);
             // 
             // productionBindingSource
             // 
@@ -539,7 +536,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.productionBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAddToStock)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnDeleteStock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productionBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dTPFromDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dTPFromDate.Properties)).EndInit();
@@ -584,8 +581,6 @@
         private System.Windows.Forms.Button btnClose;
         private DevExpress.XtraEditors.DateEdit dTPFromDate;
         private DevExpress.XtraEditors.DateEdit dTPToDate;
-        private DevExpress.XtraGrid.Columns.GridColumn gcDelete;
-        private DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit repositoryItemHyperLinkEdit1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label4;
@@ -594,5 +589,7 @@
         private System.Windows.Forms.BindingSource productionBindingSource1;
         private DevExpress.XtraGrid.Columns.GridColumn colPartyName;
         private System.Windows.Forms.Button btnReset;
+        private DevExpress.XtraGrid.Columns.GridColumn gC1Delete;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnDeleteStock;
     }
 }

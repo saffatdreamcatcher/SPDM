@@ -168,17 +168,6 @@ namespace SPDM.UI
             this.Close();
         }
 
-        private void repositoryItemHyperLinkEdit1_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Are you sure you want to delete?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
-            {
-                int Id = Convert.ToInt32(gridView1.GetFocusedRowCellValue("Id"));
-                ProductionBLL productionBLL = new ProductionBLL();
-                productionBLL.Delete(Id);
-                SearchProduction();
-            }
-        }
-
         private void btnReset_Click(object sender, EventArgs e)
         {
             ClearSearch();
@@ -190,6 +179,17 @@ namespace SPDM.UI
             txtProduction.Text = string.Empty;
             cmoParty.SelectedIndex = 0;
             gridControl1.Refresh();
+        }
+
+        private void btnDeleteStock_ButtonPressed(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to delete?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+            {
+                int Id = Convert.ToInt32(gridView1.GetFocusedRowCellValue("Id"));
+                ProductionBLL productionBLL = new ProductionBLL();
+                productionBLL.Delete(Id);
+                SearchProduction();
+            }
         }
     }
 }
