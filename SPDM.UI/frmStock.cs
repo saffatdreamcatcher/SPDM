@@ -127,9 +127,10 @@ namespace SPDM.UI
             search += ")";
             ItemBLL itemBLL = new ItemBLL();
             List<Item> items = itemBLL.GetAll(search);
-            cmoItemId.DataSource = items;
             cmoItemId.ValueMember = "Id";
             cmoItemId.DisplayMember = "Name";
+            cmoItemId.DataSource = items;
+           
         }
 
         private void frmStock_Load(object sender, EventArgs e)
@@ -285,5 +286,18 @@ namespace SPDM.UI
             editIndex = -1;
         }
 
+        private void cmoItemId_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int itemId = Convert.ToInt32(cmoItemId.SelectedValue);
+            foreach(ProductionDetail productionDetail in  productionDetails)
+            {
+                if(productionDetail.ItemId == itemId)
+                {
+                    nupLength.Value = Convert.ToDecimal(productionDetail.Length);
+                    //nUpOQinKM.Value = Convert.ToDecimal(productionDetail.Length);
+                    break;
+                }
+            }
+        }
     }
 }
