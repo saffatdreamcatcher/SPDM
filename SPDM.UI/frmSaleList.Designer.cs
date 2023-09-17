@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions4 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.saleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -81,13 +81,13 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControl1.DataSource = this.saleBindingSource;
             this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(30);
-            this.gridControl1.Location = new System.Drawing.Point(37, 186);
+            this.gridControl1.Location = new System.Drawing.Point(145, 153);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Margin = new System.Windows.Forms.Padding(30);
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemHyperLinkEdit1});
-            this.gridControl1.Size = new System.Drawing.Size(1315, 437);
+            this.gridControl1.Size = new System.Drawing.Size(1250, 483);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -122,6 +122,10 @@
             this.gridView1.DetailHeight = 3250;
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
+            this.gridView1.MasterRowEmpty += new DevExpress.XtraGrid.Views.Grid.MasterRowEmptyEventHandler(this.gridView1_MasterRowEmpty);
+            this.gridView1.MasterRowExpanded += new DevExpress.XtraGrid.Views.Grid.CustomMasterRowEventHandler(this.gridView1_MasterRowExpanded);
+            this.gridView1.MasterRowGetChildList += new DevExpress.XtraGrid.Views.Grid.MasterRowGetChildListEventHandler(this.gridView1_MasterRowGetChildList);
+            this.gridView1.MasterRowGetRelationCount += new DevExpress.XtraGrid.Views.Grid.MasterRowGetRelationCountEventHandler(this.gridView1_MasterRowGetRelationCount);
             // 
             // colUpdateTime
             // 
@@ -288,7 +292,7 @@
             // 
             this.repositoryItemHyperLinkEdit1.AutoHeight = false;
             this.repositoryItemHyperLinkEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Delete", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Delete", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.repositoryItemHyperLinkEdit1.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.repositoryItemHyperLinkEdit1.Caption = "Delete";
             this.repositoryItemHyperLinkEdit1.Name = "repositoryItemHyperLinkEdit1";
@@ -298,9 +302,9 @@
             // btnAddNew
             // 
             this.btnAddNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAddNew.Location = new System.Drawing.Point(1240, 134);
+            this.btnAddNew.Location = new System.Drawing.Point(1289, 82);
             this.btnAddNew.Name = "btnAddNew";
-            this.btnAddNew.Size = new System.Drawing.Size(106, 44);
+            this.btnAddNew.Size = new System.Drawing.Size(106, 38);
             this.btnAddNew.TabIndex = 1;
             this.btnAddNew.Text = "Add New";
             this.btnAddNew.UseVisualStyleBackColor = true;
@@ -324,7 +328,7 @@
             // 
             // txtDeliveryAddress
             // 
-            this.txtDeliveryAddress.Location = new System.Drawing.Point(529, 90);
+            this.txtDeliveryAddress.Location = new System.Drawing.Point(503, 93);
             this.txtDeliveryAddress.Name = "txtDeliveryAddress";
             this.txtDeliveryAddress.Size = new System.Drawing.Size(204, 22);
             this.txtDeliveryAddress.TabIndex = 10;
@@ -332,7 +336,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(379, 96);
+            this.label1.Location = new System.Drawing.Point(365, 96);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(111, 16);
             this.label1.TabIndex = 9;
@@ -340,7 +344,7 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(1240, 90);
+            this.btnSearch.Location = new System.Drawing.Point(725, 82);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(106, 38);
             this.btnSearch.TabIndex = 15;
@@ -373,7 +377,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(496, 93);
+            this.label5.Location = new System.Drawing.Point(482, 93);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(15, 20);
             this.label5.TabIndex = 39;
@@ -386,9 +390,9 @@
             this.label3.ForeColor = System.Drawing.Color.Green;
             this.label3.Location = new System.Drawing.Point(45, 26);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(106, 20);
+            this.label3.Size = new System.Drawing.Size(84, 20);
             this.label3.TabIndex = 41;
-            this.label3.Text = "frmSaleList";
+            this.label3.Text = "Sale List";
             // 
             // frmSaleList
             // 
@@ -409,7 +413,6 @@
             this.Controls.Add(this.btnAddNew);
             this.Controls.Add(this.gridControl1);
             this.Name = "frmSaleList";
-            this.Text = "frmSaleList";
             this.Load += new System.EventHandler(this.frmSaleList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.saleBindingSource)).EndInit();

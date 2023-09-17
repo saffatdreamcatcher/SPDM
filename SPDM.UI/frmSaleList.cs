@@ -1,4 +1,5 @@
-﻿using SPDM.BLL.BusinessLogic;
+﻿using DevExpress.XtraGrid.Views.Grid;
+using SPDM.BLL.BusinessLogic;
 using SPDM.DLL.Entities;
 using System;
 using System.Collections.Generic;
@@ -37,9 +38,7 @@ namespace SPDM.UI
 
         private void frmSaleList_Load(object sender, EventArgs e)
         {
-
             LoadSale();
-
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -89,6 +88,44 @@ namespace SPDM.UI
                 SaleBLL saleBLL = new SaleBLL();
                 saleBLL.Delete(saleId);
             }
+        }
+
+        private void gridView1_MasterRowEmpty(object sender, DevExpress.XtraGrid.Views.Grid.MasterRowEmptyEventArgs e)
+        {
+            e.IsEmpty = false;
+        }
+
+        private void gridView1_MasterRowExpanded(object sender, DevExpress.XtraGrid.Views.Grid.CustomMasterRowEventArgs e)
+        {
+            GridView gridViewWelds = sender as GridView;
+            GridView gridViewTests = gridViewWelds.GetDetailView(e.RowHandle, e.RelationIndex) as GridView;
+            gridViewTests.BeginUpdate();
+            gridViewTests.Columns["Id"].Visible = false;
+            gridViewTests.Columns["IsNew"].Visible = false;
+            gridViewTests.Columns["UpdateTime"].Visible = false;
+            gridViewTests.Columns["SaleId"].Visible = false;
+            gridViewTests.Columns["ItemId"].Visible = false;
+            gridViewTests.Columns["Discount"].Visible = false;
+            gridViewTests.Columns["CreateTime"].Visible = false;
+            gridViewTests.Columns["ItemName"].VisibleIndex = 0;
+
+            gridViewTests.EndUpdate();
+        }
+
+        private void gridView1_MasterRowGetChildList(object sender, DevExpress.XtraGrid.Views.Grid.MasterRowGetChildListEventArgs e)
+        {
+            List<SaleDetail> saleDetails = new List<SaleDetail>();
+
+            Sale data = (Sale)gridView1.GetRow(e.RowHandle);
+            string where = "SaleId = " + data.Id;
+            SaleDetailBLL saleDetailBLL = new SaleDetailBLL();
+            saleDetails = saleDetailBLL.GetAll(where);
+            e.ChildList = saleDetails;
+        }
+
+        private void gridView1_MasterRowGetRelationCount(object sender, DevExpress.XtraGrid.Views.Grid.MasterRowGetRelationCountEventArgs e)
+        {
+            e.RelationCount = 1;
         }
     } 
 }

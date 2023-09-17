@@ -73,7 +73,6 @@
             this.repositoryItemHyperLinkEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit();
             this.gcDelete = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemHyperLinkEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit();
-            this.workOrderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cmoStatus = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -99,7 +98,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnSendToProduction)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.workOrderBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dEFromWorkOrderDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dEFromWorkOrderDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dEToWorkOrderDate.Properties)).BeginInit();
@@ -391,10 +389,6 @@
             this.repositoryItemHyperLinkEdit2.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.repositoryItemHyperLinkEdit2.ButtonPressed += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repositoryItemHyperLinkEdit2_ButtonPressed);
             // 
-            // workOrderBindingSource
-            // 
-            this.workOrderBindingSource.DataSource = typeof(SPDM.DLL.Entities.WorkOrder);
-            // 
             // cmoStatus
             // 
             this.cmoStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -626,7 +620,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnSendToProduction)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.workOrderBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dEFromWorkOrderDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dEFromWorkOrderDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dEToWorkOrderDate.Properties.CalendarTimeProperties)).EndInit();
@@ -640,7 +633,6 @@
         private System.Windows.Forms.Button btnAddNew;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private System.Windows.Forms.BindingSource workOrderBindingSource;
         private DevExpress.XtraGrid.Columns.GridColumn colUpdateTime;
         private DevExpress.XtraGrid.Columns.GridColumn colUserId;
         private DevExpress.XtraGrid.Columns.GridColumn colWorkOrderNo;

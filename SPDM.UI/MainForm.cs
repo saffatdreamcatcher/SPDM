@@ -180,21 +180,21 @@ namespace SPDM.UI
 
         private void saleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //CloseAllForms();
-            //frmSaleList myForm = new frmSaleList();
-            //myForm.TopLevel = false;
-            //myForm.AutoScroll = true;
-            //pForm.Controls.Add(myForm);
-            //myForm.WindowState = FormWindowState.Maximized;
-            //myForm.Show();
-
             CloseAllForms();
-            Form1 myForm = new Form1();
+            frmSaleList myForm = new frmSaleList();
             myForm.TopLevel = false;
             myForm.AutoScroll = true;
             pForm.Controls.Add(myForm);
             myForm.WindowState = FormWindowState.Maximized;
             myForm.Show();
+
+            //CloseAllForms();
+            //Form1 myForm = new Form1();
+            //myForm.TopLevel = false;
+            //myForm.AutoScroll = true;
+            //pForm.Controls.Add(myForm);
+            //myForm.WindowState = FormWindowState.Maximized;
+            //myForm.Show();
         }
 
         private void paymentToolStripMenuItem_Click(object sender, EventArgs e)
