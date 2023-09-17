@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace SPDM.UI
 {
-    public partial class Form1 : Form
+    public partial class frmSale : Form
     {
         private List<WorkOrderDetail> workOrderDetails;
         private BindingList<SaleDetail> saleDetails = new BindingList<SaleDetail>();
@@ -19,7 +19,7 @@ namespace SPDM.UI
         private bool isPaymentValid = false;
 
         WorkOrder workOrder;
-        public Form1()
+        public frmSale()
         {
             InitializeComponent();
         }
