@@ -22,9 +22,9 @@ namespace SPDM.UI
 
         private void btnAddNew_Click(object sender, EventArgs e)
         {
-            frmSale myform = new frmSale();
-            myform.ShowDialog();
-            LoadSale();
+            //frmSale myform = new frmSale();
+            //myform.ShowDialog();
+            //LoadSale();
 
         }
 
