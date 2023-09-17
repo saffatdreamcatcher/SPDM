@@ -207,7 +207,6 @@
             this.wizardPage1.Controls.Add(this.txtParty);
             this.wizardPage1.Controls.Add(this.txtStatus);
             this.wizardPage1.Controls.Add(this.label19);
-            this.wizardPage1.Controls.Add(this.lblWorkOrder);
             this.wizardPage1.Controls.Add(this.nupTotalIncVat1);
             this.wizardPage1.Controls.Add(this.nupVatPercent1);
             this.wizardPage1.Controls.Add(this.label18);
@@ -249,6 +248,7 @@
             this.groupBox1.Controls.Add(this.btnSearch);
             this.groupBox1.Controls.Add(this.txtWorkOrderNo);
             this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.lblWorkOrder);
             this.groupBox1.Location = new System.Drawing.Point(3, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1356, 76);
@@ -258,7 +258,7 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(359, 16);
+            this.btnSearch.Location = new System.Drawing.Point(331, 16);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(5);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(100, 36);
@@ -615,7 +615,7 @@
             // lblWorkOrder
             // 
             this.lblWorkOrder.AutoSize = true;
-            this.lblWorkOrder.Location = new System.Drawing.Point(1245, 72);
+            this.lblWorkOrder.Location = new System.Drawing.Point(450, 26);
             this.lblWorkOrder.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblWorkOrder.Name = "lblWorkOrder";
             this.lblWorkOrder.Size = new System.Drawing.Size(11, 16);
@@ -1339,6 +1339,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmSale";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.wizardControl1)).EndInit();
             this.wizardControl1.ResumeLayout(false);
