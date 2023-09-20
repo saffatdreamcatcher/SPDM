@@ -22,7 +22,6 @@ namespace SPDM.DLL.Repositories
             sqlConnection = new SqlConnection(myConnectionString);
         }
 
-
         public StockDLL(SqlTransaction sqlTrans) 
         {
            
@@ -159,7 +158,6 @@ namespace SPDM.DLL.Repositories
             return stocks;
         }
 
-
         public Stock GetById(int id)
         {
             Stock stock = new Stock();
@@ -238,8 +236,6 @@ namespace SPDM.DLL.Repositories
 
         }
 
-
-
         public int GetCount(string whereClause = "")
         {
 
@@ -278,7 +274,6 @@ namespace SPDM.DLL.Repositories
             }
             return count;
         }
-
 
         public bool IsExist(string whereClause = "")
         {

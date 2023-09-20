@@ -128,5 +128,12 @@ namespace SPDM.UI
         {
             e.RelationCount = 1;
         }
+
+        private void repositoryItemButtonEdit1_ButtonPressed(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            int saleId = Convert.ToInt32(gridView1.GetFocusedRowCellValue("Id"));
+
+
+        }
     } 
 }

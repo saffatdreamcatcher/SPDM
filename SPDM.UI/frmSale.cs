@@ -2,6 +2,7 @@
 using SPDM.BLL.BusinessLogic;
 using SPDM.DLL.Entities;
 using SPDM.DLL.Enums;
+using SPDM.DLL.Repositories;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,11 +18,18 @@ namespace SPDM.UI
         private BindingList<Payment> payments = new BindingList<Payment>();
         private bool isSaleValid = false;
         private bool isPaymentValid = false;
+        private int saleId = -1;
 
         WorkOrder workOrder;
         public frmSale()
         {
             InitializeComponent();
+        }
+
+        public void ShowDialog(int saleId)
+        {
+            this.saleId = saleId;
+            this.ShowDialog();
         }
 
         private void ClearSale()
@@ -82,6 +90,7 @@ namespace SPDM.UI
             saleBLL.Save(sale, saleDetails1, payments1);
 
         }
+        
         private void wizardControl1_FinishClick(object sender, CancelEventArgs e)
         {
             this.Close();
@@ -464,6 +473,8 @@ namespace SPDM.UI
         {
             LoadPaymentType();
             LoadTransactionType();
+            //if(saleId > -1)
+              
         }
 
         private void wizardControl1_NextClick(object sender, DevExpress.XtraWizard.WizardCommandButtonClickEventArgs e)
