@@ -93,7 +93,8 @@ namespace SPDM.DLL.Repositories
                 }
 
                 SqlCommand comm = sqlConnection.CreateCommand();
-                comm.CommandText = "Select * from Sale" + whereClause;
+                comm.CommandText = "Select Sale.*, WorkOrder.WorkOrderNo from Sale " +
+                                   "inner join WorkOrder on Sale.WorkOrderId = WorkOrder.Id " + whereClause;
                 using (SqlDataReader reader = comm.ExecuteReader())
                 {
                     while (reader != null && reader.Read())
@@ -166,7 +167,6 @@ namespace SPDM.DLL.Repositories
             }
             return sales;
         }
-
 
         public Sale GetById(int id)
         {
@@ -295,7 +295,6 @@ namespace SPDM.DLL.Repositories
             }
             return count;
         }
-
 
         public int Save(Sale sale)
         {

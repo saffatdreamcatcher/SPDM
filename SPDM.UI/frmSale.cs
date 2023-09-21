@@ -101,7 +101,11 @@ namespace SPDM.UI
 
             ClearSale();
             ClearSaleDetail();
+            Search();
+        }
 
+        private void Search()
+        {
             if (!string.IsNullOrEmpty(txtWorkOrderNo.Text))
             {
                 WorkOrder workOrder1 = new WorkOrder();
@@ -473,7 +477,10 @@ namespace SPDM.UI
         {
             LoadPaymentType();
             LoadTransactionType();
-            //if(saleId > -1)
+            if(saleId > -1)
+            {
+
+            }
               
         }
 

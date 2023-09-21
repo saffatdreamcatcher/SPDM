@@ -47,9 +47,20 @@ namespace SPDM.UI
 
             StringBuilder sB = new StringBuilder();
 
+            if (!string.IsNullOrEmpty(txtWorkOrderNo.Text))
+            {
+                sB.Append(" WorkOrder.WorkOrderNo LIKE '%");
+                sB.Append(txtWorkOrderNo.Text);
+                sB.Append("%'");
+            }
 
             if (!string.IsNullOrEmpty(txtChallanNo.Text))
             {
+                if (sB.ToString() != string.Empty)
+                {
+                    sB.Append(" AND");
+                }
+                
                 sB.Append(" ChallanNo LIKE '%");
                 sB.Append(txtChallanNo.Text);
                 sB.Append("%'");
@@ -132,7 +143,9 @@ namespace SPDM.UI
         private void repositoryItemButtonEdit1_ButtonPressed(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             int saleId = Convert.ToInt32(gridView1.GetFocusedRowCellValue("Id"));
-
+            frmSale frmSale = new frmSale();
+            frmSale.StartPosition = FormStartPosition.CenterParent;
+            frmSale.ShowDialog(saleId);
 
         }
     } 

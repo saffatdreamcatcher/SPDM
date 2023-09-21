@@ -28,6 +28,9 @@ namespace SPDM.DLL.Entities
         private int workorderid;
         public int WorkOrderId { get => workorderid; set => workorderid = value; }
 
+        private string workorderno;
+        public string WorkOrderNo { get => workorderno; set => workorderno = value; }
+
         private string fiscalyear;
         public string Fiscalyear { get => fiscalyear; set => fiscalyear = value; }
 
