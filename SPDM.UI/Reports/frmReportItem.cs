@@ -63,6 +63,10 @@ namespace SPDM.UI.Reports
             cmoCategory.ValueMember = "Id";
             cmoCategory.DisplayMember = "Name";
         }
-       
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
