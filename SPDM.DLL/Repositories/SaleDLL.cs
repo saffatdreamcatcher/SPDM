@@ -5,6 +5,7 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -114,6 +115,7 @@ namespace SPDM.DLL.Repositories
                         sale.Id = id;
                         sale.UserId = Convert.ToInt32(reader["UserId"]);
                         sale.WorkOrderId = Convert.ToInt32(reader["WorkOrderId"]);
+                        sale.WorkOrderNo = reader["WorkOrderNo"].ToString();
                         sale.Fiscalyear = reader["FiscalYear"].ToString();
                         sale.PartyId = Convert.ToInt32(reader["PartyId"]);
                         sale.ChallanNo = Convert.ToInt32(reader["ChallanNo"]);
@@ -181,7 +183,8 @@ namespace SPDM.DLL.Repositories
                 }
 
                 SqlCommand comm = sqlConnection.CreateCommand();
-                comm.CommandText = "Select * from Sale where id = " + id;
+                comm.CommandText = "Select Sale.*, WorkOrder.WorkOrderNo from Sale "+
+                                   "inner join WorkOrder on Sale.WorkOrderId = WorkOrder.Id where Sale.WorkOrderId = " + id;
                 using (SqlDataReader reader = comm.ExecuteReader())
                 {
                     while (reader != null && reader.Read())
@@ -199,6 +202,7 @@ namespace SPDM.DLL.Repositories
                         sale.Id = id;
                         sale.UserId = Convert.ToInt32(reader["UserId"]);
                         sale.WorkOrderId = Convert.ToInt32(reader["WorkOrderId"]);
+                        sale.WorkOrderNo = reader["WorkOrderNo"].ToString();
                         sale.Fiscalyear = reader["FiscalYear"].ToString();
                         sale.PartyId = Convert.ToInt32(reader["PartyId"]);
                         sale.ChallanNo = Convert.ToInt32(reader["ChallanNo"]);

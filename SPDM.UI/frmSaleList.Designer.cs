@@ -45,6 +45,7 @@
             this.colUpdateTime = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colUserId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colWorkOrderId = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gcWorkOrder = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colFiscalyear = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colPartyId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colChallanNo = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -116,6 +117,7 @@
             this.colUpdateTime,
             this.colUserId,
             this.colWorkOrderId,
+            this.gcWorkOrder,
             this.colFiscalyear,
             this.colPartyId,
             this.colChallanNo,
@@ -165,13 +167,23 @@
             this.colWorkOrderId.Name = "colWorkOrderId";
             this.colWorkOrderId.Width = 867;
             // 
+            // gcWorkOrder
+            // 
+            this.gcWorkOrder.Caption = "WorkOrder No";
+            this.gcWorkOrder.FieldName = "WorkOrderNo";
+            this.gcWorkOrder.MinWidth = 105;
+            this.gcWorkOrder.Name = "gcWorkOrder";
+            this.gcWorkOrder.Visible = true;
+            this.gcWorkOrder.VisibleIndex = 0;
+            this.gcWorkOrder.Width = 105;
+            // 
             // colFiscalyear
             // 
             this.colFiscalyear.FieldName = "Fiscalyear";
             this.colFiscalyear.MinWidth = 100;
             this.colFiscalyear.Name = "colFiscalyear";
             this.colFiscalyear.Visible = true;
-            this.colFiscalyear.VisibleIndex = 0;
+            this.colFiscalyear.VisibleIndex = 1;
             this.colFiscalyear.Width = 139;
             // 
             // colPartyId
@@ -187,7 +199,7 @@
             this.colChallanNo.MinWidth = 100;
             this.colChallanNo.Name = "colChallanNo";
             this.colChallanNo.Visible = true;
-            this.colChallanNo.VisibleIndex = 1;
+            this.colChallanNo.VisibleIndex = 2;
             this.colChallanNo.Width = 139;
             // 
             // colSaleDate
@@ -196,7 +208,7 @@
             this.colSaleDate.MinWidth = 80;
             this.colSaleDate.Name = "colSaleDate";
             this.colSaleDate.Visible = true;
-            this.colSaleDate.VisibleIndex = 2;
+            this.colSaleDate.VisibleIndex = 3;
             this.colSaleDate.Width = 139;
             // 
             // colTotalExvat
@@ -212,7 +224,7 @@
             this.colTotalIncvat.MinWidth = 80;
             this.colTotalIncvat.Name = "colTotalIncvat";
             this.colTotalIncvat.Visible = true;
-            this.colTotalIncvat.VisibleIndex = 3;
+            this.colTotalIncvat.VisibleIndex = 4;
             this.colTotalIncvat.Width = 139;
             // 
             // colDiscount
@@ -228,7 +240,7 @@
             this.colDiscountPercent.MinWidth = 80;
             this.colDiscountPercent.Name = "colDiscountPercent";
             this.colDiscountPercent.Visible = true;
-            this.colDiscountPercent.VisibleIndex = 4;
+            this.colDiscountPercent.VisibleIndex = 5;
             this.colDiscountPercent.Width = 139;
             // 
             // colVatPercent
@@ -237,7 +249,7 @@
             this.colVatPercent.MinWidth = 80;
             this.colVatPercent.Name = "colVatPercent";
             this.colVatPercent.Visible = true;
-            this.colVatPercent.VisibleIndex = 5;
+            this.colVatPercent.VisibleIndex = 6;
             this.colVatPercent.Width = 139;
             // 
             // colDeliveryAddress
@@ -246,7 +258,7 @@
             this.colDeliveryAddress.MinWidth = 80;
             this.colDeliveryAddress.Name = "colDeliveryAddress";
             this.colDeliveryAddress.Visible = true;
-            this.colDeliveryAddress.VisibleIndex = 6;
+            this.colDeliveryAddress.VisibleIndex = 7;
             this.colDeliveryAddress.Width = 139;
             // 
             // colDeliveryDate
@@ -255,7 +267,7 @@
             this.colDeliveryDate.MinWidth = 80;
             this.colDeliveryDate.Name = "colDeliveryDate";
             this.colDeliveryDate.Visible = true;
-            this.colDeliveryDate.VisibleIndex = 7;
+            this.colDeliveryDate.VisibleIndex = 8;
             this.colDeliveryDate.Width = 97;
             // 
             // colNote
@@ -302,7 +314,7 @@
             this.gcView.MinWidth = 75;
             this.gcView.Name = "gcView";
             this.gcView.Visible = true;
-            this.gcView.VisibleIndex = 8;
+            this.gcView.VisibleIndex = 9;
             // 
             // repositoryItemButtonEdit1
             // 
@@ -321,7 +333,7 @@
             this.gcDelete.MinWidth = 75;
             this.gcDelete.Name = "gcDelete";
             this.gcDelete.Visible = true;
-            this.gcDelete.VisibleIndex = 9;
+            this.gcDelete.VisibleIndex = 10;
             // 
             // repositoryItemHyperLinkEdit1
             // 
@@ -552,5 +564,6 @@
         private System.Windows.Forms.TextBox txtWorkOrderNo;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
+        private DevExpress.XtraGrid.Columns.GridColumn gcWorkOrder;
     }
 }
