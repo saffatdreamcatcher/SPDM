@@ -486,8 +486,9 @@ namespace SPDM.UI
                 saleBLL.GetById(saleId);
                 txtWorkOrderNo.Text = sale.WorkOrderNo;
                 Search();
+                saleDetail = saleDetailBLL.GetById(saleId);
                 string where = "SaleId=" + saleDetail.SaleId;
-                saleDetailBLL.GetById(saleId);  
+                saleDetailBLL.GetAll(where);  
                 gvSaleDetail.DataSource = saleDetail;
 
             }
