@@ -269,6 +269,7 @@
             // 
             this.PartyName.AllowNull = true;
             this.PartyName.Name = "PartyName";
+            this.PartyName.Visible = false;
             // 
             // objectDataSource1
             // 
@@ -286,6 +287,8 @@
             this.objectDataSource1});
             this.Font = new DevExpress.Drawing.DXFont("Arial", 9.75F);
             this.Margins = new DevExpress.Drawing.DXMargins(100F, 46F, 100F, 100F);
+            this.ParameterPanelLayoutItems.AddRange(new DevExpress.XtraReports.Parameters.ParameterPanelLayoutItem[] {
+            new DevExpress.XtraReports.Parameters.ParameterLayoutItem(this.PartyName, DevExpress.XtraReports.Parameters.Orientation.Horizontal)});
             this.Parameters.AddRange(new DevExpress.XtraReports.Parameters.Parameter[] {
             this.PartyName});
             this.Version = "22.2";

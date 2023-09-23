@@ -311,6 +311,7 @@
             this.CategoryName.AllowNull = true;
             this.CategoryName.Name = "CategoryName";
             this.CategoryName.ValueInfo = "  ";
+            this.CategoryName.Visible = false;
             // 
             // objectDataSource1
             // 
