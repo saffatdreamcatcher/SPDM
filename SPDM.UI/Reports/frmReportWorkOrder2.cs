@@ -86,10 +86,16 @@ namespace SPDM.UI.Reports
             RptWorkOrder2 rptWorkOrder2 = new RptWorkOrder2();
             ReportBLL reportBLL = new ReportBLL();
 
-            WorkOrderStatus st = (WorkOrderStatus)Enum.Parse(typeof(WorkOrderStatus), cmoStatus.Text);
-            int status = (int)st;
+            int? statuss = null;
+            if (cmoStatus.Text != "All")
+            {
+                WorkOrderStatus st = (WorkOrderStatus)Enum.Parse(typeof(WorkOrderStatus), cmoStatus.Text);
+                statuss = (int)st;
+            }
 
-            DataSet ds = reportBLL.SearchWorkOrder(txtWorkOrderNo.Text, (int)cmoParty.SelectedValue, status);
+
+
+            DataSet ds = reportBLL.SearchWorkOrder(txtWorkOrderNo.Text, (int)cmoParty.SelectedValue, statuss);
             ds.Tables["Table"].TableName = "WorkOrder_1";
             ds.Tables["Table1"].TableName = "WorkOrderDetail_1";
             ds.Relations.Add("WorkOrder_1WorkOrderDetail_1", ds.Tables["WorkOrder_1"].Columns["Id"], ds.Tables["WorkOrderDetail_1"].Columns["WorkOrderId"]);

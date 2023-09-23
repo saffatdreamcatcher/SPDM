@@ -42,9 +42,9 @@ namespace SPDM.UI
             LoadSale();
         }
 
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
 
+        public void SaleSearch()
+        {
             StringBuilder sB = new StringBuilder();
 
             if (!string.IsNullOrEmpty(txtWorkOrderNo.Text))
@@ -60,7 +60,7 @@ namespace SPDM.UI
                 {
                     sB.Append(" AND");
                 }
-                
+
                 sB.Append(" ChallanNo LIKE '%");
                 sB.Append(txtChallanNo.Text);
                 sB.Append("%'");
@@ -84,7 +84,10 @@ namespace SPDM.UI
             SaleBLL saleBLL = new SaleBLL();
             List<Sale> sales = saleBLL.GetAll(saleSearch);
             gridControl1.DataSource = sales;
-
+        }
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            SaleSearch();
         }
 
         private void btnClose_Click(object sender, EventArgs e)

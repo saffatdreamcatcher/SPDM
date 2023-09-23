@@ -267,7 +267,7 @@
             // 
             this.splitter1.Location = new System.Drawing.Point(0, 0);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(246, 450);
+            this.splitter1.Size = new System.Drawing.Size(246, 400);
             this.splitter1.TabIndex = 0;
             this.splitter1.TabStop = false;
             // 
@@ -278,7 +278,7 @@
             this.documentViewer1.Location = new System.Drawing.Point(246, 183);
             this.documentViewer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.documentViewer1.Name = "documentViewer1";
-            this.documentViewer1.Size = new System.Drawing.Size(554, 234);
+            this.documentViewer1.Size = new System.Drawing.Size(554, 184);
             this.documentViewer1.TabIndex = 1;
             // 
             // documentViewerRibbonController1
@@ -1457,7 +1457,7 @@
             this.ribbonStatusBar1.ItemLinks.Add(this.printPreviewBarItem52);
             this.ribbonStatusBar1.ItemLinks.Add(this.printPreviewStaticItem2);
             this.ribbonStatusBar1.ItemLinks.Add(this.zoomTrackBarEditItem1);
-            this.ribbonStatusBar1.Location = new System.Drawing.Point(246, 417);
+            this.ribbonStatusBar1.Location = new System.Drawing.Point(246, 367);
             this.ribbonStatusBar1.Name = "ribbonStatusBar1";
             this.ribbonStatusBar1.Ribbon = this.ribbonControl1;
             this.ribbonStatusBar1.Size = new System.Drawing.Size(554, 33);
@@ -1466,7 +1466,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 400);
             this.Controls.Add(this.documentViewer1);
             this.Controls.Add(this.ribbonStatusBar1);
             this.Controls.Add(this.ribbonControl1);

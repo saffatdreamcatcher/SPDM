@@ -113,7 +113,7 @@
             this.gvStock.Name = "gvStock";
             this.gvStock.RowHeadersWidth = 51;
             this.gvStock.RowTemplate.Height = 24;
-            this.gvStock.Size = new System.Drawing.Size(1358, 376);
+            this.gvStock.Size = new System.Drawing.Size(1324, 376);
             this.gvStock.TabIndex = 0;
             // 
             // idDataGridViewTextBoxColumn

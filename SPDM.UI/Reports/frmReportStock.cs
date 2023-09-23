@@ -98,11 +98,20 @@ namespace SPDM.UI.Reports
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int? cName = (int)cmoCategory.SelectedValue;
-            int? iName = (int)cmoItem.SelectedValue;
-            cName = null;
-            iName = null;
-            
+
+            int? cName = null;
+            int? iName = null;
+
+            if(Convert.ToInt32(cmoCategory.SelectedValue)> 0) 
+            { 
+               cName = Convert.ToInt32(cmoCategory.SelectedValue);
+            }
+
+            if (Convert.ToInt32(cmoItem.SelectedValue) > 0)
+            {
+                iName = Convert.ToInt32(cmoItem.SelectedValue);
+            }
+
 
             RptStock rptStock = new RptStock();
             ReportBLL reportBLL = new ReportBLL();

@@ -479,6 +479,16 @@ namespace SPDM.UI
             LoadTransactionType();
             if(saleId > -1)
             {
+                Sale sale = new Sale();
+                SaleBLL saleBLL = new SaleBLL();
+                SaleDetail saleDetail = new SaleDetail();
+                SaleDetailBLL saleDetailBLL = new SaleDetailBLL();
+                saleBLL.GetById(saleId);
+                txtWorkOrderNo.Text = sale.WorkOrderNo;
+                Search();
+                string where = "SaleId=" + saleDetail.SaleId;
+                saleDetailBLL.GetById(saleId);  
+                gvSaleDetail.DataSource = saleDetail;
 
             }
               
