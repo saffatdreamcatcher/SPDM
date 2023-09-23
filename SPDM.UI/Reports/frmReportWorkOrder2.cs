@@ -114,5 +114,10 @@ namespace SPDM.UI.Reports
             rptWorkOrder2.CreateDocument();
             documentViewer1.DocumentSource = rptWorkOrder2;
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

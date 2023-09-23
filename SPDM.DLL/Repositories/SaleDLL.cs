@@ -184,7 +184,7 @@ namespace SPDM.DLL.Repositories
 
                 SqlCommand comm = sqlConnection.CreateCommand();
                 comm.CommandText = "Select Sale.*, WorkOrder.WorkOrderNo from Sale "+
-                                   "inner join WorkOrder on Sale.WorkOrderId = WorkOrder.Id where Sale.WorkOrderId = " + id;
+                                   "inner join WorkOrder on Sale.WorkOrderId = WorkOrder.Id where Sale.Id = " + id;
                 using (SqlDataReader reader = comm.ExecuteReader())
                 {
                     while (reader != null && reader.Read())

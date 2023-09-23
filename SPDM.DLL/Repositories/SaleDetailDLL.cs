@@ -21,7 +21,6 @@ namespace SPDM.DLL.Repositories
             sqlConnection = new SqlConnection(myConnectionString);
         }
 
-
         public SaleDetailDLL(SqlTransaction sqlTrans)
         {
 
@@ -38,6 +37,7 @@ namespace SPDM.DLL.Repositories
             isEnableTransaction = true;
 
         }
+
         public int Delete(int id)
         {
             int noOfRowAffected = 0;
@@ -70,7 +70,6 @@ namespace SPDM.DLL.Repositories
             return noOfRowAffected;
 
         }
-
 
         public List<SaleDetail> GetAll(string whereClause = "")
         {

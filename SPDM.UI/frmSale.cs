@@ -114,7 +114,17 @@ namespace SPDM.UI
 
                 ItemBLL itemBLL = new ItemBLL();
                 string where = "WorkOrderNo= '" + txtWorkOrderNo.Text + "'";
-                where = where + " and Status = " + (int)WorkOrderStatus.InStock;
+
+                if (saleId > -1)
+                {
+                    where = where + " and Status = " + (int)WorkOrderStatus.Sold;
+                }
+                else
+                {
+                    where = where + " and Status = " + (int)WorkOrderStatus.InStock;
+                }
+
+
                 List<WorkOrder> workOrders = workOrderBLL.GetAll(where);
                 WorkOrderDetailBLL workOrderDetailBLL = new WorkOrderDetailBLL();
 
@@ -479,20 +489,34 @@ namespace SPDM.UI
             LoadTransactionType();
             if(saleId > -1)
             {
-                Sale sale = new Sale();
-                SaleBLL saleBLL = new SaleBLL();
-                SaleDetail saleDetail = new SaleDetail();
-                SaleDetailBLL saleDetailBLL = new SaleDetailBLL();
-                saleBLL.GetById(saleId);
-                txtWorkOrderNo.Text = sale.WorkOrderNo;
-                Search();
-                saleDetail = saleDetailBLL.GetById(saleId);
-                string where = "SaleId=" + saleDetail.SaleId;
-                saleDetailBLL.GetAll(where);  
-                gvSaleDetail.DataSource = saleDetail;
-
+                LoadPreviousSale();
             }
               
+        }
+
+        private void LoadPreviousSale()
+        {
+            Sale sale = new Sale();
+            SaleBLL saleBLL = new SaleBLL();
+            List<SaleDetail> saleDetailsPrevious = new List<SaleDetail>();
+            SaleDetailBLL saleDetailBLL = new SaleDetailBLL();
+            sale = saleBLL.GetById(saleId);
+            txtWorkOrderNo.Text = sale.WorkOrderNo;
+            Search();
+            txtChallanNo.Text = sale.ChallanNo.ToString();
+            dESaleDate.DateTime = sale.SaleDate;
+            dEDeliveryDate.DateTime = sale.DeliveryDate;
+            txtDeliveryAddress.Text = sale.DeliveryAddress;
+            txtNote.Text = sale.Note;
+        
+            string where = "SaleId=" + sale.Id;
+            saleDetailsPrevious = saleDetailBLL.GetAll(where);
+            foreach (SaleDetail detail in saleDetailsPrevious)
+            {
+                saleDetails.Add(detail);
+            }
+            gvSaleDetail.DataSource = saleDetails; 
+            
         }
 
         private void wizardControl1_NextClick(object sender, DevExpress.XtraWizard.WizardCommandButtonClickEventArgs e)

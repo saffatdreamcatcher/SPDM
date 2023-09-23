@@ -29,7 +29,7 @@ namespace SPDM.UI.Reports
             parties = partyBLL.GetAll();
             rptParty.DataSource = parties;
 
-            rptParty.Parameters["PartyName"].Value = "Ocean";
+            //rptParty.Parameters["PartyName"].Value = "Ocean";
 
             rptParty.CreateDocument();
 
@@ -41,6 +41,11 @@ namespace SPDM.UI.Reports
         private void frmReportParty_Load(object sender, EventArgs e)
         {
             LoadParty();
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
