@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SPDM.BLL", "SPDM.BLL\SPDM.B
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SPDM.UI", "SPDM.UI\SPDM.UI.csproj", "{0F3CCFC0-9FFB-497B-894E-A463971B52E4}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup1", "Setup1\Setup1.vdproj", "{2DCF02A1-AB04-45D9-9B42-526D0B969D5C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,8 @@ Global
 		{0F3CCFC0-9FFB-497B-894E-A463971B52E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0F3CCFC0-9FFB-497B-894E-A463971B52E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0F3CCFC0-9FFB-497B-894E-A463971B52E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DCF02A1-AB04-45D9-9B42-526D0B969D5C}.Debug|Any CPU.ActiveCfg = Debug
+		{2DCF02A1-AB04-45D9-9B42-526D0B969D5C}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
