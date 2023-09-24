@@ -1,4 +1,5 @@
 ﻿using SPDM.DLL.Entities;
+using SPDM.DLL.Enums;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -112,10 +113,10 @@ namespace SPDM.DLL.Repositories
                         payment.Fiscalyear = reader["FiscalYear"].ToString();
                         payment.SaleId = Convert.ToInt32(reader["SaleId"]);
                         payment.PartyId = Convert.ToInt32(reader["PartyId"]);
-                        payment.PaymentType = Convert.ToInt32(reader["PaymentType"]);
+                        payment.PaymentType = (PaymentStatus)Convert.ToInt32(reader["PaymentType"]);
                         payment.TransactionDate = Convert.ToDateTime(reader["TransactionDate"]);
                         payment.Total = Convert.ToDouble(reader["Total"]);
-                        payment.TransactionType = Convert.ToInt32(reader["TransactionType"]);
+                        payment.TransactionType = (TransactionStatus)Convert.ToInt32(reader["TransactionType"]);
 
                         if (reader["BankName"] is DBNull)
                         {
@@ -144,6 +145,7 @@ namespace SPDM.DLL.Repositories
                             payment.BkashTransactionNo = reader["BkashTransactionNo"].ToString();
                         }
                         payment.Note = reader["Note"] is DBNull ? null : reader["Note"].ToString();
+                        
                         payments.Add(payment);
                     }
                 }
@@ -195,10 +197,10 @@ namespace SPDM.DLL.Repositories
                         payment.Fiscalyear = reader["FiscalYear"].ToString();
                         payment.SaleId = Convert.ToInt32(reader["SaleId"]);
                         payment.PartyId = Convert.ToInt32(reader["PartyId"]);
-                        payment.PaymentType = Convert.ToInt32(reader["PaymentType"]);
+                        payment.PaymentType = (PaymentStatus)Convert.ToInt32(reader["PaymentType"]);
                         payment.TransactionDate = Convert.ToDateTime(reader["TransactionDate"]);
                         payment.Total = Convert.ToDouble(reader["Total"]);
-                        payment.TransactionType = Convert.ToInt32(reader["TransactionType"]);
+                        payment.TransactionType = (TransactionStatus)Convert.ToInt32(reader["TransactionType"]);
 
                         if (reader["BankName"] is DBNull)
                         {

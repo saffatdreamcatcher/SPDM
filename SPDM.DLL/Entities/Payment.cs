@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SPDM.DLL.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -35,8 +36,8 @@ namespace SPDM.DLL.Entities
         private int partyid;
         public int PartyId { get => partyid; set => partyid = value; }
 
-        private int paymenttype;
-        public int PaymentType { get => paymenttype; set => paymenttype = value; }
+        private PaymentStatus paymenttype;
+        public PaymentStatus PaymentType { get => paymenttype; set => paymenttype = value; }
 
         private DateTime transactiondate;
         public DateTime TransactionDate { get => transactiondate; set => transactiondate = value; }
@@ -45,8 +46,8 @@ namespace SPDM.DLL.Entities
         private double total;
         public double Total { get => total; set => total = value; }
 
-        private int transactiontype;
-        public int TransactionType { get => transactiontype; set => transactiontype = value; }
+        private TransactionStatus transactiontype;
+        public TransactionStatus TransactionType { get => transactiontype; set => transactiontype = value; }
 
         private string bankname;
         public string BankName { get => bankname; set => bankname = value; }
@@ -60,11 +61,6 @@ namespace SPDM.DLL.Entities
         private string note;
         public string Note { get => note; set => note = value; }
 
-        private string paymenttypename;
-        public string PaymentTypeName { get => paymenttypename; set => paymenttypename = value; }
-
-        private string transactiontypename;
-        public string TransactionTypeName { get => transactiontypename; set => transactiontypename = value; }
 
     }
 }

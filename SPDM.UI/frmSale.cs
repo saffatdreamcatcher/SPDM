@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraWizard;
+﻿using DevExpress.Charts.Native;
+using DevExpress.XtraWizard;
 using SPDM.BLL.BusinessLogic;
 using SPDM.DLL.Entities;
 using SPDM.DLL.Enums;
@@ -515,9 +516,22 @@ namespace SPDM.UI
             {
                 saleDetails.Add(detail);
             }
-            gvSaleDetail.DataSource = saleDetails; 
-            
+            gvSaleDetail.DataSource = saleDetails;
+
+            //LoadPreviousPayment
+            Payment payment = new Payment();
+            PaymentBLL paymentBLL = new PaymentBLL();
+            List<Payment> paymentsprevious = new List<Payment>();
+            string where1 = "SaleId=" + sale.Id;
+            paymentsprevious = paymentBLL.GetAll(where1);
+            foreach (Payment payment1 in paymentsprevious)
+            {
+                payments.Add(payment1);
+            }
+            gvPayment.DataSource = payments;
+
         }
+
 
         private void wizardControl1_NextClick(object sender, DevExpress.XtraWizard.WizardCommandButtonClickEventArgs e)
         {
@@ -559,17 +573,15 @@ namespace SPDM.UI
                 payment.UserId = Global.Userid;
                 payment.Fiscalyear = txtFiscalYear.Text;
                 payment.PartyId = workOrder.PartyId;
-                payment.PaymentType = Convert.ToInt32((PaymentStatus)Enum.Parse(typeof(PaymentStatus), cmoPayment.Text));
+                payment.PaymentType = (PaymentStatus)Enum.Parse(typeof(PaymentStatus), cmoPayment.Text);
                 payment.TransactionDate = dETransactionDate.DateTime;
                 payment.Total = Convert.ToDouble(nupTotal.Value);
                 payment.TransactionDate = (DateTime)dETransactionDate.EditValue;
-                payment.TransactionType = Convert.ToInt32((TransactionStatus)Enum.Parse(typeof(TransactionStatus), cmoTransaction.Text));
+                payment.TransactionType = (TransactionStatus)Enum.Parse(typeof(TransactionStatus), cmoTransaction.Text);
                 payment.BankName = txtBankName.Text;
                 payment.CheckNo = txtCheckNo.Text;
                 payment.BkashTransactionNo = txtBkashNo.Text;
                 payment.Note = txtNote.Text;
-                payment.PaymentTypeName = cmoPayment.Text;
-                payment.TransactionTypeName = cmoTransaction.Text;
 
                 payments.Add(payment);
                 gvPayment.DataSource = payments;
