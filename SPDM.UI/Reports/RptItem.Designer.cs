@@ -73,7 +73,7 @@
             // 
             this.xrLabel6.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "?CategoryName")});
-            this.xrLabel6.LocationFloat = new DevExpress.Utils.PointFloat(0F, 73.50001F);
+            this.xrLabel6.LocationFloat = new DevExpress.Utils.PointFloat(254.1666F, 64.33334F);
             this.xrLabel6.Multiline = true;
             this.xrLabel6.Name = "xrLabel6";
             this.xrLabel6.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -152,7 +152,7 @@
             // xrLabel7
             // 
             this.xrLabel7.Font = new DevExpress.Drawing.DXFont("Arial", 15F);
-            this.xrLabel7.LocationFloat = new DevExpress.Utils.PointFloat(0F, 35.33333F);
+            this.xrLabel7.LocationFloat = new DevExpress.Utils.PointFloat(254.1666F, 24.49999F);
             this.xrLabel7.Multiline = true;
             this.xrLabel7.Name = "xrLabel7";
             this.xrLabel7.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);

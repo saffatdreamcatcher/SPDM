@@ -60,12 +60,23 @@
             this.ItemName = new DevExpress.XtraReports.Parameters.Parameter();
             this.Drum = new DevExpress.XtraReports.Parameters.Parameter();
             this.Coil = new DevExpress.XtraReports.Parameters.Parameter();
+            this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel2 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel3 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel4 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel5 = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // TopMargin
             // 
+            this.TopMargin.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrLabel5,
+            this.xrLabel4,
+            this.xrLabel3,
+            this.xrLabel2,
+            this.xrLabel1});
             this.TopMargin.HeightF = 109.1667F;
             this.TopMargin.Name = "TopMargin";
             // 
@@ -318,6 +329,61 @@
             this.Coil.Name = "Coil";
             this.Coil.Visible = false;
             // 
+            // xrLabel1
+            // 
+            this.xrLabel1.Font = new DevExpress.Drawing.DXFont("Arial", 14F, DevExpress.Drawing.DXFontStyle.Bold);
+            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(244.1667F, 10F);
+            this.xrLabel1.Multiline = true;
+            this.xrLabel1.Name = "xrLabel1";
+            this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel1.SizeF = new System.Drawing.SizeF(102.4999F, 29.66666F);
+            this.xrLabel1.StylePriority.UseFont = false;
+            this.xrLabel1.Text = "Stock List";
+            // 
+            // xrLabel2
+            // 
+            this.xrLabel2.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "?CategoryName")});
+            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(10F, 65.83334F);
+            this.xrLabel2.Multiline = true;
+            this.xrLabel2.Name = "xrLabel2";
+            this.xrLabel2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel2.SizeF = new System.Drawing.SizeF(106.6667F, 23F);
+            this.xrLabel2.Text = "xrLabel1";
+            // 
+            // xrLabel3
+            // 
+            this.xrLabel3.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "?ItemName")});
+            this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(144.4445F, 65.83334F);
+            this.xrLabel3.Multiline = true;
+            this.xrLabel3.Name = "xrLabel3";
+            this.xrLabel3.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel3.SizeF = new System.Drawing.SizeF(106.6667F, 23F);
+            this.xrLabel3.Text = "xrLabel2";
+            // 
+            // xrLabel4
+            // 
+            this.xrLabel4.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "?Drum")});
+            this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(288.8889F, 65.83334F);
+            this.xrLabel4.Multiline = true;
+            this.xrLabel4.Name = "xrLabel4";
+            this.xrLabel4.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel4.SizeF = new System.Drawing.SizeF(106.6667F, 23F);
+            this.xrLabel4.Text = "xrLabel3";
+            // 
+            // xrLabel5
+            // 
+            this.xrLabel5.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "?Coil")});
+            this.xrLabel5.LocationFloat = new DevExpress.Utils.PointFloat(426.6667F, 65.83334F);
+            this.xrLabel5.Multiline = true;
+            this.xrLabel5.Name = "xrLabel5";
+            this.xrLabel5.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel5.SizeF = new System.Drawing.SizeF(106.6667F, 23F);
+            this.xrLabel5.Text = "xrLabel4";
+            // 
             // RptStock
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -379,5 +445,10 @@
         private DevExpress.XtraReports.Parameters.Parameter ItemName;
         private DevExpress.XtraReports.Parameters.Parameter Drum;
         private DevExpress.XtraReports.Parameters.Parameter Coil;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel1;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel2;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel3;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel5;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel4;
     }
 }

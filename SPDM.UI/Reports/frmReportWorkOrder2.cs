@@ -103,7 +103,7 @@ namespace SPDM.UI.Reports
             rptWorkOrder2.DataMember = ds.Tables["WorkOrder_1"].TableName;
 
             rptWorkOrder2.Parameters["WorkOrderNo"].Value = txtWorkOrderNo.Text;
-            rptWorkOrder2.Parameters["Party"].Value = cmoParty.SelectedValue;
+            rptWorkOrder2.Parameters["Party"].Value = cmoParty.Text;
             rptWorkOrder2.Parameters["Status"].Value = cmoStatus.Text;
 
             

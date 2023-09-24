@@ -121,8 +121,8 @@ namespace SPDM.UI.Reports
             rptStock.DataSource = dt;
             rptStock.DataMember = "Stock_1";
 
-            rptStock.Parameters["CategoryName"].Value = cmoCategory.SelectedValue;
-            rptStock.Parameters["ItemName"].Value = cmoItem.SelectedValue;
+            rptStock.Parameters["CategoryName"].Value = cmoCategory.Text;
+            rptStock.Parameters["ItemName"].Value = cmoItem.Text;
             rptStock.Parameters["Drum"].Value = txtDrum.Text;
             rptStock.Parameters["Coil"].Value = txtCoil.Text;
 
