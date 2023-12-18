@@ -334,7 +334,7 @@ namespace SPDM.DLL.Repositories
                 comm.Parameters.Add("@PaymentType", SqlDbType.Int).Value = payment.PaymentType;
                 comm.Parameters.Add("@TransactionDate", SqlDbType.DateTime).Value = payment.TransactionDate;
                 comm.Parameters.Add("@Total", SqlDbType.Decimal).Value = payment.Total;
-                comm.Parameters.Add("@TransactionType", SqlDbType.VarChar).Value = payment.TransactionType;
+                comm.Parameters.Add("@TransactionType", SqlDbType.Int).Value = payment.TransactionType;
                 comm.Parameters.Add("@BankName", SqlDbType.VarChar).Value = payment.BankName;
                 comm.Parameters.Add("@CheckNo", SqlDbType.VarChar).Value = payment.CheckNo;
                 comm.Parameters.Add("@BkashTransactionNo", SqlDbType.VarChar).Value = payment.BkashTransactionNo;

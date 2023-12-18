@@ -314,7 +314,7 @@ namespace SPDM.DLL.Repositories
                 {
                     comm.CommandText = "Update SaleDetail SET  UpdateTime =@Updatetime, " +
                                        "SaleId = @SaleId, " +
-                                       "ItemId = @ItemId, Unit = @Unit, UnitPrice = @UnitPrice, Length= @Length" +
+                                       "ItemId = @ItemId, Unit = @Unit, UnitPrice = @UnitPrice, Length= @Length," +
                                        "TotalExVat= @TotalExVat, TotalIncVat = @TotalIncVat, Discount =@Discount," +
                                        "DiscountPercent = @DiscountPercent, VatPercent= @VatPercent WHERE Id = @Id";
                     

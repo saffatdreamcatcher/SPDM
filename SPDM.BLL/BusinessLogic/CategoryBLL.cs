@@ -10,6 +10,11 @@ namespace SPDM.BLL.BusinessLogic
 {
     public class CategoryBLL
     {
+        //private CategoryDLL categoryDLL1;
+        //public CategoryBLL(CategoryDLL cD) 
+        //{
+        //    this.categoryDLL1 = cD;     
+        //}
         public int Save(Category category)
         {
             try
