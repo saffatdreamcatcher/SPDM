@@ -10,7 +10,7 @@ namespace SPDM.UI
     {
         public LogIn()
         {
-            InitializeComponent();
+            InitializeComponent();  
         }
 
         private void btnLogIn_Click(object sender, EventArgs e)
