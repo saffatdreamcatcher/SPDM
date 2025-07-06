@@ -3,7 +3,6 @@ using SPDM.DLL.Entities;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using System.Xml.Linq;
 
 namespace SPDM.UI
 {
