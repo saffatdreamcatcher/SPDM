@@ -10,7 +10,7 @@ namespace SPDM.UI
     {
         public LogIn()
         {
-            InitializeComponent();
+            InitializeComponent();  
         }
 
         private void btnLogIn_Click(object sender, EventArgs e)
@@ -86,7 +86,7 @@ namespace SPDM.UI
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
     }
 }
